@@ -1,15 +1,23 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Landmark, ChevronUp } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { ActiveTab } from '../types';
 
 interface NavigationProps {
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
   onSubscribeClick: () => void;
+  darkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-export default function Navigation({ activeTab, setActiveTab, onSubscribeClick }: NavigationProps) {
+export default function Navigation({ 
+  activeTab, 
+  setActiveTab, 
+  onSubscribeClick,
+  darkMode,
+  toggleDarkMode
+}: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -101,6 +109,14 @@ export default function Navigation({ activeTab, setActiveTab, onSubscribeClick }
           {/* Right Action Button for Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <button
+              onClick={toggleDarkMode}
+              className="p-2.5 text-white/80 hover:text-brand-gold hover:bg-white/5 rounded-full transition-colors cursor-pointer"
+              aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {darkMode ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+            <button
               onClick={onSubscribeClick}
               className="px-6 py-2.5 text-xs font-sans tracking-widest font-semibold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors rounded-none shadow-md cursor-pointer uppercase duration-200"
             >
@@ -108,8 +124,16 @@ export default function Navigation({ activeTab, setActiveTab, onSubscribeClick }
             </button>
           </div>
 
-          {/* Mobile Menu Icon */}
-          <div className="flex md:hidden">
+          {/* Mobile Menu Icon with Dark Mode toggle */}
+          <div className="flex md:hidden items-center space-x-3">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 text-white/85 hover:text-brand-gold transition-colors rounded-full cursor-pointer bg-white/5"
+              aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {darkMode ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-white hover:text-brand-gold transition-colors p-1 cursor-pointer"
@@ -144,7 +168,16 @@ export default function Navigation({ activeTab, setActiveTab, onSubscribeClick }
                   {tab}
                 </button>
               ))}
-              <div className="pt-4 border-t border-white/5">
+              
+              <button
+                onClick={toggleDarkMode}
+                className="w-full text-left py-3 text-sm tracking-widest font-sans font-medium text-white/80 hover:text-white transition-colors flex items-center justify-between border-t border-white/5 pt-4"
+              >
+                <span className="uppercase">Theme: {darkMode ? "Midnight Dark" : "Editorial Hybrid"}</span>
+                {darkMode ? <Sun size={17} className="text-brand-gold animate-pulse" /> : <Moon size={17} className="text-brand-gold" />}
+              </button>
+
+              <div className="pt-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);

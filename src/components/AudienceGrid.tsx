@@ -35,7 +35,11 @@ const AUDIENCES: Audience[] = [
   },
 ];
 
-export default function AudienceGrid() {
+interface AudienceGridProps {
+  darkMode?: boolean;
+}
+
+export default function AudienceGrid({ darkMode = false }: AudienceGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 mt-12">
       {AUDIENCES.map((audience, i) => {
@@ -47,7 +51,11 @@ export default function AudienceGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="flex flex-col p-6 sm:p-7 bg-white border border-brand-border/80 relative hover:border-brand-gold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group rounded-none"
+            className={`flex flex-col p-6 sm:p-7 border relative hover:border-brand-gold hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group rounded-none ${
+              darkMode 
+                ? 'bg-brand-primary border-white/10 shadow-sm' 
+                : 'bg-white border-brand-border/80 shadow-sm'
+            }`}
             id={`audience-card-${i}`}
           >
             {/* Minimal top gold accent */}
@@ -59,12 +67,16 @@ export default function AudienceGrid() {
             </div>
 
             {/* Title */}
-            <h3 className="font-serif text-lg font-bold text-brand-primary mb-3 leading-tight tracking-tight">
+            <h3 className={`font-serif text-lg font-bold mb-3 leading-tight tracking-tight ${
+              darkMode ? 'text-white' : 'text-brand-primary'
+            }`}>
               {audience.title}
             </h3>
 
             {/* Description */}
-            <p className="font-sans text-xs sm:text-[13px] leading-relaxed text-brand-charcoal/70">
+            <p className={`font-sans text-xs sm:text-[13px] leading-relaxed ${
+              darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
+            }`}>
               {audience.desc}
             </p>
           </motion.div>

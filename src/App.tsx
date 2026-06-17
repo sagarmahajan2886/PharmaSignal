@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
@@ -36,6 +36,18 @@ export default function App() {
   const [subscribedMessage, setSubscribedMessage] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>('ALL');
+
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    return localStorage.getItem('pharmasignal_darkmode') === 'true';
+  });
+
+  const toggleDarkMode = () => {
+    setDarkMode(prev => {
+      const next = !prev;
+      localStorage.setItem('pharmasignal_darkmode', String(next));
+      return next;
+    });
+  };
 
   const handleSubscribe = (e: FormEvent, emailValue: string, setter: (val: string) => void) => {
 
@@ -83,13 +95,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-brand-offwhite text-brand-charcoal font-sans selection:bg-brand-gold selection:text-brand-primary">
+    <div className={`min-h-screen font-sans selection:bg-brand-gold selection:text-brand-primary transition-colors duration-300 ${
+      darkMode ? 'bg-brand-deep text-white' : 'bg-brand-offwhite text-brand-charcoal'
+    }`}>
       
       {/* 1. Header / Navigation */}
       <Navigation 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
         onSubscribeClick={scrollToNewsletter}
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
       />
 
       {/* 2. Hero Section */}
@@ -205,21 +221,25 @@ export default function App() {
       </section>
 
       {/* 3. Built for Decision Makers Section */}
-      <section className="bg-brand-offwhite py-20 sm:py-24 lg:py-28" id="decision-makers-section">
+      <section className={`py-20 sm:py-24 lg:py-28 transition-colors duration-300 ${
+        darkMode ? 'bg-[#06131F]' : 'bg-brand-offwhite'
+      }`} id="decision-makers-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
               TARGET AUDIENCE
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-brand-primary uppercase">
+            <h2 className={`font-serif text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight uppercase ${
+              darkMode ? 'text-white' : 'text-brand-primary'
+            }`}>
               BUILT FOR DECISION MAKERS
             </h2>
             <div className="h-[2px] w-12 bg-brand-gold mx-auto mt-4" />
           </div>
 
           {/* Interactive Horizontal Cards Grid */}
-          <AudienceGrid />
+          <AudienceGrid darkMode={darkMode} />
 
           {/* 4. Credibility Strip */}
           <CredibilityStrip />
@@ -228,14 +248,20 @@ export default function App() {
       </section>
 
       {/* 5. Latest Explainers Section */}
-      <section className="bg-brand-offwhite py-20 sm:py-24" id="latest-explainers-section">
+      <section className={`py-20 sm:py-24 transition-colors duration-300 ${
+        darkMode ? 'bg-brand-deep' : 'bg-brand-offwhite'
+      }`} id="latest-explainers-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header row */}
-          <div className="flex flex-col sm:flex-row justify-between items-baseline gap-4 border-b border-brand-border pb-6 mb-12">
+          <div className={`flex flex-col sm:flex-row justify-between items-baseline gap-4 border-b pb-6 mb-12 ${
+            darkMode ? 'border-white/10' : 'border-brand-border'
+          }`}>
             <div>
-              <h2 className="text-brand-charcoal text-[11px] font-black uppercase tracking-[0.25em] flex items-center gap-3">
-                Latest Explainers <span className="h-px w-24 bg-brand-charcoal/20 hidden sm:inline-block"></span>
+              <h2 className={`text-[11px] font-black uppercase tracking-[0.25em] flex items-center gap-3 ${
+                darkMode ? 'text-white' : 'text-brand-charcoal'
+              }`}>
+                Latest Explainers <span className={`h-px w-24 hidden sm:inline-block ${darkMode ? 'bg-white/15' : 'bg-brand-charcoal/20'}`}></span>
               </h2>
             </div>
             
@@ -245,7 +271,9 @@ export default function App() {
                 setSelectedCategoryFilter('ALL');
                 setSearchQuery('');
               }}
-              className="text-[10px] font-sans font-black tracking-widest text-[#D9A441] hover:text-brand-primary transition-colors uppercase flex items-center gap-2 group"
+              className={`text-[10px] font-sans font-black tracking-widest text-[#D9A441] transition-colors uppercase flex items-center gap-2 group ${
+                darkMode ? 'hover:text-white' : 'hover:text-brand-primary'
+              }`}
             >
               View All Explainers <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </a>
@@ -261,8 +289,12 @@ export default function App() {
                   onClick={() => setSelectedCategoryFilter(cat)}
                   className={`px-4 py-2 text-[11px] font-sans font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer ${
                     selectedCategoryFilter === cat
-                      ? 'bg-brand-primary text-white border border-brand-primary'
-                      : 'bg-brand-offwhite text-brand-charcoal/70 border border-brand-border hover:bg-brand-gold/10'
+                      ? darkMode
+                        ? 'bg-brand-gold text-brand-primary border border-brand-gold'
+                        : 'bg-brand-primary text-white border border-brand-primary'
+                      : darkMode
+                        ? 'bg-[#112538] text-white/70 border border-white/10 hover:bg-brand-gold/10'
+                        : 'bg-brand-offwhite text-brand-charcoal/70 border border-brand-border hover:bg-brand-gold/10'
                   }`}
                 >
                   {cat === 'ALL' ? 'ALL ESSAYS' : cat}
@@ -272,13 +304,17 @@ export default function App() {
 
             {/* Quick search filter */}
             <div className="relative max-w-sm w-full">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-charcoal/40" size={16} />
+              <Search className={`absolute left-3.5 top-1/2 -translate-y-1/2 ${darkMode ? 'text-white/40' : 'text-brand-charcoal/40'}`} size={16} />
               <input 
                 type="text" 
                 placeholder="Search briefings..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-brand-offwhite pl-10 pr-4 py-2.5 text-xs font-sans border border-brand-border outline-none focus:border-brand-gold transition-colors block text-brand-charcoal font-medium placeholder:text-brand-charcoal/40"
+                className={`w-full pl-10 pr-4 py-2.5 text-xs font-sans border outline-none focus:border-brand-gold transition-colors block font-medium ${
+                  darkMode 
+                    ? 'bg-[#112538] border-white/10 text-white placeholder:text-white/40' 
+                    : 'bg-brand-offwhite border-brand-border text-brand-charcoal placeholder:text-brand-charcoal/40'
+                }`}
               />
             </div>
           </div>
@@ -296,7 +332,11 @@ export default function App() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                     onClick={() => setSelectedArticle(art)}
-                    className="bg-white border-t-2 border-brand-gold p-6 shadow-sm group hover:shadow-md transition-all flex flex-col h-full cursor-pointer relative hover:-translate-y-1"
+                    className={`p-6 shadow-sm group hover:shadow-md transition-all flex flex-col h-full cursor-pointer relative hover:-translate-y-1 border-t-2 border-brand-gold ${
+                      darkMode 
+                        ? 'bg-[#112538] border-b border-l border-r border-white/5' 
+                        : 'bg-white border-b border-l border-r border-brand-border/40'
+                    }`}
                   >
                     <div className="flex flex-col h-full">
                       {/* Category Label */}
@@ -305,17 +345,23 @@ export default function App() {
                       </span>
 
                       {/* Title */}
-                      <h3 className="text-brand-primary text-lg font-serif mb-3 leading-snug group-hover:text-brand-gold transition-colors font-bold" style={{ fontFamily: 'Georgia, serif' }}>
+                      <h3 className={`text-lg font-serif mb-3 leading-snug group-hover:text-brand-gold transition-colors font-bold ${
+                        darkMode ? 'text-white' : 'text-brand-primary'
+                      }`} style={{ fontFamily: 'Georgia, serif' }}>
                         {art.title}
                       </h3>
 
                       {/* Description / Summary */}
-                      <p className="text-brand-charcoal/70 text-xs mb-6 line-clamp-3 leading-relaxed flex-grow">
+                      <p className={`text-xs mb-6 line-clamp-3 leading-relaxed flex-grow ${
+                        darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
+                      }`}>
                         {art.description}
                       </p>
 
                       {/* Meta Block & Interactive Arrow footer */}
-                      <div className="flex items-center justify-between text-[10px] text-brand-charcoal/50 font-bold uppercase tracking-widest border-t border-brand-border/40 pt-3.5 mt-auto">
+                      <div className={`flex items-center justify-between text-[10px] font-bold uppercase tracking-widest border-t pt-3.5 mt-auto ${
+                        darkMode ? 'text-white/50 border-white/10' : 'text-brand-charcoal/50 border-brand-border/40'
+                      }`}>
                         <span className="font-mono">
                           {art.meta}
                         </span>
@@ -328,9 +374,11 @@ export default function App() {
                   </motion.div>
                 ))
               ) : (
-                <div className="col-span-3 py-16 text-center border border-dashed border-brand-border">
-                  <BookOpen className="mx-auto mb-4 text-brand-charcoal/30" size={36} />
-                  <p className="text-sm font-serif font-medium text-brand-primary">No executive explainers match your filter</p>
+                <div className={`col-span-3 py-16 text-center border border-dashed ${
+                  darkMode ? 'border-white/10' : 'border-brand-border'
+                }`}>
+                  <BookOpen className={`mx-auto mb-4 ${darkMode ? 'text-white/30' : 'text-brand-charcoal/30'}`} size={36} />
+                  <p className={`text-sm font-serif font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>No executive explainers match your filter</p>
                   <button 
                     onClick={() => {
                       setSelectedCategoryFilter('ALL');
@@ -349,7 +397,9 @@ export default function App() {
       </section>
 
       {/* 6. Newsletter Section */}
-      <section className="bg-brand-offwhite py-16 sm:py-24" id="newsletter-section">
+      <section className={`py-16 sm:py-24 transition-colors duration-300 ${
+        darkMode ? 'bg-[#06131F]' : 'bg-brand-offwhite'
+      }`} id="newsletter-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           
           <motion.div
@@ -639,6 +689,7 @@ export default function App() {
           <ArticleModal 
             article={selectedArticle} 
             onClose={() => setSelectedArticle(null)} 
+            darkMode={darkMode}
           />
         )}
       </AnimatePresence>

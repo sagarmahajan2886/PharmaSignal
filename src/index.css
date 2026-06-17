@@ -66,3 +66,20 @@
   margin: 2rem 0;
 }
 
+/* Dark Mode Reading Specifics */
+.dark .markdown-body {
+  color: #F3F4F6 !important;
+}
+
+.dark .markdown-body h2 {
+  color: #FFFFFF !important;
+}
+
+.dark .markdown-body h3 {
+  color: #FFFFFF !important;
+}
+
+.dark .markdown-body blockquote {
+  color: #D1D5DB !important;
+}
+
