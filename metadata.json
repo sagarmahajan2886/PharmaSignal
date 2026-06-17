@@ -1,0 +1,6 @@
+{
+  "name": "PharmaSignal",
+  "description": "Decision Intelligence platform for pharmaceutical business development. We explain what creates and destroys value in Pharma BD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
