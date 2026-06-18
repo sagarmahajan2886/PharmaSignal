@@ -31,6 +31,39 @@ import heroBoardroom from './assets/images/hero_boardroom_1781714962645.jpg';
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('HOME');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+  // Custom routing functions to support clean, SEO-friendly browser URLs under React SPA
+  const openArticle = (art: Article) => {
+    setSelectedArticle(art);
+    window.history.pushState(null, '', `/explainers/${art.id}`);
+  };
+
+  const closeArticle = () => {
+    setSelectedArticle(null);
+    window.history.pushState(null, '', '/');
+  };
+
+  // URL Deep-linking Route Handler for SEO article paths
+  useEffect(() => {
+    const handleUrlRoute = () => {
+      const path = window.location.pathname;
+      const explainerMatch = path.match(/^\/explainers\/([a-zA-Z0-9_-]+)/);
+      if (explainerMatch) {
+        const articleId = explainerMatch[1];
+        const found = EXPLAINERS_DATA.find(a => a.id === articleId);
+        if (found) {
+          setSelectedArticle(found);
+          return;
+        }
+      }
+      setSelectedArticle(null);
+    };
+
+    handleUrlRoute();
+    window.addEventListener('popstate', handleUrlRoute);
+    return () => window.removeEventListener('popstate', handleUrlRoute);
+  }, []);
+
   const [newsEmail, setNewsEmail] = useState('');
   const [footerEmail, setFooterEmail] = useState('');
   const [subscribedMessage, setSubscribedMessage] = useState(false);
@@ -38,7 +71,8 @@ export default function App() {
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>('ALL');
 
   const [darkMode, setDarkMode] = useState<boolean>(() => {
-    return localStorage.getItem('pharmasignal_darkmode') === 'true';
+    const saved = localStorage.getItem('pharmasignal_darkmode');
+    return saved === null ? true : saved === 'true';
   });
 
   const toggleDarkMode = () => {
@@ -161,7 +195,7 @@ export default function App() {
                 className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
               >
                 <button
-                  onClick={() => setSelectedArticle(EXPLAINERS_DATA[0])}
+                  onClick={() => openArticle(EXPLAINERS_DATA[0])}
                   className="px-8 py-4 bg-brand-gold text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 hover:bg-brand-gold-hover hover:-translate-y-0.5 shadow-lg flex items-center justify-center gap-3 cursor-pointer rounded-none"
                 >
                   READ LATEST EXPLAINER <ArrowRight size={14} className="top-[0.5px] relative" />
@@ -331,7 +365,7 @@ export default function App() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    onClick={() => setSelectedArticle(art)}
+                    onClick={() => openArticle(art)}
                     className={`p-6 shadow-sm group hover:shadow-md transition-all flex flex-col h-full cursor-pointer relative hover:-translate-y-1 border-t-2 border-brand-gold ${
                       darkMode 
                         ? 'bg-[#112538] border-b border-l border-r border-white/5' 
@@ -688,7 +722,7 @@ export default function App() {
         {selectedArticle && (
           <ArticleModal 
             article={selectedArticle} 
-            onClose={() => setSelectedArticle(null)} 
+            onClose={closeArticle} 
             darkMode={darkMode}
           />
         )}

@@ -2,6 +2,7 @@ import { useEffect, useState, UIEvent } from 'react';
 import { motion } from 'motion/react';
 import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft } from 'lucide-react';
 import { Article } from '../types';
+import ApprovalGapDiagram from './ApprovalGapDiagram';
 
 interface ArticleModalProps {
   article: Article | null;
@@ -129,48 +130,313 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
             className="px-6 py-10 sm:px-12 sm:py-16 md:px-16 overflow-y-auto max-h-[80vh] scroll-smooth"
             onScroll={handleScroll}
           >
-            {/* Category Breadcrumb */}
-            <span className="inline-block text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-4">
-              {article.category}
-            </span>
+            {article.id === 'the-approval-gap' ? (
+              <>
+                {/* PHARMASIGNAL EXPLAINED HEADER */}
+                <div className="mb-8 font-mono text-xs tracking-wider">
+                  <span className={`block font-bold tracking-widest ${darkMode ? 'text-brand-gold' : 'text-brand-primary'}`}>
+                    PHARMASIGNAL EXPLAINED
+                  </span>
+                  <div className={`mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
+                    <span>Category: Decision Intelligence</span>
+                    <span className="opacity-40">•</span>
+                    <span>Reading Time: 6–8 Minutes</span>
+                    <span className="opacity-40">•</span>
+                    <span>Published: June 18, 2026</span>
+                  </div>
+                </div>
 
-            {/* Title */}
-            <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 ${
-              darkMode ? 'text-white' : 'text-brand-primary'
-            }`}>
-              {article.title}
-            </h1>
+                {/* THE APPROVAL GAP TITLE & SUBTITLE */}
+                <div className="mb-10">
+                  <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    THE APPROVAL GAP
+                  </h1>
+                  <p className="font-serif text-lg sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold">
+                    Why attractive opportunities lose momentum long before a decision is made.
+                  </p>
+                </div>
 
-            {/* Author / Date Meta Strip */}
-            <div className={`flex flex-wrap items-center gap-y-4 gap-x-8 border-y py-4 mb-8 text-xs font-mono ${
-              darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
-            }`}>
-              <div className="flex items-center gap-2">
-                <User size={14} className="text-brand-gold" />
-                <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>{article.author}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar size={14} />
-                <span>{article.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock size={14} />
-                <span>{article.readTime}</span>
-              </div>
-            </div>
+                {/* Content containing exactly premium blocks */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  {/* Opening Narrative */}
+                  <p className="mb-6">Several years ago, our team identified what appeared to be an ideal in-licensing opportunity for Russia.</p>
+                  <p className="mb-6">The market was sizeable. Competition was limited. The commercial rationale was compelling. From a Business Development perspective, the opportunity appeared straightforward.</p>
+                  <p className="mb-6">Yet the opportunity never moved forward.</p>
+                  <p className="mb-6">The surprising part was not that the project stalled.</p>
+                  <p className="mb-6">The surprising part was that nobody fundamentally disagreed with it.</p>
+                  <p className="mb-6">Quality had concerns about manufacturing readiness and Russian GMP requirements.</p>
+                  <p className="mb-6">Regulatory questioned the partner's familiarity with local filing expectations.</p>
+                  <p className="mb-6">Commercial teams prioritized speed to market and competitive positioning.</p>
+                  <p className="mb-6">Finance challenged investment assumptions and expected returns.</p>
+                  <p className="mb-6">Each concern was legitimate.</p>
+                  <p className="mb-6">Each reflected the responsibilities of the function raising it.</p>
+                  <p className="mb-6">Yet together they created months of delay, repeated evaluations and growing uncertainty. By the time alignment began to emerge, the timing advantage that originally made the opportunity attractive had already started to erode.</p>
+                  <p className="mb-6">Since then, I have observed the same pattern repeatedly across licensing, portfolio and market expansion decisions.</p>
+                  <p className="mb-6">I call this the <strong className="font-bold text-brand-gold">Approval Gap</strong>.</p>
+                  <p className="mb-6">The larger the Approval Gap, the longer the decision cycle, the greater the rework and the higher the probability that value is lost before a decision is made.</p>
 
-            {/* Featured Summary */}
-            <p className={`font-serif text-lg sm:text-xl italic border-l-4 border-brand-gold pl-6 py-2 mb-10 leading-relaxed p-4 ${
-              darkMode ? 'bg-white/5 text-white/90' : 'bg-[#ECEBE7] text-brand-primary/80'
-            }`}>
-              {article.featuredSummary}
-            </p>
+                  {/* Defining the Mechanism Pull-quote */}
+                  <div className={`my-12 py-10 px-6 sm:px-10 border-t-2 border-b-2 border-brand-gold text-center max-w-2xl mx-auto ${
+                    darkMode ? 'bg-white/[0.02]' : 'bg-brand-gold-light/25'
+                  }`}>
+                    <p className={`font-serif text-lg sm:text-xl md:text-2xl italic font-bold leading-relaxed ${
+                      darkMode ? 'text-brand-gold' : 'text-brand-primary'
+                    }`}>
+                      "The Approval Gap is the distance between commercial attractiveness and organizational readiness. It emerges when different functions evaluate the same opportunity through different definitions of success."
+                    </p>
+                  </div>
 
-            {/* Content markup container */}
-            <div 
-              className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+                  {/* FT Style Image Insertion */}
+                  <div className="my-14 max-w-2xl mx-auto">
+                    <div className="w-full flex justify-center pb-4 select-none">
+                      <ApprovalGapDiagram darkMode={darkMode} />
+                    </div>
+                    <p className={`mt-4 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                      darkMode ? 'text-white/60' : 'text-brand-charcoal/50'
+                    }`}>
+                      Figure 1: The Approval Gap emerges when different functions evaluate the same opportunity through different success criteria.
+                    </p>
+                  </div>
+
+                  {/* Why Organizations Create Approval Gaps */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why Organizations Create Approval Gaps
+                  </h2>
+                  <p className="mb-6">Organizations often view approval as a single event.</p>
+                  <p className="mb-6">In reality, approval is the visible outcome of a much longer process involving multiple functions, priorities and decision criteria.</p>
+                  <p className="mb-6">Business Development focuses on growth potential, strategic fit and speed to market.</p>
+                  <p className="mb-6">Regulatory focuses on approvability, documentation quality and compliance risk.</p>
+                  <p className="mb-6">Quality focuses on manufacturing standards, audit readiness and supply reliability.</p>
+                  <p className="mb-6">Finance focuses on investment returns, profitability and capital allocation.</p>
+                  <p className="mb-6">Management focuses on strategic priorities and portfolio fit.</p>
+                  <p className="mb-6">None of these perspectives are wrong.</p>
+                  <p className="mb-6">The challenge is that they are rarely aligned by default.</p>
+                  <p className="mb-6">What appears highly attractive through one lens may appear operationally risky, financially unattractive or strategically distracting through another.</p>
+                  <p className="mb-6">When these differences remain unresolved until formal review, the approval process shifts from evaluating an opportunity to reconciling competing priorities.</p>
+                  <p className="mb-6">The meeting itself becomes an attempt to close gaps that should have been addressed much earlier.</p>
+
+                  {/* How the Approval Gap Destroys Value */}
+                  <div className={`my-14 p-8 sm:p-12 border border-brand-gold/30 bg-brand-gold-light/15 ${
+                    darkMode ? 'text-white bg-white/[0.01]' : 'text-[#111827]'
+                  }`}>
+                    <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-8 tracking-tight ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                      How the Approval Gap Destroys Value
+                    </h2>
+                    <p className={`font-serif text-base sm:text-lg mb-10 italic leading-relaxed ${darkMode ? 'text-white/80' : 'text-brand-charcoal/70'}`}>
+                      The economic impact of internal delay does not appear on a standard P&L as a separate line item. Instead, it systematically degrades opportunity value in three predictable ways:
+                    </p>
+
+                    <div className="space-y-10">
+                      {/* Item 1 */}
+                      <div>
+                        <div className="flex items-baseline gap-4 mb-3">
+                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">01</span>
+                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Launch-Window Evaporation
+                          </h3>
+                        </div>
+                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
+                          Across emerging markets, the impact is often amplified. Approval delays are rarely neutral. Missing a reimbursement submission window, a tender cycle or a seasonal procurement opportunity can convert a short internal delay into a much larger commercial setback. The opportunity may remain attractive, but the economics can change materially while organizations continue debating execution readiness.
+                        </p>
+                      </div>
+
+                      {/* Divider */}
+                      <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
+
+                      {/* Item 2 */}
+                      <div>
+                        <div className="flex items-baseline gap-4 mb-3">
+                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">02</span>
+                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Multi-Competitor Margin Compression
+                          </h3>
+                        </div>
+                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
+                          Over the years, I have seen commercially attractive opportunities delayed by six to twelve months despite broad agreement on their potential. In several cases, the delay itself became the primary source of value destruction. The asset remained attractive, but the advantage of early entry gradually disappeared while the organization worked through unresolved alignment issues.
+                        </p>
+                      </div>
+
+                      {/* Divider */}
+                      <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
+
+                      {/* Item 3 */}
+                      <div>
+                        <div className="flex items-baseline gap-4 mb-3">
+                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">03</span>
+                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Eroding Partner Confidence
+                          </h3>
+                        </div>
+                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
+                          The consequences of approval delay are rarely dramatic; they are usually incremental. Additional analysis is requested. Forecasts are revised. Assumptions are revisited. Questions that could have been addressed earlier reappear during governance reviews, and cross-functional discussions restart. Timelines extend. Momentum slows. Partner confidence weakens.
+                        </p>
+                        <p className={`font-serif text-base sm:text-lg leading-relaxed mt-4 ${darkMode ? 'text-white/80' : 'text-brand-charcoal/75'}`}>
+                          The cost of the Approval Gap eventually translates into lost first-mover advantages, delayed revenue realization, weakened partner confidence, higher evaluation costs, and opportunities that eventually become strategically irrelevant as the market moves on.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* The Approval Gap Test */}
+                  <div className={`my-14 p-8 sm:p-12 border-l-4 border-brand-gold ${darkMode ? 'bg-white/[0.01]' : 'bg-brand-gold-light/20'}`}>
+                    <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-3 tracking-tight ${
+                      darkMode ? 'text-white' : 'text-brand-primary'
+                    }`}>
+                      The Approval Gap Test
+                    </h2>
+                    <p className={`font-sans text-xs tracking-wider uppercase mb-8 ${darkMode ? 'text-brand-gold' : 'text-brand-primary/60'}`}>
+                      An Executive Assessment for Business Development Leaders
+                    </p>
+
+                    <div className="space-y-8">
+                      {/* Q1 */}
+                      <div className="flex gap-4 sm:gap-6 items-start">
+                        <span className="font-mono text-xl sm:text-2xl font-bold text-brand-gold leading-none">01</span>
+                        <div>
+                          <p className={`font-serif text-base sm:text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Alignment Timing
+                          </p>
+                          <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
+                            Are functional stakeholders aligned on evaluation success criteria before formal review stages, or does cross-functional negotiation happen under the pressure of the final decision meeting?
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Q2 */}
+                      <div className="flex gap-4 sm:gap-6 items-start">
+                        <span className="font-mono text-xl sm:text-2xl font-bold text-brand-gold leading-none">02</span>
+                        <div>
+                          <p className={`font-serif text-base sm:text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Commercial vs. Operational Balance
+                          </p>
+                          <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
+                            Has your team explicitly measured the difference between the commercial attractiveness of the asset and your organization's operational readiness to execute the launch?
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Q3 */}
+                      <div className="flex gap-4 sm:gap-6 items-start">
+                        <span className="font-mono text-xl sm:text-2xl font-bold text-brand-gold leading-none">03</span>
+                        <div>
+                          <p className={`font-serif text-base sm:text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Interdisciplinary Definitions
+                          </p>
+                          <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
+                            Do BD, Quality, Regulatory, and Finance share a single, aligned definition of what a "successful" deal execution looks like, or is each department optimizing for its own separate objectives?
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Q4 */}
+                      <div className="flex gap-4 sm:gap-6 items-start">
+                        <span className="font-mono text-xl sm:text-2xl font-bold text-brand-gold leading-none">04</span>
+                        <div>
+                          <p className={`font-serif text-base sm:text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Diligence Friction Control
+                          </p>
+                          <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
+                            Are complex, functional friction points—such as localized manufacturing GMP requirements or partner CMC standards—systematically unearthed and addressed early in the initial diligence phase?
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Q5 */}
+                      <div className="flex gap-4 sm:gap-6 items-start">
+                        <span className="font-mono text-xl sm:text-2xl font-bold text-brand-gold leading-none">05</span>
+                        <div>
+                          <p className={`font-serif text-base sm:text-lg font-bold mb-2 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                            Value-At-Risk Modeling
+                          </p>
+                          <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
+                            Is the precise financial risk of regulatory or commercial delays (e.g., missing seasonal tender cycles or launch windows) factored directly into active licensing valuation models?
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Implications for Decision Makers */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Implications for Decision Makers
+                  </h2>
+                  <p className="mb-6">Most organizations invest considerable effort evaluating opportunities.</p>
+                  <p className="mb-6">Far fewer invest the same effort aligning stakeholders before formal evaluation begins.</p>
+                  <p className="mb-4">The most effective Business Development leaders understand that approval is not secured through a stronger presentation.</p>
+                  <p className="mb-6 italic text-brand-gold font-bold">It is secured through stronger alignment.</p>
+                  <p className="mb-6">Their role extends beyond identifying opportunities and negotiating commercial terms. They actively engage stakeholders early. They understand how Quality defines success, they digest Regulatory concerns, and they address Finance expectations and management priorities to resolve friction before it surfaces during governance reviews.</p>
+                  <p className="mb-6">Organizations often assume that better analysis leads to better decisions. In reality, closing the Approval Gap frequently creates more value than producing another round of analysis.</p>
+                  <p className="mb-6 pb-2">They often believe they are evaluating opportunities. In reality, they are evaluating their ability to align around those opportunities.</p>
+
+                  {/* PHARMASIGNAL PRINCIPLE */}
+                  <div className="my-16 p-8 sm:p-12 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-4">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <div className="space-y-6">
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed italic font-medium text-white/95">
+                        "Organizations often believe they lose opportunities because competitors move faster. More often, they lose opportunities because internal alignment moves slower."
+                      </p>
+                      <div className="h-[1px] w-20 bg-brand-gold/40" />
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed italic font-medium text-white/95">
+                        "In pharmaceutical business development, opportunity quality determines what enters the pipeline. The Approval Gap determines what survives it."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Category Breadcrumb */}
+                <span className="inline-block text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-4">
+                  {article.category}
+                </span>
+
+                {/* Title */}
+                <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  {article.title}
+                </h1>
+
+                {/* Author / Date Meta Strip */}
+                <div className={`flex flex-wrap items-center gap-y-4 gap-x-8 border-y py-4 mb-8 text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-2">
+                    <User size={14} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>{article.author}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Calendar size={14} />
+                    <span>{article.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock size={14} />
+                    <span>{article.readTime}</span>
+                  </div>
+                </div>
+
+                {/* Featured Summary */}
+                <p className={`font-serif text-lg sm:text-xl italic border-l-4 border-brand-gold pl-6 py-2 mb-10 leading-relaxed p-4 ${
+                  darkMode ? 'bg-white/5 text-white/90' : 'bg-brand-gold-light/25 text-brand-primary/85'
+                }`}>
+                  {article.featuredSummary}
+                </p>
+
+                {/* Content markup container */}
+                <div 
+                  className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}
+                  dangerouslySetInnerHTML={{ __html: article.content }}
+                />
+              </>
+            )}
 
             {/* Bottom Section */}
             <div className={`mt-14 pt-10 border-t flex flex-col sm:flex-row justify-between items-center gap-6 ${
