@@ -55,13 +55,13 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
         className="fixed inset-0 bg-brand-primary/80 backdrop-blur-sm transition-opacity"
       />
 
-      <div className={`flex min-h-screen items-center justify-center p-4 text-center sm:p-6 lg:p-10 ${darkMode ? 'dark' : ''}`}>
+      <div className={`flex h-screen sm:min-h-screen items-center justify-center p-0 sm:p-6 lg:p-10 text-center ${darkMode ? 'dark' : ''}`}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ type: 'spring', damping: 25, stiffness: 180 }}
-          className={`relative w-full max-w-4xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold ${
+          className={`relative w-full h-screen sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] max-w-4xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold flex flex-col ${
             darkMode ? 'bg-brand-deep text-white border-b border-l border-r border-white/10' : 'bg-brand-offwhite text-brand-charcoal'
           }`}
         >
@@ -69,10 +69,10 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
           <div className={`sticky top-0 z-10 flex flex-col border-b backdrop-blur ${
             darkMode ? 'border-white/10 bg-brand-deep/95' : 'border-brand-charcoal/10 bg-brand-offwhite/95'
           }`}>
-            <div className="flex items-center justify-between px-6 py-4">
+            <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
               <button
                 onClick={onClose}
-                className={`flex items-center gap-2 text-xs font-sans font-semibold tracking-widest transition-colors cursor-pointer group uppercase ${
+                className={`flex items-center gap-1.5 sm:gap-2 text-xs font-sans font-semibold tracking-widest transition-colors cursor-pointer group uppercase ${
                   darkMode ? 'text-white hover:text-brand-gold' : 'text-[#001B2A] hover:text-brand-gold'
                 }`}
               >
@@ -88,10 +88,10 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                 <span className="text-brand-gold bg-brand-primary border border-white/5 px-1.5 py-0.5">{Math.min(100, Math.round(scrollProgress))}%</span>
               </div>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <button
                   onClick={handleShare}
-                  className={`p-2 rounded-full transition-all cursor-pointer relative ${
+                  className={`p-1.5 sm:p-2 rounded-full transition-all cursor-pointer relative ${
                     darkMode ? 'text-white hover:text-brand-gold hover:bg-white/5' : 'text-brand-primary hover:text-brand-gold hover:bg-brand-primary/5'
                   }`}
                   title="Copy Link to Article"
@@ -105,7 +105,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                 </button>
                 <button
                   onClick={onClose}
-                  className={`p-2 rounded-full transition-all cursor-pointer ${
+                  className={`p-1.5 sm:p-2 rounded-full transition-all cursor-pointer ${
                     darkMode ? 'text-white hover:text-red-400 hover:bg-white/5' : 'text-brand-primary hover:text-red-700 hover:bg-brand-primary/5'
                   }`}
                   title="Close Reader"
@@ -127,33 +127,36 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
           </div>
 
           <article 
-            className="px-6 py-10 sm:px-12 sm:py-16 md:px-16 overflow-y-auto max-h-[80vh] scroll-smooth"
+            className="flex-1 px-4 py-6 sm:px-12 sm:py-16 md:px-16 overflow-y-auto scroll-smooth"
             onScroll={handleScroll}
           >
             {article.id === 'the-approval-gap' ? (
               <>
                 {/* PHARMASIGNAL EXPLAINED HEADER */}
-                <div className="mb-8 font-mono text-xs tracking-wider">
+                <div className="mb-4 sm:mb-8 font-mono text-[10px] sm:text-xs tracking-wider">
                   <span className={`block font-bold tracking-widest ${darkMode ? 'text-brand-gold' : 'text-brand-primary'}`}>
                     PHARMASIGNAL EXPLAINED
                   </span>
-                  <div className={`mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
+                  <div className={`mt-1.5 sm:mt-2 flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-0.5 sm:gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
                     <span>Category: Decision Intelligence</span>
-                    <span className="opacity-40">•</span>
-                    <span>Reading Time: 6–8 Minutes</span>
-                    <span className="opacity-40">•</span>
-                    <span>Published: June 18, 2026</span>
+                    <span className="opacity-40 sm:inline hidden">•</span>
+                    <span className="sm:inline hidden">Reading Time: 6–8 Minutes</span>
+                    <span className="opacity-40 sm:inline hidden">•</span>
+                    <span className="sm:inline hidden">Published: June 18, 2026</span>
+                    
+                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">6-8 Min</span>
+                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">June 18, 2026</span>
                   </div>
                 </div>
 
                 {/* THE APPROVAL GAP TITLE & SUBTITLE */}
-                <div className="mb-10">
-                  <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 ${
+                <div className="mb-6 sm:mb-10">
+                  <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-2 sm:mb-4 ${
                     darkMode ? 'text-white' : 'text-brand-primary'
                   }`}>
                     THE APPROVAL GAP
                   </h1>
-                  <p className="font-serif text-lg sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold">
+                  <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold">
                     Why attractive opportunities lose momentum long before a decision is made.
                   </p>
                 </div>
@@ -394,37 +397,37 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
             ) : (
               <>
                 {/* Category Breadcrumb */}
-                <span className="inline-block text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-4">
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-4">
                   {article.category}
                 </span>
 
                 {/* Title */}
-                <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 ${
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-6 ${
                   darkMode ? 'text-white' : 'text-brand-primary'
                 }`}>
                   {article.title}
                 </h1>
 
                 {/* Author / Date Meta Strip */}
-                <div className={`flex flex-wrap items-center gap-y-4 gap-x-8 border-y py-4 mb-8 text-xs font-mono ${
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-2 sm:py-4 mb-4 sm:mb-8 text-[11px] sm:text-xs font-mono ${
                   darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
                 }`}>
-                  <div className="flex items-center gap-2">
-                    <User size={14} className="text-brand-gold" />
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
                     <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>{article.author}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar size={14} />
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
                     <span>{article.date}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock size={14} />
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
                     <span>{article.readTime}</span>
                   </div>
                 </div>
 
                 {/* Featured Summary */}
-                <p className={`font-serif text-lg sm:text-xl italic border-l-4 border-brand-gold pl-6 py-2 mb-10 leading-relaxed p-4 ${
+                <p className={`font-serif text-base sm:text-xl italic border-l-4 border-brand-gold pl-4 sm:pl-6 py-1.5 sm:py-2 mb-6 sm:mb-10 leading-relaxed p-3 sm:p-4 ${
                   darkMode ? 'bg-white/5 text-white/90' : 'bg-brand-gold-light/25 text-brand-primary/85'
                 }`}>
                   {article.featuredSummary}
