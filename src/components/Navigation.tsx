@@ -38,16 +38,21 @@ export default function Navigation({
     setActiveTab(tab);
     setMobileMenuOpen(false);
     
-    // Smooth scroll depending on option
+    // Smooth scroll based on target anchors
     if (tab === 'HOME') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (tab === 'EXPLAINERS') {
-      const el = document.getElementById('latest-explainers-section');
+    } else if (tab === 'INSIGHT VAULT') {
+      const el = document.getElementById('featured-explainer-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } else if (tab === 'ABOUT') {
       const el = document.getElementById('about-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else if (tab === 'NEWSLETTER') {
+      const el = document.getElementById('newsletter-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -83,7 +88,7 @@ export default function Navigation({
 
           {/* Center Navigation for Desktop */}
           <nav className="hidden md:flex items-center space-x-12">
-            {(['HOME', 'EXPLAINERS', 'ABOUT'] as ActiveTab[]).map((tab) => {
+            {(['INSIGHT VAULT', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => {
               const isActive = activeTab === tab;
               return (
                 <button
@@ -120,7 +125,7 @@ export default function Navigation({
               onClick={onSubscribeClick}
               className="px-6 py-2.5 text-xs font-sans tracking-widest font-semibold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors rounded-none shadow-md cursor-pointer uppercase duration-200"
             >
-              SUBSCRIBE
+              SUBSCRIBE FREE
             </button>
           </div>
 
@@ -157,7 +162,7 @@ export default function Navigation({
             className="md:hidden bg-brand-deep border-t border-white/5 overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              {(['HOME', 'EXPLAINERS', 'ABOUT'] as ActiveTab[]).map((tab) => (
+              {(['INSIGHT VAULT', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => handleNavClick(tab)}
@@ -185,7 +190,7 @@ export default function Navigation({
                   }}
                   className="w-full py-3 text-center text-sm font-sans tracking-widest font-semibold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors uppercase"
                 >
-                  SUBSCRIBE
+                  SUBSCRIBE FREE
                 </button>
               </div>
             </div>

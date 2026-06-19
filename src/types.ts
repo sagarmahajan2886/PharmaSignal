@@ -11,7 +11,7 @@ export interface Article {
   featuredSummary: string;
 }
 
-export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'ABOUT';
+export type ActiveTab = 'HOME' | 'INSIGHT VAULT' | 'ABOUT' | 'NEWSLETTER';
 
 export interface NewsletterSubscriber {
   email: string;
