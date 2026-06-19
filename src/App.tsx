@@ -28,6 +28,8 @@ export default function App() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [newsEmail, setNewsEmail] = useState('');
   const [subscribedMessage, setSubscribedMessage] = useState(false);
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeError, setSubscribeError] = useState<string | null>(null);
 
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('pharmasignal_darkmode');
@@ -78,23 +80,48 @@ export default function App() {
   }, []);
 
   // Subscribe Handler
-  const handleSubscribe = (e: FormEvent) => {
+  const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault();
-    if (!newsEmail || !newsEmail.includes('@')) {
+    const emailToSubmit = newsEmail.trim();
+    if (!emailToSubmit || !emailToSubmit.includes('@')) {
       alert('Please enter a valid work email address.');
       return;
     }
     
-    // Store subscriber info in localStorage
-    const currentSubscribers = JSON.parse(localStorage.getItem('pharmasignal_subscribers') || '[]');
-    const newSub = { email: newsEmail, timestamp: new Date().toISOString() };
-    localStorage.setItem('pharmasignal_subscribers', JSON.stringify([...currentSubscribers, newSub]));
-    
-    setNewsEmail('');
-    setSubscribedMessage(true);
-    setTimeout(() => {
-      setSubscribedMessage(false);
-    }, 6000);
+    setSubscribing(true);
+    setSubscribeError(null);
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: emailToSubmit }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Subscription failed.');
+      }
+
+      // Store subscriber info in localStorage as backup/history
+      const currentSubscribers = JSON.parse(localStorage.getItem('pharmasignal_subscribers') || '[]');
+      const newSub = { email: emailToSubmit, timestamp: new Date().toISOString() };
+      localStorage.setItem('pharmasignal_subscribers', JSON.stringify([...currentSubscribers, newSub]));
+      
+      setNewsEmail('');
+      setSubscribedMessage(true);
+      
+      // Auto dismiss success message after 8 seconds
+      setTimeout(() => {
+        setSubscribedMessage(false);
+      }, 8000);
+    } catch (err: any) {
+      console.error(err);
+      setSubscribeError('Could not process subscription. Please try again.');
+    } finally {
+      setSubscribing(false);
+    }
   };
 
   const scrollToFeatured = () => {
@@ -520,13 +547,16 @@ export default function App() {
               darkMode ? 'bg-[#0A1A2E] text-white border-brand-gold/30' : 'bg-[#FAF6EE] text-[#111827] border-[#EADBCC]'
             }`}
           >
+            {/* Hostinger Reach tracking div embedded as required */}
+            <div data-reach-form="9e6723a1-8c92-43c1-8369-5501a6d91ba1" style={{ display: 'none' }} className="hidden"></div>
+
             {/* Grid graphic background effect */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#808080_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
             
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center text-left">
               
               {/* Text side with mail icon */}
-              <div className="md:col-span-7 flex items-start gap-4 sm:gap-6 w-full">
+              <div className="md:col-span-12 lg:col-span-7 flex items-start gap-4 sm:gap-6 w-full">
                 <div className="h-14 w-14 rounded-full border border-brand-gold/45 flex items-center justify-center bg-brand-gold/5 shrink-0 hidden sm:flex">
                   <Mail className="text-brand-gold" size={22} strokeWidth={1.5} />
                 </div>
@@ -534,18 +564,18 @@ export default function App() {
                   <h2 className={`font-serif text-2xl sm:text-3.5xl font-bold tracking-tight mb-2 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
-                    One Pharma BD Insight Every Week
+                    One Pharma BD Insight Worth Saving
                   </h2>
                   <p className={`font-sans text-xs sm:text-sm leading-relaxed font-light ${
                     darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
                   }`}>
-                    Practical insights on what creates and destroys value in pharma deals.
+                    Practical insights on what creates and destroys value in pharmaceutical business development.
                   </p>
                 </div>
               </div>
 
               {/* Input subscription side */}
-              <div className="md:col-span-5 w-full">
+              <div className="md:col-span-12 lg:col-span-5 w-full">
                 <AnimatePresence mode="wait">
                   {!subscribedMessage ? (
                     <motion.form 
@@ -560,21 +590,31 @@ export default function App() {
                           type="email"
                           required
                           value={newsEmail}
+                          disabled={subscribing}
                           onChange={(e) => setNewsEmail(e.target.value)}
-                          placeholder="Enter your email"
+                          placeholder="Your work email"
                           className={`w-full px-4 py-3.5 text-xs font-sans border outline-none transition-colors rounded-none ${
                             darkMode 
                               ? 'bg-[#06131F] border-white/10 text-white placeholder:text-white/40 focus:border-brand-gold/85' 
                               : 'bg-white border-[#EADBCC] text-brand-charcoal placeholder:text-brand-charcoal/40 focus:border-brand-gold/85'
-                          }`}
+                          } ${subscribing ? 'opacity-65 cursor-not-allowed' : ''}`}
                         />
                         <button
                           type="submit"
-                          className="px-6 py-3.5 bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors text-xs font-sans tracking-widest font-bold whitespace-nowrap uppercase cursor-pointer rounded-none"
+                          disabled={subscribing}
+                          className={`px-6 py-3.5 bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors text-xs font-sans tracking-widest font-bold whitespace-nowrap uppercase rounded-none ${
+                            subscribing ? 'opacity-65 cursor-not-allowed' : 'cursor-pointer'
+                          }`}
                         >
-                          Subscribe Free
+                          {subscribing ? 'Submitting...' : 'Subscribe Free'}
                         </button>
                       </div>
+
+                      {subscribeError && (
+                        <div className="text-xs text-red-500 font-sans mt-1 text-left">
+                          {subscribeError}
+                        </div>
+                      )}
 
                       {/* Small reassurance */}
                       <div className="text-[11px] font-mono text-brand-gold/80 font-medium tracking-wide text-left sm:text-center">
@@ -589,9 +629,8 @@ export default function App() {
                       className="py-6 px-4 border border-brand-gold/30 bg-brand-gold/5 text-center flex flex-col items-center justify-center space-y-2"
                     >
                       <CheckCircle2 className="text-brand-gold" size={24} />
-                      <h4 className="font-serif text-base font-bold text-brand-gold">Access Confirmed</h4>
-                      <p className={`font-sans text-xs leading-relaxed ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
-                        Thank you for subscribing.
+                      <p className={`font-serif text-sm leading-relaxed ${darkMode ? 'text-white/95' : 'text-brand-charcoal/95'}`}>
+                        Thank you for subscribing to PharmaSignal.
                       </p>
                     </motion.div>
                   )}
