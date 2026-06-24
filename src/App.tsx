@@ -267,7 +267,7 @@ export default function App() {
                   
                   <img 
                     src={heroBoardroom} 
-                    alt="Premium Pharmaceutical BD Boardroom" 
+                    alt="Decision Intelligence for Pharma BD Leaders" 
                     className="w-full h-full object-cover transition-transform duration-[4000ms] ease-out hover:scale-105"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -277,7 +277,7 @@ export default function App() {
                   
                   <div className="absolute bottom-6 left-6 z-20 hidden sm:block">
                     <span className="font-mono text-[9px] tracking-widest text-[#D9A441] bg-brand-primary/80 py-1 px-2 border border-brand-gold/30 font-semibold block uppercase">
-                      TOKYO • LONDON • NEW YORK
+                      Decision Intelligence for Pharma BD Leaders
                     </span>
                   </div>
                 </div>

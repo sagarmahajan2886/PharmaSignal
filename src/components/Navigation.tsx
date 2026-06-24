@@ -77,11 +77,11 @@ export default function Navigation({
             onClick={() => handleNavClick('HOME')}
           >
             <div className="flex items-center gap-2">
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white transition-colors duration-300">
+              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-white transition-colors duration-300">
                 PHARMA<span className="text-brand-gold">SIGNAL</span>
               </span>
             </div>
-            <span className="text-[10px] sm:text-xs font-sans tracking-wide text-white/60 font-light mt-0.5 uppercase">
+            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest text-white/50 font-light mt-0.5 uppercase">
               Decision Intelligence for Pharma BD
             </span>
           </div>
