@@ -41,7 +41,7 @@ export default function Navigation({
     // Smooth scroll based on target anchors
     if (tab === 'HOME') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (tab === 'INSIGHT VAULT') {
+    } else if (tab === 'EXPLAINERS') {
       const el = document.getElementById('featured-explainer-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -88,7 +88,7 @@ export default function Navigation({
 
           {/* Center Navigation for Desktop */}
           <nav className="hidden md:flex items-center space-x-12">
-            {(['INSIGHT VAULT', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => {
+            {(['EXPLAINERS', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => {
               const isActive = activeTab === tab;
               return (
                 <button
@@ -162,7 +162,7 @@ export default function Navigation({
             className="md:hidden bg-brand-deep border-t border-white/5 overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              {(['INSIGHT VAULT', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => (
+              {(['EXPLAINERS', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => handleNavClick(tab)}

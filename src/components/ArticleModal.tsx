@@ -44,6 +44,13 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
     }
   };
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto" id="article-reader">
       {/* Background overlay */}
@@ -55,13 +62,13 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
         className="fixed inset-0 bg-brand-primary/80 backdrop-blur-sm transition-opacity"
       />
 
-      <div className={`flex h-screen sm:min-h-screen items-center justify-center p-0 sm:p-6 lg:p-10 text-center ${darkMode ? 'dark' : ''}`}>
+      <div className={`flex h-screen sm:min-h-screen items-center justify-center p-0 sm:p-4 lg:p-6 text-center ${darkMode ? 'dark' : ''}`}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ type: 'spring', damping: 25, stiffness: 180 }}
-          className={`relative w-full h-screen sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] max-w-4xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold flex flex-col ${
+          className={`relative w-full h-screen sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] lg:max-h-[92vh] max-w-4xl lg:max-w-6xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold flex flex-col ${
             darkMode ? 'bg-brand-deep text-white border-b border-l border-r border-white/10' : 'bg-brand-offwhite text-brand-charcoal'
           }`}
         >
@@ -127,13 +134,136 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
           </div>
 
           <article 
-            className="flex-1 px-4 py-6 sm:px-12 sm:py-16 md:px-16 overflow-y-auto scroll-smooth"
+            className="flex-1 px-4 py-6 sm:px-10 sm:py-8 md:px-12 overflow-y-auto scroll-smooth relative"
             onScroll={handleScroll}
           >
-            {article.id === 'the-approval-gap' ? (
-              <>
-                {/* PHARMASIGNAL EXPLAINED HEADER */}
-                <div className="mb-4 sm:mb-8 font-mono text-[10px] sm:text-xs tracking-wider">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-10 items-start">
+              {/* Sticky Sidebar on Left for PC */}
+              <div className={`hidden lg:flex lg:col-span-4 h-fit sticky top-2 flex-col pr-6 border-r ${
+                darkMode ? 'border-white/10' : 'border-brand-charcoal/10'
+              } space-y-6 select-none`}>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
+                    Briefing Index
+                  </span>
+                  <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
+                    Click to navigate sections
+                  </p>
+                </div>
+
+                <div className="space-y-1">
+                  {article.id === 'the-approval-gap' ? (
+                    <>
+                      <button 
+                        onClick={() => scrollToId('intro')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        01. Executive Summary
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('why-gaps-exist')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        02. Why Gaps Exist
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('economic-impact')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        03. Value Destruction
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('self-assessment')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        04. Assessment Test
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('implications')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        05. Strategic Implications
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button 
+                        onClick={() => scrollToId('doc-overview')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        01. Document Overview
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('core-analysis')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        02. Detailed Analysis
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
+
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold block">
+                    Document Metadata
+                  </span>
+                  <div className={`space-y-1.5 text-xs font-sans ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
+                    <p><strong className="font-semibold text-brand-gold">Published:</strong> {article.date || 'June 18, 2026'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Author:</strong> {article.author || 'Decision Intelligence'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Reading Time:</strong> {article.readTime || '6–8 Minutes'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Category:</strong> {article.category}</p>
+                  </div>
+                </div>
+
+                <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
+
+                <div className="space-y-2 pt-1">
+                  <button
+                    onClick={handleShare}
+                    className={`w-full flex items-center justify-center gap-2 font-sans font-semibold tracking-wider text-xs py-2.5 border transition-all cursor-pointer uppercase ${
+                      darkMode 
+                        ? 'border-white/15 hover:border-brand-gold text-white hover:text-brand-gold bg-white/[0.02]' 
+                        : 'border-brand-charcoal/15 hover:border-brand-gold text-brand-charcoal hover:text-brand-gold bg-brand-charcoal/5'
+                    }`}
+                  >
+                    {copied ? <ClipboardCheck size={14} className="text-emerald-500" /> : <Share2 size={14} />}
+                    {copied ? 'Link Copied' : 'Share Briefing'}
+                  </button>
+                  <button
+                    onClick={onClose}
+                    className={`w-full text-center font-sans font-bold tracking-wider text-xs py-2.5 transition-all cursor-pointer uppercase ${
+                      darkMode 
+                        ? 'bg-brand-gold hover:bg-brand-gold-hover text-brand-primary' 
+                        : 'bg-brand-charcoal hover:bg-brand-gold text-white hover:text-[#001B2A]'
+                    }`}
+                  >
+                    Finish Reading
+                  </button>
+                </div>
+              </div>
+
+              {/* Main Reading Column */}
+              <div className="col-span-12 lg:col-span-8 w-full">
+                {article.id === 'the-approval-gap' ? (
+                  <>
+                    {/* PHARMASIGNAL EXPLAINED HEADER */}
+                    <div id="intro" className="mb-4 sm:mb-8 font-mono text-[10px] sm:text-xs tracking-wider">
                   <span className={`block font-bold tracking-widest ${darkMode ? 'text-brand-gold' : 'text-brand-primary'}`}>
                     PHARMASIGNAL EXPLAINED
                   </span>
@@ -204,7 +334,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   </div>
 
                   {/* Why Organizations Create Approval Gaps */}
-                  <h2 className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                  <h2 id="why-gaps-exist" className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
                     darkMode ? 'text-white' : 'text-brand-primary'
                   }`}>
                     Why Organizations Create Approval Gaps
@@ -223,7 +353,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   <p className="mb-6">The meeting itself becomes an attempt to close gaps that should have been addressed much earlier.</p>
 
                   {/* How the Approval Gap Destroys Value */}
-                  <div className={`my-14 p-8 sm:p-12 border border-brand-gold/30 bg-brand-gold-light/15 ${
+                  <div id="economic-impact" className={`my-14 p-8 sm:p-12 border border-brand-gold/30 bg-brand-gold-light/15 ${
                     darkMode ? 'text-white bg-white/[0.01]' : 'text-[#111827]'
                   }`}>
                     <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-8 tracking-tight ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
@@ -285,7 +415,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   </div>
 
                   {/* The Approval Gap Test */}
-                  <div className={`my-14 p-8 sm:p-12 border-l-4 border-brand-gold ${darkMode ? 'bg-white/[0.01]' : 'bg-brand-gold-light/20'}`}>
+                  <div id="self-assessment" className={`my-14 p-8 sm:p-12 border-l-4 border-brand-gold ${darkMode ? 'bg-white/[0.01]' : 'bg-brand-gold-light/20'}`}>
                     <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-3 tracking-tight ${
                       darkMode ? 'text-white' : 'text-brand-primary'
                     }`}>
@@ -364,7 +494,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   </div>
 
                   {/* Implications for Decision Makers */}
-                  <h2 className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                  <h2 id="implications" className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
                     darkMode ? 'text-white' : 'text-brand-primary'
                   }`}>
                     Implications for Decision Makers
@@ -427,7 +557,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                 </div>
 
                 {/* Featured Summary */}
-                <p className={`font-serif text-base sm:text-xl italic border-l-4 border-brand-gold pl-4 sm:pl-6 py-1.5 sm:py-2 mb-6 sm:mb-10 leading-relaxed p-3 sm:p-4 ${
+                <p id="doc-overview" className={`font-serif text-base sm:text-xl italic border-l-4 border-brand-gold pl-4 sm:pl-6 py-1.5 sm:py-2 mb-6 sm:mb-10 leading-relaxed p-3 sm:p-4 ${
                   darkMode ? 'bg-white/5 text-white/90' : 'bg-brand-gold-light/25 text-brand-primary/85'
                 }`}>
                   {article.featuredSummary}
@@ -435,6 +565,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
 
                 {/* Content markup container */}
                 <div 
+                  id="core-analysis"
                   className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
@@ -458,7 +589,9 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                 Finished Reading
               </button>
             </div>
-          </article>
+          </div>
+        </div>
+      </article>
         </motion.div>
       </div>
     </div>

@@ -24,7 +24,7 @@ import ApprovalGapDiagram from './components/ApprovalGapDiagram';
 import heroBoardroom from './assets/images/hero_boardroom_1781714962645.jpg';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('INSIGHT VAULT');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('EXPLAINERS');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [newsEmail, setNewsEmail] = useState('');
   const [subscribedMessage, setSubscribedMessage] = useState(false);
@@ -192,7 +192,7 @@ export default function App() {
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}
               >
-                What is PharmaSignal?
+                What is <span className="font-serif font-bold tracking-wider uppercase">PHARMA<span className="text-brand-gold">SIGNAL</span></span>?
               </motion.h1>
               <div className="h-[2px] w-12 bg-brand-gold mb-6" />
 
@@ -680,7 +680,7 @@ export default function App() {
                   onClick={scrollToFeatured}
                   className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
                 >
-                  Insight Vault
+                  Explainers
                 </button>
                 <button 
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
