@@ -18,6 +18,7 @@ import { ActiveTab, Article } from './types';
 import Navigation from './components/Navigation';
 import ArticleModal from './components/ArticleModal';
 import ApprovalGapDiagram from './components/ApprovalGapDiagram';
+import ExecutionDeficitDiagram from './components/ExecutionDeficitDiagram';
 
 // Import our custom boardroom image
 // @ts-ignore
@@ -36,6 +37,8 @@ export default function App() {
     return saved === null ? true : saved === 'true';
   });
 
+  const [featuredTab, setFeaturedTab] = useState<'approval' | 'execution'>('approval');
+
   const toggleDarkMode = () => {
     setDarkMode(prev => {
       const next = !prev;
@@ -46,6 +49,7 @@ export default function App() {
 
   // Safe fetch for the unique live explainer
   const approvalGapArticle = EXPLAINERS_DATA.find(a => a.id === 'the-approval-gap') || EXPLAINERS_DATA[0];
+  const executionDeficitArticle = EXPLAINERS_DATA.find(a => a.id === 'execution-deficit') || EXPLAINERS_DATA[0];
 
   // Custom routing functions to support clean, deep-linked browser URLs for articles
   const openArticle = (art: Article) => {
@@ -303,9 +307,33 @@ export default function App() {
             <h2 className={`font-serif text-3xl sm:text-4xl font-bold tracking-tight uppercase ${
               darkMode ? 'text-white' : 'text-[#001B2A]'
             }`}>
-              The Approval Gap
+              {featuredTab === 'approval' ? 'The Approval Gap' : 'Execution Deficit'}
             </h2>
-            <div className="h-[2px] w-12 bg-brand-gold mx-auto mt-3" />
+            <div className="h-[2px] w-12 bg-brand-gold mx-auto mt-3 mb-6" />
+
+            {/* Toggle Switch */}
+            <div className="inline-flex rounded-full p-1 bg-brand-gold/10 border border-brand-gold/20">
+              <button
+                onClick={() => setFeaturedTab('approval')}
+                className={`px-4 py-1.5 rounded-full font-mono text-[10px] tracking-wider uppercase transition-all cursor-pointer ${
+                  featuredTab === 'approval'
+                    ? 'bg-brand-gold text-brand-primary font-bold shadow-md'
+                    : `${darkMode ? 'text-white/60 hover:text-white' : 'text-brand-primary/60 hover:text-brand-primary'}`
+                }`}
+              >
+                01. Approval Gap
+              </button>
+              <button
+                onClick={() => setFeaturedTab('execution')}
+                className={`px-4 py-1.5 rounded-full font-mono text-[10px] tracking-wider uppercase transition-all cursor-pointer ${
+                  featuredTab === 'execution'
+                    ? 'bg-brand-gold text-brand-primary font-bold shadow-md'
+                    : `${darkMode ? 'text-white/60 hover:text-white' : 'text-brand-primary/60 hover:text-brand-primary'}`
+                }`}
+              >
+                02. Execution Deficit
+              </button>
+            </div>
           </div>
 
           {/* Large Premium Featured Card Grid */}
@@ -326,36 +354,44 @@ export default function App() {
                   <h3 className={`font-serif text-3xl sm:text-4xl font-bold leading-tight mb-4 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
-                    The Approval Gap
+                    {featuredTab === 'approval' ? 'The Approval Gap' : 'A Signed Deal Is Not an Executed Deal'}
                   </h3>
                   
                   <p className="font-serif text-base sm:text-lg italic leading-relaxed mb-4 text-[#D9A441]">
-                    Why attractive opportunities lose momentum long before a decision is made.
+                    {featuredTab === 'approval' 
+                      ? 'Why attractive opportunities lose momentum long before a decision is made.' 
+                      : 'Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.'}
                   </p>
 
                   <p className={`font-sans text-xs sm:text-sm leading-relaxed mb-6 ${
                     darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
                   }`}>
-                    A foundational lens on the most common value leak in pharma deals.
+                    {featuredTab === 'approval'
+                      ? 'A foundational lens on the most common value leak in pharma deals.'
+                      : 'An analytical briefing on how weak handovers systematically erode deal forecasts.'}
                   </p>
                 </div>
 
                 {/* Mobile-only Diagram: Placed exactly under Description and before Read info and button as required */}
                 <div className="block lg:hidden w-[95%] mx-auto mb-6">
                   <div className="p-1 border border-brand-gold/10 bg-brand-primary/[0.01]">
-                    <ApprovalGapDiagram darkMode={darkMode} />
+                    {featuredTab === 'approval' ? (
+                      <ApprovalGapDiagram darkMode={darkMode} />
+                    ) : (
+                      <ExecutionDeficitDiagram darkMode={darkMode} />
+                    )}
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-brand-gold/20">
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-brand-gold font-bold uppercase">
                     <span className="flex items-center gap-1.5">
-                      <Clock size={13} strokeWidth={2} /> 6–8 MIN READ
+                      <Clock size={13} strokeWidth={2} /> {featuredTab === 'approval' ? '6–8 MIN READ' : '8 MIN READ'}
                     </span>
                   </div>
 
                   <button
-                    onClick={() => openArticle(approvalGapArticle)}
+                    onClick={() => openArticle(featuredTab === 'approval' ? approvalGapArticle : executionDeficitArticle)}
                     className="px-6 py-3.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer self-start sm:self-auto"
                   >
                     Read The Explainer <ArrowRight size={14} />
@@ -363,13 +399,17 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Graphic / Image Side with actual Approval Gap Diagram (Visible only on desktop/tablet to keep optimized mobile stream) */}
+              {/* Graphic / Image Side with actual Diagram (Visible only on desktop/tablet to keep optimized mobile stream) */}
               <div className={`hidden lg:flex lg:col-span-6 p-6 sm:p-8 lg:p-12 flex-col justify-between border-l ${
                 darkMode ? 'border-white/10 bg-[#071424]' : 'border-[#EADBCC] bg-white'
               } order-2 w-full`}>
                 <div className="w-full h-full flex flex-col justify-center">
                   <div className="p-2 sm:p-4 border border-brand-gold/10 bg-brand-primary/[0.02]">
-                    <ApprovalGapDiagram darkMode={darkMode} />
+                    {featuredTab === 'approval' ? (
+                      <ApprovalGapDiagram darkMode={darkMode} />
+                    ) : (
+                      <ExecutionDeficitDiagram darkMode={darkMode} />
+                    )}
                   </div>
                 </div>
               </div>
@@ -422,8 +462,11 @@ export default function App() {
                 </p>
               </div>
               <button 
-                onClick={scrollToFeatured}
-                className="text-[11px] font-mono font-bold text-brand-gold hover:text-brand-gold-hover tracking-wider uppercase transition-colors flex items-center gap-1 px-3 py-1 bg-transparent hover:bg-brand-gold/5"
+                onClick={() => {
+                  setFeaturedTab('approval');
+                  scrollToFeatured();
+                }}
+                className="text-[11px] font-mono font-bold text-brand-gold hover:text-brand-gold-hover tracking-wider uppercase transition-colors flex items-center gap-1 px-3 py-1 bg-transparent hover:bg-brand-gold/5 cursor-pointer"
               >
                 LEARN MORE <ArrowRight size={12} />
               </button>
@@ -451,8 +494,11 @@ export default function App() {
                 </p>
               </div>
               <button 
-                onClick={scrollToFeatured}
-                className="text-[11px] font-mono font-bold text-brand-gold hover:text-brand-gold-hover tracking-wider uppercase transition-colors flex items-center gap-1 px-3 py-1 bg-transparent hover:bg-brand-gold/5"
+                onClick={() => {
+                  setFeaturedTab('execution');
+                  scrollToFeatured();
+                }}
+                className="text-[11px] font-mono font-bold text-brand-gold hover:text-brand-gold-hover tracking-wider uppercase transition-colors flex items-center gap-1 px-3 py-1 bg-transparent hover:bg-brand-gold/5 cursor-pointer"
               >
                 LEARN MORE <ArrowRight size={12} />
               </button>

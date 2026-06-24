@@ -93,6 +93,69 @@ export const EXPLAINERS_DATA: Article[] = [
     `
   },
   {
+    id: 'execution-deficit',
+    category: 'DECISION INTELLIGENCE',
+    title: 'A Signed Deal Is Not an Executed Deal',
+    description: 'Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.',
+    meta: '8 MIN READ · JUN 24, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '8 min read',
+    date: 'June 24, 2026',
+    featuredSummary: 'Over 70% of pharma deals suffer from post-signature value leakage. This is the story of how the transition from contract to market reality fails—and how to actively bridge the gap.',
+    content: `
+      <p>One of the first major BD deals our team worked on was for Brazil.</p>
+      <p>It had almost everything a BD team wants to see. The product had been identified strategically. The commercial case was detailed. The forecast was attractive. The management presentation was strong. The agreement was negotiated carefully. By the time the deal was signed, it felt like one of the best closures the team had delivered.</p>
+      <p>The expectation was straightforward: once launched, the product should become a meaningful commercial success.</p>
+      <p>It did not.</p>
+      <p>Actual revenue was not even one-tenth of the original projection.</p>
+      <p>The easy explanation would have been to blame the product, the market, the partner, or the forecast. But that was not the real issue. The opportunity had not been poorly selected, the agreement had not been casually negotiated, and the business case had not been weakly presented.</p>
+      <p>The problem surfaced only when the agreement moved into execution.</p>
+      <p>The deal moved from BD into regulatory, PMO, commercial and other execution teams without enough structured transition. Assumptions that were clear during approval were not carried forward with the same ownership. Follow-up weakened. Context was lost. The handover was incomplete.</p>
+      <p>The signing was strong; the transition that followed was not.</p>
+      <p>A similar pattern appeared in a few other early projects before the lesson became clear: in pharma BD, signing is not success. It is the point at which the deal begins to depend on the organization’s ability to execute what it has agreed.</p>
+
+      <h2>The False Comfort of Signing</h2>
+      <p>Many pharma deals are judged too early.</p>
+      <p>Organizations often treat signing as the moment when the deal is completed. The BD team has delivered, the partner has committed, management has approved, and attention shifts to the next opportunity. In internal language, the deal is “closed.”</p>
+      <p>Commercially, however, very little value has been created at that point.</p>
+      <p>The value is created later, through regulatory execution, supply readiness, launch preparation, partner focus, market access work, governance discipline and cross-functional follow-through. A deal can be excellent at the negotiation table and still fail in commercialization if the organization does not manage the transition from agreement to execution.</p>
+      <p>The risk is not in the signature itself, but in what the organization assumes the signature has already solved.</p>
+
+      <h2>Where Value Starts Leaking</h2>
+      <p>Negotiation success is visible. Execution failure is slower and less dramatic.</p>
+      <p>A signed agreement creates confidence because it is tangible. There is a contract, a partner, a forecast, an approval note and a set of agreed terms. Execution readiness is less visible because it depends on whether the organization knows what must happen after signature, who owns each milestone, how delays will be escalated, and whether the assumptions used for approval remain protected during implementation.</p>
+      <p>When this transition is weak, the deal does not collapse immediately. It starts losing value quietly.</p>
+      <p>Regulatory timelines slip. Launch preparation becomes reactive. Partner urgency changes. Commercial ownership weakens. Forecast assumptions age faster than expected. By the time underperformance becomes visible, much of the value leakage has already occurred.</p>
+      <p>Most pharma organizations have two systems around a deal.</p>
+      <p>The first is the deal system. It evaluates the opportunity, negotiates the terms, secures approval and signs the agreement.</p>
+      <p>The second is the execution system. It must convert that agreement into market reality.</p>
+      <p>The problem is that these systems are often not connected strongly enough.</p>
+      <p>BD usually understands the strategic logic, partner context, negotiation history and assumptions behind the forecast. But once the deal is signed, responsibility moves to regulatory, PMO, quality, supply, commercial, finance, alliance or local teams. If the transition is not actively managed, the receiving teams inherit the obligation without fully inheriting the decision logic.</p>
+      <p>What changes is not the opportunity itself, but the operating environment responsible for carrying it.</p>
+
+      <h2>The Handover Problem</h2>
+      <p>Conventional BD thinking gives significant attention to deal closure, and understandably so. Closure requires opportunity selection, commercial modelling, internal alignment, management approval, partner negotiation, legal agreement and financial justification.</p>
+      <p>But closure is only one part of value creation.</p>
+      <p>The harder question is whether the organization has built enough transition discipline to protect the deal after signature. Regulatory, PMO, supply, commercial, finance and local teams need to understand not only what has been signed, but why it was signed, what assumptions supported approval, where value can be lost, and what must be protected during execution.</p>
+      <p>In many cases, the weak point is not the negotiation table.</p>
+      <p>It is the passage from negotiation to execution.</p>
+
+      <h2>What BD Leaders Should Change</h2>
+      <p>For BD teams, responsibility should not end at signature. It should change form, from deal creation to value transition.</p>
+      <p>For licensing heads, approval should include transition readiness, not only deal attractiveness.</p>
+      <p>For regulatory, PMO and commercial teams, early involvement matters because they inherit the reality that BD has negotiated.</p>
+      <p>For finance teams, risk-adjusted value should include execution risk, not only product, price and market assumptions.</p>
+      <p>For alliance managers, the best time to prevent future governance problems is before the deal enters execution, not after delays and misunderstandings have already accumulated.</p>
+      <p>The critical discipline is to test what must remain true after signature for the deal to create the value that was projected before signature.</p>
+
+      <h2>The PharmaSignal View</h2>
+      <p>The signature matters, but the handover decides whether the forecast survives.</p>
+      <p>In pharma BD, the strongest organizations do not stop at negotiating the agreement. They protect the assumptions behind it as the deal moves into execution.</p>
+      <p>That movement from BD to regulatory, PMO, commercial and alliance teams is not an administrative handoff. It is a value-protection mechanism.</p>
+      <p>The real test of a deal is therefore not only whether it can be signed, but whether the organization has built the conditions for it to succeed after signature.</p>
+    `
+  },
+  {
     id: 'deal-failures',
     category: 'LICENSING STRATEGY',
     title: 'Why Most Pharma Deals Fail Before Signing',
