@@ -37,25 +37,54 @@
 }
 
 .markdown-body p {
-  margin-bottom: 1.5rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .markdown-body p {
+    font-size: 1.125rem;
+  }
+}
+
+.markdown-body > p, .proportional-reading-pane > p {
+  margin-bottom: 1.85rem;
+}
+
+@media (min-width: 640px) {
+  .markdown-body > p, .proportional-reading-pane > p {
+    margin-bottom: 1.6rem;
+  }
 }
 
 .markdown-body h2 {
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: #001B2A;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
+@media (min-width: 640px) {
+  .markdown-body h2 {
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+  }
+}
+
 .markdown-body h3 {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #001B2A;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
   margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .markdown-body h3 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+  }
 }
 
 .markdown-body blockquote {

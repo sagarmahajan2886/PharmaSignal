@@ -97,9 +97,9 @@ export const EXPLAINERS_DATA: Article[] = [
     category: 'DECISION INTELLIGENCE',
     title: 'A Signed Deal Is Not an Executed Deal',
     description: 'Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.',
-    meta: '8 MIN READ · JUN 24, 2026',
+    meta: '7 MIN READ · JUN 24, 2026',
     author: 'PharmaSignal Desk',
-    readTime: '8 min read',
+    readTime: '7 min read',
     date: 'June 24, 2026',
     featuredSummary: 'Over 70% of pharma deals suffer from post-signature value leakage. This is the story of how the transition from contract to market reality fails—and how to actively bridge the gap.',
     content: `

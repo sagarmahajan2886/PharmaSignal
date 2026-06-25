@@ -3,15 +3,17 @@ import { motion } from 'motion/react';
 import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft } from 'lucide-react';
 import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
-import ExecutionDeficitDiagram from './ExecutionDeficitDiagram';
+// @ts-ignore
+import executionDeficitImg from '../assets/images/execution_deficit_diagram_new_1782370523380.jpg';
 
 interface ArticleModalProps {
   article: Article | null;
   onClose: () => void;
   darkMode?: boolean;
+  onSelectArticleId?: (id: string) => void;
 }
 
-export default function ArticleModal({ article, onClose, darkMode = false }: ArticleModalProps) {
+export default function ArticleModal({ article, onClose, darkMode = false, onSelectArticleId }: ArticleModalProps) {
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -207,28 +209,36 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                         02. False Comfort of Signing
                       </button>
                       <button 
-                        onClick={() => scrollToId('value-leaking')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        03. Where Value Leaks
-                      </button>
-                      <button 
                         onClick={() => scrollToId('handover-problem')} 
                         className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
                           darkMode ? 'text-white/70' : 'text-brand-primary'
                         }`}
                       >
-                        04. Handover Problem
+                        03. Handover Problem
                       </button>
                       <button 
-                        onClick={() => scrollToId('strategic-changes')} 
+                        onClick={() => scrollToId('detect-early')} 
                         className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
                           darkMode ? 'text-white/70' : 'text-brand-primary'
                         }`}
                       >
-                        05. Strategic Changes
+                        04. Detecting Deficit Early
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('decision-makers')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        05. For Decision Makers
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('principle-deficit')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        06. PharmaSignal Principle
                       </button>
                     </>
                   ) : (
@@ -570,11 +580,11 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   <div className={`mt-1.5 sm:mt-2 flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-0.5 sm:gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
                     <span>Category: Decision Intelligence</span>
                     <span className="opacity-40 sm:inline hidden">•</span>
-                    <span className="sm:inline hidden">Reading Time: 8 Minutes</span>
+                    <span className="sm:inline hidden">Reading Time: 7 Minutes</span>
                     <span className="opacity-40 sm:inline hidden">•</span>
                     <span className="sm:inline hidden">Published: June 24, 2026</span>
                     
-                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">8 Min</span>
+                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">7 Min</span>
                     <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">June 24, 2026</span>
                   </div>
                 </div>
@@ -586,7 +596,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   }`}>
                     A SIGNED DEAL IS NOT AN EXECUTED DEAL
                   </h1>
-                  <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold">
+                  <p className="font-serif text-sm sm:text-lg md:text-xl italic leading-relaxed text-brand-gold/90 font-medium">
                     Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
                   </p>
                 </div>
@@ -599,10 +609,11 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   <p className="mb-6">The expectation was straightforward: once launched, the product should become a meaningful commercial success.</p>
                   <p className="mb-4 font-bold text-brand-gold text-lg">It did not.</p>
                   <p className="mb-6">Actual revenue was not even one-tenth of the original projection.</p>
-                  <p className="mb-6">The easy explanation would have been to blame the product, the market, the partner, or the forecast. But that was not the real issue. The opportunity had not been poorly selected, the agreement had not been casually negotiated, and the business case had not been weakly presented.</p>
+                  <p className="mb-6">The easy explanation would have been to blame the product, the market, the partner, or the forecast. But that was not the real issue. The opportunity had not been poorly selected. The agreement had not been casually negotiated. The business case had not been weakly presented.</p>
                   <p className="mb-6">The problem surfaced only when the agreement moved into execution.</p>
-                  <p className="mb-6">The deal moved from BD into regulatory, PMO, commercial and other execution teams without enough structured transition. Assumptions that were clear during approval were not carried forward with the same ownership. Follow-up weakened. Context was lost. The handover was incomplete.</p>
-                  <p className="mb-6">The signing was strong; the transition that followed was not.</p>
+                  <p className="mb-6">The deal moved from BD into regulatory, governance, commercial and other execution teams without enough structured transition. Assumptions that were clear during approval were not carried forward with the same ownership. Follow-up weakened. Context was lost. The handover was incomplete.</p>
+                  <p className="mb-6">The signing was strong.</p>
+                  <p className="mb-6">The transition that followed was not.</p>
                   <p className="mb-6">A similar pattern appeared in a few other early projects before the lesson became clear: in pharma BD, signing is not success. It is the point at which the deal begins to depend on the organization’s ability to execute what it has agreed.</p>
 
                   {/* Defining the Mechanism Pull-quote */}
@@ -617,114 +628,80 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                   </div>
 
                   {/* FT Style Image Insertion */}
-                  <div className="my-14 max-w-2xl mx-auto">
+                  <div className="my-10 sm:my-16 max-w-2xl mx-auto px-1 sm:px-0">
                     <p className={`mb-6 font-serif text-base sm:text-lg leading-relaxed ${
                       darkMode ? 'text-white/80' : 'text-brand-charcoal/80'
                     }`}>
-                      This is the Execution Deficit: the distance between signing the agreement and building the operating conditions required to deliver the forecast.
+                      This is the Execution Deficit: the distance between signing the agreement and building the operating conditions required to realize the deal’s value.
                     </p>
-                    <div className="w-full flex justify-center pb-4 select-none">
-                      <ExecutionDeficitDiagram darkMode={darkMode} />
+                    <div className="w-full py-4 sm:py-6 select-none">
+                      <img 
+                        src={executionDeficitImg} 
+                        alt="Execution Deficit in pharma BD — the gap between signed agreement and realized commercial value." 
+                        className="w-full h-auto object-contain shadow-2xl border border-brand-gold/20 rounded-sm"
+                        referrerPolicy="no-referrer"
+                      />
                     </div>
-                    <p className={`mt-4 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                      darkMode ? 'text-white/60' : 'text-brand-charcoal/50'
+                    <span className={`mt-2 block text-center font-sans text-[10px] sm:text-xs tracking-normal font-normal leading-normal ${
+                      darkMode ? 'text-white/50' : 'text-brand-charcoal/55'
                     }`}>
                       Figure: Execution Deficit — where projected value leaks after signature.
+                    </span>
+                  </div>
+
+                  {/* Elegant Internal Linking Card */}
+                  <div className={`my-10 p-6 border-l-2 border-brand-gold ${darkMode ? 'bg-white/[0.02]' : 'bg-brand-gold-light/10'}`}>
+                    <p className="text-[10px] font-mono tracking-widest text-brand-gold uppercase mb-1.5 font-bold">Related Analysis</p>
+                    <p className={`font-serif text-sm leading-relaxed ${darkMode ? 'text-white/90' : 'text-brand-charcoal'}`}>
+                      Read our explainer on{' '}
+                      <button 
+                        onClick={() => onSelectArticleId?.('the-approval-gap')} 
+                        className="text-brand-gold underline hover:text-brand-gold-hover font-semibold cursor-pointer transition-colors"
+                      >
+                        The Approval Gap
+                      </button>
+                      {' '}to understand how internal alignment friction delays critical licensing decisions.
                     </p>
                   </div>
 
                   {/* The False Comfort of Signing */}
-                  <h2 id="signing-comfort" className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                  <h2 id="signing-comfort" className={`font-serif text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 mt-10 sm:mt-12 tracking-tight ${
                     darkMode ? 'text-white' : 'text-brand-primary'
                   }`}>
                     The False Comfort of Signing
                   </h2>
                   <p className="mb-6">Many pharma deals are judged too early.</p>
-                  <p className="mb-6">Organizations often treat signing as the moment when the deal is completed. The BD team has delivered, the partner has committed, management has approved, and attention shifts to the next opportunity. In internal language, the deal is “closed.”</p>
+                  <p className="mb-6">Organizations often treat signing as the moment when the deal is completed. The BD team has delivered. The partner has committed. Management has approved. Attention shifts to the next opportunity.</p>
+                  <p className="mb-6">In internal language, the deal is “closed.”</p>
                   <p className="mb-6">Commercially, however, very little value has been created at that point.</p>
-                  <p className="mb-6">The value is created later, through regulatory execution, supply readiness, launch preparation, partner focus, market access work, governance discipline and cross-functional follow-through. A deal can be excellent at the negotiation table and still fail in commercialization if the organization does not manage the transition from agreement to execution.</p>
-                  <p className="mb-6 italic text-brand-gold">The risk is not in the signature itself, but in what the organization assumes the signature has already solved.</p>
-
-                  {/* Where Value Starts Leaking */}
-                  <div id="value-leaking" className={`my-14 p-8 sm:p-12 border border-brand-gold/30 bg-brand-gold-light/15 ${
-                    darkMode ? 'text-white bg-white/[0.01]' : 'text-[#111827]'
-                  }`}>
-                    <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-8 tracking-tight ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
-                      Where Value Starts Leaking
-                    </h2>
-                    <p className={`font-serif text-base sm:text-lg mb-10 italic leading-relaxed ${darkMode ? 'text-white/80' : 'text-brand-charcoal/70'}`}>
-                      Negotiation success is visible. Execution failure is slower, less dramatic, and usually shows up in three places:
-                    </p>
-
-                    <div className="space-y-10">
-                      {/* Item 1 */}
-                      <div>
-                        <div className="flex items-baseline gap-4 mb-3">
-                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">01</span>
-                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
-                            Slipping Regulatory Timelines
-                          </h3>
-                        </div>
-                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
-                          Regulatory timelines slip when local submission requirements are handled as simple handovers rather than strategic milestones. If the receiving team doesn't inherit the product context from diligence, simple queries can easily trigger months of delay.
-                        </p>
-                      </div>
-
-                      {/* Divider */}
-                      <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
-
-                      {/* Item 2 */}
-                      <div>
-                        <div className="flex items-baseline gap-4 mb-3">
-                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">02</span>
-                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
-                            Evaporating Partner Urgency
-                          </h3>
-                        </div>
-                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
-                          Once negotiations conclude, partner momentum naturally cools. Without active joint governance and transition milestones, the licensing partner may quietly reprioritize internal resources, stalling launch-readiness work.
-                        </p>
-                      </div>
-
-                      {/* Divider */}
-                      <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
-
-                      {/* Item 3 */}
-                      <div>
-                        <div className="flex items-baseline gap-4 mb-3">
-                          <span className="font-mono text-sm font-bold text-brand-gold tracking-widest">03</span>
-                          <h3 className={`font-serif text-lg sm:text-xl font-bold m-0 ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
-                            Fragmented Commercial Ownership
-                          </h3>
-                        </div>
-                        <p className={`font-serif text-base sm:text-lg leading-relaxed ${darkMode ? 'text-white/85' : 'text-brand-charcoal/80'}`}>
-                          The local affiliate receives a signed contract and a forecast, but not the underlying decision rationale or target profiling logic. Lacking this context, local teams fall back on generic commercial campaigns, eroding the competitive advantage designed during diligence.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="mb-6">The value is created later, through regulatory execution, supply readiness, launch preparation, partner focus, market access work, governance discipline and cross-functional follow-through.</p>
+                  <p className="mb-6">A deal can be excellent at the negotiation table and still fail in commercialization if the organization does not manage the transition from agreement to execution.</p>
+                  <p className="mb-6">The risk is not in the signature itself.</p>
+                  <p className="mb-6 font-bold text-brand-gold italic">The risk is in what the organization assumes the signature has already solved.</p>
 
                   {/* The Handover Problem */}
-                  <h2 id="handover-problem" className={`font-serif text-2xl sm:text-3xl font-semibold mb-6 mt-12 tracking-tight ${
+                  <h2 id="handover-problem" className={`font-serif text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 mt-10 sm:mt-12 tracking-tight ${
                     darkMode ? 'text-white' : 'text-brand-primary'
                   }`}>
                     The Handover Problem
                   </h2>
-                  <p className="mb-6">Conventional BD thinking gives significant attention to deal closure, and understandably so. Closure requires opportunity selection, commercial modelling, internal alignment, management approval, partner negotiation, legal agreement and financial justification.</p>
+                  <p className="mb-6">Conventional BD thinking gives significant attention to deal closure, and understandably so.</p>
+                  <p className="mb-6">Closure requires opportunity selection, commercial modelling, internal alignment, management approval, partner negotiation, legal agreement and financial justification.</p>
                   <p className="mb-6">But closure is only one part of value creation.</p>
-                  <p className="mb-6">The deal system and execution system are often not connected strongly enough. Value leaks when Business Development hands over the contractual obligation but not the underlying decision logic.</p>
-                  <p className="mb-6">Regulatory, PMO, supply, commercial, finance and local teams need to understand not only what has been signed, but why it was signed, what assumptions supported approval, where value can be lost, and what must be protected during execution.</p>
+                  <p className="mb-6">The deal system and the execution system are often not connected strongly enough.</p>
+                  <p className="mb-6">Value leaks when Business Development hands over the contractual obligation but not the underlying decision logic.</p>
+                  <p className="mb-6">Regulatory, governance, supply, commercial, finance and local teams need to understand not only what has been signed, but why it was signed, what assumptions supported approval, where value can be lost, and what must be protected during execution.</p>
                   <p className="mb-6 font-bold text-brand-gold italic">In many cases, the weak point is not the negotiation table. It is the passage from negotiation to execution.</p>
 
                   {/* How to Detect Execution Deficit Early */}
-                  <div id="strategic-changes" className={`my-14 p-8 sm:p-12 border-l-4 border-brand-gold ${darkMode ? 'bg-white/[0.01]' : 'bg-brand-gold-light/20'}`}>
-                    <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-3 tracking-tight ${
+                  <div id="detect-early" className={`my-14 p-8 sm:p-12 border-l-4 border-brand-gold ${darkMode ? 'bg-white/[0.01]' : 'bg-brand-gold-light/20'}`}>
+                    <h2 className={`font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-3 tracking-tight ${
                       darkMode ? 'text-white' : 'text-brand-primary'
                     }`}>
                       How to Detect Execution Deficit Early
                     </h2>
                     <p className={`font-sans text-xs tracking-wider uppercase mb-8 ${darkMode ? 'text-brand-gold' : 'text-brand-primary/60'}`}>
-                      Three early signs that the deal has been signed faster than it has been operationally absorbed
+                      Three signs indicate that a deal has been signed faster than it has been operationally absorbed
                     </p>
 
                     <div className="space-y-8">
@@ -736,7 +713,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                             Transition Ownership
                           </p>
                           <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
-                            Is there a 90-day transition owner after signing, with BD and execution teams both accountable?
+                            Is there a 90-day transition owner after signing, with BD and execution teams both accountable? If nobody owns the transition, the deal enters execution with unclear accountability from day one.
                           </p>
                         </div>
                       </div>
@@ -749,7 +726,7 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                             Diligence Assumptions
                           </p>
                           <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
-                            Are the key assumptions from diligence documented and assigned to functional owners?
+                            Are the key assumptions from diligence documented and assigned to functional owners? If assumptions stay inside the approval deck, they rarely survive execution reality.
                           </p>
                         </div>
                       </div>
@@ -762,20 +739,40 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                             Execution Milestones
                           </p>
                           <p className={`font-sans text-xs sm:text-sm ${darkMode ? 'text-white/80' : 'text-brand-charcoal/80'}`}>
-                            Are regulatory, PMO and commercial milestones agreed before final approval, not after signing?
+                            Are regulatory, governance and commercial milestones agreed before final approval, not after signing? If execution milestones are built only after signature, the organization is already late.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Summary & View */}
-                  <p className="mb-6">For BD teams, responsibility should not end at signature. It should change form, from deal creation to value transition.</p>
+                  {/* What This Means for Decision Makers */}
+                  <h2 id="decision-makers" className={`font-serif text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 mt-10 sm:mt-12 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    What This Means for Decision Makers
+                  </h2>
+                  <p className="mb-6">For BD teams, responsibility should not end at signature. It should change form: from deal creation to value transition.</p>
                   <p className="mb-6">For licensing heads, approval should include transition readiness, not only deal attractiveness.</p>
-                  <p className="mb-6">For regulatory, PMO and commercial teams, early involvement matters because they inherit the reality that BD has negotiated.</p>
+                  <p className="mb-6">For alliance managers, early involvement matters because governance debt is often created before the alliance formally begins.</p>
+                  <p className="mb-6">For regulatory, commercial and local execution teams, early context is not administrative. It protects the assumptions that made the deal worth signing.</p>
+                  <p className="mb-6">For finance and portfolio leaders, risk-adjusted value should include execution risk, not only product, price and market assumptions.</p>
+                  
+                  <p className="mb-6 font-serif text-lg sm:text-xl md:text-2xl italic text-brand-gold leading-relaxed mt-10">
+                    The better question is not only:
+                  </p>
+                  <p className="mb-6 font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-brand-gold leading-tight">
+                    Can we sign this deal?
+                  </p>
+                  <p className="mb-6 font-serif text-lg sm:text-xl md:text-2xl italic text-brand-gold leading-relaxed mt-8">
+                    The better question is:
+                  </p>
+                  <p className="mb-6 font-serif text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-brand-gold leading-tight">
+                    Can this deal survive the transition from agreement to execution?
+                  </p>
 
                   {/* PHARMASIGNAL PRINCIPLE */}
-                  <div className="my-16 p-8 sm:p-12 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                  <div id="principle-deficit" className="my-16 p-8 sm:p-12 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
                     <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-4">
                       PHARMASIGNAL PRINCIPLE
                     </div>
@@ -785,7 +782,10 @@ export default function ArticleModal({ article, onClose, darkMode = false }: Art
                       </p>
                       <div className="h-[1px] w-20 bg-brand-gold/40" />
                       <p className="font-sans text-sm sm:text-base leading-relaxed text-white/80">
-                        The handover from Business Development to regulatory, PMO, commercial, and alliance teams is not an administrative step. It is an active value-protection mechanism. The strongest organizations do not stop at negotiating the agreement; they protect the strategic assumptions behind it as the deal moves into execution.
+                        The handover from Business Development to regulatory, governance, commercial and alliance teams is not an administrative step. It is an active value-protection mechanism. The strongest organizations do not stop at negotiating the agreement. They protect the strategic assumptions behind it as the deal moves into execution.
+                      </p>
+                      <p className="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed italic font-medium text-brand-gold pt-4">
+                        A signed deal creates commitment. Execution creates value.
                       </p>
                     </div>
                   </div>

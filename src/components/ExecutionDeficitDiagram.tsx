@@ -35,7 +35,7 @@ export default function ExecutionDeficitDiagram({ darkMode = false }: ExecutionD
             THE EXECUTION DEFICIT
           </text>
           <text x="325" y="55" textAnchor="middle" className="diag-subtitle text-xs sm:text-sm" fill={textColorSecondary}>
-            The distance between a signed contract and a realized commercial success.
+            The gap between a signed agreement and realized commercial success.
           </text>
 
           {/* LEFT CONTAINER: DEAL SYSTEM */}
