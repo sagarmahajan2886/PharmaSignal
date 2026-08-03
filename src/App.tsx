@@ -304,10 +304,12 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight leading-tight mb-3"
+                className={`font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight leading-tight mb-3 ${
+                  darkMode ? 'text-white' : 'text-[#001B2A]'
+                }`}
               >
-                <span className="bg-[linear-gradient(120deg,#FAF6EE_20%,#D9A441_100%)] bg-clip-text text-transparent">
-                  What is PharmaSignal?
+                <span>
+                  What is PHARMA<span className="text-brand-gold">SIGNAL</span>?
                 </span>
               </motion.h1>
               <div className="h-[2px] w-12 bg-brand-gold mb-4" />
