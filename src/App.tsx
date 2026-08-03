@@ -304,35 +304,32 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className={`font-serif text-3.5xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-2 ${
+                className={`font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight leading-tight mb-3 ${
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}
               >
-                What is PharmaSignal?
+                What is <span className="text-brand-gold">PharmaSignal?</span>
               </motion.h1>
-              <div className="h-[2px] w-12 bg-brand-gold mb-5" />
+              <div className="h-[2px] w-12 bg-brand-gold mb-4" />
 
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className={`font-sans text-sm sm:text-base leading-relaxed max-w-2xl space-y-4 font-normal ${
-                  darkMode ? 'text-white/90' : 'text-brand-charcoal/90'
+                className={`font-sans text-base sm:text-lg leading-relaxed max-w-2xl space-y-3.5 font-normal ${
+                  darkMode ? 'text-white' : 'text-brand-charcoal'
                 }`}
               >
-                <p className="font-bold text-base sm:text-lg leading-relaxed">
-                  PharmaSignal studies how value is created and destroyed in pharma business development.
+                <p className="font-bold text-lg sm:text-xl leading-snug text-white">
+                  PharmaSignal decodes how deal value is <span className="text-brand-gold font-bold">created and destroyed</span> in pharma business development.
                 </p>
-                <p className="text-sm sm:text-base">
-                  We decode the mechanisms behind licensing decisions, partner selection, market access, execution risk and deal value leakage.
+                <p className="text-base sm:text-[17px] text-white/90 leading-relaxed">
+                  We analyze licensing mechanisms, partner selection, execution risk, and deal value leakage — <span className="text-brand-gold font-semibold">before approval, after signing, and during execution.</span>
                 </p>
-                <p className={`text-xs sm:text-sm border-l-2 border-brand-gold/40 pl-4 py-1 italic ${
-                  darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
+                <p className={`text-xs sm:text-sm border-l-2 border-brand-gold pl-3.5 py-0.5 italic ${
+                  darkMode ? 'text-brand-gold/90' : 'text-brand-primary'
                 }`}>
-                  Built from practical BD experience, reusable observations and decision-focused explainers.
-                </p>
-                <p className="font-serif text-base sm:text-lg font-bold text-brand-gold">
-                  How pharma deals really work — before approval, after signing and during execution.
+                  Built from practical BD experience and decision-focused explainers.
                 </p>
               </motion.div>
 
@@ -405,8 +402,8 @@ export default function App() {
               Latest Explainers
             </h2>
             <div className="h-[2px] w-12 bg-brand-gold mt-2 mb-4" />
-            <p className={`font-serif text-sm sm:text-base leading-relaxed ${
-              darkMode ? 'text-white/70' : 'text-brand-charcoal/75'
+            <p className={`font-serif text-base sm:text-[17px] leading-relaxed ${
+              darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
             }`}>
               Decision intelligence briefings on the mechanisms that shape pharma BD outcomes.
             </p>
@@ -441,7 +438,7 @@ export default function App() {
                   }`}>
                     The Approval Gap
                   </h3>
-                  <p className={`font-serif text-sm italic leading-relaxed ${
+                  <p className={`font-serif text-[15px] sm:text-base italic leading-relaxed ${
                     darkMode ? 'text-white/95' : 'text-brand-charcoal/95'
                   }`}>
                     Why commercially attractive pharma BD opportunities often slow down before approval — not because the opportunity is weak, but because internal decision readiness is misaligned.
@@ -493,7 +490,7 @@ export default function App() {
                   }`}>
                     A Signed Deal Is Not an Executed Deal
                   </h3>
-                  <p className={`font-serif text-sm italic leading-relaxed ${
+                  <p className={`font-serif text-[15px] sm:text-base italic leading-relaxed ${
                     darkMode ? 'text-white/95' : 'text-brand-charcoal/95'
                   }`}>
                     Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
@@ -535,8 +532,8 @@ export default function App() {
                 Deal Signals
               </h2>
               <div className="h-[2px] w-12 bg-brand-gold mt-1 mb-3" />
-              <p className={`font-serif text-sm sm:text-base leading-relaxed ${
-                darkMode ? 'text-white/70' : 'text-brand-charcoal/75'
+              <p className={`font-serif text-base sm:text-[17px] leading-relaxed ${
+                darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
               }`}>
                 Public pharma BD deals interpreted through the mechanisms that create or destroy value.
               </p>
@@ -583,8 +580,8 @@ export default function App() {
                     {deal.title}
                   </h3>
                   
-                  <p className={`font-serif text-sm italic leading-relaxed ${
-                    darkMode ? 'text-white/90' : 'text-brand-charcoal/90'
+                  <p className={`font-serif text-[15px] sm:text-base italic leading-relaxed ${
+                    darkMode ? 'text-white/95' : 'text-brand-charcoal/95'
                   }`}>
                     {deal.description}
                   </p>
@@ -730,7 +727,7 @@ export default function App() {
                 <span className={`font-serif text-2xl font-bold tracking-wider ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
                   PHARMA<span className="text-brand-gold">SIGNAL</span>
                 </span>
-                <span className="block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-semibold mt-1">
+                <span className="block text-[11px] font-mono tracking-widest text-brand-gold uppercase font-semibold mt-1">
                   Decision Intelligence for Pharma Business Development
                 </span>
               </div>
@@ -741,14 +738,14 @@ export default function App() {
               <span className="font-serif text-base sm:text-lg italic text-brand-gold font-semibold tracking-wide block">
                 How Pharma Deals Really Work.
               </span>
-              <span className={`block text-[11px] font-mono mt-1 uppercase tracking-wider ${darkMode ? 'text-white/30' : 'text-brand-charcoal/40'}`}>
+              <span className={`block text-xs font-mono mt-1 uppercase tracking-wider ${darkMode ? 'text-white/50' : 'text-brand-charcoal/60'}`}>
                 © 2026 PharmaSignal. All rights reserved.
               </span>
             </div>
 
             {/* Right Links & Social Col */}
             <div className="md:col-span-4 flex flex-col md:items-end justify-center text-left md:text-right space-y-4 w-full">
-              <nav className="flex flex-wrap md:justify-end gap-x-5 gap-y-2 text-[10px] sm:text-xs font-sans font-bold uppercase tracking-wider">
+              <nav className="flex flex-wrap md:justify-end gap-x-5 gap-y-2 text-xs font-sans font-bold uppercase tracking-wider">
                 <button 
                   onClick={scrollToFeatured}
                   className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
