@@ -304,11 +304,11 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className={`font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight leading-tight mb-3 ${
-                  darkMode ? 'text-white' : 'text-[#001B2A]'
-                }`}
+                className="font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight leading-tight mb-3"
               >
-                What is <span className="text-brand-gold">PharmaSignal?</span>
+                <span className="bg-[linear-gradient(120deg,#FAF6EE_20%,#D9A441_100%)] bg-clip-text text-transparent">
+                  What is PharmaSignal?
+                </span>
               </motion.h1>
               <div className="h-[2px] w-12 bg-brand-gold mb-4" />
 
@@ -316,15 +316,15 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className={`font-sans text-base sm:text-lg leading-relaxed max-w-2xl space-y-3.5 font-normal ${
+                className={`font-sans text-base sm:text-lg leading-relaxed max-w-2xl space-y-3 font-normal ${
                   darkMode ? 'text-white' : 'text-brand-charcoal'
                 }`}
               >
                 <p className="font-bold text-lg sm:text-xl leading-snug text-white">
-                  PharmaSignal decodes how deal value is <span className="text-brand-gold font-bold">created and destroyed</span> in pharma business development.
+                  Decoding how deal value is <span className="text-brand-gold">created and destroyed</span> in biopharma licensing.
                 </p>
                 <p className="text-base sm:text-[17px] text-white/90 leading-relaxed">
-                  We analyze licensing mechanisms, partner selection, execution risk, and deal value leakage — <span className="text-brand-gold font-semibold">before approval, after signing, and during execution.</span>
+                  We analyze licensing mechanisms, partner selection, execution risk, and value leakage across all deal stages.
                 </p>
                 <p className={`text-xs sm:text-sm border-l-2 border-brand-gold pl-3.5 py-0.5 italic ${
                   darkMode ? 'text-brand-gold/90' : 'text-brand-primary'
@@ -392,16 +392,16 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-left max-w-3xl mb-12">
-            <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
-              LATEST EXPLAINERS
+          <div className="text-left max-w-3xl mb-10 sm:mb-12">
+            <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-2">
+              DECISION INTELLIGENCE BRIEFINGS
             </span>
-            <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-4 ${
+            <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-3 ${
               darkMode ? 'text-white' : 'text-[#001B2A]'
             }`}>
               Latest Explainers
             </h2>
-            <div className="h-[2px] w-12 bg-brand-gold mt-2 mb-4" />
+            <div className="h-[2px] w-12 bg-brand-gold mb-4" />
             <p className={`font-serif text-base sm:text-[17px] leading-relaxed ${
               darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
             }`}>
@@ -526,12 +526,15 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div className="text-left max-w-3xl">
+              <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-2">
+                EMPIRICAL EVIDENCE
+              </span>
               <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-3 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
               }`}>
                 Deal Signals
               </h2>
-              <div className="h-[2px] w-12 bg-brand-gold mt-1 mb-3" />
+              <div className="h-[2px] w-12 bg-brand-gold mb-3" />
               <p className={`font-serif text-base sm:text-[17px] leading-relaxed ${
                 darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
               }`}>
