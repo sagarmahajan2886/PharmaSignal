@@ -19,6 +19,7 @@ import Navigation from './components/Navigation';
 import ArticleModal from './components/ArticleModal';
 import ApprovalGapDiagram from './components/ApprovalGapDiagram';
 import ExecutionDeficitDiagram from './components/ExecutionDeficitDiagram';
+import HeroMechanismDiagram from './components/HeroMechanismDiagram';
 
 // Import our custom images
 // @ts-ignore
@@ -196,9 +197,6 @@ export default function App() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-left max-w-3xl mb-12">
-              <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
-                EMPIRICAL EVIDENCE LAYER
-              </span>
               <h1 className={`font-serif text-3.5xl sm:text-5xl font-bold tracking-tight uppercase mb-4 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
               }`}>
@@ -323,10 +321,10 @@ export default function App() {
                 }`}
               >
                 <p className="font-bold text-base sm:text-lg leading-relaxed">
-                  PharmaSignal is a Decision Intelligence platform for Pharma Business Development.
+                  PharmaSignal studies how value is created and destroyed in pharma business development.
                 </p>
                 <p className="text-sm sm:text-base">
-                  We explain the hidden mechanisms that create or destroy value in pharma deals, partnerships and market execution.
+                  We decode the mechanisms behind licensing decisions, partner selection, market access, execution risk and deal value leakage.
                 </p>
                 <p className={`text-xs sm:text-sm border-l-2 border-brand-gold/40 pl-4 py-1 italic ${
                   darkMode ? 'text-white/70' : 'text-brand-charcoal/70'
@@ -334,7 +332,7 @@ export default function App() {
                   Built from practical BD experience, reusable observations and decision-focused explainers.
                 </p>
                 <p className="font-serif text-base sm:text-lg font-bold text-brand-gold">
-                  How Pharma Deals Really Work.
+                  How pharma deals really work — before approval, after signing and during execution.
                 </p>
               </motion.div>
 
@@ -365,36 +363,18 @@ export default function App() {
               </motion.div>
             </div>
 
-            {/* Right Column: Premium boardroom picture */}
+            {/* Right Column: PharmaSignal Mechanism Visual */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-5 relative w-full h-[280px] sm:h-[400px] lg:h-[460px] order-2"
+              className="lg:col-span-5 relative w-full h-[280px] sm:h-[380px] lg:h-[420px] order-2"
             >
               <div className={`absolute inset-0 border p-2 sm:p-3 relative z-10 w-full h-full ${
                 darkMode ? 'border-brand-gold/20' : 'border-[#EADBCC]'
               }`}>
-                <div className="relative w-full h-full overflow-hidden">
-                  <div className={`absolute inset-0 z-10 bg-gradient-to-t ${
-                    darkMode ? 'from-brand-primary' : 'from-[#FAF6EE]/60'
-                  } via-transparent to-transparent`} />
-                  
-                  <img 
-                    src={heroBoardroom} 
-                    alt="Decision Intelligence for Pharma BD Leaders" 
-                    className="w-full h-full object-cover transition-transform duration-[4000ms] ease-out hover:scale-105"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800";
-                    }}
-                  />
-                  
-                  <div className="absolute bottom-6 left-6 z-20 hidden sm:block">
-                    <span className="font-mono text-[9px] tracking-widest text-[#D9A441] bg-brand-primary/80 py-1 px-2 border border-brand-gold/30 font-semibold block uppercase">
-                      Decision Intelligence for Pharma BD Leaders
-                    </span>
-                  </div>
+                <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#071A2E]">
+                  <HeroMechanismDiagram darkMode={darkMode} />
                 </div>
               </div>
               
@@ -428,7 +408,7 @@ export default function App() {
             <p className={`font-serif text-sm sm:text-base leading-relaxed ${
               darkMode ? 'text-white/70' : 'text-brand-charcoal/75'
             }`}>
-              Decision intelligence briefings on the mechanisms that create or destroy value in pharma BD.
+              Decision intelligence briefings on the mechanisms that shape pharma BD outcomes.
             </p>
           </div>
 
@@ -443,7 +423,7 @@ export default function App() {
             }`}>
               <div>
                 {/* Graphic Side */}
-                <div className={`h-56 sm:h-64 lg:h-72 flex items-center justify-center p-6 border-b overflow-hidden bg-brand-primary/[0.02] ${
+                <div className={`h-44 sm:h-52 lg:h-56 flex items-center justify-center p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
                   darkMode ? 'border-white/10' : 'border-[#EADBCC]'
                 }`}>
                   <div className="w-full max-w-sm h-full flex items-center justify-center overflow-hidden">
@@ -452,16 +432,16 @@ export default function App() {
                 </div>
                 
                 {/* Content Side */}
-                <div className="p-6 sm:p-8">
-                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-4 px-2 py-0.5 border border-brand-gold/30">
+                <div className="p-5 sm:p-6">
+                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-3 px-2 py-0.5 border border-brand-gold/30">
                     APPROVAL GAP
                   </span>
-                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-4 ${
+                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-3 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
                     The Approval Gap
                   </h3>
-                  <p className={`font-serif text-sm sm:text-base italic leading-relaxed ${
+                  <p className={`font-serif text-sm italic leading-relaxed ${
                     darkMode ? 'text-white/95' : 'text-brand-charcoal/95'
                   }`}>
                     Why commercially attractive pharma BD opportunities often slow down before approval — not because the opportunity is weak, but because internal decision readiness is misaligned.
@@ -469,13 +449,13 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="p-6 sm:p-8 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+              <div className="p-5 sm:p-6 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
                 <span className="flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase">
                   <Clock size={12} strokeWidth={2.5} /> 7 MIN READ
                 </span>
                 <button
                   onClick={() => openArticle(approvalGapArticle)}
-                  className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Read Explainer <ArrowRight size={12} />
                 </button>
@@ -490,7 +470,7 @@ export default function App() {
             }`}>
               <div>
                 {/* Graphic Side */}
-                <div className={`h-56 sm:h-64 lg:h-72 flex items-center justify-center p-6 border-b overflow-hidden bg-brand-primary/[0.02] ${
+                <div className={`h-44 sm:h-52 lg:h-56 flex items-center justify-center p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
                   darkMode ? 'border-white/10' : 'border-[#EADBCC]'
                 }`}>
                   <div className="w-full h-full flex items-center justify-center p-2">
@@ -504,16 +484,16 @@ export default function App() {
                 </div>
                 
                 {/* Content Side */}
-                <div className="p-6 sm:p-8">
-                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-4 px-2 py-0.5 border border-brand-gold/30">
+                <div className="p-5 sm:p-6">
+                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-3 px-2 py-0.5 border border-brand-gold/30">
                     EXECUTION DEFICIT
                   </span>
-                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-4 ${
+                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-3 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
                     A Signed Deal Is Not an Executed Deal
                   </h3>
-                  <p className={`font-serif text-sm sm:text-base italic leading-relaxed ${
+                  <p className={`font-serif text-sm italic leading-relaxed ${
                     darkMode ? 'text-white/95' : 'text-brand-charcoal/95'
                   }`}>
                     Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
@@ -521,13 +501,13 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="p-6 sm:p-8 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+              <div className="p-5 sm:p-6 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
                 <span className="flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase">
                   <Clock size={12} strokeWidth={2.5} /> 7 MIN READ
                 </span>
                 <button
                   onClick={() => openArticle(executionDeficitArticle)}
-                  className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   Read Explainer <ArrowRight size={12} />
                 </button>
@@ -549,9 +529,6 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="text-left max-w-3xl">
-              <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
-                EMPIRICAL EVIDENCE LAYER
-              </span>
               <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-4 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
               }`}>
@@ -590,8 +567,8 @@ export default function App() {
                     : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                 }`}
               >
-                <div className="p-6 sm:p-8">
-                  <div className="flex items-center justify-between gap-4 mb-4">
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center justify-between gap-4 mb-3">
                     <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase px-2.5 py-1 border border-brand-gold/30">
                       {deal.category}
                     </span>
@@ -600,37 +577,26 @@ export default function App() {
                     </span>
                   </div>
                   
-                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-4 ${
+                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-3 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
                     {deal.title}
                   </h3>
                   
-                  <p className={`font-serif text-sm sm:text-base italic leading-relaxed mb-6 ${
+                  <p className={`font-serif text-sm italic leading-relaxed ${
                     darkMode ? 'text-white/90' : 'text-brand-charcoal/90'
                   }`}>
                     {deal.description}
                   </p>
-
-                  {deal.pharmaSignalRead && (
-                    <div className={`p-4 border-l-2 border-brand-gold text-xs font-serif leading-relaxed mb-4 ${
-                      darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-primary/90'
-                    }`}>
-                      <strong className="font-mono text-[9px] uppercase text-brand-gold tracking-widest block mb-1">
-                        Signal Mechanism
-                      </strong>
-                      {deal.pharmaSignalRead}
-                    </div>
-                  )}
                 </div>
                 
-                <div className="p-6 sm:p-8 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                <div className="p-5 sm:p-6 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
                   <span className="flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase">
-                    <Clock size={12} strokeWidth={2.5} /> {deal.readTime}
+                    <Clock size={12} strokeWidth={2.5} /> {deal.readTime.toUpperCase()}
                   </span>
                   <button
                     onClick={() => openArticle(deal)}
-                    className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                    className="px-5 py-2.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Read Deal Signal <ArrowRight size={12} />
                   </button>

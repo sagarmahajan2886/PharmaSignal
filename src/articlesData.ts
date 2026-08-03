@@ -526,8 +526,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
   {
     id: 'kaigene-taisho-japan-licensing',
     category: 'TERRITORIAL EXECUTION',
-    title: 'Kaigene Keeps the Asset but Transfers Japan Execution to Taisho',
-    description: 'Taisho will develop, register and commercialize KG006 in Japan while Kaigene retains rights elsewhere. The signal: territorial control matters less than executable local capability.',
+    title: 'Kaigene Transfers Japan Execution to Taisho',
+    description: 'Kaigene retains global rights but hands Japan development and commercialization to Taisho. The signal: territorial control matters less than local execution capability.',
     meta: '4 MIN READ · AUG 2026',
     author: 'PharmaSignal Deal Desk',
     readTime: '4 min read',
