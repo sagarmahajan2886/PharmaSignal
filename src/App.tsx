@@ -522,19 +522,19 @@ export default function App() {
       {/* 3.5 Deal Signals Section */}
       <section 
         id="deal-signals-section"
-        className={`scroll-mt-20 py-16 sm:py-24 transition-colors duration-300 border-b ${
+        className={`scroll-mt-20 py-10 sm:py-14 transition-colors duration-300 border-b ${
           darkMode ? 'bg-[#061526] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div className="text-left max-w-3xl">
-              <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-4 ${
+              <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-3 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
               }`}>
                 Deal Signals
               </h2>
-              <div className="h-[2px] w-12 bg-brand-gold mt-2 mb-4" />
+              <div className="h-[2px] w-12 bg-brand-gold mt-1 mb-3" />
               <p className={`font-serif text-sm sm:text-base leading-relaxed ${
                 darkMode ? 'text-white/70' : 'text-brand-charcoal/75'
               }`}>
@@ -549,7 +549,7 @@ export default function App() {
                   window.history.pushState(null, '', '/deal-signals');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-xs font-sans tracking-widest font-bold text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-2 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-5 py-3 bg-brand-gold/5"
+                className="text-xs font-sans tracking-widest font-bold text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-2 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-4 py-2.5 bg-brand-gold/5"
               >
                 View All Deal Signals <ArrowRight size={14} />
               </button>
@@ -557,7 +557,7 @@ export default function App() {
           </div>
 
           {/* Grid displaying MAX 2 Deal Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             {DEAL_SIGNALS_DATA.slice(0, 2).map((deal) => (
               <div 
                 key={deal.id}
@@ -612,18 +612,18 @@ export default function App() {
       {/* 4. Compact Subscribe Section */}
       <section 
         id="newsletter-section" 
-        className={`scroll-mt-20 py-16 sm:py-20 transition-colors duration-300 border-b ${
+        className={`scroll-mt-20 py-8 sm:py-12 transition-colors duration-300 border-b ${
           darkMode ? 'bg-brand-deep border-white/5' : 'bg-white border-[#EADBCC]'
         }`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className={`p-8 sm:p-12 rounded-none shadow-xl relative overflow-hidden border text-center ${
+            transition={{ duration: 0.5 }}
+            className={`p-6 sm:p-8 rounded-none shadow-xl relative overflow-hidden border text-center ${
               darkMode ? 'bg-[#0A1A2E] text-white border-brand-gold/30' : 'bg-[#FAF6EE] text-[#111827] border-[#EADBCC]'
             }`}
           >
@@ -633,7 +633,7 @@ export default function App() {
             {/* Grid graphic background effect */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#808080_0.75px,transparent_0.75px)] [background-size:24px_24px]" />
             
-            <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center space-y-4">
+            <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center space-y-3">
               <span className="text-brand-gold font-mono text-xs font-bold block tracking-widest uppercase">
                 PHARMASIGNAL BRIEFINGS
               </span>
@@ -650,7 +650,7 @@ export default function App() {
                 Practical insights on what creates and destroys value in pharmaceutical business development.
               </p>
 
-              <div className="w-full max-w-md pt-2">
+              <div className="w-full max-w-md pt-1">
                 <AnimatePresence mode="wait">
                   {!subscribedMessage ? (
                     <motion.form 
@@ -660,7 +660,7 @@ export default function App() {
                       onSubmit={handleSubscribe}
                       className="space-y-3"
                     >
-                      <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="flex flex-col sm:flex-row gap-2.5">
                         <input
                           type="email"
                           required
@@ -668,7 +668,7 @@ export default function App() {
                           disabled={subscribing}
                           onChange={(e) => setNewsEmail(e.target.value)}
                           placeholder="Your work email"
-                          className={`w-full px-4 py-3 text-sm font-sans border outline-none transition-colors rounded-none ${
+                          className={`w-full px-4 py-2.5 text-sm font-sans border outline-none transition-colors rounded-none ${
                             darkMode 
                               ? 'bg-[#0A1A2E] border-white/10 text-white placeholder:text-white/40 focus:border-brand-gold/85' 
                               : 'bg-white border-[#EADBCC] text-[#111827] placeholder:text-[#111827]/40 focus:border-brand-gold/85'
@@ -677,7 +677,7 @@ export default function App() {
                         <button
                           type="submit"
                           disabled={subscribing}
-                          className={`w-full sm:w-auto px-6 py-3 bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors text-xs font-sans tracking-widest font-bold whitespace-nowrap uppercase rounded-none ${
+                          className={`w-full sm:w-auto px-5 py-2.5 bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors text-xs font-sans tracking-widest font-bold whitespace-nowrap uppercase rounded-none ${
                             subscribing ? 'opacity-65 cursor-not-allowed' : 'cursor-pointer'
                           }`}
                         >
@@ -700,7 +700,7 @@ export default function App() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0 }}
-                      className="py-6 px-4 border border-brand-gold/30 bg-brand-gold/5 text-center flex flex-col items-center justify-center space-y-2"
+                      className="py-5 px-4 border border-brand-gold/30 bg-brand-gold/5 text-center flex flex-col items-center justify-center space-y-2"
                     >
                       <CheckCircle2 className="text-brand-gold" size={24} />
                       <p className={`font-serif text-sm leading-relaxed ${darkMode ? 'text-white/95' : 'text-brand-charcoal/95'}`}>
@@ -717,7 +717,7 @@ export default function App() {
       </section>
 
       {/* 5. Footer Section */}
-      <footer className={`pt-16 pb-8 border-t relative z-10 ${
+      <footer className={`pt-10 pb-8 border-t relative z-10 ${
         darkMode ? 'bg-brand-deep text-white border-white/5' : 'bg-[#FAF6EE] text-[#111827] border-[#EADBCC]'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
