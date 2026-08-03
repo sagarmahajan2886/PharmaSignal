@@ -522,7 +522,7 @@ export default function App() {
       {/* 3.5 Deal Signals Section */}
       <section 
         id="deal-signals-section"
-        className={`scroll-mt-20 py-10 sm:py-14 transition-colors duration-300 border-b ${
+        className={`scroll-mt-20 py-8 sm:py-10 transition-colors duration-300 border-b ${
           darkMode ? 'bg-[#061526] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
         }`}
       >
@@ -612,7 +612,7 @@ export default function App() {
       {/* 4. Compact Subscribe Section */}
       <section 
         id="newsletter-section" 
-        className={`scroll-mt-20 py-8 sm:py-12 transition-colors duration-300 border-b ${
+        className={`scroll-mt-20 py-6 sm:py-8 transition-colors duration-300 border-b ${
           darkMode ? 'bg-brand-deep border-white/5' : 'bg-white border-[#EADBCC]'
         }`}
       >
@@ -623,7 +623,7 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className={`p-6 sm:p-8 rounded-none shadow-xl relative overflow-hidden border text-center ${
+            className={`p-5 sm:p-7 rounded-none shadow-xl relative overflow-hidden border text-center ${
               darkMode ? 'bg-[#0A1A2E] text-white border-brand-gold/30' : 'bg-[#FAF6EE] text-[#111827] border-[#EADBCC]'
             }`}
           >
@@ -647,7 +647,7 @@ export default function App() {
               <p className={`font-serif text-sm sm:text-base leading-relaxed ${
                 darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
               }`}>
-                Practical insights on what creates and destroys value in pharmaceutical business development.
+                Practical insights on the mechanisms that create and destroy value in pharmaceutical business development.
               </p>
 
               <div className="w-full max-w-md pt-1">
@@ -717,7 +717,7 @@ export default function App() {
       </section>
 
       {/* 5. Footer Section */}
-      <footer className={`pt-10 pb-8 border-t relative z-10 ${
+      <footer className={`pt-8 pb-6 border-t relative z-10 ${
         darkMode ? 'bg-brand-deep text-white border-white/5' : 'bg-[#FAF6EE] text-[#111827] border-[#EADBCC]'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
