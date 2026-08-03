@@ -1,6 +1,6 @@
 import { useEffect, useState, UIEvent } from 'react';
 import { motion } from 'motion/react';
-import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft } from 'lucide-react';
+import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
 // @ts-ignore
@@ -87,7 +87,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 }`}
               >
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                Back to Explainers
+                {article.isDealSignal ? 'Back to Deal Signals' : 'Back to Explainers'}
               </button>
 
               <div className="flex items-center gap-3 sm:gap-4">
@@ -234,6 +234,57 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                       </button>
                       <button 
                         onClick={() => scrollToId('principle-deficit')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        06. PharmaSignal Principle
+                      </button>
+                    </>
+                  ) : article.id === 'opportunity-creation-processing' ? (
+                    <>
+                      <button 
+                        onClick={() => scrollToId('intro')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        01. Executive Summary
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('creation-vs-processing')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        02. Creation vs Processing
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('visibility-compression')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        03. Visibility Compression
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('creation-test')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        04. Assessment Test
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('implications')} 
+                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                          darkMode ? 'text-white/70' : 'text-brand-primary'
+                        }`}
+                      >
+                        05. Decision Maker Guide
+                      </button>
+                      <button 
+                        onClick={() => scrollToId('principle-creation')} 
                         className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
                           darkMode ? 'text-white/70' : 'text-brand-primary'
                         }`}
@@ -824,11 +875,39 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 </div>
 
                 {/* Featured Summary */}
-                <p id="doc-overview" className={`font-serif text-base sm:text-xl italic border-l-4 border-brand-gold pl-4 sm:pl-6 py-1.5 sm:py-2 mb-6 sm:mb-10 leading-relaxed p-3 sm:p-4 ${
-                  darkMode ? 'bg-white/5 text-white/90' : 'bg-brand-gold-light/25 text-brand-primary/85'
-                }`}>
-                  {article.featuredSummary}
-                </p>
+                {article.featuredSummary && (
+                  <p id="doc-overview" className={`font-serif text-base sm:text-xl italic border-l-4 border-brand-gold pl-4 sm:pl-6 py-1.5 sm:py-2 mb-6 sm:mb-8 leading-relaxed p-3 sm:p-4 ${
+                    darkMode ? 'bg-white/5 text-white/90' : 'bg-brand-gold-light/25 text-brand-primary/85'
+                  }`}>
+                    {article.featuredSummary}
+                  </p>
+                )}
+
+                {/* PharmaSignal Read Callout */}
+                {article.pharmaSignalRead && (
+                  <div className={`my-6 p-5 sm:p-6 border-l-4 border-brand-gold font-serif text-sm sm:text-base leading-relaxed ${
+                    darkMode ? 'bg-brand-gold/10 text-brand-gold-light' : 'bg-brand-gold-light/25 text-brand-primary'
+                  }`}>
+                    <strong className="font-sans text-xs tracking-widest text-brand-gold uppercase block mb-2 font-bold">
+                      PHARMASIGNAL READ
+                    </strong>
+                    {article.pharmaSignalRead}
+                  </div>
+                )}
+
+                {/* Use This When Callout Box */}
+                {article.useThisWhen && (
+                  <div className={`my-8 p-6 border rounded-none text-left ${
+                    darkMode ? 'border-brand-gold/40 bg-[#061526] text-white' : 'border-brand-gold/60 bg-[#FAF6EE] text-brand-primary'
+                  }`}>
+                    <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-2">
+                      <Shield size={16} /> USE THIS WHEN
+                    </div>
+                    <p className="font-serif text-sm sm:text-base leading-relaxed opacity-95">
+                      {article.useThisWhen}
+                    </p>
+                  </div>
+                )}
 
                 {/* Content markup container */}
                 <div 
@@ -836,6 +915,64 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
+
+                {/* Linked Explainers Section */}
+                {article.linkedExplainers && article.linkedExplainers.length > 0 && (
+                  <div className={`my-10 p-6 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      {article.isDealSignal ? 'LINKED PHARMASIGNAL LENS' : 'LINKED EXPLAINERS'}
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {article.linkedExplainers.map((linked) => (
+                        <button
+                          key={linked.id}
+                          onClick={() => {
+                            if (onSelectArticleId) {
+                              onSelectArticleId(linked.id);
+                            }
+                          }}
+                          className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                            darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                          }`}
+                        >
+                          <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1">
+                            Explainer
+                          </span>
+                          <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                            darkMode ? 'text-white' : 'text-brand-primary'
+                          }`}>
+                            {linked.title}
+                          </p>
+                          <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                            Read Explainer <ArrowRight size={10} />
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Tags */}
+                {article.tags && article.tags.length > 0 && (
+                  <div className="my-6 flex flex-wrap gap-2">
+                    {article.tags.map((tag) => (
+                      <span key={tag} className={`text-[10px] font-mono px-2.5 py-1 uppercase tracking-wider ${
+                        darkMode ? 'bg-white/10 text-white/80' : 'bg-brand-primary/10 text-brand-primary'
+                      }`}>
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Source Note */}
+                {article.sourceNote && (
+                  <p className={`text-xs font-mono italic my-4 ${darkMode ? 'text-white/50' : 'text-brand-charcoal/50'}`}>
+                    {article.sourceNote}
+                  </p>
+                )}
               </>
             )}
 

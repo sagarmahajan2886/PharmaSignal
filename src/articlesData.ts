@@ -156,6 +156,225 @@ export const EXPLAINERS_DATA: Article[] = [
     `
   },
   {
+    id: 'opportunity-creation-processing',
+    category: 'DECISION INTELLIGENCE',
+    title: 'Opportunity Creation vs Opportunity Processing',
+    description: 'Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.',
+    meta: '7 MIN READ · JUN 30, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '7 min read',
+    date: 'June 30, 2026',
+    featuredSummary: 'Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.',
+    content: `
+      <div id="intro">
+        <h2>Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.</h2>
+      </div>
+      
+      <p>Several years ago, during an emerging-market portfolio review, one pattern became difficult to ignore.</p>
+      <p>The team was reviewing a steady flow of external opportunities.</p>
+      <p>Partner proposals were arriving. Product lists were being screened. Conference meetings were generating follow-ups. Several assets looked commercially relevant.</p>
+      <p>The BD activity level was high.</p>
+      <p>But the quality of advantage was not.</p>
+      <p>Most opportunities had already been seen by other companies. The same products were circulating through multiple conversations. Partners were testing interest across several potential licensees. By the time the opportunity entered formal evaluation, the market had already made it visible.</p>
+      <p>The team was not early. It was busy.</p>
+      <p>That distinction matters.</p>
+      <p>A busy BD pipeline can create the impression of momentum. But if most opportunities are externally defined, already circulated and internally unprepared, the organization may be processing opportunity rather than creating it.</p>
+      <p>Since then, I have seen the same pattern repeatedly across licensing, portfolio expansion, partner scouting and market-entry decisions.</p>
+      <p>Some teams wait for opportunities to arrive. Stronger teams make opportunities visible before the market does.</p>
+      
+      <p>I call this distinction:</p>
+
+      <h2 id="creation-vs-processing">Opportunity Creation vs Opportunity Processing</h2>
+      <p><strong>Opportunity Processing</strong> is the discipline of evaluating opportunities once they are already visible.</p>
+      <p><strong>Opportunity Creation</strong> is the discipline of identifying a market gap, building an internal thesis, and shaping partner access before the opportunity becomes obvious to the market.</p>
+      <p>The difference is not activity. It is timing.</p>
+      <p>Processing begins when the opportunity enters the pipeline. Creation begins before the pipeline exists.</p>
+
+      <div class="my-10 max-w-2xl mx-auto text-center">
+        <img 
+          src="/opportunity_creation_vs_processing_flow.png" 
+          alt="Opportunity Creation vs Opportunity Processing in pharma business development." 
+          class="w-full h-auto object-contain shadow-2xl border border-brand-gold/20 rounded-sm"
+        />
+        <span class="mt-3 block font-sans text-xs opacity-70">
+          Figure: Opportunity advantage starts before the opportunity enters the formal BD pipeline.
+        </span>
+      </div>
+
+      <h2 id="visibility-compression">The Hidden Cost: Visibility Compression</h2>
+      <p>The biggest risk in opportunity processing is not that the team is inactive. The risk is that the team becomes active too late.</p>
+      <p>Once an opportunity becomes visible to several companies, three things begin to compress:</p>
+      <ul>
+        <li>access advantage</li>
+        <li>negotiation flexibility</li>
+        <li>timing advantage</li>
+      </ul>
+      <p>The partner has more options. The asset has more attention. The internal decision cycle faces more pressure. The economics begin to change before the business case is even finalized.</p>
+      <p>This is <strong>Visibility Compression</strong>.</p>
+      <p><strong>Visibility Compression</strong> occurs when an opportunity becomes known to multiple potential partners before one company has built internal conviction, partner access or timing advantage.</p>
+      <p>In emerging markets, the effect is amplified. A delay of a few months can affect tender timing, filing sequence, reimbursement opportunity, distributor focus, physician activation, regulatory queue position or first-mover perception.</p>
+      <p>The opportunity may remain attractive. But the advantage is no longer the same.</p>
+
+      <div class="my-8 p-6 border-l-2 border-brand-gold bg-brand-gold-light/10">
+        <p class="text-[10px] font-mono tracking-widest text-brand-gold uppercase mb-1.5 font-bold">Related Analysis</p>
+        <p class="font-serif text-sm">
+          Read our explainer on <a href="#the-approval-gap" class="text-brand-gold underline font-semibold">The Approval Gap</a> to understand how internal alignment friction delays attractive licensing decisions.<br/>
+          Read <a href="#execution-deficit" class="text-brand-gold underline font-semibold">A Signed Deal Is Not an Executed Deal</a> to understand why deal value can leak after signing when the transition into execution is weak.
+        </p>
+      </div>
+
+      <h2>The Comfort of Opportunity Processing</h2>
+      <p>Opportunity processing feels productive because it creates visible activity.</p>
+      <p>A partner sends a proposal. A dossier is shared. A product list is reviewed. A forecast is prepared. An internal presentation is created. A term sheet is discussed.</p>
+      <p>These are all legitimate BD activities. The issue is not that opportunity processing is wrong. The issue is that it often begins too late.</p>
+      <p>By the time a packaged opportunity reaches multiple companies, the organization is no longer asking: <em>Where can we create value before others see it?</em></p>
+      <p>It is asking: <em>Should we compete for something others are already seeing?</em></p>
+      <p>That is a different decision.</p>
+      <p>At that stage, competitive advantage shifts away from insight and toward speed, price, relationship strength, internal risk appetite and execution confidence.</p>
+      <p>Some visible opportunities are still worth pursuing. But the economics are different.</p>
+      <p>When several companies recognize the same opportunity at the same time, the strongest value may already have moved upstream — to the party that identified the gap earlier, shaped the partner conversation earlier, or built internal conviction before the formal process began.</p>
+
+      <h2>Why Processing Alone Weakens BD Advantage</h2>
+      <p>A full pipeline does not always mean a strong opportunity engine. A pipeline can be full because the market is sending opportunities. That does not mean the organization is creating advantage.</p>
+      <p>A reactive BD model weakens advantage in three predictable ways:</p>
+
+      <h3>01. Visibility Compression</h3>
+      <p>Once an opportunity is visible to multiple companies, the room for differentiated insight narrows. The product is known. The partner is known. The market gap is known. The commercial rationale is known.</p>
+      <p>The partner can compare interest across companies. Timelines may be shaped by external pressure. Internal teams may feel urgency before they have built conviction.</p>
+      <p>This creates a difficult BD position. The organization is trying to make a high-quality decision while the market is already compressing the opportunity’s advantage.</p>
+      <p>In emerging markets, this can be especially costly. Missing a tender window, reimbursement cycle, registration timing advantage or seasonal procurement opportunity can convert a short internal delay into a larger commercial setback.</p>
+      <p>The opportunity may still be good. But the advantage that made it attractive may already be weakening.</p>
+
+      <h3>02. Partner-Defined Opportunity Logic</h3>
+      <p>When BD teams mainly process incoming opportunities, they often inherit the partner’s framing.</p>
+      <p>The partner defines the asset. The partner defines the commercial story. The partner defines the urgency. The partner defines the available territories. The partner defines the information sequence.</p>
+      <p>The receiving company then evaluates what is offered rather than shaping what is needed.</p>
+      <p>This creates a subtle strategic problem. The organization may become very good at saying yes or no to external proposals, but less effective at defining what it should actively seek.</p>
+      <p>It starts evaluating the market’s supply of opportunities instead of building its own demand logic.</p>
+      <p>Strong BD teams reverse this. They begin with internal and market questions:</p>
+      <ul>
+        <li>Where is the portfolio exposed?</li>
+        <li>Where is local execution capability underused?</li>
+        <li>Which therapy areas need reinforcement?</li>
+        <li>Which regulatory pathways are feasible?</li>
+        <li>Where is the market moving before competitors react?</li>
+        <li>Which partners may have assets but lack regional execution strength?</li>
+        <li>Which opportunities are not yet packaged, but could become valuable if shaped correctly?</li>
+      </ul>
+      <p>Opportunity creation begins with a sharper internal view of what the organization should be looking for.</p>
+
+      <h3>03. Late Internal Alignment</h3>
+      <p>Opportunity processing often triggers internal alignment only after an external opportunity appears. This creates avoidable friction.</p>
+      <p>Commercial teams are asked to validate demand. Regulatory is asked to assess feasibility. Quality is asked to assess partner readiness. Finance is asked to test returns. Management is asked to approve strategic fit.</p>
+      <p>All of this happens while the partner expects progress and competitors may also be evaluating the same asset.</p>
+      <p>The result is familiar. The opportunity looks commercially attractive, but internal conviction is not yet mature. Questions emerge late. Assumptions are revised. Functional concerns appear during formal review. The Approval Gap widens.</p>
+      <p>The organization may still proceed, but it does so under external timing pressure rather than internal decision readiness.</p>
+      <p>Opportunity creation reduces this friction because internal logic is built earlier. The organization is not reacting to an opportunity. It is activating a thesis.</p>
+
+      <h2>Opportunity Creation Is Thesis-Led</h2>
+      <p>Opportunity creation is sometimes misunderstood as opportunism. It is not. It is not chasing random ideas. It is not generating long product wishlists. It is not asking every partner for everything. It is not attending more meetings.</p>
+      <p>Opportunity creation is thesis-led BD.</p>
+      <p>It begins with repeated market and portfolio observations. It connects those observations to executable BD hypotheses. It then converts those hypotheses into targeted partner mapping, internal alignment and decision readiness.</p>
+      <p>A strong opportunity-creation process usually has three disciplines:</p>
+
+      <h3>01. Market Gap Recognition</h3>
+      <p>The team identifies where commercial space is emerging before it becomes obvious. This may come from regulatory change, reimbursement movement, competitor weakness, supply disruption, loss of exclusivity, tender evolution, channel fragmentation, local portfolio gaps or shifting physician behavior.</p>
+      <p>The point is not to collect market facts. The point is to identify where value may appear before the market fully prices it.</p>
+      <p>In emerging markets, these signals often appear unevenly. A product may look unattractive from a global view but become highly relevant in a specific country because of reimbursement timing, competitor withdrawal, local supply disruption, branded-generic dynamics or partner access.</p>
+      <p>Opportunity creation begins when BD sees the gap before it becomes a circulated proposal.</p>
+
+      <h3>02. Portfolio Fit Translation</h3>
+      <p>A market gap is not automatically a BD opportunity. The organization must translate the gap into portfolio fit.</p>
+      <p>Can the company commercialize this type of asset? Does it have the right field force? Does the therapy area matter strategically? Is the market access route understood? Can the regulatory pathway be managed? Does the opportunity strengthen the portfolio or distract from it? Can local execution capability convert the opportunity into revenue?</p>
+      <p>Without this translation, BD creates ideas but not executable opportunities. A strong opportunity thesis connects external market space with internal execution capability.</p>
+
+      <h3>03. Partner Motivation Mapping</h3>
+      <p>Strong BD teams do not only ask: <em>Who has the asset?</em> They ask: <em>Why would this partner need us?</em></p>
+      <p>Does the partner lack market reach? Does it need regional execution? Does it have an underused asset? Does it have development capability but limited commercialization strength? Is the partner trying to enter territories where our organization already has commercial infrastructure? Could both sides create value before a formal partnering process begins?</p>
+      <p>This is where opportunity creation differs from database searching. A database can identify companies. Judgment is needed to understand partner motivation.</p>
+      <p>The strongest opportunities often emerge when a company understands not only what it needs, but why the other side may need it too.</p>
+
+      <div id="creation-test" class="my-10 p-8 border-l-4 border-brand-gold bg-brand-gold-light/20">
+        <h2 class="font-serif text-2xl font-bold mb-2">The Opportunity Creation Test</h2>
+        <p class="font-sans text-xs tracking-wider uppercase mb-6 opacity-70">An Executive Assessment for BD Leaders</p>
+        <div class="space-y-6">
+          <div>
+            <p class="font-serif text-lg font-bold mb-1 text-brand-gold">01. Source of Pipeline</p>
+            <p class="font-serif text-sm leading-relaxed">Is your BD pipeline mostly generated by incoming proposals, conferences and partner outreach, or by internally generated market and portfolio theses?</p>
+          </div>
+          <div>
+            <p class="font-serif text-lg font-bold mb-1 text-brand-gold">02. Timing of Insight</p>
+            <p class="font-serif text-sm leading-relaxed">Do you identify opportunity spaces before partners formally package them, or only after the opportunity is already being circulated?</p>
+          </div>
+          <div>
+            <p class="font-serif text-lg font-bold mb-1 text-brand-gold">03. Portfolio Gap Logic</p>
+            <p class="font-serif text-sm leading-relaxed">Can your team clearly explain which portfolio gaps it is trying to close and why those gaps matter commercially?</p>
+          </div>
+          <div>
+            <p class="font-serif text-lg font-bold mb-1 text-brand-gold">04. Partner Motivation</p>
+            <p class="font-serif text-sm leading-relaxed">Do you understand why a potential partner would need you specifically, or are you only evaluating whether you need the partner?</p>
+          </div>
+          <div>
+            <p class="font-serif text-lg font-bold mb-1 text-brand-gold">05. Internal Readiness</p>
+            <p class="font-serif text-sm leading-relaxed">When a created opportunity becomes real, are Regulatory, Quality, Commercial and Finance already prepared to evaluate it, or does alignment begin only after the partner conversation advances?</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>How Opportunity Creation Creates Value</h2>
+      <p>The value of opportunity creation rarely appears as a separate line in the business case. But it changes the economics of the deal pathway.</p>
+      
+      <h3>01. Earlier Access</h3>
+      <p>The organization reaches the opportunity before the market becomes crowded. Earlier access can improve information quality, partner engagement, territory flexibility and deal-shaping options. It can also create more time for internal conviction to develop before external pressure increases. This matters because access advantage is not only about being first. It is about having more room to shape the opportunity before others define it.</p>
+
+      <h3>02. Lower Internal Friction</h3>
+      <p>Because the opportunity begins from an internal thesis, stakeholders are not forced to understand the logic only after an external proposal arrives. Commercial, regulatory, quality and finance teams can begin aligning earlier. This reduces the Approval Gap. The formal approval discussion becomes less about discovering the opportunity and more about confirming whether the thesis is strong enough to pursue.</p>
+
+      <h3>03. Stronger Execution Continuity</h3>
+      <p>A created opportunity carries clearer logic into execution because the organization has shaped the opportunity from the beginning. The team understands why the deal exists. It understands what assumptions matter. It understands where value can be lost. This reduces the future Execution Deficit. The handover from BD to execution is stronger when the organization has not only processed the deal, but created the logic behind it.</p>
+
+      <h2>Why Conventional BD Misses This</h2>
+      <p>Conventional BD systems are often designed around processing. They track: number of opportunities reviewed, number of partner meetings, number of dossiers assessed, number of term sheets exchanged, number of deals closed.</p>
+      <p>These metrics are useful. But they do not measure opportunity creation. They measure activity after visibility.</p>
+      <p>They do not answer: Who saw the opportunity first? Who shaped the partner conversation? Who built internal conviction early? Who created the strategic thesis? Who protected timing advantage? Who converted a market gap into an executable deal?</p>
+      <p>This is why a BD team can be extremely busy and still strategically reactive. The calendar may be full. The pipeline may be active. The team may be working hard. But if most opportunities are externally defined, the organization is still processing the market rather than shaping it.</p>
+
+      <h2 id="implications">What This Means for Decision Makers</h2>
+      <p>For BD teams, the role is not only to review incoming opportunities. It is to create opportunity theses before the market packages them.</p>
+      <p>For licensing heads, pipeline quality should not be judged only by volume. It should be judged by the proportion of opportunities generated from internal conviction and market insight.</p>
+      <p>For portfolio leaders, gap identification must translate into BD action, not remain a strategic slide.</p>
+      <p>For commercial teams, early market signals should feed opportunity creation before formal partner discussions begin.</p>
+      <p>For regulatory and quality teams, early feasibility input can turn a vague idea into a credible opportunity.</p>
+      <p>For alliance managers, opportunity logic should be preserved from early thesis to post-signature execution.</p>
+      <p>For management, the question is not only: <em>How many opportunities are we evaluating?</em></p>
+      <p>The better question is: <em>How many opportunities are we creating before they become obvious to competitors?</em></p>
+
+      <div class="my-8 p-6 border rounded-none border-brand-gold/60 bg-[#FAF6EE] text-brand-primary">
+        <div class="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-2">
+          USE THIS WHEN
+        </div>
+        <p class="font-serif text-sm sm:text-base leading-relaxed opacity-95">
+          Reviewing whether your BD pipeline is genuinely creating strategic advantage or mainly processing opportunities already visible to the market.
+        </p>
+      </div>
+
+      <div id="principle-creation" class="my-12 p-8 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+        <div class="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-4">
+          PHARMASIGNAL PRINCIPLE
+        </div>
+        <div class="space-y-6">
+          <p class="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed italic font-medium text-brand-gold">
+            "A full BD pipeline does not always mean a strong opportunity engine. It may only mean the organization is busy processing what the market has already made visible."
+          </p>
+          <div class="h-[1px] w-20 bg-brand-gold/40"></div>
+          <p class="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed italic font-medium text-brand-gold">
+            "In pharmaceutical business development, advantage often begins before the opportunity enters the pipeline."
+          </p>
+        </div>
+      </div>
+    `
+  },
+  {
     id: 'deal-failures',
     category: 'LICENSING STRATEGY',
     title: 'Why Most Pharma Deals Fail Before Signing',
@@ -257,3 +476,145 @@ export const EXPLAINERS_DATA: Article[] = [
     `
   }
 ];
+
+export const DEAL_SIGNALS_DATA: Article[] = [
+  {
+    id: 'ems-mirecule-upstream-collaboration',
+    category: 'OPPORTUNITY CREATION',
+    title: 'EMS Is Moving Upstream Before There Is a Product to License',
+    description: 'Brazil’s Rio Biofarma combined a research collaboration and equity investment with US RNA biotech miRecule. The signal: emerging-market pharma companies can create opportunity before a finished asset exists.',
+    meta: '4 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '4 min read',
+    date: 'August 2026',
+    featuredSummary: 'Why a Brazilian pharma group’s RNA collaboration shows how opportunity creation can begin before a commercial asset exists.',
+    isDealSignal: true,
+    pharmaSignalRead: 'Capability-Led Opportunity Creation. EMS is not acquiring Brazilian rights to a completed asset. It is gaining early exposure to an enabling technology platform that could generate multiple future assets. The structure may create three advantages: (1) early visibility into a technology platform; (2) influence before territorial rights become competitive; (3) strategic positioning for future LATAM development or commercialization. But early access also creates a second mechanism: Governance Debt. Platform collaborations often begin with broad scientific ambition. They become fragile later if the parties have not clearly defined decision rights before the science succeeds.',
+    useThisWhen: 'Evaluating whether an emerging-market company should enter an innovation platform before asset validation, and whether early access justifies higher technical, governance and portfolio uncertainty. Use this signal when assessing: (1) whether to enter an innovation platform before a finished asset exists; (2) whether equity should accompany a research collaboration; (3) how emerging-market companies can move upstream in the innovation cycle; (4) when early access justifies higher uncertainty; (5) how future territorial rights should be protected before platform success.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>US-based miRecule and Rio Biofarma Brasil, part of Brazilian pharmaceutical group EMS, have entered a strategic research collaboration to co-develop peptide-mediated delivery technologies for RNA therapeutics.</p>
+      <p>The collaboration will focus on delivering RNA therapies beyond the liver and into additional tissues across multiple disease areas.</p>
+      <p>Rio Biofarma also made an undisclosed equity investment in miRecule.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Emerging-market pharma companies have traditionally entered innovative assets after clinical proof, regulatory validation, or availability of commercialization rights.</p>
+      <p>This structure begins earlier.</p>
+      <p>EMS is not only evaluating a finished product. Through Rio Biofarma, it is combining technical collaboration with equity participation before a defined commercial asset has emerged.</p>
+      <p>That changes the BD logic. The company is not simply buying an opportunity. It is helping create one.</p>
+
+      <h2>What To Watch Next</h2>
+      <p>The value of this collaboration will not be determined by the announcement alone. Key execution questions include:</p>
+      <ul>
+        <li>Will the parties disclose specific targets or therapeutic programs?</li>
+        <li>Who will control candidate selection and development decisions?</li>
+        <li>Will EMS obtain LATAM or broader commercialization options?</li>
+        <li>How will newly generated intellectual property be divided?</li>
+        <li>Will the collaboration move beyond research into nominated assets?</li>
+      </ul>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>The strongest opportunities are sometimes created before an asset is available for licensing. But early access creates value only when future rights and decision ownership are defined before the science succeeds.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' }
+    ],
+    tags: ['Brazil', 'LATAM', 'RNA Therapeutics', 'Equity Investment', 'Research Collaboration', 'Opportunity Creation', 'Governance Debt', 'Platform Collaboration'],
+    sourceNote: 'This Deal Signal is based on the announced strategic research collaboration between miRecule and Rio Biofarma Brasil, part of EMS, on 31 July 2026. Financial terms and the size of Rio Biofarma’s equity investment were not disclosed.'
+  },
+  {
+    id: 'kaigene-taisho-japan-licensing',
+    category: 'TERRITORIAL EXECUTION',
+    title: 'Kaigene Keeps the Asset but Transfers Japan Execution to Taisho',
+    description: 'Taisho will develop, register and commercialize KG006 in Japan while Kaigene retains rights elsewhere. The signal: territorial control matters less than executable local capability.',
+    meta: '4 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '4 min read',
+    date: 'August 2026',
+    featuredSummary: 'Why territorial licensing can protect executable value when local development and commercialization complexity is high.',
+    isDealSignal: true,
+    pharmaSignalRead: 'Territorial De-Risking Through Local Capability. Japan is not simply another country in a global development plan. It can require locally acceptable clinical evidence, territory-specific regulatory engagement, established specialist relationships, pricing and reimbursement execution, and post-approval commercial infrastructure. A small biotech could retain Japan and preserve more theoretical upside. But retaining rights without local execution capability can create an Execution Deficit. Taisho’s role therefore goes beyond market access. It assumes development-to-commercialization accountability inside the territory.',
+    useThisWhen: 'Evaluating whether to retain or license a strategically complex territory where local development, regulatory and commercialization capability materially affects value realization. Use this signal when assessing: (1) whether to retain or license a complex territory; (2) when a country-specific partner should control clinical development; (3) how territorial licensing preserves global optionality; (4) whether milestones adequately compensate for lost territory control; (5) how global and local development responsibilities should be governed.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>Kaigene granted Taisho Pharmaceutical exclusive rights to clinically develop, register and commercialize KG006, its next-generation FcRn inhibitor, in Japan.</p>
+      <p>Kaigene will receive a $5 million upfront payment and may receive additional development, regulatory and commercial milestones, plus tiered royalties.</p>
+      <p>Kaigene retains rights outside Japan.</p>
+
+      <h2>Why It Matters</h2>
+      <p>This transaction does not transfer the full asset. It divides value geographically.</p>
+      <p>Kaigene preserves broader strategic optionality while transferring Japan-specific execution responsibility to a locally established partner.</p>
+      <p>That matters because territorial rights alone do not create market value. Local development, regulatory engagement, pricing, reimbursement and commercial infrastructure determine whether those rights become executable.</p>
+
+      <h2>What To Watch Next</h2>
+      <p>Key execution questions include:</p>
+      <ul>
+        <li>Will Japan development use global data or require additional local studies?</li>
+        <li>How will Kaigene and Taisho coordinate clinical and regulatory strategy?</li>
+        <li>Will KG006 manufacturing remain centralized?</li>
+        <li>Will the Japan transaction validate additional regional licensing?</li>
+        <li>Does the modest upfront reflect asset stage, territory risk or competitive positioning?</li>
+      </ul>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>Retaining a territory protects theoretical upside. Licensing it to a capable local partner protects executable value. The right decision depends on whether the originator possesses the capability — not merely the rights — to reach the market.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['Japan', 'FcRn', 'Territorial Licensing', 'Local Development', 'Partner Capability', 'Commercialization Rights', 'Execution Deficit'],
+    sourceNote: 'This Deal Signal is based on the announced exclusive Japan agreement between Kaigene and Taisho Pharmaceutical on 30 July 2026. Taisho receives development, registration and commercialization rights in Japan, while Kaigene retains rights outside Japan.'
+  },
+  {
+    id: 'merck-alimatravir-market-access',
+    category: 'MARKET ACCESS BEFORE APPROVAL',
+    title: 'Merck Is Building Market Access Before Alimatravir Is Approved',
+    description: 'Seven Indian and African manufacturers received voluntary licenses while Phase III development continues. The signal: access readiness is being built before approval, not after it.',
+    meta: '4 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '4 min read',
+    date: 'August 2026',
+    featuredSummary: 'Why voluntary licensing before approval can reduce the future gap between regulatory success and real-world availability.',
+    isDealSignal: true,
+    pharmaSignalRead: 'Market Access Before Approval. The conventional sequence is: Clinical success → approval → licensing → generic development → registration → supply. Merck is partially overlapping these activities: Clinical development + voluntary licensing + manufacturing preparation + access planning. This potentially reduces the future Execution Deficit between regulatory approval and real market availability.',
+    useThisWhen: 'Evaluating whether access, licensing, manufacturing and regulatory preparation should begin before approval rather than after it. Assessing: (1) when access and generic licensing should begin; (2) whether manufacturing partners can be selected before approval; (3) how regulatory and supply activities can run in parallel; (4) whether a global-access commitment has an executable operating model; (5) how to reduce the approval-to-availability gap in emerging markets.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>Merck has signed seven non-exclusive, royalty-free voluntary licensing agreements for alimatravir, its investigational once-monthly oral HIV-prevention product.</p>
+      <p>The licensees include Aurobindo, Cipla, Emcure and Viatris in India, alongside Aspen, Quality Chemical Industries and UCL Kenya in sub-Saharan Africa.</p>
+      <p>The agreements cover public- and private-sector supply across 129 low- and middle-income countries. They were signed while Phase III enrolment is still under way, before regulatory approval.</p>
+      <p>Merck also plans initial product supply while generic partners complete development, registration and manufacturing readiness.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Most access strategies begin after clinical success or regulatory approval. This structure begins earlier.</p>
+      <p>Merck is attempting to compress the period between approval and broad availability by initiating licensing, development, regulatory and manufacturing preparation before the commercial trigger occurs.</p>
+      <p>The transaction treats access readiness as part of product development, not as a post-approval activity. That distinction matters in emerging markets.</p>
+      <p>The right to supply a product does not automatically create access. Access is created when regulatory, manufacturing, procurement and supply pathways are ready early enough to protect the launch window.</p>
+
+      <h2>What To Watch Next</h2>
+      <p>The value of this structure will not be determined by the licensing announcement alone. Key execution questions include:</p>
+      <ul>
+        <li>Will licensees begin development and regulatory work materially before approval?</li>
+        <li>Will Merck’s initial supply prevent an availability gap while local manufacturing scales?</li>
+        <li>Can African manufacturers achieve competitive timelines alongside established Indian generic companies?</li>
+        <li>How will regulatory reliance and procurement pathways differ across the 129 territories?</li>
+        <li>Will broad license coverage translate into actual country launches rather than nominal access rights?</li>
+      </ul>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>Market access is not created when rights are granted. It is created when regulatory, manufacturing and supply readiness begin early enough to protect the launch window.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'the-approval-gap', title: 'The Approval Gap' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
+    ],
+    tags: ['HIV', 'VOLUNTARY LICENSING', 'MARKET ACCESS', 'INDIA', 'AFRICA', 'LOCAL MANUFACTURING', 'EXECUTION READINESS', 'APPROVAL-TO-AVAILABILITY GAP', 'EXECUTION DEFICIT', 'OPPORTUNITY CREATION'],
+    sourceNote: 'This Deal Signal is based on public reporting and company information regarding Merck’s voluntary licensing strategy for alimatravir announced in July 2026.'
+  }
+];
+
+export const ALL_ARTICLES: Article[] = [...EXPLAINERS_DATA, ...DEAL_SIGNALS_DATA];
+

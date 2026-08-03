@@ -13,7 +13,7 @@ import {
   Compass
 } from 'lucide-react';
 
-import { EXPLAINERS_DATA } from './articlesData';
+import { EXPLAINERS_DATA, DEAL_SIGNALS_DATA, ALL_ARTICLES } from './articlesData';
 import { ActiveTab, Article } from './types';
 import Navigation from './components/Navigation';
 import ArticleModal from './components/ArticleModal';
@@ -56,27 +56,50 @@ export default function App() {
   // Custom routing functions to support clean, deep-linked browser URLs for articles
   const openArticle = (art: Article) => {
     setSelectedArticle(art);
-    window.history.pushState(null, '', `/explainers/${art.id}`);
+    const prefix = art.isDealSignal ? '/deal-signals' : '/explainers';
+    window.history.pushState(null, '', `${prefix}/${art.id}`);
   };
 
   const closeArticle = () => {
     setSelectedArticle(null);
-    window.history.pushState(null, '', '/');
+    if (activeTab === 'DEAL SIGNALS' || window.location.pathname.startsWith('/deal-signals')) {
+      window.history.pushState(null, '', '/deal-signals');
+    } else {
+      window.history.pushState(null, '', '/');
+    }
   };
 
   // URL Deep-linking Route Handler
   useEffect(() => {
     const handleUrlRoute = () => {
       const path = window.location.pathname;
+
+      if (path === '/deal-signals') {
+        setActiveTab('DEAL SIGNALS');
+        setSelectedArticle(null);
+        return;
+      }
+
       const explainerMatch = path.match(/^\/explainers\/([a-zA-Z0-9_-]+)/);
       if (explainerMatch) {
         const articleId = explainerMatch[1];
-        const found = EXPLAINERS_DATA.find(a => a.id === articleId);
+        const found = ALL_ARTICLES.find(a => a.id === articleId);
         if (found) {
           setSelectedArticle(found);
           return;
         }
       }
+
+      const dealMatch = path.match(/^\/deal-signals\/([a-zA-Z0-9_-]+)/);
+      if (dealMatch) {
+        const articleId = dealMatch[1];
+        const found = ALL_ARTICLES.find(a => a.id === articleId);
+        if (found) {
+          setSelectedArticle(found);
+          return;
+        }
+      }
+
       setSelectedArticle(null);
     };
 
@@ -90,7 +113,7 @@ export default function App() {
     e.preventDefault();
     const emailToSubmit = newsEmail.trim();
     if (!emailToSubmit || !emailToSubmit.includes('@')) {
-      alert('Please enter a valid work email address.');
+      setSubscribeError('Please enter a valid work email address.');
       return;
     }
     
@@ -163,13 +186,102 @@ export default function App() {
         toggleDarkMode={toggleDarkMode}
       />
 
-      {/* 2. Hero / About PharmaSignal Section */}
-      <section 
-        id="about-section"
-        className={`relative overflow-hidden py-14 sm:py-20 transition-colors duration-300 border-b ${
-          darkMode ? 'bg-brand-deep border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
-        }`}
-      >
+      {/* Dedicated Deal Signals Page View when activeTab === 'DEAL SIGNALS' */}
+      {activeTab === 'DEAL SIGNALS' ? (
+        <section 
+          id="deal-signals-page"
+          className={`py-14 sm:py-20 transition-colors duration-300 border-b ${
+            darkMode ? 'bg-[#061526] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left max-w-3xl mb-12">
+              <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
+                EMPIRICAL EVIDENCE LAYER
+              </span>
+              <h1 className={`font-serif text-3.5xl sm:text-5xl font-bold tracking-tight uppercase mb-4 ${
+                darkMode ? 'text-white' : 'text-[#001B2A]'
+              }`}>
+                Deal Signals
+              </h1>
+              <div className="h-[2px] w-12 bg-brand-gold mt-2 mb-4" />
+              <p className={`font-serif text-base sm:text-lg leading-relaxed ${
+                darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+              }`}>
+                A weekly PharmaSignal filter on pharma BD deals, partnerships and licensing activity — focused on what each deal reveals about execution, market access, partner capability and value creation.
+              </p>
+            </div>
+
+            {/* Grid displaying ALL Deal Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+              {DEAL_SIGNALS_DATA.map((deal) => (
+                <div 
+                  key={deal.id}
+                  className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full ${
+                    darkMode 
+                      ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/45' 
+                      : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                  }`}
+                >
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-center justify-between gap-4 mb-4">
+                      <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase px-2.5 py-1 border border-brand-gold/30">
+                        {deal.category}
+                      </span>
+                      <span className="text-[10px] font-mono text-brand-gold/80 tracking-wider">
+                        {deal.date}
+                      </span>
+                    </div>
+                    
+                    <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-4 ${
+                      darkMode ? 'text-white' : 'text-[#001B2A]'
+                    }`}>
+                      {deal.title}
+                    </h2>
+                    
+                    <p className={`font-serif text-sm sm:text-base italic leading-relaxed mb-6 ${
+                      darkMode ? 'text-white/90' : 'text-brand-charcoal/90'
+                    }`}>
+                      {deal.description}
+                    </p>
+
+                    {deal.pharmaSignalRead && (
+                      <div className={`p-4 border-l-2 border-brand-gold text-xs font-serif leading-relaxed mb-4 ${
+                        darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-primary/90'
+                      }`}>
+                        <strong className="font-mono text-[9px] uppercase text-brand-gold tracking-widest block mb-1">
+                          Signal Mechanism
+                        </strong>
+                        {deal.pharmaSignalRead}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="p-6 sm:p-8 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                    <span className="flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase">
+                      <Clock size={12} strokeWidth={2.5} /> {deal.readTime}
+                    </span>
+                    <button
+                      onClick={() => openArticle(deal)}
+                      className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      Read Deal Signal <ArrowRight size={12} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          {/* 2. Hero / About PharmaSignal Section */}
+          <section 
+            id="about-section"
+            className={`relative overflow-hidden py-14 sm:py-20 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-brand-deep border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+            }`}
+          >
         {/* Subtle geometric overlay lines */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
         
@@ -427,6 +539,110 @@ export default function App() {
         </div>
       </section>
 
+      {/* 3.5 Deal Signals Section */}
+      <section 
+        id="deal-signals-section"
+        className={`scroll-mt-20 py-16 sm:py-24 transition-colors duration-300 border-b ${
+          darkMode ? 'bg-[#061526] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="text-left max-w-3xl">
+              <span className="inline-block text-xs font-mono tracking-widest text-brand-gold uppercase font-bold mb-3">
+                EMPIRICAL EVIDENCE LAYER
+              </span>
+              <h2 className={`font-serif text-3xl sm:text-4.5xl font-bold tracking-tight uppercase mb-4 ${
+                darkMode ? 'text-white' : 'text-[#001B2A]'
+              }`}>
+                Deal Signals
+              </h2>
+              <div className="h-[2px] w-12 bg-brand-gold mt-2 mb-4" />
+              <p className={`font-serif text-sm sm:text-base leading-relaxed ${
+                darkMode ? 'text-white/70' : 'text-brand-charcoal/75'
+              }`}>
+                Public pharma BD deals interpreted through the mechanisms that create or destroy value.
+              </p>
+            </div>
+            
+            <div>
+              <button
+                onClick={() => {
+                  setActiveTab('DEAL SIGNALS');
+                  window.history.pushState(null, '', '/deal-signals');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="text-xs font-sans tracking-widest font-bold text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-2 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-5 py-3 bg-brand-gold/5"
+              >
+                View All Deal Signals <ArrowRight size={14} />
+              </button>
+            </div>
+          </div>
+
+          {/* Grid displaying MAX 2 Deal Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            {DEAL_SIGNALS_DATA.slice(0, 2).map((deal) => (
+              <div 
+                key={deal.id}
+                className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full ${
+                  darkMode 
+                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/45' 
+                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                }`}
+              >
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase px-2.5 py-1 border border-brand-gold/30">
+                      {deal.category}
+                    </span>
+                    <span className="text-[10px] font-mono text-brand-gold/80 tracking-wider">
+                      {deal.date}
+                    </span>
+                  </div>
+                  
+                  <h3 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-4 ${
+                    darkMode ? 'text-white' : 'text-[#001B2A]'
+                  }`}>
+                    {deal.title}
+                  </h3>
+                  
+                  <p className={`font-serif text-sm sm:text-base italic leading-relaxed mb-6 ${
+                    darkMode ? 'text-white/90' : 'text-brand-charcoal/90'
+                  }`}>
+                    {deal.description}
+                  </p>
+
+                  {deal.pharmaSignalRead && (
+                    <div className={`p-4 border-l-2 border-brand-gold text-xs font-serif leading-relaxed mb-4 ${
+                      darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-primary/90'
+                    }`}>
+                      <strong className="font-mono text-[9px] uppercase text-brand-gold tracking-widest block mb-1">
+                        Signal Mechanism
+                      </strong>
+                      {deal.pharmaSignalRead}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="p-6 sm:p-8 pt-0 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                  <span className="flex items-center gap-1.5 text-[10px] font-mono text-brand-gold font-bold uppercase">
+                    <Clock size={12} strokeWidth={2.5} /> {deal.readTime}
+                  </span>
+                  <button
+                    onClick={() => openArticle(deal)}
+                    className="px-6 py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    Read Deal Signal <ArrowRight size={12} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+        </>
+      )}
+
       {/* 4. Compact Subscribe Section */}
       <section 
         id="newsletter-section" 
@@ -572,6 +788,17 @@ export default function App() {
                   className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
                 >
                   Explainers
+                </button>
+                <button 
+                  onClick={() => {
+                    const el = document.getElementById('deal-signals-section');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
+                >
+                  Deal Signals
                 </button>
                 <button 
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

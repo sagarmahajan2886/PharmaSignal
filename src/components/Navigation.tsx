@@ -38,26 +38,44 @@ export default function Navigation({
     setActiveTab(tab);
     setMobileMenuOpen(false);
     
-    // Smooth scroll based on target anchors
+    // Smooth scroll and routing based on target anchors
     if (tab === 'HOME') {
+      window.history.pushState(null, '', '/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'EXPLAINERS') {
+      window.history.pushState(null, '', '/');
       const el = document.getElementById('featured-explainer-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else if (tab === 'DEAL SIGNALS') {
+      window.history.pushState(null, '', '/deal-signals');
+      const el = document.getElementById('deal-signals-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else if (tab === 'ABOUT') {
       const el = document.getElementById('about-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else if (tab === 'NEWSLETTER') {
       const el = document.getElementById('newsletter-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
   };
+
+  const navTabs: ActiveTab[] = ['EXPLAINERS', 'DEAL SIGNALS', 'ABOUT', 'NEWSLETTER'];
 
   return (
     <header 
@@ -87,8 +105,8 @@ export default function Navigation({
           </div>
 
           {/* Center Navigation for Desktop */}
-          <nav className="hidden md:flex items-center space-x-12">
-            {(['EXPLAINERS', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => {
+          <nav className="hidden md:flex items-center space-x-10">
+            {navTabs.map((tab) => {
               const isActive = activeTab === tab;
               return (
                 <button
@@ -162,7 +180,7 @@ export default function Navigation({
             className="md:hidden bg-brand-deep border-t border-white/5 overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              {(['EXPLAINERS', 'ABOUT', 'NEWSLETTER'] as ActiveTab[]).map((tab) => (
+              {navTabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => handleNavClick(tab)}
