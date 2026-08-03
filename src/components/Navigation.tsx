@@ -81,38 +81,38 @@ export default function Navigation({
     <header 
       className={`sticky top-0 z-50 w-full transition-all duration-300 border-b border-white/5 ${
         scrolled 
-          ? 'bg-brand-primary/95 backdrop-blur-md py-4 shadow-xl' 
-          : 'bg-brand-primary py-6'
+          ? 'bg-brand-primary/95 backdrop-blur-md py-3 shadow-xl' 
+          : 'bg-brand-primary py-4 sm:py-5'
       }`}
       id="app-navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           
           {/* Logo & Subtitle */}
           <div 
-            className="flex flex-col cursor-pointer group"
+            className="flex flex-col cursor-pointer group shrink-0"
             onClick={() => handleNavClick('HOME')}
           >
             <div className="flex items-center gap-2">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-white transition-colors duration-300">
+              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-wider text-white transition-colors duration-300">
                 PHARMA<span className="text-brand-gold">SIGNAL</span>
               </span>
             </div>
-            <span className="text-[9px] sm:text-[10px] font-sans tracking-widest text-white/50 font-light mt-0.5 uppercase">
+            <span className="text-[8.5px] sm:text-[9.5px] font-sans tracking-widest text-white/50 font-light mt-0.5 uppercase">
               Decision Intelligence for Pharma BD
             </span>
           </div>
 
           {/* Center Navigation for Desktop */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-8">
             {navTabs.map((tab) => {
               const isActive = activeTab === tab;
               return (
                 <button
                   key={tab}
                   onClick={() => handleNavClick(tab)}
-                  className={`relative text-[11px] tracking-widest font-sans font-bold py-2 transition-colors cursor-pointer uppercase ${
+                  className={`relative text-[11px] lg:text-xs tracking-widest font-sans font-bold py-1.5 transition-colors cursor-pointer uppercase whitespace-nowrap ${
                     isActive ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
                   }`}
                 >
@@ -130,18 +130,18 @@ export default function Navigation({
           </nav>
 
           {/* Right Action Button for Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3 lg:space-x-4 shrink-0">
             <button
               onClick={toggleDarkMode}
-              className="p-2.5 text-white/80 hover:text-brand-gold hover:bg-white/5 rounded-full transition-colors cursor-pointer"
+              className="p-2 text-white/80 hover:text-brand-gold hover:bg-white/5 rounded-full transition-colors cursor-pointer shrink-0"
               aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
-              {darkMode ? <Sun size={17} /> : <Moon size={17} />}
+              {darkMode ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             <button
               onClick={onSubscribeClick}
-              className="px-6 py-2.5 text-xs font-sans tracking-widest font-semibold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors rounded-none shadow-md cursor-pointer uppercase duration-200"
+              className="px-4 lg:px-5 py-2.5 text-[11px] lg:text-xs font-sans tracking-widest font-bold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors rounded-none shadow-md cursor-pointer uppercase duration-200 whitespace-nowrap shrink-0"
             >
               SUBSCRIBE FREE
             </button>

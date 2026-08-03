@@ -481,7 +481,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
   {
     id: 'ems-mirecule-upstream-collaboration',
     category: 'OPPORTUNITY CREATION',
-    title: 'EMS Is Moving Upstream Before There Is a Product to License',
+    title: 'EMS Moves Upstream Before There Is a Product to License',
     description: 'Brazil’s Rio Biofarma combined a research collaboration and equity investment with US RNA biotech miRecule. The signal: emerging-market pharma companies can create opportunity before a finished asset exists.',
     meta: '4 MIN READ · AUG 2026',
     author: 'PharmaSignal Deal Desk',

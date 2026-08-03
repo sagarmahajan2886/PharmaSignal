@@ -276,7 +276,7 @@ export default function App() {
           {/* 2. Hero / About PharmaSignal Section */}
           <section 
             id="about-section"
-            className={`relative overflow-hidden py-14 sm:py-20 transition-colors duration-300 border-b ${
+            className={`relative overflow-hidden py-10 sm:py-16 transition-colors duration-300 border-b ${
               darkMode ? 'bg-brand-deep border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
             }`}
           >
@@ -368,7 +368,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-5 relative w-full h-[280px] sm:h-[380px] lg:h-[420px] order-2"
+              className="lg:col-span-5 relative w-full h-[240px] sm:h-[320px] lg:h-[360px] order-2"
             >
               <div className={`absolute inset-0 border p-2 sm:p-3 relative z-10 w-full h-full ${
                 darkMode ? 'border-brand-gold/20' : 'border-[#EADBCC]'
@@ -389,7 +389,7 @@ export default function App() {
       {/* 3. Latest Explainers Section */}
       <section 
         id="featured-explainer-section" 
-        className={`scroll-mt-20 py-16 sm:py-24 transition-colors duration-300 border-b ${
+        className={`scroll-mt-20 py-12 sm:py-20 transition-colors duration-300 border-b ${
           darkMode ? 'bg-brand-deep border-white/5' : 'bg-white border-[#EADBCC]'
         }`}
       >
@@ -423,7 +423,7 @@ export default function App() {
             }`}>
               <div>
                 {/* Graphic Side */}
-                <div className={`h-44 sm:h-52 lg:h-56 flex items-center justify-center p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
+                <div className={`h-48 sm:h-56 lg:h-60 flex items-center justify-center p-3 sm:p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
                   darkMode ? 'border-white/10' : 'border-[#EADBCC]'
                 }`}>
                   <div className="w-full max-w-sm h-full flex items-center justify-center overflow-hidden">
@@ -470,14 +470,14 @@ export default function App() {
             }`}>
               <div>
                 {/* Graphic Side */}
-                <div className={`h-44 sm:h-52 lg:h-56 flex items-center justify-center p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
+                <div className={`h-48 sm:h-56 lg:h-60 flex items-center justify-center p-3 sm:p-4 border-b overflow-hidden bg-brand-primary/[0.02] ${
                   darkMode ? 'border-white/10' : 'border-[#EADBCC]'
                 }`}>
-                  <div className="w-full h-full flex items-center justify-center p-2">
+                  <div className="w-full max-w-sm h-full flex items-center justify-center p-1 sm:p-2 overflow-hidden">
                     <img 
                       src={executionDeficitImg} 
                       alt="Execution Deficit Diagram" 
-                      className="max-h-full max-w-full object-contain shadow-md rounded-sm"
+                      className="w-full h-full object-contain shadow-sm border border-brand-gold/20 rounded-none"
                       referrerPolicy="no-referrer"
                     />
                   </div>
