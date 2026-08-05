@@ -35,16 +35,16 @@ export default function ApprovalGapDiagram({ darkMode = false }: ApprovalGapDiag
             THE APPROVAL GAP
           </text>
           <text x="325" y="70" textAnchor="middle" className="diag-font-subtitle text-xs sm:text-sm" fill={textColorSecondary}>
-            Good opportunities fail inside the organization first.
+            Why attractive opportunities lose momentum before approval.
           </text>
 
-          {/* LEFT COLUMN: ATTRACTIVE OPPORTUNITY */}
+          {/* LEFT COLUMN: COMMERCIAL ATTRACTIVENESS */}
           <g transform="translate(140, 0)">
             <text x="0" y="122" textAnchor="middle" className="diag-font-sans text-[11px]" fill={textColorPrimary}>
-              ATTRACTIVE
+              COMMERCIAL
             </text>
             <text x="0" y="137" textAnchor="middle" className="diag-font-sans text-[11px]" fill={textColorPrimary}>
-              OPPORTUNITY
+              ATTRACTIVENESS
             </text>
 
             {/* Bullseye Arrow Icon */}
@@ -127,17 +127,26 @@ export default function ApprovalGapDiagram({ darkMode = false }: ApprovalGapDiag
 
           {/* INNER GAP MECHANIC LIST */}
           <g transform="translate(0, 10)">
-            {/* Row 1: Different Priorities */}
+            {/* Row 1: Evidence Uncertainty */}
             <g transform="translate(240, 325)">
               <path d="M -8 -8 c 0 0 8 -2 8 -2 s 8 2 8 2 v 6 c 0 3.5 -3 7 -8 9 c -5 -2 -8 -5.5 -8 -9 z" 
                 fill="none" stroke={goldColor} strokeWidth="1.5" strokeLinejoin="round" />
               <text x="18" y="4" textAnchor="start" className="diag-font-list text-[10px]" fill={textColorPrimary}>
-                DIFFERENT PRIORITIES
+                EVIDENCE UNCERTAINTY
               </text>
             </g>
 
-            {/* Row 2: Risk Aversion */}
+            {/* Row 2: Organizational Alignment */}
             <g transform="translate(240, 375)">
+              <circle cx="0" cy="0" r="9" fill="none" stroke={goldColor} strokeWidth="1.5" />
+              <path d="M -4 0 L 0 4 L 5 -3" fill="none" stroke={goldColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="18" y="4" textAnchor="start" className="diag-font-list text-[10px]" fill={textColorPrimary}>
+                ORGANIZATIONAL ALIGNMENT
+              </text>
+            </g>
+
+            {/* Row 3: Risk Aversion */}
+            <g transform="translate(240, 425)">
               <path d="M 0 -10 L 10 7 L -10 7 Z" fill="none" stroke={goldColor} strokeWidth="1.5" strokeLinejoin="round" />
               <line x1="0" y1="-5" x2="0" y2="1" stroke={goldColor} strokeWidth="1.5" strokeLinecap="round" />
               <circle cx="0" cy="4" r="1.25" fill={goldColor} />
@@ -146,28 +155,12 @@ export default function ApprovalGapDiagram({ darkMode = false }: ApprovalGapDiag
               </text>
             </g>
 
-            {/* Row 3: Decision Delay */}
-            <g transform="translate(240, 425)">
+            {/* Row 4: Resource Friction */}
+            <g transform="translate(240, 475)">
               <circle cx="0" cy="0" r="9" fill="none" stroke={goldColor} strokeWidth="1.5" />
               <path d="M 0 -6 L 0 0 L 4 2" fill="none" stroke={goldColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <text x="18" y="4" textAnchor="start" className="diag-font-list text-[10px]" fill={textColorPrimary}>
-                DECISION DELAY
-              </text>
-            </g>
-
-            {/* Row 4: Value Lost */}
-            <g transform="translate(240, 475)">
-              {/* Baseline */}
-              <line x1="-9" y1="8" x2="9" y2="8" stroke={goldColor} strokeWidth="1.5" strokeLinecap="round" />
-              {/* Decreasing Bars */}
-              <rect x="-7" y="1" width="3" height="7" fill={goldColor} />
-              <rect x="-2" y="3.5" width="3" height="4.5" fill={goldColor} />
-              <rect x="3" y="5.5" width="3" height="2.5" fill={goldColor} />
-              {/* Falling arrow line */}
-              <path d="M -9 -4 L -3 2 L 2 0 L 8 6" fill="none" stroke={strokeColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M 3 6 L 8 6 L 8 1" fill="none" stroke={strokeColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <text x="18" y="4" textAnchor="start" className="diag-font-list text-[10px]" fill={textColorPrimary}>
-                VALUE LOST
+                RESOURCE FRICTION
               </text>
             </g>
           </g>

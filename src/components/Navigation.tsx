@@ -43,8 +43,10 @@ export default function Navigation({
       window.history.pushState(null, '', '/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'EXPLAINERS') {
-      window.history.pushState(null, '', '/');
-      const el = document.getElementById('featured-explainer-section');
+      if (window.location.pathname !== '/') {
+        window.history.pushState(null, '', '/');
+      }
+      const el = document.getElementById('featured-explainer-section') || document.getElementById('latest-explainers-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -58,7 +60,16 @@ export default function Navigation({
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    } else if (tab === 'LENSES') {
+      window.history.pushState(null, '', '/lenses');
+      const el = document.getElementById('lenses-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     } else if (tab === 'ABOUT') {
+      window.history.pushState(null, '', '/about');
       const el = document.getElementById('about-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -66,7 +77,7 @@ export default function Navigation({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     } else if (tab === 'NEWSLETTER') {
-      const el = document.getElementById('newsletter-section');
+      const el = document.getElementById('subscribe-section') || document.getElementById('newsletter-section');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -75,7 +86,13 @@ export default function Navigation({
     }
   };
 
-  const navTabs: ActiveTab[] = ['EXPLAINERS', 'DEAL SIGNALS', 'ABOUT', 'NEWSLETTER'];
+  const navTabs: { id: ActiveTab; label: string }[] = [
+    { id: 'EXPLAINERS', label: 'Explainers' },
+    { id: 'DEAL SIGNALS', label: 'Deal Signals' },
+    { id: 'LENSES', label: 'Lenses' },
+    { id: 'ABOUT', label: 'About' },
+    { id: 'NEWSLETTER', label: 'Subscribe' }
+  ];
 
   return (
     <header 
@@ -106,17 +123,17 @@ export default function Navigation({
 
           {/* Center Navigation for Desktop */}
           <nav className="hidden md:flex items-center space-x-5 lg:space-x-8">
-            {navTabs.map((tab) => {
-              const isActive = activeTab === tab;
+            {navTabs.map((item) => {
+              const isActive = activeTab === item.id;
               return (
                 <button
-                  key={tab}
-                  onClick={() => handleNavClick(tab)}
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
                   className={`relative text-[11px] lg:text-xs tracking-widest font-sans font-bold py-1.5 transition-colors cursor-pointer uppercase whitespace-nowrap ${
                     isActive ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
                   }`}
                 >
-                  {tab}
+                  {item.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavLine"
@@ -180,15 +197,15 @@ export default function Navigation({
             className="md:hidden bg-brand-deep border-t border-white/5 overflow-hidden"
           >
             <div className="px-4 py-6 space-y-4">
-              {navTabs.map((tab) => (
+              {navTabs.map((item) => (
                 <button
-                  key={tab}
-                  onClick={() => handleNavClick(tab)}
-                  className={`block w-full text-left py-3 text-sm tracking-widest font-sans font-medium transition-colors ${
-                    activeTab === tab ? 'text-brand-gold pl-2 border-l border-brand-gold' : 'text-white/80 hover:text-white'
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`block w-full text-left py-3 text-sm tracking-widest font-sans font-medium transition-colors uppercase ${
+                    activeTab === item.id ? 'text-brand-gold pl-2 border-l border-brand-gold' : 'text-white/80 hover:text-white'
                   }`}
                 >
-                  {tab}
+                  {item.label}
                 </button>
               ))}
               

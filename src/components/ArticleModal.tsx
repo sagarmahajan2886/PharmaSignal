@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
+import { TerritoryExecutionTransferDiagram } from './TerritoryExecutionTransferDiagram';
+import { CapabilityLedOpportunityDiagram } from './CapabilityLedOpportunityDiagram';
 // @ts-ignore
 import executionDeficitImg from '../assets/images/execution_deficit_diagram_new_1782370523380.jpg';
 
@@ -842,6 +844,392 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   </div>
                 </div>
               </>
+            ) : article.id === 'innovent-spero-ex-china-execution-transfer' ? (
+              <>
+                {/* 1. Category Breadcrumb */}
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                  {article.category}
+                </span>
+
+                {/* 1. Title */}
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  Innovent Transfers SP001 Execution Outside Greater China
+                </h1>
+
+                {/* 2. Subtitle */}
+                <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-6 sm:mb-8 font-medium">
+                  Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets.
+                </p>
+
+                {/* 3. Metadata */}
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3.5 mb-8 text-[11px] sm:text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
+                    <span>July 14, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
+                    <span>2 minutes read</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-gold font-bold">
+                    <span>Mechanism: Territory-to-Execution Transfer</span>
+                  </div>
+                </div>
+
+                {/* 4. PharmaSignal Take Box */}
+                <div className={`my-8 p-6 sm:p-8 border-l-4 border-brand-gold ${
+                  darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                }`}>
+                  <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-3">
+                    <Shield size={16} /> PHARMASIGNAL TAKE
+                  </div>
+                  <p className="font-serif text-base sm:text-lg leading-relaxed font-semibold mb-3 text-brand-gold">
+                    This is a Territory-to-Execution Transfer deal.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed mb-3 opacity-95">
+                    Innovent assigned research, development, manufacturing and commercialization responsibility outside Greater China.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed opacity-90 italic">
+                    The BD question is whether execution capability transfers as cleanly as contractual rights.
+                  </p>
+                </div>
+
+                {/* 5. Hero Mechanism Image */}
+                <div className="my-10 max-w-2xl mx-auto">
+                  <TerritoryExecutionTransferDiagram darkMode={darkMode} />
+                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
+                  }`}>
+                    Figure 1: Territory-to-Execution Transfer — Innovent retains Greater China while Spero absorbs rest-of-world operating accountability.
+                  </p>
+                </div>
+
+                {/* Main Article Sections */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  
+                  {/* 6. Deal Signal */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-8 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Deal Signal
+                  </h2>
+                  <p className="mb-6 leading-relaxed">
+                    On July 14, 2026, Spero Therapeutics and Innovent Biologics announced an exclusive license for SP001, also known as IBI355. Spero received worldwide rights outside Greater China to research, develop, manufacture and commercialize the asset. Innovent retained rights in mainland China, Hong Kong, Macau and Taiwan. Innovent is eligible for an upfront payment, milestones bringing the stated potential deal value to approximately $1.1 billion, and tiered royalties.
+                  </p>
+
+                  {/* 7. Source Discipline */}
+                  <div className={`my-8 p-6 border-l-2 border-brand-gold ${darkMode ? 'bg-white/[0.02]' : 'bg-brand-gold-light/15'}`}>
+                    <h2 className={`font-serif text-xl sm:text-2xl font-bold mb-4 tracking-tight ${
+                      darkMode ? 'text-brand-gold' : 'text-brand-primary'
+                    }`}>
+                      Source Discipline
+                    </h2>
+                    <div className="space-y-3 font-sans text-sm sm:text-base leading-relaxed">
+                      <p>
+                        <strong className="text-brand-gold font-bold">Verified facts:</strong> The rights package covers research, development, manufacturing and commercialization outside Greater China. Spero expects to advance SP001 initially in IgG4-related disease, while Innovent expects to study it in China in Sjögren’s disease.
+                      </p>
+                      <p>
+                        <strong className="text-brand-gold font-bold">Undisclosed terms:</strong> Upfront-payment amount, milestone breakdown, royalty rates, governance, supply transition, development-data exchange and decision rights.
+                      </p>
+                      <p>
+                        <strong className="text-brand-gold font-bold">PharmaSignal interpretation:</strong> The agreement creates two territorial execution systems around the same asset.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 8. Why It Matters */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why It Matters
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    Territorial licenses are often described as geographic divisions. That description is incomplete when the licensee also assumes the functions required to move an asset through development and into the market.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    Spero is not simply receiving access to countries. It is taking responsibility for converting an externally developed program into a new international pipeline. Innovent retains Greater China and continues its own development path.
+                  </p>
+
+                  {/* 9. PharmaSignal Read */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    PharmaSignal Read
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    This is Territory-to-Execution Transfer: territory bundled with operating accountability.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    The structure gives each company room to select indications and development priorities suited to its own portfolio. That can create parallel opportunity. It can also create divergence in evidence generation, manufacturing decisions and regulatory sequencing.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    The main execution risk sits at the boundary. Early clinical knowledge, assay history, manufacturing methods and future safety findings must cross organizational and territorial lines. Weak transfer mechanisms can produce Value Leakage After Signing even when contractual rights are clear.
+                  </p>
+
+                  {/* 10. PharmaSignal Principle */}
+                  <div className="my-12 p-8 sm:p-10 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-3">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <p className="font-serif text-lg sm:text-2xl leading-relaxed italic font-bold text-brand-gold">
+                      "A territory creates value only when the capability to execute travels with the rights."
+                    </p>
+                  </div>
+
+                  {/* 11. Related Signals */}
+                  <div className={`my-12 p-6 sm:p-8 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      RELATED SIGNALS
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Related Signal 1 */}
+                      <button
+                        onClick={() => onSelectArticleId?.('ems-mirecule-upstream-collaboration')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          OPPORTUNITY CREATION
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          EMS Moves Upstream Before There Is a Product to License
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+
+                      {/* Related Signal 2 */}
+                      <button
+                        onClick={() => onSelectArticleId?.('kaigene-taisho-japan-licensing')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          TERRITORIAL EXECUTION
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          Kaigene Transfers Japan Execution to Taisho
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </>
+            ) : article.id === 'gsk-capability-led-opportunity-creation' ? (
+              <>
+                {/* Draft Badge & Category Breadcrumb */}
+                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
+                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
+                    {article.category}
+                  </span>
+                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
+                    DRAFT — READY FOR REVIEW
+                  </span>
+                </div>
+
+                {/* 1. Title */}
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  GSK Buys an Earlier Position in Drug Discovery
+                </h1>
+
+                {/* 2. Subtitle */}
+                <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-6 sm:mb-8 font-medium">
+                  The Relation collaboration moves business development upstream—from evaluating available assets to generating proprietary opportunities.
+                </p>
+
+                {/* 3. Metadata */}
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3.5 mb-8 text-[11px] sm:text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
+                    <span>July 30, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
+                    <span>2 minutes read</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-gold font-bold">
+                    <span>Mechanism: Capability-Led Opportunity Creation</span>
+                  </div>
+                </div>
+
+                {/* 4. PharmaSignal Take Box */}
+                <div className={`my-8 p-6 sm:p-8 border-l-4 border-brand-gold ${
+                  darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                }`}>
+                  <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-3">
+                    <Shield size={16} /> PHARMASIGNAL TAKE
+                  </div>
+                  <p className="font-serif text-base sm:text-lg leading-relaxed font-semibold mb-3 text-brand-gold">
+                    This is a Capability-Led Opportunity Creation deal.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed mb-3 opacity-95">
+                    Relation will generate biological datasets that may produce new drug targets for GSK.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed opacity-90 italic">
+                    The BD question is who controls the opportunity after the evidence becomes valuable.
+                  </p>
+                </div>
+
+                {/* 5. Hero Mechanism Image */}
+                <div className="my-10 max-w-2xl mx-auto">
+                  <CapabilityLedOpportunityDiagram darkMode={darkMode} />
+                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
+                  }`}>
+                    Figure 1: Capability-Led Opportunity Creation — Relation capability generates proprietary evidence to power GSK opportunities.
+                  </p>
+                </div>
+
+                {/* Main Article Sections */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  
+                  {/* 6. Deal Signal */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-8 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Deal Signal
+                  </h2>
+                  <p className="mb-6 leading-relaxed">
+                    GSK and Relation Therapeutics entered a research collaboration worth up to $110 million. Relation will generate large-scale datasets showing how human cells respond to genetic and drug interventions. Those datasets will train AI models, including Relation’s MORGAN platform, to identify potential drug targets. The agreement expands an existing relationship focused on fibrotic diseases and osteoarthritis.
+                  </p>
+
+                  {/* 7. Why It Matters */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why It Matters
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    Most pharma BD teams enter after an asset exists. They evaluate a defined programme, compete with other buyers and negotiate against increasingly visible evidence.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    This agreement moves the relationship earlier. GSK is supporting a partner capability that may create proprietary opportunities before those opportunities become finished assets available to the wider market.
+                  </p>
+
+                  {/* 8. PharmaSignal Read */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    PharmaSignal Read
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    The mechanism is not AI alone. It is access to differentiated biological information.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    If Relation’s experimental system produces evidence that competitors cannot access, GSK may gain an earlier view of targets worth developing. That can reduce competitive pressure and improve the quality of opportunity selection.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    But early access is not the same as captured value. Target ownership, option rights, development responsibility and decision governance determine whether an information advantage becomes an economic advantage. Those terms were not disclosed.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    The critical handoff comes when discovery evidence becomes a development opportunity. Ambiguity at that point can create governance debt and allow value to leak between research success and asset control.
+                  </p>
+
+                  {/* 9. PharmaSignal Principle */}
+                  <div className="my-10 p-8 sm:p-10 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-3">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <p className="font-serif text-lg sm:text-2xl leading-relaxed italic font-bold text-brand-gold">
+                      "The strongest BD teams do not only find opportunities earlier. They design the rights needed to retain them."
+                    </p>
+                  </div>
+
+                  {/* 10. Source (Exact specification) */}
+                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
+                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
+                  }`}>
+                    Source: <a 
+                      href="https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
+                    >
+                      Reuters
+                    </a>, July 30, 2026.
+                  </div>
+
+                  {/* 11. Related Signals */}
+                  <div className={`my-12 p-6 sm:p-8 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      RELATED SIGNALS
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Related Signal 1 */}
+                      <button
+                        onClick={() => onSelectArticleId?.('ems-mirecule-upstream-collaboration')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          OPPORTUNITY CREATION
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          EMS Moves Upstream Before There Is a Product to License
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+
+                      {/* Related Signal 2 */}
+                      <button
+                        onClick={() => onSelectArticleId?.('innovent-spero-ex-china-execution-transfer')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          TERRITORY-TO-EXECUTION TRANSFER
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          Innovent Transfers SP001 Execution Outside Greater China
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </>
             ) : (
               <>
                 {/* Category Breadcrumb */}
@@ -873,6 +1261,18 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     <span>{article.readTime}</span>
                   </div>
                 </div>
+
+                {/* Article Thumbnail Image if available */}
+                {article.imageUrl && (
+                  <div className="my-6 w-full overflow-hidden border border-brand-gold/30 rounded-none bg-brand-deep">
+                    <img 
+                      src={article.imageUrl} 
+                      alt={article.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-auto object-cover max-h-[420px]"
+                    />
+                  </div>
+                )}
 
                 {/* Featured Summary */}
                 {article.featuredSummary && (

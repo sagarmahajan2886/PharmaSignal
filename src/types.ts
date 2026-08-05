@@ -15,14 +15,21 @@ export interface Article {
   featuredSummary: string;
   content: string;
   isDealSignal?: boolean;
+  isDraft?: boolean;
+  mechanism?: string;
+  pharmaSignalTake?: string;
   pharmaSignalRead?: string;
+  sourceUrl?: string;
+  sourceLabel?: string;
   useThisWhen?: string;
   linkedExplainers?: LinkedExplainer[];
   tags?: string[];
   sourceNote?: string;
+  imageUrl?: string;
+  shortTitle?: string;
 }
 
-export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'ABOUT' | 'NEWSLETTER';
+export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'LENSES' | 'ABOUT' | 'NEWSLETTER';
 
 export interface NewsletterSubscriber {
   email: string;

@@ -1,4 +1,8 @@
 import { Article } from './types';
+// @ts-ignore
+import mireculeImg from './assets/images/mirecule_deal_signal_1785838349276.jpg';
+// @ts-ignore
+import mireculeInfographic from './assets/images/mirecule_ems_logos_1785840743303.jpg';
 
 export const EXPLAINERS_DATA: Article[] = [
   {
@@ -480,48 +484,57 @@ export const EXPLAINERS_DATA: Article[] = [
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
     id: 'ems-mirecule-upstream-collaboration',
-    category: 'OPPORTUNITY CREATION',
-    title: 'EMS Moves Upstream Before There Is a Product to License',
-    description: 'Brazil’s Rio Biofarma combined research collaboration with equity investment in US RNA biotech miRecule — creating opportunity before a finished asset exists.',
-    meta: '4 MIN READ · AUG 2026',
+    category: 'DEAL SIGNAL',
+    title: 'miRecule & EMS Group (Rio Biofarma) Partner Upstream for Co-Owned Extra-Hepatic RNA Platform',
+    shortTitle: 'miRecule & EMS Group: Upstream RNA Collaboration',
+    description: 'miRecule and Rio Biofarma (EMS Group) structured their collaboration around capability, co-owned technology, equity investment, and Brazilian manufacturing.',
+    meta: '6 MIN READ · AUG 04, 2026',
     author: 'PharmaSignal Deal Desk',
-    readTime: '4 min read',
-    date: 'August 2026',
-    featuredSummary: 'Why a Brazilian pharma group’s RNA collaboration shows how opportunity creation can begin before a commercial asset exists.',
+    readTime: '6 min read',
+    date: 'August 4, 2026',
+    featuredSummary: 'miRecule and EMS Group (Rio Biofarma) combined delivery capabilities, co-owned the resulting technology, embedded Brazilian manufacturing, and added equity—turning local capability into upstream opportunity creation.',
     isDealSignal: true,
-    pharmaSignalRead: 'Capability-Led Opportunity Creation. EMS is not acquiring Brazilian rights to a completed asset. It is gaining early exposure to an enabling technology platform that could generate multiple future assets. The structure may create three advantages: (1) early visibility into a technology platform; (2) influence before territorial rights become competitive; (3) strategic positioning for future LATAM development or commercialization. But early access also creates a second mechanism: Governance Debt. Platform collaborations often begin with broad scientific ambition. They become fragile later if the parties have not clearly defined decision rights before the science succeeds.',
-    useThisWhen: 'Evaluating whether an emerging-market company should enter an innovation platform before asset validation, and whether early access justifies higher technical, governance and portfolio uncertainty. Use this signal when assessing: (1) whether to enter an innovation platform before a finished asset exists; (2) whether equity should accompany a research collaboration; (3) how emerging-market companies can move upstream in the innovation cycle; (4) when early access justifies higher uncertainty; (5) how future territorial rights should be protected before platform success.',
-    content: `
-      <h2>Deal Signal</h2>
-      <p>US-based miRecule and Rio Biofarma Brasil, part of Brazilian pharmaceutical group EMS, have entered a strategic research collaboration to co-develop peptide-mediated delivery technologies for RNA therapeutics.</p>
-      <p>The collaboration will focus on delivering RNA therapies beyond the liver and into additional tissues across multiple disease areas.</p>
-      <p>Rio Biofarma also made an undisclosed equity investment in miRecule.</p>
-
-      <h2>Why It Matters</h2>
-      <p>Emerging-market pharma companies have traditionally entered innovative assets after clinical proof, regulatory validation, or availability of commercialization rights.</p>
-      <p>This structure begins earlier.</p>
-      <p>EMS is not only evaluating a finished product. Through Rio Biofarma, it is combining technical collaboration with equity participation before a defined commercial asset has emerged.</p>
-      <p>That changes the BD logic. The company is not simply buying an opportunity. It is helping create one.</p>
-
-      <h2>What To Watch Next</h2>
-      <p>The value of this collaboration will not be determined by the announcement alone. Key execution questions include:</p>
-      <ul>
-        <li>Will the parties disclose specific targets or therapeutic programs?</li>
-        <li>Who will control candidate selection and development decisions?</li>
-        <li>Will EMS obtain LATAM or broader commercialization options?</li>
-        <li>How will newly generated intellectual property be divided?</li>
-        <li>Will the collaboration move beyond research into nominated assets?</li>
-      </ul>
-
-      <h2>PharmaSignal Principle</h2>
-      <p><em>The strongest opportunities are sometimes created before an asset is available for licensing. But early access creates value only when future rights and decision ownership are defined before the science succeeds.</em></p>
-    `,
+    imageUrl: mireculeImg,
+    pharmaSignalRead: 'Mechanism: Capability-Led Opportunity Creation. miRecule and Rio Biofarma structured their collaboration around capability, co-owned technology, equity and manufacturing—turning local capability into opportunity creation before a finished asset exists.',
+    useThisWhen: 'Deciding whether a regional partner should enter before candidate selection rather than after clinical validation; assessing partners on constraints they can remove; determining whether capability contribution merits co-ownership, milestones or equity; designing governance for jointly created platform IP across multiple targets.',
     linkedExplainers: [
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' }
     ],
-    tags: ['Brazil', 'LATAM', 'RNA Therapeutics', 'Equity Investment', 'Research Collaboration', 'Opportunity Creation', 'Governance Debt', 'Platform Collaboration'],
-    sourceNote: 'This Deal Signal is based on the announced strategic research collaboration between miRecule and Rio Biofarma Brasil, part of EMS, on 31 July 2026. Financial terms and the size of Rio Biofarma’s equity investment were not disclosed.'
+    tags: ['DEAL SIGNAL', 'OPPORTUNITY CREATION', 'RNA THERAPEUTICS', 'EMS GROUP', 'MIRECULE', 'RIO BIOFARMA', 'EQUITY INVESTMENT', 'GOVERNANCE DEBT', 'PEPTIDE DELIVERY'],
+    sourceNote: 'The principal source was the transaction-specific announcement, miRecule Announces Strategic Collaboration with EMS Group Company Rio Biopharma to Advance Targeted Delivery of RNA Therapeutics, published July 31, 2026 through Pharma Focus Europe as a Business Wire-sourced release.',
+    content: `
+      <h2>DEAL SIGNAL</h2>
+      <p>On July 31, 2026, <strong>miRecule</strong> and <strong>Rio Biofarma Brasil</strong> (part of EMS Group) announced a strategic research collaboration to co-develop peptide-mediated RNA therapeutics for extra-hepatic tissue delivery across up to three targets.</p>
+      <p>Rather than a standard regional commercialization handoff, Rio Biofarma made an equity investment in miRecule, co-owns the resulting technology, and will manufacture products in Brazil with potential global co-development rights.</p>
+
+      <figure class="my-6">
+        <img src="${mireculeInfographic}" alt="miRecule & Rio Biofarma / EMS Strategic Collaboration Diagram" class="w-full h-auto border border-brand-gold/30 shadow-lg" />
+        <figcaption class="text-xs text-center text-brand-gold/90 mt-2 font-mono uppercase tracking-wider">Capability Architecture: miRecule x Rio Biofarma (EMS Group)</figcaption>
+      </figure>
+
+      <h2>WHY IT MATTERS</h2>
+      <p>Emerging-market partners usually enter after asset validation to handle regional registration and distribution. This transaction starts far upstream: Rio Biofarma enters while enabling technology is being created, contributing delivery and manufacturing capabilities that make new RNA programs technically viable.</p>
+
+      <h2>PHARMASIGNAL READ</h2>
+      <h3>Mechanism: Capability-Led Opportunity Creation</h3>
+      <p>Extra-hepatic delivery is the primary bottleneck for RNA medicines. Combining miRecule's NAVIgGator platform with Rio Biofarma's peptide discovery and Brazilian manufacturing creates value through four key levers:</p>
+      <ul>
+        <li><strong>Solving Technical Constraints:</strong> Selecting partners based on enabling capability rather than geography alone.</li>
+        <li><strong>Co-Ownership vs. Fee-for-Service:</strong> Joint IP ownership recognizes co-creation of foundational technology.</li>
+        <li><strong>Equity Alignment:</strong> Direct equity investment aligns long-term strategic incentives beyond project fees.</li>
+        <li><strong>Early Supply Integration:</strong> Embedding Brazilian manufacturing early ensures scalable supply before clinical validation.</li>
+      </ul>
+
+      <h3>The Risk: Governance Debt</h3>
+      <p>Co-ownership without explicit boundary rules creates governance risk. Undisclosed IP boundaries, patent filing responsibilities, sublicensing authority, and target decision rights can create approval bottlenecks if joint governance is not structured rigorously from day one.</p>
+
+      <h2>DECISION USE CASE & TAKEAWAY</h2>
+      <p><strong>Use this signal when:</strong> Deciding whether a regional partner should enter before candidate selection; assessing partners on constraints they can remove; and designing governance for jointly created platform IP across multiple targets.</p>
+
+      <h2>PHARMASIGNAL PRINCIPLE</h2>
+      <p><em>"The strongest partner may be the one that removes the constraint preventing an asset from existing—not only the friction preventing it from selling."</em></p>
+    `
   },
   {
     id: 'kaigene-taisho-japan-licensing',
@@ -613,6 +626,86 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     ],
     tags: ['HIV', 'VOLUNTARY LICENSING', 'MARKET ACCESS', 'INDIA', 'AFRICA', 'LOCAL MANUFACTURING', 'EXECUTION READINESS', 'APPROVAL-TO-AVAILABILITY GAP', 'EXECUTION DEFICIT', 'OPPORTUNITY CREATION'],
     sourceNote: 'This Deal Signal is based on public reporting and company information regarding Merck’s voluntary licensing strategy for alimatravir announced in July 2026.'
+  },
+  {
+    id: 'innovent-spero-ex-china-execution-transfer',
+    category: 'DEAL SIGNALS',
+    title: 'Innovent Transfers SP001 Execution Outside Greater China',
+    description: 'Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets.',
+    meta: '2 MIN READ · JUL 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '2 min read',
+    date: 'July 14, 2026',
+    featuredSummary: 'Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets.',
+    isDealSignal: true,
+    mechanism: 'Territory-to-Execution Transfer',
+    pharmaSignalTake: 'This is a Territory-to-Execution Transfer deal.\n\nInnovent assigned research, development, manufacturing and commercialization responsibility outside Greater China.\n\nThe BD question is whether execution capability transfers as cleanly as contractual rights.',
+    useThisWhen: 'Assessing cross-border licensing transactions where research, development, manufacturing and commercialization accountability are transferred alongside territorial rights.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On July 14, 2026, Spero Therapeutics and Innovent Biologics announced an exclusive license for SP001, also known as IBI355. Spero received worldwide rights outside Greater China to research, develop, manufacture and commercialize the asset. Innovent retained rights in mainland China, Hong Kong, Macau and Taiwan. Innovent is eligible for an upfront payment, milestones bringing the stated potential deal value to approximately $1.1 billion, and tiered royalties.</p>
+
+      <h2>Source Discipline</h2>
+      <p><strong>Verified facts:</strong> The rights package covers research, development, manufacturing and commercialization outside Greater China. Spero expects to advance SP001 initially in IgG4-related disease, while Innovent expects to study it in China in Sjögren’s disease.</p>
+      <p><strong>Undisclosed terms:</strong> Upfront-payment amount, milestone breakdown, royalty rates, governance, supply transition, development-data exchange and decision rights.</p>
+      <p><strong>PharmaSignal interpretation:</strong> The agreement creates two territorial execution systems around the same asset.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Territorial licenses are often described as geographic divisions. That description is incomplete when the licensee also assumes the functions required to move an asset through development and into the market.</p>
+      <p>Spero is not simply receiving access to countries. It is taking responsibility for converting an externally developed program into a new international pipeline. Innovent retains Greater China and continues its own development path.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p>This is Territory-to-Execution Transfer: territory bundled with operating accountability.</p>
+      <p>The structure gives each company room to select indications and development priorities suited to its own portfolio. That can create parallel opportunity. It can also create divergence in evidence generation, manufacturing decisions and regulatory sequencing.</p>
+      <p>The main execution risk sits at the boundary. Early clinical knowledge, assay history, manufacturing methods and future safety findings must cross organizational and territorial lines. Weak transfer mechanisms can produce Value Leakage After Signing even when contractual rights are clear.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>A territory creates value only when the capability to execute travels with the rights.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['DEAL SIGNAL', 'INNOVENT', 'SPERO', 'SP001', 'IBI355', 'TERRITORY-TO-EXECUTION TRANSFER', 'CROSS-BORDER LICENSING', 'GREATER CHINA'],
+    sourceNote: 'Verified facts: Spero received exclusive ex-Greater China research, development, manufacturing and commercialization rights for SP001 / IBI355. Innovent retained Greater China rights.'
+  },
+  {
+    id: 'gsk-capability-led-opportunity-creation',
+    category: 'DEAL SIGNALS',
+    title: 'GSK Buys an Earlier Position in Drug Discovery',
+    description: 'The Relation collaboration moves business development upstream—from evaluating available assets to generating proprietary opportunities.',
+    meta: '2 MIN READ · JUL 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '2 min read',
+    date: 'July 30, 2026',
+    featuredSummary: 'Relation will generate proprietary biological evidence rather than transfer a finished asset. The value depends on who controls the targets that emerge.',
+    isDealSignal: true,
+    isDraft: true,
+    mechanism: 'Capability-Led Opportunity Creation',
+    pharmaSignalTake: 'This is a Capability-Led Opportunity Creation deal.\n\nRelation will generate biological datasets that may produce new drug targets for GSK.\n\nThe BD question is who controls the opportunity after the evidence becomes valuable.',
+    sourceUrl: 'https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/',
+    sourceLabel: 'Reuters, July 30, 2026.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>GSK and Relation Therapeutics entered a research collaboration worth up to $110 million. Relation will generate large-scale datasets showing how human cells respond to genetic and drug interventions. Those datasets will train AI models, including Relation’s MORGAN platform, to identify potential drug targets. The agreement expands an existing relationship focused on fibrotic diseases and osteoarthritis.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Most pharma BD teams enter after an asset exists. They evaluate a defined programme, compete with other buyers and negotiate against increasingly visible evidence.</p>
+      <p>This agreement moves the relationship earlier. GSK is supporting a partner capability that may create proprietary opportunities before those opportunities become finished assets available to the wider market.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p>The mechanism is not AI alone. It is access to differentiated biological information.</p>
+      <p>If Relation’s experimental system produces evidence that competitors cannot access, GSK may gain an earlier view of targets worth developing. That can reduce competitive pressure and improve the quality of opportunity selection.</p>
+      <p>But early access is not the same as captured value. Target ownership, option rights, development responsibility and decision governance determine whether an information advantage becomes an economic advantage. Those terms were not disclosed.</p>
+      <p>The critical handoff comes when discovery evidence becomes a development opportunity. Ambiguity at that point can create governance debt and allow value to leak between research success and asset control.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>The strongest BD teams do not only find opportunities earlier. They design the rights needed to retain them.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
+    ],
+    tags: ['DEAL SIGNAL', 'GSK', 'RELATION THERAPEUTICS', 'CAPABILITY-LED OPPORTUNITY CREATION', 'AI DRUG DISCOVERY', 'UPSTREAM BD', 'DRAFT']
   }
 ];
 
