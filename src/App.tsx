@@ -95,6 +95,7 @@ export default function App() {
         const found = ALL_ARTICLES.find(a => a.id === articleId);
         if (found) {
           setSelectedArticle(found);
+          setActiveTab('EXPLAINERS');
           return;
         }
       }
@@ -105,6 +106,7 @@ export default function App() {
         const found = ALL_ARTICLES.find(a => a.id === articleId);
         if (found) {
           setSelectedArticle(found);
+          setActiveTab('DEAL SIGNALS');
           return;
         }
       }

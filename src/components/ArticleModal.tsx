@@ -19,11 +19,16 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Lock body scroll when reading is active
+  // Lock body scroll and sync URL when reading is active
   useEffect(() => {
     if (article) {
       document.body.style.overflow = 'hidden';
       setScrollProgress(0); // Reset progress on article change
+      const prefix = article.isDealSignal ? '/deal-signals' : '/explainers';
+      const path = `${prefix}/${article.id}`;
+      if (window.location.pathname !== path) {
+        window.history.pushState(null, '', path);
+      }
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -35,7 +40,19 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
   if (!article) return null;
 
   const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
+    const prefix = article.isDealSignal ? '/deal-signals' : '/explainers';
+    const fullUrl = `${window.location.origin}${prefix}/${article.id}`;
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(fullUrl);
+    } else {
+      const textArea = document.createElement("textarea");
+      textArea.value = fullUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
