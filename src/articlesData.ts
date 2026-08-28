@@ -483,6 +483,35 @@ export const EXPLAINERS_DATA: Article[] = [
 
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
+    id: 'roche-alnylam-rnai-expansion',
+    category: 'DEAL SIGNAL',
+    title: 'Roche & Alnylam Expand $2.8B RNAi Cardiovascular Alliance',
+    shortTitle: 'Roche & Alnylam: RNAi Cardiovascular Alliance',
+    description: 'Roche exercises option to expand global co-commercialization rights for zilebesiran in hypertension, committing $310M in near-term development milestones.',
+    meta: '5 MIN READ · AUG 28, 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '5 min read',
+    date: 'August 28, 2026',
+    featuredSummary: 'Roche exercises option to expand global co-commercialization rights for zilebesiran in hypertension, committing $310M in near-term development milestones.',
+    isDealSignal: true,
+    imageUrl: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
+    pharmaSignalRead: 'Mechanism: Option Trigger via Phase IIb Endpoint Clearance. In biopharma licensing, tiered option exercise windows reduce early capital exposure while securing global rights before competitive bidding starts.',
+    useThisWhen: 'Designing staged licensing rights where commercial options are tied to defined registrational endpoints rather than fixed calendar schedules.',
+    linkedExplainers: [
+      { id: 'the-approval-gap', title: 'The Approval Gap' },
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
+    ],
+    tags: ['DEAL SIGNAL', 'RNAI THERAPEUTICS', 'ROCHE', 'ALNYLAM', 'OPTION TRIGGER', 'CARDIOVASCULAR'],
+    content: `
+      <h2>DEAL SIGNAL</h2>
+      <p>Roche has exercised its expansion option in the global zilebesiran collaboration with Alnylam Pharmaceuticals, committing $310M in developmental milestone advancements following Phase IIb hypertension endpoint clearance.</p>
+
+      <h2>PHARMASIGNAL READ</h2>
+      <h3>Mechanism: Option Trigger via Phase IIb Endpoint Clearance</h3>
+      <p>The strongest licensing alliances structure option triggers around clean clinical de-risking points rather than fixed calendar milestones.</p>
+    `
+  },
+  {
     id: 'ems-mirecule-upstream-collaboration',
     category: 'DEAL SIGNAL',
     title: 'miRecule & EMS Group (Rio Biofarma) Partner Upstream for Co-Owned Extra-Hepatic RNA Platform',
