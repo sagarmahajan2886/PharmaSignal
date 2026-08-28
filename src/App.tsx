@@ -73,11 +73,39 @@ export default function App() {
     }
   };
 
-  // URL Deep-linking Route Handler
+  // URL Deep-linking Route Handler (supports pathname, query params ?deal=/?article=, and hash)
   useEffect(() => {
     const handleUrlRoute = () => {
       const path = window.location.pathname;
+      const searchParams = new URLSearchParams(window.location.search);
+      const hash = window.location.hash;
 
+      // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=...)
+      const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id');
+      if (queryArticleId) {
+        const found = ALL_ARTICLES.find(a => a.id === queryArticleId);
+        if (found) {
+          setSelectedArticle(found);
+          setActiveTab(found.isDealSignal ? 'DEAL SIGNALS' : 'EXPLAINERS');
+          return;
+        }
+      }
+
+      // 2. Check Hash Routing (e.g. #/deal-signals/..., #/explainers/..., #deal=...)
+      if (hash) {
+        const cleanHash = hash.replace(/^#\/?/, '');
+        const hashMatch = cleanHash.match(/^(?:deal-signals|explainers|article)\/([a-zA-Z0-9_-]+)/);
+        if (hashMatch) {
+          const found = ALL_ARTICLES.find(a => a.id === hashMatch[1]);
+          if (found) {
+            setSelectedArticle(found);
+            setActiveTab(found.isDealSignal ? 'DEAL SIGNALS' : 'EXPLAINERS');
+            return;
+          }
+        }
+      }
+
+      // 3. Check Standard Path Routing
       if (path === '/deal-signals') {
         setActiveTab('DEAL SIGNALS');
         setSelectedArticle(null);
@@ -121,7 +149,11 @@ export default function App() {
 
     handleUrlRoute();
     window.addEventListener('popstate', handleUrlRoute);
-    return () => window.removeEventListener('popstate', handleUrlRoute);
+    window.addEventListener('hashchange', handleUrlRoute);
+    return () => {
+      window.removeEventListener('popstate', handleUrlRoute);
+      window.removeEventListener('hashchange', handleUrlRoute);
+    };
   }, []);
 
   // Smooth scroll helpers
