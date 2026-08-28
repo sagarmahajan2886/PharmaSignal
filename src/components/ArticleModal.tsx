@@ -5,6 +5,9 @@ import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
 import { TerritoryExecutionTransferDiagram } from './TerritoryExecutionTransferDiagram';
 import { CapabilityLedOpportunityDiagram } from './CapabilityLedOpportunityDiagram';
+import { SKBiopharmBiohavenDiagram } from './SKBiopharmBiohavenDiagram';
+import { AurigeneTechTransferDiagram } from './AurigeneTechTransferDiagram';
+import { BMSCellaresScaleDiagram } from './BMSCellaresScaleDiagram';
 // @ts-ignore
 import executionDeficitImg from '../assets/images/execution_deficit_diagram_new_1782370523380.jpg';
 
@@ -1240,6 +1243,573 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                         </p>
                         <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
                           Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </>
+            ) : article.id === 'sk-biopharm-biohaven-epilepsy-platform' ? (
+              <>
+                {/* Draft Badge & Category Breadcrumb */}
+                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
+                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
+                    {article.category}
+                  </span>
+                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
+                    DRAFT — READY FOR REVIEW
+                  </span>
+                </div>
+
+                {/* 1. Title */}
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  SK Biopharm Buys Worldwide Epilepsy Platform for $400M Near-Term
+                </h1>
+
+                {/* 2. Subtitle */}
+                <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-6 sm:mb-8 font-medium">
+                  By leveraging its existing specialist commercial infrastructure, an Asian pharma company acquires global innovation rights rather than a regional territory license.
+                </p>
+
+                {/* 3. Metadata */}
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3.5 mb-8 text-[11px] sm:text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
+                    <span>August 26, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
+                    <span>3 minutes read</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-gold font-bold">
+                    <span>Mechanism: Commercial Infrastructure as Acquisition Advantage</span>
+                  </div>
+                </div>
+
+                {/* 4. PharmaSignal Take Box */}
+                <div className={`my-8 p-6 sm:p-8 border-l-4 border-brand-gold ${
+                  darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                }`}>
+                  <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-3">
+                    <Shield size={16} /> PHARMASIGNAL TAKE
+                  </div>
+                  <p className="font-serif text-base sm:text-lg leading-relaxed font-semibold mb-3 text-brand-gold">
+                    This is a Commercial Infrastructure as Acquisition Advantage transaction.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed mb-3 opacity-95">
+                    SK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed opacity-90 italic">
+                    The BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.
+                  </p>
+                </div>
+
+                {/* 5. Hero Mechanism Image */}
+                <div className="my-10 max-w-2xl mx-auto">
+                  <SKBiopharmBiohavenDiagram darkMode={darkMode} />
+                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
+                  }`}>
+                    Figure 1: Commercial Infrastructure as Acquisition Advantage — Pre-existing commercial infrastructure enables global platform acquisition ahead of pivotal validation.
+                  </p>
+                </div>
+
+                {/* Main Article Sections */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  
+                  {/* 6. Deal Signal */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-8 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Deal Signal
+                  </h2>
+                  <p className="mb-6 leading-relaxed">
+                    On 26 August 2026, South Korea’s SK Biopharmaceuticals agreed to acquire an exclusive worldwide license to Biohaven’s Kv7 ion-channel platform, led by Phase II/III epilepsy asset opakalim (BHV-7000). Biohaven will receive $350 million at closing plus $50 million in 2027, with total platform-related payments potentially reaching $795 million, plus tiered royalties. SK will also assume future programme development costs and certain legacy obligations. Opakalim remains ahead of pivotal readout, with RISE3 trial results expected in H2 2026.
+                  </p>
+
+                  {/* 7. Why It Matters */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why It Matters
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    This transaction signals a structural shift beyond conventional regional in-licensing. Historically, Asian pharma companies acquired regional territories (such as Korea or Asia-Pacific) for late-stage Western assets.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    SK has already built a global commercial epilepsy franchise around cenobamate (XCOPRI). Rather than acquiring another regional license, it is using that existing commercial and regulatory infrastructure to take worldwide ownership of an entire therapeutic mechanism ahead of pivotal validation.
+                  </p>
+
+                  {/* 8. PharmaSignal Read */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    PharmaSignal Read
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    The competitive landscape for innovative assets is expanding beyond US and European Big Pharma. Asian companies with established specialist capabilities can now compete directly for global rights.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    SK can justify the economics because its pre-existing epilepsy infrastructure removes the need to build a new commercial organization from scratch. The acquisition bundles asset NPV, franchise adjacency, existing salesforce synergy and long-term platform optionality.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    Once a specialist acquirer buys a global platform, regional carve-outs for emerging markets may never reach the secondary market.
+                  </p>
+
+                  {/* 9. PharmaSignal Principle */}
+                  <div className="my-10 p-8 sm:p-10 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-3">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <p className="font-serif text-lg sm:text-2xl leading-relaxed italic font-bold text-brand-gold">
+                      "Commercial infrastructure is not merely a launch capability. Once established, it becomes an acquisition advantage."
+                    </p>
+                  </div>
+
+                  {/* 10. Source */}
+                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
+                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
+                  }`}>
+                    Source: <a 
+                      href="https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
+                    >
+                      Biohaven Investor Relations
+                    </a>, August 26, 2026.
+                  </div>
+
+                  {/* 11. Related Signals */}
+                  <div className={`my-12 p-6 sm:p-8 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      RELATED SIGNALS
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <button
+                        onClick={() => onSelectArticleId?.('gsk-capability-led-opportunity-creation')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          OPPORTUNITY CREATION
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          GSK Buys an Earlier Position in Drug Discovery
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => onSelectArticleId?.('innovent-spero-ex-china-execution-transfer')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          TERRITORY-TO-EXECUTION TRANSFER
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          Innovent Transfers SP001 Execution Outside Greater China
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </>
+            ) : article.id === 'aurigene-dr-reddys-tech-transfer-architecture' ? (
+              <>
+                {/* Draft Badge & Category Breadcrumb */}
+                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
+                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
+                    {article.category}
+                  </span>
+                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
+                    DRAFT — READY FOR REVIEW
+                  </span>
+                </div>
+
+                {/* 1. Title */}
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  Aurigene Converts Tech Transfer into Long-Term Portfolio Architecture
+                </h1>
+
+                {/* 2. Subtitle */}
+                <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-6 sm:mb-8 font-medium">
+                  A 20+ product manufacturing transfer to Dr. Reddy’s subsidiary shifts Indian CDMO capability from contract services to structural portfolio partnership.
+                </p>
+
+                {/* 3. Metadata */}
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3.5 mb-8 text-[11px] sm:text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
+                    <span>August 2026</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
+                    <span>3 minutes read</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-gold font-bold">
+                    <span>Mechanism: Tech-Transfer as Portfolio Architecture</span>
+                  </div>
+                </div>
+
+                {/* 4. PharmaSignal Take Box */}
+                <div className={`my-8 p-6 sm:p-8 border-l-4 border-brand-gold ${
+                  darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                }`}>
+                  <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-3">
+                    <Shield size={16} /> PHARMASIGNAL TAKE
+                  </div>
+                  <p className="font-serif text-base sm:text-lg leading-relaxed font-semibold mb-3 text-brand-gold">
+                    This is a Tech-Transfer as Portfolio Architecture partnership.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed mb-3 opacity-95">
+                    Aurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed opacity-90 italic">
+                    The BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.
+                  </p>
+                </div>
+
+                {/* 5. Hero Mechanism Image */}
+                <div className="my-10 max-w-2xl mx-auto">
+                  <AurigeneTechTransferDiagram darkMode={darkMode} />
+                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
+                  }`}>
+                    Figure 1: Tech-Transfer as Portfolio Architecture — Multi-product transfer integration creates long-duration technical dependence and switching barriers.
+                  </p>
+                </div>
+
+                {/* Main Article Sections */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  
+                  {/* 6. Deal Signal */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-8 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Deal Signal
+                  </h2>
+                  <p className="mb-6 leading-relaxed">
+                    Aurigene Pharmaceutical Services, a subsidiary of Dr. Reddy’s Laboratories, entered a long-term commercial partnership with an undisclosed global pharmaceutical company covering more than 20 commercial products across sterile injectables, biologics and topicals. The programme encompasses technology transfer, process development, scale-up, analytical validation and long-term commercial supply for the US, Europe, Canada and emerging markets. Product transfers will occur over a two-to-three-year window, with commercial revenue expected to commence in 2028 and peak volume reaching approximately 18 million units annually (predominantly injectables).
+                  </p>
+
+                  {/* 7. Why It Matters */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why It Matters
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    This agreement extends beyond conventional contract manufacturing. Transferring 20+ commercial products to a single Indian manufacturing partner establishes long-duration technical dependence, multi-market regulatory integration, validated infrastructure and high operational switching costs once site transfers are complete.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    It highlights how Indian pharma companies can actively participate in global portfolio restructuring and divestment programs through tech-transfer capability rather than pure brand licensing.
+                  </p>
+
+                  {/* 8. PharmaSignal Read */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    PharmaSignal Read
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    In mature brand divestments and site rationalization, manufacturing execution often dictates commercial viability.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    A partner offering an integrated package—commercial rights, alternate-site transfer, cost rationalization and multi-jurisdiction regulatory maintenance—can capture substantially more economic value than a bidder seeking brand rights alone.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    Controlling the technical transfer pathway creates durable pricing power and lifecycle management leverage across complex injectables and mature multinational portfolios.
+                  </p>
+
+                  {/* 9. PharmaSignal Principle */}
+                  <div className="my-10 p-8 sm:p-10 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-3">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <p className="font-serif text-lg sm:text-2xl leading-relaxed italic font-bold text-brand-gold">
+                      "The party that controls the transfer pathway can sometimes capture more value than the party that merely owns the commercial rights."
+                    </p>
+                  </div>
+
+                  {/* 10. Source */}
+                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
+                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
+                  }`}>
+                    Source: <a 
+                      href="https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
+                    >
+                      BioSpectrum India
+                    </a>, August 2026.
+                  </div>
+
+                  {/* 11. Related Signals */}
+                  <div className={`my-12 p-6 sm:p-8 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      RELATED SIGNALS
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <button
+                        onClick={() => onSelectArticleId?.('merck-alimatravir-market-access')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          MARKET ACCESS BEFORE APPROVAL
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          Merck Is Building Market Access Before Alimatravir Is Approved
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => onSelectArticleId?.('innovent-spero-ex-china-execution-transfer')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          TERRITORY-TO-EXECUTION TRANSFER
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          Innovent Transfers SP001 Execution Outside Greater China
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Signal <ArrowRight size={10} />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </>
+            ) : article.id === 'bms-terminates-cellares-manufacturing-scale-deficit' ? (
+              <>
+                {/* Draft Badge & Category Breadcrumb */}
+                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
+                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
+                    {article.category}
+                  </span>
+                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
+                    DRAFT — READY FOR REVIEW
+                  </span>
+                </div>
+
+                {/* 1. Title */}
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
+                  darkMode ? 'text-white' : 'text-brand-primary'
+                }`}>
+                  BMS Ends $380M Cellares Deal as Scale-Up Fails Commercial Test
+                </h1>
+
+                {/* 2. Subtitle */}
+                <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-6 sm:mb-8 font-medium">
+                  The termination of automated CAR-T manufacturing underscores the critical divide between clinical-scale feasibility and commercial-scale execution.
+                </p>
+
+                {/* 3. Metadata */}
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3.5 mb-8 text-[11px] sm:text-xs font-mono ${
+                  darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                }`}>
+                  <div className="flex items-center gap-1.5">
+                    <User size={13} className="text-brand-gold" />
+                    <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={13} />
+                    <span>August 25, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={13} />
+                    <span>2 minutes read</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-brand-gold font-bold">
+                    <span>Mechanism: Clinical vs. Commercial Scale Constraint</span>
+                  </div>
+                </div>
+
+                {/* 4. PharmaSignal Take Box */}
+                <div className={`my-8 p-6 sm:p-8 border-l-4 border-brand-gold ${
+                  darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                }`}>
+                  <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-3">
+                    <Shield size={16} /> PHARMASIGNAL TAKE
+                  </div>
+                  <p className="font-serif text-base sm:text-lg leading-relaxed font-semibold mb-3 text-brand-gold">
+                    This is a Clinical vs. Commercial Scale Constraint event.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed mb-3 opacity-95">
+                    Bristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing.
+                  </p>
+                  <p className="font-sans text-sm sm:text-base leading-relaxed opacity-90 italic">
+                    The BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.
+                  </p>
+                </div>
+
+                {/* 5. Hero Mechanism Image */}
+                <div className="my-10 max-w-2xl mx-auto">
+                  <BMSCellaresScaleDiagram darkMode={darkMode} />
+                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
+                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
+                  }`}>
+                    Figure 1: Clinical vs. Commercial Scale Constraint — Platform validation failure under commercial volume stress leads to alliance termination.
+                  </p>
+                </div>
+
+                {/* Main Article Sections */}
+                <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
+                  
+                  {/* 6. Deal Signal */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-8 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Deal Signal
+                  </h2>
+                  <p className="mb-6 leading-relaxed">
+                    On 25 August 2026, Bristol Myers Squibb terminated its manufacturing collaboration with cell therapy technology developer Cellares. The agreement, originally valued at up to $380 million, was structured to evaluate and implement Cellares’ automated "Cell Shuttle" platform for commercial manufacturing of BMS’s CAR-T therapy Breyanzi. BMS concluded that the automated platform could not meet its commercial-scale throughput, reliability and operating requirements.
+                  </p>
+
+                  {/* 7. Why It Matters */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    Why It Matters
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    Advanced therapy collaborations frequently generate high upfront enthusiasm around automated manufacturing platforms.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    However, operating under clinical-grade GMP and producing early-phase clinical batches is a fundamentally different hurdle from delivering continuous, cost-effective, high-throughput commercial batches. When scale-up constraints emerge late in an alliance, the result is contract termination and substantial rework.
+                  </p>
+
+                  {/* 8. PharmaSignal Read */}
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold mb-4 mt-10 tracking-tight ${
+                    darkMode ? 'text-white' : 'text-brand-primary'
+                  }`}>
+                    PharmaSignal Read
+                  </h2>
+                  <p className="mb-4 leading-relaxed">
+                    Manufacturing diligence often focuses on clinical feasibility—whether the platform works in controlled settings.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    Commercial diligence requires testing throughput limits, failure rates under volume stress, cost per commercial dose, and the availability of independent secondary supply.
+                  </p>
+                  <p className="mb-6 leading-relaxed">
+                    For complex modalities (CAR-T, ADCs, peptides and biosimilars), manufacturing constraints can quickly create an Execution Deficit that destroys commercial value after deal signing.
+                  </p>
+
+                  {/* 9. PharmaSignal Principle */}
+                  <div className="my-10 p-8 sm:p-10 bg-[#071A2E] text-white border-l-4 border-brand-gold relative overflow-hidden shadow-xl">
+                    <div className="text-brand-gold font-mono text-[10px] tracking-widest uppercase font-black mb-3">
+                      PHARMASIGNAL PRINCIPLE
+                    </div>
+                    <p className="font-serif text-lg sm:text-2xl leading-relaxed italic font-bold text-brand-gold">
+                      "Manufacturing risk often appears solved at clinical scale—until commercial demand exposes the constraint."
+                    </p>
+                  </div>
+
+                  {/* 10. Source */}
+                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
+                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
+                  }`}>
+                    Source: <a 
+                      href="https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
+                    >
+                      Reuters
+                    </a>, August 25, 2026.
+                  </div>
+
+                  {/* 11. Related Signals */}
+                  <div className={`my-12 p-6 sm:p-8 border-t border-b ${
+                    darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
+                  }`}>
+                    <span className="font-mono text-xs tracking-widest text-brand-gold uppercase font-bold block mb-4">
+                      RELATED SIGNALS
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <button
+                        onClick={() => onSelectArticleId?.('execution-deficit')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          CORE LENS
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          A Signed Deal Is Not an Executed Deal
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Explainer <ArrowRight size={10} />
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => onSelectArticleId?.('the-approval-gap')}
+                        className={`p-4 border text-left transition-all hover:border-brand-gold group cursor-pointer ${
+                          darkMode ? 'border-white/10 bg-brand-deep hover:bg-white/5' : 'border-brand-charcoal/10 bg-white hover:bg-brand-offwhite'
+                        }`}
+                      >
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase block mb-1 font-bold">
+                          DECISION INTELLIGENCE
+                        </span>
+                        <p className={`font-serif text-sm font-bold group-hover:text-brand-gold transition-colors line-clamp-2 ${
+                          darkMode ? 'text-white' : 'text-brand-primary'
+                        }`}>
+                          The Approval Gap
+                        </p>
+                        <div className="mt-2 flex items-center gap-1 text-[10px] font-mono text-brand-gold tracking-wider uppercase">
+                          Read Explainer <ArrowRight size={10} />
                         </div>
                       </button>
                     </div>

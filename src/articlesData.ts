@@ -706,6 +706,120 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
     ],
     tags: ['DEAL SIGNAL', 'GSK', 'RELATION THERAPEUTICS', 'CAPABILITY-LED OPPORTUNITY CREATION', 'AI DRUG DISCOVERY', 'UPSTREAM BD', 'DRAFT']
+  },
+  {
+    id: 'sk-biopharm-biohaven-epilepsy-platform',
+    category: 'DEAL SIGNALS',
+    title: 'SK Biopharm Buys Worldwide Epilepsy Platform for $400M Near-Term',
+    description: 'By leveraging its existing specialist commercial infrastructure, an Asian pharma company acquires global innovation rights rather than a regional territory license.',
+    meta: '3 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '3 min read',
+    date: 'August 26, 2026',
+    featuredSummary: 'SK is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform before pivotal validation.',
+    isDealSignal: true,
+    isDraft: true,
+    mechanism: 'Commercial Infrastructure as Acquisition Advantage',
+    pharmaSignalTake: 'This is a Commercial Infrastructure as Acquisition Advantage transaction.\n\nSK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform.\n\nThe BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.',
+    sourceUrl: 'https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global',
+    sourceLabel: 'Biohaven Investor Relations, August 26, 2026.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 26 August 2026, South Korea’s SK Biopharmaceuticals agreed to acquire an exclusive worldwide license to Biohaven’s Kv7 ion-channel platform, led by Phase II/III epilepsy asset opakalim (BHV-7000). Biohaven will receive $350 million at closing plus $50 million in 2027, with total platform-related payments potentially reaching $795 million, plus tiered royalties. SK will also assume future programme development costs and certain legacy obligations. Opakalim remains ahead of pivotal readout, with RISE3 trial results expected in H2 2026.</p>
+
+      <h2>Why It Matters</h2>
+      <p>This transaction signals a structural shift beyond conventional regional in-licensing. Historically, Asian pharma companies acquired regional territories (such as Korea or Asia-Pacific) for late-stage Western assets.</p>
+      <p>SK has already built a global commercial epilepsy franchise around cenobamate (XCOPRI). Rather than acquiring another regional license, it is using that existing commercial and regulatory infrastructure to take worldwide ownership of an entire therapeutic mechanism ahead of pivotal validation.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p>The competitive landscape for innovative assets is expanding beyond US and European Big Pharma. Asian companies with established specialist capabilities can now compete directly for global rights.</p>
+      <p>SK can justify the economics because its pre-existing epilepsy infrastructure removes the need to build a new commercial organization from scratch. The acquisition bundles asset NPV, franchise adjacency, existing salesforce synergy and long-term platform optionality.</p>
+      <p>Once a specialist acquirer buys a global platform, regional carve-outs for emerging markets may never reach the secondary market.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>Commercial infrastructure is not merely a launch capability. Once established, it becomes an acquisition advantage.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' }
+    ],
+    tags: ['DEAL SIGNAL', 'SK BIOPHARM', 'BIOHAVEN', 'EPILEPSY', 'COMMERCIAL INFRASTRUCTURE', 'WORLDWIDE RIGHTS', 'KV7', 'DRAFT']
+  },
+  {
+    id: 'aurigene-dr-reddys-tech-transfer-architecture',
+    category: 'DEAL SIGNALS',
+    title: 'Aurigene Converts Tech Transfer into Long-Term Portfolio Architecture',
+    description: 'A 20+ product manufacturing transfer to Dr. Reddy’s subsidiary shifts Indian CDMO capability from contract services to structural portfolio partnership.',
+    meta: '3 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '3 min read',
+    date: 'August 2026',
+    featuredSummary: 'Aurigene assumes transfer, scale-up and commercial supply for 20+ products, creating long-duration technical dependence and switching costs.',
+    isDealSignal: true,
+    isDraft: true,
+    mechanism: 'Tech-Transfer as Portfolio Architecture',
+    pharmaSignalTake: 'This is a Tech-Transfer as Portfolio Architecture partnership.\n\nAurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals.\n\nThe BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.',
+    sourceUrl: 'https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html',
+    sourceLabel: 'BioSpectrum India, August 2026.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>Aurigene Pharmaceutical Services, a subsidiary of Dr. Reddy’s Laboratories, entered a long-term commercial partnership with an undisclosed global pharmaceutical company covering more than 20 commercial products across sterile injectables, biologics and topicals. The programme encompasses technology transfer, process development, scale-up, analytical validation and long-term commercial supply for the US, Europe, Canada and emerging markets. Product transfers will occur over a two-to-three-year window, with commercial revenue expected to commence in 2028 and peak volume reaching approximately 18 million units annually (predominantly injectables).</p>
+
+      <h2>Why It Matters</h2>
+      <p>This agreement extends beyond conventional contract manufacturing. Transferring 20+ commercial products to a single Indian manufacturing partner establishes long-duration technical dependence, multi-market regulatory integration, validated infrastructure and high operational switching costs once site transfers are complete.</p>
+      <p>It highlights how Indian pharma companies can actively participate in global portfolio restructuring and divestment programs through tech-transfer capability rather than pure brand licensing.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p>In mature brand divestments and site rationalization, manufacturing execution often dictates commercial viability.</p>
+      <p>A partner offering an integrated package—commercial rights, alternate-site transfer, cost rationalization and multi-jurisdiction regulatory maintenance—can capture substantially more economic value than a bidder seeking brand rights alone.</p>
+      <p>Controlling the technical transfer pathway creates durable pricing power and lifecycle management leverage across complex injectables and mature multinational portfolios.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>The party that controls the transfer pathway can sometimes capture more value than the party that merely owns the commercial rights.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['DEAL SIGNAL', 'DR REDDYS', 'AURIGENE', 'TECH TRANSFER', 'MANUFACTURING ARCHITECTURE', 'STERILE INJECTABLES', 'PORTFOLIO RESTRUCTURING', 'DRAFT']
+  },
+  {
+    id: 'bms-terminates-cellares-manufacturing-scale-deficit',
+    category: 'DEAL SIGNALS',
+    title: 'BMS Ends $380M Cellares Deal as Scale-Up Fails Commercial Test',
+    description: 'The termination of automated CAR-T manufacturing underscores the critical divide between clinical-scale feasibility and commercial-scale execution.',
+    meta: '2 MIN READ · AUG 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '2 min read',
+    date: 'August 25, 2026',
+    featuredSummary: 'BMS concludes Cellares’ automated platform cannot meet commercial throughput and cost standards, highlighting the Execution Deficit in advanced therapies.',
+    isDealSignal: true,
+    isDraft: true,
+    mechanism: 'Clinical vs. Commercial Scale Constraint',
+    pharmaSignalTake: 'This is a Clinical vs. Commercial Scale Constraint event.\n\nBristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing.\n\nThe BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.',
+    sourceUrl: 'https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/',
+    sourceLabel: 'Reuters, August 25, 2026.',
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 25 August 2026, Bristol Myers Squibb terminated its manufacturing collaboration with cell therapy technology developer Cellares. The agreement, originally valued at up to $380 million, was structured to evaluate and implement Cellares’ automated "Cell Shuttle" platform for commercial manufacturing of BMS’s CAR-T therapy Breyanzi. BMS concluded that the automated platform could not meet its commercial-scale throughput, reliability and operating requirements.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Advanced therapy collaborations frequently generate high upfront enthusiasm around automated manufacturing platforms.</p>
+      <p>However, operating under clinical-grade GMP and producing early-phase clinical batches is a fundamentally different hurdle from delivering continuous, cost-effective, high-throughput commercial batches. When scale-up constraints emerge late in an alliance, the result is contract termination and substantial rework.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p>Manufacturing diligence often focuses on clinical feasibility—whether the platform works in controlled settings.</p>
+      <p>Commercial diligence requires testing throughput limits, failure rates under volume stress, cost per commercial dose, and the availability of independent secondary supply.</p>
+      <p>For complex modalities (CAR-T, ADCs, peptides and biosimilars), manufacturing constraints can quickly create an Execution Deficit that destroys commercial value after deal signing.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <p><em>Manufacturing risk often appears solved at clinical scale—until commercial demand exposes the constraint.</em></p>
+    `,
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
   }
 ];
 

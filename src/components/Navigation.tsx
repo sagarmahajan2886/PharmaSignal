@@ -90,8 +90,7 @@ export default function Navigation({
     { id: 'EXPLAINERS', label: 'Explainers' },
     { id: 'DEAL SIGNALS', label: 'Deal Signals' },
     { id: 'LENSES', label: 'Lenses' },
-    { id: 'ABOUT', label: 'About' },
-    { id: 'NEWSLETTER', label: 'Subscribe' }
+    { id: 'ABOUT', label: 'About' }
   ];
 
   return (
