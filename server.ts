@@ -10,6 +10,26 @@ async function startServer() {
   // Middleware to parse incoming JSON bodies
   app.use(express.json());
 
+  // RSS XML and JSON Feed Endpoints for automated syndication (Buffer, Publer, IFTTT, Zapier, LinkedIn)
+  const getRssFeed = (req: express.Request) => {
+    const protocol = req.headers["x-forwarded-proto"] || req.protocol || "https";
+    const host = req.headers["x-forwarded-host"] || req.get("host") || "pharmasignal.com";
+    const baseUrl = `${protocol}://${host}`;
+    
+    // Read static public/rss.xml or generate on the fly
+    const staticRssPath = path.join(process.cwd(), "public", "rss.xml");
+    if (fs.existsSync(staticRssPath)) {
+      return fs.readFileSync(staticRssPath, "utf8").replace(/https:\/\/pharmasignal\.com/g, baseUrl);
+    }
+    return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>PharmaSignal</title><link>${baseUrl}</link></channel></rss>`;
+  };
+
+  app.get(["/rss.xml", "/feed.xml", "/feed", "/api/rss.xml"], (req, res) => {
+    res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=300"); // 5 minute cache
+    res.send(getRssFeed(req));
+  });
+
   // API routes FIRST
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });

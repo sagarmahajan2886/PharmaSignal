@@ -4,6 +4,7 @@ import {
   ArrowRight, 
   Linkedin, 
   Twitter, 
+  Rss,
   CheckCircle2,
   Clock,
   FileText,
@@ -1381,6 +1382,14 @@ export default function App() {
                 >
                   Subscribe
                 </button>
+                <a 
+                  href="/rss.xml" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer flex items-center gap-1.5"
+                >
+                  <Rss size={12} className="text-brand-gold" /> RSS Feed
+                </a>
                 <button 
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
@@ -1391,6 +1400,20 @@ export default function App() {
 
               {/* Social Icons */}
               <div className="flex items-center space-x-3">
+                <a 
+                  href="/rss.xml" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className={`p-2 transition-colors border ${
+                    darkMode 
+                      ? 'bg-white/5 text-white/80 hover:text-brand-gold hover:bg-white/10 border-white/5 hover:border-brand-gold/30' 
+                      : 'bg-[#001B2A]/5 text-brand-primary hover:text-brand-gold hover:bg-white border-transparent hover:border-brand-gold/30'
+                  }`}
+                  aria-label="RSS Feed XML"
+                  title="RSS Feed XML for Auto-Syndication"
+                >
+                  <Rss size={15} />
+                </a>
                 <a 
                   href="https://linkedin.com" 
                   target="_blank" 
