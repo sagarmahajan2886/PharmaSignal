@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" 
+     xmlns:atom="http://www.w3.org/2005/Atom" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>PharmaSignal — Biopharma Decision Intelligence &amp; Deal Signals</title>
     <link>https://pharmasignal.com</link>
@@ -8,10 +11,12 @@
     <lastBuildDate>Fri, 28 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://pharmasignal.com/rss.xml" rel="self" type="application/rss+xml" />
     <image>
-      <url>https://pharmasignal.com/apple-touch-icon.png</url>
+      <url>https://pharmasignal.com/images/favicon_1782373744378.jpg</url>
       <title>PharmaSignal</title>
       <link>https://pharmasignal.com</link>
     </image>
+
+    <!-- Item 1: SK Biopharm x Biohaven -->
     <item>
       <title><![CDATA[SK Biopharm Buys Worldwide Epilepsy Platform for $400M Near-Term]]></title>
       <link>https://pharmasignal.com/deal-signals/sk-biopharm-biohaven-epilepsy-platform</link>
@@ -19,10 +24,21 @@
       <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
       <category><![CDATA[DEAL SIGNALS]]></category>
-      <description><![CDATA[SK is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform before pivotal validation. [Mechanism: Commercial Infrastructure as Acquisition Advantage]
-
-PharmaSignal Take: This is a Commercial Infrastructure as Acquisition Advantage transaction. SK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform. The BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.]]></description>
+      <enclosure url="https://pharmasignal.com/images/sk_biopharm_kv7_deal_1787913184804.jpg" length="124500" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/sk_biopharm_kv7_deal_1787913184804.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[SK Biopharm x Biohaven Kv7 Platform Acquisition]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/sk_biopharm_kv7_deal_1787913184804.jpg" alt="SK Biopharm x Biohaven Kv7 Platform" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>SK is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform before pivotal validation. [Mechanism: Commercial Infrastructure as Acquisition Advantage]</p>
+<p><strong>PharmaSignal Take:</strong> This is a Commercial Infrastructure as Acquisition Advantage transaction. SK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform. The BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/sk_biopharm_kv7_deal_1787913184804.jpg" alt="SK Biopharm x Biohaven Kv7 Platform" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>On 26 August 2026, South Korea’s SK Biopharmaceuticals agreed to acquire an exclusive worldwide license to Biohaven’s Kv7 ion-channel platform, led by Phase II/III epilepsy asset opakalim (BHV-7000). Biohaven will receive $350 million at closing plus $50 million in 2027, with total platform-related payments potentially reaching $795 million, plus tiered royalties.</p>
+<h2>PharmaSignal Read</h2>
+<p>Commercial infrastructure is not merely a launch capability. Once established, it becomes an acquisition advantage.</p>]]></content:encoded>
     </item>
+
+    <!-- Item 2: BMS x Cellares -->
     <item>
       <title><![CDATA[BMS Ends $380M Cellares Deal as Scale-Up Fails Commercial Test]]></title>
       <link>https://pharmasignal.com/deal-signals/bms-terminates-cellares-manufacturing-scale-deficit</link>
@@ -30,10 +46,21 @@ PharmaSignal Take: This is a Commercial Infrastructure as Acquisition Advantage 
       <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
       <category><![CDATA[DEAL SIGNALS]]></category>
-      <description><![CDATA[BMS concludes Cellares’ automated platform cannot meet commercial throughput and cost standards, highlighting the Execution Deficit in advanced therapies. [Mechanism: Clinical vs. Commercial Scale Constraint]
-
-PharmaSignal Take: This is a Clinical vs. Commercial Scale Constraint event. Bristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing. The BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.]]></description>
+      <enclosure url="https://pharmasignal.com/images/bms_cellares_cart_1787913217672.jpg" length="132400" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/bms_cellares_cart_1787913217672.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[BMS Ends Cellares Cell Therapy Deal]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/bms_cellares_cart_1787913217672.jpg" alt="BMS Ends Cellares Deal" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>BMS concludes Cellares’ automated platform cannot meet commercial throughput and cost standards, highlighting the Execution Deficit in advanced therapies. [Mechanism: Clinical vs. Commercial Scale Constraint]</p>
+<p><strong>PharmaSignal Take:</strong> This is a Clinical vs. Commercial Scale Constraint event. Bristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing. The BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/bms_cellares_cart_1787913217672.jpg" alt="BMS Ends Cellares Deal" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>On 25 August 2026, Bristol Myers Squibb terminated its manufacturing collaboration with cell therapy technology developer Cellares. The agreement, originally valued at up to $380 million, was structured to evaluate and implement Cellares’ automated "Cell Shuttle" platform for commercial manufacturing of BMS’s CAR-T therapy Breyanzi.</p>
+<h2>PharmaSignal Read</h2>
+<p>Manufacturing risk often appears solved at clinical scale—until commercial demand exposes the constraint.</p>]]></content:encoded>
     </item>
+
+    <!-- Item 3: Aurigene x Global Pharma (Dr. Reddy's) -->
     <item>
       <title><![CDATA[Aurigene Converts Tech Transfer into Long-Term Portfolio Architecture]]></title>
       <link>https://pharmasignal.com/deal-signals/aurigene-dr-reddys-tech-transfer-architecture</link>
@@ -41,10 +68,21 @@ PharmaSignal Take: This is a Clinical vs. Commercial Scale Constraint event. Bri
       <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
       <category><![CDATA[DEAL SIGNALS]]></category>
-      <description><![CDATA[Aurigene assumes transfer, scale-up and commercial supply for 20+ products, creating long-duration technical dependence and switching costs. [Mechanism: Tech-Transfer as Portfolio Architecture]
-
-PharmaSignal Take: This is a Tech-Transfer as Portfolio Architecture partnership. Aurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals. The BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.]]></description>
+      <enclosure url="https://pharmasignal.com/images/aurigene_tech_transfer_1787913237947.jpg" length="128900" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/aurigene_tech_transfer_1787913237947.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[Aurigene Tech Transfer & Manufacturing Architecture]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/aurigene_tech_transfer_1787913237947.jpg" alt="Aurigene Tech Transfer Architecture" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Aurigene assumes transfer, scale-up and commercial supply for 20+ products, creating long-duration technical dependence and switching costs. [Mechanism: Tech-Transfer as Portfolio Architecture]</p>
+<p><strong>PharmaSignal Take:</strong> This is a Tech-Transfer as Portfolio Architecture partnership. Aurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals. The BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/aurigene_tech_transfer_1787913237947.jpg" alt="Aurigene Tech Transfer Architecture" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>Aurigene Pharmaceutical Services, a subsidiary of Dr. Reddy’s Laboratories, entered a long-term commercial partnership with an undisclosed global pharmaceutical company covering more than 20 commercial products across sterile injectables, biologics and topicals.</p>
+<h2>PharmaSignal Read</h2>
+<p>The party that controls the transfer pathway can sometimes capture more value than the party that merely owns the commercial rights.</p>]]></content:encoded>
     </item>
+
+    <!-- Item 4: GSK x Relation Therapeutics -->
     <item>
       <title><![CDATA[GSK Buys an Earlier Position in Drug Discovery]]></title>
       <link>https://pharmasignal.com/deal-signals/gsk-capability-led-opportunity-creation</link>
@@ -52,10 +90,21 @@ PharmaSignal Take: This is a Tech-Transfer as Portfolio Architecture partnership
       <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
       <category><![CDATA[DEAL SIGNALS]]></category>
-      <description><![CDATA[Relation will generate proprietary biological evidence rather than transfer a finished asset. The value depends on who controls the targets that emerge. [Mechanism: Capability-Led Opportunity Creation]
-
-PharmaSignal Take: This is a Capability-Led Opportunity Creation deal. Relation will generate biological datasets that may produce new drug targets for GSK. The BD question is who controls the opportunity after the evidence becomes valuable.]]></description>
+      <enclosure url="https://pharmasignal.com/images/gsk_relation_ai_1787913259639.jpg" length="126700" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/gsk_relation_ai_1787913259639.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[GSK & Relation Therapeutics AI Drug Discovery]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/gsk_relation_ai_1787913259639.jpg" alt="GSK & Relation Therapeutics" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Relation will generate proprietary biological evidence rather than transfer a finished asset. The value depends on who controls the targets that emerge. [Mechanism: Capability-Led Opportunity Creation]</p>
+<p><strong>PharmaSignal Take:</strong> This is a Capability-Led Opportunity Creation deal. Relation will generate biological datasets that may produce new drug targets for GSK. The BD question is who controls the opportunity after the evidence becomes valuable.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/gsk_relation_ai_1787913259639.jpg" alt="GSK & Relation Therapeutics" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>GSK and Relation Therapeutics entered a research collaboration worth up to $110 million. Relation will generate large-scale datasets showing how human cells respond to genetic and drug interventions.</p>
+<h2>PharmaSignal Read</h2>
+<p>The strongest BD teams do not only find opportunities earlier. They design the rights needed to retain them.</p>]]></content:encoded>
     </item>
+
+    <!-- Item 5: Innovent x Spero -->
     <item>
       <title><![CDATA[Innovent Transfers SP001 Execution Outside Greater China]]></title>
       <link>https://pharmasignal.com/deal-signals/innovent-spero-ex-china-execution-transfer</link>
@@ -63,10 +112,21 @@ PharmaSignal Take: This is a Capability-Led Opportunity Creation deal. Relation 
       <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
       <category><![CDATA[DEAL SIGNALS]]></category>
-      <description><![CDATA[Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets. [Mechanism: Territory-to-Execution Transfer]
-
-PharmaSignal Take: This is a Territory-to-Execution Transfer deal. Innovent assigned research, development, manufacturing and commercialization responsibility outside Greater China. The BD question is whether execution capability transfers as cleanly as contractual rights.]]></description>
+      <enclosure url="https://pharmasignal.com/images/innovent_spero_deal_1787913287919.jpg" length="129500" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/innovent_spero_deal_1787913287919.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[Innovent & Spero SP001 Cross-Border Licensing]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/innovent_spero_deal_1787913287919.jpg" alt="Innovent & Spero Cross-Border Licensing" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets. [Mechanism: Territory-to-Execution Transfer]</p>
+<p><strong>PharmaSignal Take:</strong> This is a Territory-to-Execution Transfer deal. Innovent assigned research, development, manufacturing and commercialization responsibility outside Greater China. The BD question is whether execution capability transfers as cleanly as contractual rights.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/innovent_spero_deal_1787913287919.jpg" alt="Innovent & Spero Cross-Border Licensing" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>On July 14, 2026, Spero Therapeutics and Innovent Biologics announced an exclusive license for SP001. Spero received worldwide rights outside Greater China.</p>
+<h2>PharmaSignal Read</h2>
+<p>A territory creates value only when the capability to execute travels with the rights.</p>]]></content:encoded>
     </item>
+
+    <!-- Item 6: The Approval Gap -->
     <item>
       <title><![CDATA[The Approval Gap]]></title>
       <link>https://pharmasignal.com/explainers/the-approval-gap</link>
@@ -74,8 +134,15 @@ PharmaSignal Take: This is a Territory-to-Execution Transfer deal. Innovent assi
       <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Desk</author>
       <category><![CDATA[DECISION INTELLIGENCE]]></category>
-      <description><![CDATA[Why attractive opportunities lose momentum long before a decision is made. The difference between commercial attractiveness and organizational readiness.]]></description>
+      <enclosure url="https://pharmasignal.com/images/approval_gap_header_1787913304979.jpg" length="124800" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/approval_gap_header_1787913304979.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[The Approval Gap in Pharma BD]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/approval_gap_header_1787913304979.jpg" alt="The Approval Gap" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Why attractive opportunities lose momentum long before a decision is made. The difference between commercial attractiveness and organizational readiness.</p>]]></description>
     </item>
+
+    <!-- Item 7: A Signed Deal Is Not an Executed Deal -->
     <item>
       <title><![CDATA[A Signed Deal Is Not an Executed Deal]]></title>
       <link>https://pharmasignal.com/explainers/execution-deficit</link>
@@ -83,8 +150,15 @@ PharmaSignal Take: This is a Territory-to-Execution Transfer deal. Innovent assi
       <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Desk</author>
       <category><![CDATA[DECISION INTELLIGENCE]]></category>
-      <description><![CDATA[Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction. Over 70% of pharma deals suffer from post-signature value leakage.]]></description>
+      <enclosure url="https://pharmasignal.com/images/execution_deficit_diagram_new_1782370523380.jpg" length="126000" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/execution_deficit_diagram_new_1782370523380.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[A Signed Deal Is Not an Executed Deal — Execution Deficit]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/execution_deficit_diagram_new_1782370523380.jpg" alt="Execution Deficit" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction. Over 70% of pharma deals suffer from post-signature value leakage.</p>]]></description>
     </item>
+
+    <!-- Item 8: Opportunity Creation vs Opportunity Processing -->
     <item>
       <title><![CDATA[Opportunity Creation vs Opportunity Processing]]></title>
       <link>https://pharmasignal.com/explainers/opportunity-creation-processing</link>
@@ -92,7 +166,28 @@ PharmaSignal Take: This is a Territory-to-Execution Transfer deal. Innovent assi
       <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
       <author>PharmaSignal Desk</author>
       <category><![CDATA[DECISION INTELLIGENCE]]></category>
-      <description><![CDATA[Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.]]></description>
+      <enclosure url="https://pharmasignal.com/images/opp_creation_flow_1785776955600.jpg" length="127500" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/opp_creation_flow_1785776955600.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[Opportunity Creation vs Opportunity Processing]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/opp_creation_flow_1785776955600.jpg" alt="Opportunity Creation vs Opportunity Processing" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.</p>]]></description>
+    </item>
+
+    <!-- Item 9: miRecule x EMS Group -->
+    <item>
+      <title><![CDATA[miRecule &amp; EMS Group (Rio Biofarma) Partner Upstream for Co-Owned Extra-Hepatic RNA Platform]]></title>
+      <link>https://pharmasignal.com/deal-signals/ems-mirecule-upstream-collaboration</link>
+      <guid isPermaLink="true">https://pharmasignal.com/deal-signals/ems-mirecule-upstream-collaboration</guid>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <author>PharmaSignal Deal Desk</author>
+      <category><![CDATA[DEAL SIGNALS]]></category>
+      <enclosure url="https://pharmasignal.com/images/mirecule_ems_logos_1785840743303.jpg" length="135000" type="image/jpeg" />
+      <media:content url="https://pharmasignal.com/images/mirecule_ems_logos_1785840743303.jpg" medium="image" type="image/jpeg" width="1200" height="675">
+        <media:title type="plain"><![CDATA[miRecule and EMS Group Rio Biofarma Strategic Collaboration]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/mirecule_ems_logos_1785840743303.jpg" alt="miRecule & EMS Group" width="1200" height="675" style="max-width:100%; height:auto;" /></p>
+<p>miRecule and EMS Group (Rio Biofarma) combined delivery capabilities, co-owned the resulting technology, embedded Brazilian manufacturing, and added equity—turning local capability into upstream opportunity creation.</p>]]></description>
     </item>
   </channel>
 </rss>

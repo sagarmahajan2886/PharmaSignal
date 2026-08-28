@@ -27,6 +27,9 @@ async function startServer() {
   app.get(["/rss.xml", "/feed.xml", "/feed", "/api/rss.xml"], (req, res) => {
     res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
     res.setHeader("Cache-Control", "public, max-age=300"); // 5 minute cache
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "*");
     res.send(getRssFeed(req));
   });
 
