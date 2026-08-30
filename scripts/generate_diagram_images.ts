@@ -662,97 +662,130 @@ const approvalGapSvg = `
 
 // 7. Haisco x Sentivera Newco Architecture Diagram (1600x900 / 1200x675)
 const haiscoSvg = `
-<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" style="background:#FAFAFA; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-  <!-- Header Bar -->
-  <rect x="80" y="60" width="1440" height="780" fill="#FFFFFF" rx="12" stroke="#E2E8F0" stroke-width="2"/>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" style="background:#061426; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="bgNavyHaisco" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08182D" />
+      <stop offset="100%" stop-color="#030A14" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bgNavyHaisco)"/>
+
+  <!-- Header & Outer Frame -->
+  <rect x="60" y="45" width="1480" height="810" fill="#091C33" rx="14" stroke="#D4AF37" stroke-width="2" stroke-opacity="0.45"/>
   
-  <text x="120" y="125" fill="#0F172A" font-size="20" font-family="monospace" font-weight="700" letter-spacing="2">PHARMASIGNAL DEAL SIGNAL</text>
-  <text x="1480" y="125" fill="#0284C7" font-size="16" font-family="monospace" font-weight="700" letter-spacing="1" text-anchor="end">OPPORTUNITY CREATION · NEWCO ARCHITECTURE</text>
-  <line x1="120" y1="155" x2="1480" y2="155" stroke="#E2E8F0" stroke-width="1.5"/>
+  <text x="100" y="100" fill="#D4AF37" font-size="18" font-family="monospace" font-weight="700" letter-spacing="3">PHARMASIGNAL DEAL SIGNAL</text>
+  <text x="1500" y="100" fill="#38BDF8" font-size="16" font-family="monospace" font-weight="700" letter-spacing="1" text-anchor="end">OPPORTUNITY CREATION · NEWCO ARCHITECTURE</text>
+  <line x1="100" y1="125" x2="1500" y2="125" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.5"/>
 
   <!-- Left Box: HAISCO -->
-  <g transform="translate(140, 260)">
-    <rect width="360" height="340" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-    <text x="180" y="90" fill="#0F172A" font-size="28" font-weight="800" letter-spacing="1" text-anchor="middle">HAISCO</text>
-    <text x="180" y="120" fill="#64748B" font-size="14" font-family="monospace" font-weight="600" letter-spacing="1" text-anchor="middle">PHARMACEUTICAL</text>
+  <g transform="translate(110, 180)">
+    <rect width="380" height="480" rx="10" fill="#0D233E" stroke="#38BDF8" stroke-width="2"/>
+    <text x="190" y="70" fill="#FFFFFF" font-size="30" font-weight="800" letter-spacing="1" text-anchor="middle">HAISCO</text>
+    <text x="190" y="100" fill="#38BDF8" font-size="14" font-family="monospace" font-weight="600" letter-spacing="1" text-anchor="middle">PHARMACEUTICAL</text>
     
-    <line x1="50" y1="160" x2="310" y2="160" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="40" y1="130" x2="340" y2="130" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
     
-    <rect x="50" y="195" width="260" height="42" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
-    <text x="180" y="222" fill="#0F172A" font-size="14" font-weight="600" text-anchor="middle">Type-2 Inflammatory Asset</text>
+    <rect x="35" y="160" width="310" height="70" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+    <text x="190" y="190" fill="#E2E8F0" font-size="15" font-weight="700" text-anchor="middle">Type-2 Inflammatory Asset</text>
+    <text x="190" y="212" fill="#94A3B8" font-size="12" text-anchor="middle">HSK43359 Oral Pre-clinical / Phase 1</text>
 
-    <rect x="50" y="255" width="260" height="42" rx="6" fill="#E0F2FE" stroke="#BAE6FD"/>
-    <text x="180" y="282" fill="#0369A1" font-size="14" font-weight="700" text-anchor="middle">Retains Greater China</text>
+    <rect x="35" y="250" width="310" height="70" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+    <text x="190" y="280" fill="#38BDF8" font-size="15" font-weight="700" text-anchor="middle">Retains Greater China Rights</text>
+    <text x="190" y="302" fill="#94A3B8" font-size="12" text-anchor="middle">Full domestic commercial ownership</text>
+
+    <rect x="35" y="340" width="310" height="90" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+    <text x="190" y="370" fill="#D4AF37" font-size="14" font-family="monospace" font-weight="700" text-anchor="middle">UPSTREAM CREATION</text>
+    <text x="190" y="394" fill="#E2E8F0" font-size="12" text-anchor="middle">Doesn't search for buyer;</text>
+    <text x="190" y="414" fill="#94A3B8" font-size="12" text-anchor="middle">Co-founds purpose-built US vehicle</text>
   </g>
 
   <!-- Arrow 1: Haisco -> Sentivera -->
-  <g transform="translate(525, 410)">
-    <line x1="0" y1="0" x2="70" y2="0" stroke="#0284C7" stroke-width="3"/>
-    <polygon points="70,-7 85,0 70,7" fill="#0284C7"/>
-    <text x="40" y="-18" fill="#64748B" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">Ex-China</text>
-    <text x="40" y="32" fill="#64748B" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">License</text>
+  <g transform="translate(500, 390)">
+    <line x1="0" y1="0" x2="90" y2="0" stroke="#38BDF8" stroke-width="3.5"/>
+    <polygon points="90,-8 106,0 90,8" fill="#38BDF8"/>
+    <text x="50" y="-18" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="700" text-anchor="middle">Ex-China</text>
+    <text x="50" y="30" fill="#94A3B8" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">Rights</text>
   </g>
 
   <!-- Center Box: SENTIVERA NEWCO (Visual Focus) -->
-  <g transform="translate(630, 210)">
-    <rect width="400" height="440" rx="12" fill="#FFFFFF" stroke="#0284C7" stroke-width="3"/>
+  <g transform="translate(615, 155)">
+    <rect width="420" height="530" rx="12" fill="#0B2038" stroke="#D4AF37" stroke-width="2.5"/>
     
     <!-- Header Badge -->
-    <rect x="120" y="-16" width="160" height="32" rx="16" fill="#0284C7"/>
-    <text x="200" y="6" fill="#FFFFFF" font-size="13" font-family="monospace" font-weight="700" letter-spacing="1" text-anchor="middle">NEWCO</text>
+    <rect x="130" y="-16" width="160" height="32" rx="16" fill="#D4AF37"/>
+    <text x="210" y="6" fill="#091C33" font-size="13" font-family="monospace" font-weight="800" letter-spacing="1.5" text-anchor="middle">NEWCO</text>
 
-    <text x="200" y="75" fill="#0F172A" font-size="34" font-weight="900" letter-spacing="2" text-anchor="middle">SENTIVERA</text>
-    <text x="200" y="105" fill="#0284C7" font-size="13" font-family="monospace" font-weight="600" text-anchor="middle">Newco Architecture</text>
+    <text x="210" y="65" fill="#FFFFFF" font-size="34" font-weight="900" letter-spacing="2" text-anchor="middle">SENTIVERA</text>
+    <text x="210" y="92" fill="#D4AF37" font-size="14" font-family="monospace" font-weight="600" text-anchor="middle">Purpose-Built Newco Architecture</text>
     
-    <line x1="40" y1="135" x2="360" y2="135" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="40" y1="115" x2="380" y2="115" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.5"/>
 
-    <text x="200" y="175" fill="#475569" font-size="15" font-weight="600" text-anchor="middle">Ex-China Rights</text>
-    <text x="200" y="202" fill="#0F172A" font-size="15" font-weight="700" text-anchor="middle">+ Dedicated Capital + Management</text>
+    <text x="210" y="150" fill="#E2E8F0" font-size="16" font-weight="600" text-anchor="middle">Ex-China Global Rights</text>
+    <text x="210" y="178" fill="#38BDF8" font-size="16" font-weight="700" text-anchor="middle">+ Dedicated Capital + Seasoned Execs</text>
 
-    <rect x="40" y="240" width="320" height="85" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
-    <text x="200" y="270" fill="#64748B" font-size="12" font-family="monospace" font-weight="700" letter-spacing="1" text-anchor="middle">FOUNDED &amp; BACKED BY</text>
-    <text x="200" y="300" fill="#0F172A" font-size="15" font-weight="700" text-anchor="middle">ARCH + Population Health Partners</text>
+    <rect x="35" y="210" width="350" height="110" rx="8" fill="#08182D" stroke="#1E3A5F"/>
+    <text x="210" y="240" fill="#D4AF37" font-size="12" font-family="monospace" font-weight="700" letter-spacing="1.5" text-anchor="middle">FOUNDED &amp; BACKED BY</text>
+    <text x="210" y="270" fill="#FFFFFF" font-size="17" font-weight="800" text-anchor="middle">ARCH Venture Partners</text>
+    <text x="210" y="298" fill="#E2E8F0" font-size="14" font-weight="600" text-anchor="middle">+ Population Health Partners</text>
 
-    <rect x="40" y="350" width="320" height="55" rx="8" fill="#FEF3C7" stroke="#FDE68A"/>
-    <text x="200" y="384" fill="#92400E" font-size="13" font-weight="700" text-anchor="middle">Haisco Holds Equity Stake</text>
+    <rect x="35" y="340" width="350" height="80" rx="8" fill="#D4AF37" fill-opacity="0.12" stroke="#D4AF37" stroke-opacity="0.4"/>
+    <text x="210" y="372" fill="#D4AF37" font-size="14" font-weight="800" text-anchor="middle">Haisco Equity Stake</text>
+    <text x="210" y="396" fill="#E2E8F0" font-size="12" text-anchor="middle">Upstream shareholder in Newco equity upside</text>
+
+    <rect x="35" y="440" width="350" height="60" rx="8" fill="#08182D" stroke="#1E3A5F"/>
+    <text x="210" y="475" fill="#38BDF8" font-size="13" font-weight="700" text-anchor="middle">Avoids Pharma Partner Search Delays</text>
   </g>
 
   <!-- Arrow 2: Sentivera -> Global Development -->
-  <g transform="translate(1055, 410)">
-    <line x1="0" y1="0" x2="70" y2="0" stroke="#0284C7" stroke-width="3"/>
-    <polygon points="70,-7 85,0 70,7" fill="#0284C7"/>
-    <text x="40" y="-18" fill="#64748B" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">Execution</text>
-    <text x="40" y="32" fill="#64748B" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">Vehicle</text>
+  <g transform="translate(1045, 390)">
+    <line x1="0" y1="0" x2="90" y2="0" stroke="#38BDF8" stroke-width="3.5"/>
+    <polygon points="90,-8 106,0 90,8" fill="#38BDF8"/>
+    <text x="50" y="-18" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="700" text-anchor="middle">Execution</text>
+    <text x="50" y="30" fill="#94A3B8" font-size="12" font-family="monospace" font-weight="600" text-anchor="middle">Vehicle</text>
   </g>
 
   <!-- Right Box: GLOBAL DEVELOPMENT -->
-  <g transform="translate(1150, 260)">
-    <rect width="330" height="340" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
-    <text x="165" y="85" fill="#0F172A" font-size="22" font-weight="800" letter-spacing="1" text-anchor="middle">GLOBAL</text>
-    <text x="165" y="115" fill="#0F172A" font-size="22" font-weight="800" letter-spacing="1" text-anchor="middle">DEVELOPMENT</text>
+  <g transform="translate(1160, 180)">
+    <rect width="360" height="480" rx="10" fill="#0D233E" stroke="#38BDF8" stroke-width="2"/>
+    <text x="180" y="70" fill="#FFFFFF" font-size="24" font-weight="800" letter-spacing="1" text-anchor="middle">GLOBAL</text>
+    <text x="180" y="98" fill="#FFFFFF" font-size="24" font-weight="800" letter-spacing="1" text-anchor="middle">DEVELOPMENT</text>
     
-    <line x1="40" y1="150" x2="290" y2="150" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="40" y1="130" x2="320" y2="130" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
 
-    <g transform="translate(40, 185)">
-      <circle cx="15" cy="15" r="5" fill="#0284C7"/>
-      <text x="35" y="20" fill="#334155" font-size="15" font-weight="600">Clinical Development</text>
-      
-      <circle cx="15" cy="55" r="5" fill="#0284C7"/>
-      <text x="35" y="60" fill="#334155" font-size="15" font-weight="600">CMC &amp; Manufacturing</text>
-      
-      <circle cx="15" cy="95" r="5" fill="#0284C7"/>
-      <text x="35" y="100" fill="#334155" font-size="15" font-weight="600">Commercialization</text>
+    <g transform="translate(40, 160)">
+      <rect width="280" height="70" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+      <circle cx="25" cy="35" r="5" fill="#38BDF8"/>
+      <text x="45" y="32" fill="#E2E8F0" font-size="14" font-weight="700">Clinical Development</text>
+      <text x="45" y="52" fill="#94A3B8" font-size="11">US &amp; Global INDs, Phase 1/2</text>
+    </g>
+
+    <g transform="translate(40, 250)">
+      <rect width="280" height="70" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+      <circle cx="25" cy="35" r="5" fill="#38BDF8"/>
+      <text x="45" y="32" fill="#E2E8F0" font-size="14" font-weight="700">CMC &amp; Scale-Up</text>
+      <text x="45" y="52" fill="#94A3B8" font-size="11">Western formulation &amp; supply</text>
+    </g>
+
+    <g transform="translate(40, 340)">
+      <rect width="280" height="70" rx="6" fill="#09182B" stroke="#1E3A5F"/>
+      <circle cx="25" cy="35" r="5" fill="#38BDF8"/>
+      <text x="45" y="32" fill="#E2E8F0" font-size="14" font-weight="700">Commercialization</text>
+      <text x="45" y="52" fill="#94A3B8" font-size="11">Western launch or exit</text>
     </g>
   </g>
 
-  <!-- Secondary Value Stream Line -->
-  <g transform="translate(140, 720)">
-    <rect width="1340" height="65" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-dasharray="6 4"/>
-    <text x="670" y="40" fill="#0F172A" font-size="16" font-weight="700" letter-spacing="0.5" text-anchor="middle">Upfront ($75.89M cash &amp; equity) + Milestones (up to $1.46B) + Royalties + Equity Upside</text>
+  <!-- Bottom Value Stream Bar -->
+  <g transform="translate(110, 710)">
+    <rect width="1410" height="70" rx="8" fill="#08182D" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="705" y="32" fill="#D4AF37" font-size="15" font-weight="800" letter-spacing="1" text-anchor="middle">TRANSACTION ECONOMICS</text>
+    <text x="705" y="55" fill="#E2E8F0" font-size="13" text-anchor="middle">Upfront ($75.89M cash &amp; equity) + Development Milestones (up to $1.46B) + Royalties + Newco Equity Upside</text>
   </g>
 
   <!-- Footer Caption -->
-  <text x="800" y="865" fill="#94A3B8" font-size="13" font-family="monospace" text-anchor="middle">PHARMASIGNAL TRANSACTION ARCHITECTURE · HAISCO PHARMACEUTICAL / SENTIVERA</text>
+  <text x="800" y="865" fill="#64748B" font-size="13" font-family="monospace" text-anchor="middle">PHARMASIGNAL TRANSACTION ARCHITECTURE · HAISCO PHARMACEUTICAL / SENTIVERA</text>
 </svg>
 `;
 
