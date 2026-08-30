@@ -27,6 +27,9 @@ export interface Article {
   sourceNote?: string;
   imageUrl?: string;
   shortTitle?: string;
+  assetClass?: string;
+  dealStructure?: string;
+  geographicScope?: string;
 }
 
 export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'LENSES' | 'ABOUT' | 'NEWSLETTER';

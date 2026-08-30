@@ -483,6 +483,216 @@ export const EXPLAINERS_DATA: Article[] = [
 
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
+    id: 'alvotech-lotus-selective-commercial-ownership',
+    category: 'DEAL SIGNAL',
+    title: 'Alvotech Does Not License Every Market the Same Way',
+    shortTitle: 'Alvotech & Lotus: Selective Commercial Ownership',
+    description: 'The same two biosimilars use shared commercialization in the U.S. and exclusive local commercialization across eight Asian markets. The structure shows how rights can follow capability economics rather than a single global licensing model.',
+    meta: '3 MIN READ · AUG 21, 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '3 min read',
+    date: 'August 21, 2026',
+    featuredSummary: 'The same two biosimilars use shared commercialization in the U.S. and exclusive local commercialization across eight Asian markets. The structure shows how rights can follow capability economics rather than a single global licensing model.',
+    isDealSignal: true,
+    assetClass: 'Biosimilar Biologics (mAb & Bispecific)',
+    dealStructure: 'Semi-Exclusive US Co-Comm / Exclusive Asia License',
+    geographicScope: 'US & 8 APAC Markets (ex-Japan/China)',
+    imageUrl: '/images/alvotech_lotus_selective_ownership_1787913500000.jpg',
+    pharmaSignalRead: 'Mechanism: Selective Commercial Ownership. Alvotech simultaneously delegates commercialization where partners add regional capability and retains direct participation where greater ownership of economics has become strategically worthwhile.',
+    useThisWhen: 'Determining geographic licensing structures where the originator’s operating capabilities have matured, allowing direct participation in major commercial markets while leveraging specialist partner infrastructure in regional territories.',
+    linkedExplainers: [
+      { id: 'commercialization-rights-strategy', title: 'Commercialization Rights Strategy' },
+      { id: 'partner-capability-gap', title: 'Partner Capability Gap' },
+      { id: 'route-to-market-friction', title: 'Route-to-Market Friction' }
+    ],
+    tags: ['BIOSIMILARS', 'ALVOTECH', 'LOTUS PHARMACEUTICAL', 'SELECTIVE COMMERCIAL OWNERSHIP', 'TERRITORIAL ARCHITECTURE', 'US COMMERCIALIZATION', 'ASIA PACIFIC', 'LICENSING'],
+    content: `
+      <h2>Deal signal</h2>
+      <p>On 21 August 2026, Alvotech and Lotus Pharmaceutical entered into a licensing and commercialization agreement covering two proposed biosimilar candidates:</p>
+      <ul>
+        <li><strong>AVT34:</strong> proposed biosimilar to AstraZeneca's Imfinzi (durvalumab)</li>
+        <li><strong>AVT87:</strong> proposed biosimilar to Roche/Chugai's Hemlibra (emicizumab)</li>
+      </ul>
+
+      <p>The structural core of the transaction is that rights and responsibilities are partitioned differently across geographic tiers:</p>
+
+      <h3>United States (Semi-Exclusive / Shared Commercialization)</h3>
+      <ul>
+        <li>Alvotech retains the right to commercialize directly in the U.S. alongside Lotus.</li>
+        <li>Lotus will commercialize through its U.S. subsidiary, Alvogen.</li>
+        <li>Alvotech retains responsibility for global development, U.S. marketing authorization (BLA), and exclusive commercial product supply.</li>
+        <li>Marks Alvotech's strategic transition toward direct participation in U.S. commercial economics.</li>
+      </ul>
+
+      <h3>Selected Asian Markets (Exclusive Local Commercialization)</h3>
+      <ul>
+        <li>Lotus receives exclusive commercialization rights across eight Asian territories: South Korea, Taiwan, Thailand, Vietnam, the Philippines, Singapore, Hong Kong, and Malaysia.</li>
+        <li>Lotus assumes responsibility for local regulatory filings, pricing, market access, and commercial distribution.</li>
+        <li>Alvotech remains responsible for development and exclusive commercial manufacturing supply.</li>
+      </ul>
+
+      <p>Financial terms include potential consideration to Alvotech of approximately <strong>$150 million</strong> in upfront and milestone payments, in addition to ongoing commercial product supply revenues.</p>
+
+      <h2>Why it matters</h2>
+      <p>Territorial licensing is frequently approached as a binary choice: either an originator builds its own global commercial infrastructure or it out-licenses the territory completely.</p>
+      <p>This transaction demonstrates a more sophisticated architecture:</p>
+      <p><em>Asset → Segmented Territorial Capabilities → Market-by-Market Economic Ownership</em></p>
+      <p>Instead of applying a single uniform licensing model across all regions, Alvotech has adapted the value chain market by market:</p>
+      <ul>
+        <li><strong>In Asia:</strong> Alvotech operates as a pure developer and supply partner (Develop → Manufacture → Supply), while Lotus supplies regulatory navigation, established hospital relationships, and sales forces.</li>
+        <li><strong>In the U.S.:</strong> Alvotech transitions from being only a contract developer/supplier to directly capturing downstream commercial margins while utilizing Alvogen's established distribution footprint.</li>
+      </ul>
+
+      <h2>PharmaSignal read</h2>
+      <h3>Primary Mechanism: Selective Commercial Ownership</h3>
+      <p>The traditional territorial question asks: <em>"Which territories should we retain?"</em></p>
+      <p>This transaction poses a more precise BD question: <em>"In which markets does partner capability justify giving away downstream economics—and in which markets has internal capability made direct ownership strategically superior?"</em></p>
+
+      <p>Three complementary mechanisms drive value in this structure:</p>
+      <ol>
+        <li><strong>Capability Arbitrage:</strong> Lotus supplies specialized local Asian execution across fragmented regulatory environments that Alvotech would waste capital attempting to reproduce.</li>
+        <li><strong>Infrastructure Leverage:</strong> Lotus utilizes Alvogen's existing U.S. commercial organization rather than requiring greenfield sales force investment.</li>
+        <li><strong>Selective Vertical Integration:</strong> Alvotech secures direct participation in the world's largest biologics market, capturing greater downstream gross margin as its corporate capabilities mature.</li>
+      </ol>
+
+      <h2>Linked lens / explainer</h2>
+      <ul>
+        <li><strong>Commercialization Rights Strategy:</strong> Designing tiered co-promotion and semi-exclusive commercial splits in primary markets.</li>
+        <li><strong>Partner Capability Gap:</strong> Assessing when regional infrastructure creates genuine distribution velocity versus overhead.</li>
+        <li><strong>Route-to-Market Friction:</strong> Navigating payer access and hospital contracting across fragmented international markets.</li>
+      </ul>
+
+      <h2>Decision use case</h2>
+      <p>Incorporate this structure into your BD licensing playbook when:</p>
+      <ul>
+        <li>The originator has established credible development and manufacturing engines and seeks to expand into commercial margin capture.</li>
+        <li>A target market (such as the U.S.) is sufficiently large to justify direct commercial co-participation, while regional markets require deep localized relationships.</li>
+        <li>A partner already possesses existing commercial infrastructure (like Alvogen) that can be leveraged without granting total exclusivity.</li>
+        <li>Balancing near-term milestone cash flow ($150M) with long-term supply margin and commercial gross profit.</li>
+      </ul>
+
+      <h2>What to watch next</h2>
+      <ul>
+        <li>How the co-commercialization operational interface between Alvotech and Alvogen is governed in the U.S.</li>
+        <li>Timing and clinical comparability milestones for AVT34 and AVT87 BLA submissions to the FDA.</li>
+        <li>Registration timelines and tender dynamics across the eight Asian target markets.</li>
+        <li>Whether Alvotech applies this semi-exclusive model to subsequent biosimilar pipeline assets in Europe or other major regions.</li>
+      </ul>
+
+      <h2>PharmaSignal principle</h2>
+      <blockquote>
+        <p>Territorial rights should follow capability economics, not a uniform licensing philosophy.</p>
+      </blockquote>
+
+      <h2>Source note</h2>
+      <p>Deal announced: 21 August 2026 (Alvotech and Lotus Pharmaceutical official disclosures).</p>
+    `
+  },
+  {
+    id: 'haisco-sentivera-newco-licensing',
+    category: 'DEAL SIGNAL',
+    title: 'Instead of Finding a Licensee, Haisco Helped Create One',
+    shortTitle: 'Haisco & Sentivera: Newco Licensing Architecture',
+    description: 'A China-origin asset was licensed into a newly formed US biotech backed by specialist investors. The important mechanism is Newco formation: building dedicated execution capacity around an opportunity instead of waiting for an existing pharma company to acquire the rights.',
+    meta: '4 MIN READ · AUG 25, 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '4 min read',
+    date: 'August 25, 2026',
+    featuredSummary: 'A China-origin asset was licensed into a newly formed US biotech backed by specialist investors. The important mechanism is Newco formation: building dedicated execution capacity around an opportunity instead of waiting for an existing pharma company to acquire the rights.',
+    isDealSignal: true,
+    assetClass: 'Small Molecule (Type-2 Immunology)',
+    dealStructure: 'Newco Formation + Equity + $1.46B Milestones',
+    geographicScope: 'Global Ex-Greater China',
+    imageUrl: '/images/haisco_sentivera_newco_1787913400000.jpg',
+    pharmaSignalRead: 'Mechanism: Opportunity Creation through Newco Architecture. When the optimal strategic buyer does not exist in the open market, assembling dedicated capital, specialist leadership, and global rights into a newly formed vehicle unlocks higher risk-adjusted valuation and equity upside.',
+    useThisWhen: 'An asset lacks an obvious direct strategic acquirer, the originator seeks to preserve domestic market sovereignty, and specialist venture capital can engineer an execution vehicle around the molecule.',
+    linkedExplainers: [
+      { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
+      { id: 'governance-debt', title: 'Governance Debt' },
+      { id: 'partner-capability-gap', title: 'Partner Capability Gap' }
+    ],
+    tags: ['CHINA', 'NEWCO', 'OUT-LICENSING', 'IMMUNOLOGY', 'OPPORTUNITY CREATION', 'VENTURE CAPITAL', 'COMMERCIALIZATION RIGHTS', 'GOVERNANCE'],
+    content: `
+      <h2>Deal signal</h2>
+      <p>China’s Haisco Pharmaceutical granted newly formed US biotech Sentivera exclusive rights outside Greater China to develop, manufacture, and commercialize a preclinical asset targeting type-2 inflammatory disease.</p>
+      
+      <p><strong>Haisco</strong></p>
+      <ul>
+        <li>retains Greater China rights</li>
+        <li>receives approximately $75.89 million in upfront payment and equity consideration</li>
+        <li>receives up to $1.46 billion in potential milestone payments, plus tiered royalties</li>
+        <li>holds equity participation in Sentivera</li>
+      </ul>
+
+      <p><strong>Sentivera</strong></p>
+      <ul>
+        <li>receives exclusive rights outside Greater China</li>
+        <li>becomes the dedicated vehicle for global development, manufacturing, and commercialization</li>
+        <li>is backed and created by Population Health Partners and ARCH Venture Partners</li>
+      </ul>
+
+      <h2>Why it matters</h2>
+      <p>This transaction is structurally distinct from a conventional out-licensing model.</p>
+      <p>The conventional pathway is:</p>
+      <p><em>Asset → Existing pharma/biotech licensee</em></p>
+      <p>This transaction instead uses:</p>
+      <p><em>Asset → Capital + specialist management + dedicated Newco → global execution</em></p>
+      <p>The counterparty was not selected from existing market bidders; it was effectively created around the opportunity.</p>
+
+      <h2>PharmaSignal read</h2>
+      <h3>Primary Mechanism: Opportunity Creation through Newco Architecture</h3>
+      <p>A conventional license-out depends on finding an established company whose portfolio, risk appetite, strategic priorities, and capital allocation align with the asset.</p>
+      <p>A Newco changes that constraint. Instead of forcing the asset into an existing corporate portfolio, investors assemble dedicated capital, specialist leadership, development capability, governance, and global rights directly around the asset.</p>
+      <p>This structure potentially provides Haisco three distinct layers of value:</p>
+      <ol>
+        <li><strong>Greater China economics remain internal:</strong> Haisco retains domestic commercial sovereignty in its home market.</li>
+        <li><strong>Milestones and royalties monetize ex-China execution:</strong> Non-dilutive payments fund ongoing pipeline expansion.</li>
+        <li><strong>Equity participation preserves corporate upside:</strong> Haisco captures equity value creation if Sentivera scales or achieves an exit.</li>
+      </ol>
+
+      <h3>The Structural Risk: Governance Debt</h3>
+      <p>The structure introduces additional operational and strategic interfaces between:</p>
+      <p><em>Haisco ↔ Sentivera ↔ investors ↔ management ↔ future development or commercial partners</em></p>
+      <p>While Newco formation creates pristine initial alignment at closing, it introduces governance complexity across cross-border data sharing, manufacturing handoffs, and subsequent partnering decisions.</p>
+
+      <h2>Linked lens / explainer</h2>
+      <ul>
+        <li><strong>Opportunity Creation vs Opportunity Processing:</strong> Shifting from passive pipeline matching to active vehicle synthesis.</li>
+        <li><strong>Governance Debt:</strong> Managing multi-stakeholder friction across originator, Newco board, and sponsor funds.</li>
+        <li><strong>Partner Capability Gap:</strong> Ensuring dedicated development velocity outside the home territory.</li>
+        <li><strong>Commercialization Rights Strategy:</strong> Preserving domestic market sovereignty while monetizing global upside.</li>
+      </ul>
+
+      <h2>Decision use case</h2>
+      <p>Consider this structure within your BD decision framework when:</p>
+      <ul>
+        <li>An asset has no obvious strategic buyer with immediate portfolio fit.</li>
+        <li>The originator wants to retain domestic territory rights while fully capitalizing global development.</li>
+        <li>Specialist venture capital has the capacity and domain leadership to build an operational vehicle.</li>
+        <li>Equity participation can meaningfully supplement traditional milestones and royalties.</li>
+        <li>Newco formation offers higher risk-adjusted return than accepting discounted terms from an existing mid-tier licensee.</li>
+      </ul>
+
+      <h2>What to watch next</h2>
+      <ul>
+        <li>Who assumes Sentivera’s operational leadership and executive management.</li>
+        <li>Whether Sentivera builds genuine standalone operational capabilities or acts as an intermediary aggregator.</li>
+        <li>Speed to IND submission and Phase I/II clinical trial initiation.</li>
+        <li>Cross-border governance dynamics and CMC alignment between Haisco and Sentivera.</li>
+        <li>Whether Sentivera develops the asset through commercialization or later sublicenses/partners regional rights.</li>
+        <li>Whether Haisco’s equity stake confers strategic board influence or purely financial exposure.</li>
+      </ul>
+
+      <h2>PharmaSignal principle</h2>
+      <blockquote>
+        <p>If the right partner does not exist, the highest-value BD move may be to create the execution vehicle around the asset rather than force the asset into an existing portfolio.</p>
+      </blockquote>
+
+      <h2>Source note</h2>
+      <p>Deal announced: 25 August 2026</p>
+    `
+  },
+  {
     id: 'roche-alnylam-rnai-expansion',
     category: 'DEAL SIGNAL',
     title: 'Roche & Alnylam Expand $2.8B RNAi Cardiovascular Alliance',
@@ -492,9 +702,12 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     author: 'PharmaSignal Deal Desk',
     readTime: '5 min read',
     date: 'August 28, 2026',
-    featuredSummary: 'Roche exercises option to expand global co-commercialization rights for zilebesiran in hypertension, committing $310M in near-term development milestones.',
+    featuredSummary: 'Roche exercises its option on Alnylam’s zilebesiran following Phase IIb endpoint clearance, committing $310M in near-term milestones to secure global ex-US commercial rights and a 50/50 US profit share.',
     isDealSignal: true,
-    imageUrl: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
+    assetClass: 'RNAi / siRNA (Cardiovascular)',
+    dealStructure: 'Option Trigger ($310M) + US 50/50 Profit Share',
+    geographicScope: 'Global (Roche) / US Co-Commercialization',
+    imageUrl: '/images/roche_alnylam_rnai_expansion.jpg',
     pharmaSignalRead: 'Mechanism: Option Trigger via Phase IIb Endpoint Clearance. In biopharma licensing, tiered option exercise windows reduce early capital exposure while securing global rights before competitive bidding starts.',
     useThisWhen: 'Designing staged licensing rights where commercial options are tied to defined registrational endpoints rather than fixed calendar schedules.',
     linkedExplainers: [
@@ -504,11 +717,47 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'RNAI THERAPEUTICS', 'ROCHE', 'ALNYLAM', 'OPTION TRIGGER', 'CARDIOVASCULAR'],
     content: `
       <h2>DEAL SIGNAL</h2>
-      <p>Roche has exercised its expansion option in the global zilebesiran collaboration with Alnylam Pharmaceuticals, committing $310M in developmental milestone advancements following Phase IIb hypertension endpoint clearance.</p>
+      <p>On August 28, 2026, <strong>Roche</strong> exercised its formal expansion option in its global alliance with <strong>Alnylam Pharmaceuticals</strong> for <strong>zilebesiran</strong>, an investigational RNAi therapeutic targeting angiotensinogen (AGT) for hypertension and high cardiovascular disease risk.</p>
+      <p>Under the agreement, Roche commits <strong>$310 million</strong> in development milestone payments upon Phase IIb KARDIA-2 endpoint clearance. In return, Roche secures exclusive commercialization rights outside the United States and participates in a <strong>50/50 profit-and-loss share</strong> in the U.S., where Alnylam leads clinical development and co-commercializes.</p>
+
+      <h2>WHY IT MATTERS</h2>
+      <p>Cardiovascular outcomes trials require massive capital allocation, extensive clinical site coordination, and deep primary care sales infrastructure. Early-stage biotechs rarely possess the balance sheet or field force to mount a global Phase III outcome trial independently.</p>
+      <p>Rather than an upfront full-asset buyout at a heavily discounted valuation, this alliance utilized a structured option trigger architecture:</p>
+      <p><em>Phase IIb Endpoint Clearance → $310M Option Trigger → Roche Global Commercialization + 50/50 US Co-Commercialization</em></p>
+      <p>This structure protected Roche from early-phase translational risk while giving Alnylam the balance sheet strength to retain 50% of the lucrative U.S. market.</p>
 
       <h2>PHARMASIGNAL READ</h2>
-      <h3>Mechanism: Option Trigger via Phase IIb Endpoint Clearance</h3>
-      <p>The strongest licensing alliances structure option triggers around clean clinical de-risking points rather than fixed calendar milestones.</p>
+      <h3>Primary Mechanism: Option Trigger via Clinical De-Risking</h3>
+      <p>Tiered option windows allow large pharma licensors to buy optionality rather than premature certainty. For Alnylam, structuring the option trigger around clean clinical endpoints (sustained blood pressure reduction at 6 months) established an objective valuation inflection point.</p>
+      
+      <p>Key value drivers in this transaction:</p>
+      <ul>
+        <li><strong>Commercial Scale Arbitrage:</strong> Alnylam leverages Roche's multinational cardiology sales infrastructure across Europe, Japan, and emerging markets.</li>
+        <li><strong>U.S. Value Retention:</strong> Retaining a 50/50 U.S. profit share allows Alnylam to capture sustainable downstream earnings beyond fixed royalties.</li>
+        <li><strong>Development Risk Sharing:</strong> Roche funds substantial portions of global cardiovascular outcomes trial (CVOT) costs.</li>
+      </ul>
+
+      <h3>The Structural Risk: Co-Promotion Alignment & Lifecycle Governance</h3>
+      <p>Equal profit shares create shared economic alignment, but dual-marketing operational interfaces introduce friction. Joint commercial committees must align on pricing, payer contracting, field force sizing, and lifecycle indication sequencing without triggering governance debt.</p>
+
+      <h2>DECISION USE CASE</h2>
+      <p>Deploy this option structure when an asset addresses broad primary-care indications requiring mega-trials, allowing the originator to preserve substantial U.S. upside while transferring capital-intensive ex-U.S. development and commercialization to a global pharma leader.</p>
+
+      <h2>WHAT TO WATCH NEXT</h2>
+      <ul>
+        <li>Execution and readout timing of the Phase III global cardiovascular outcome trials.</li>
+        <li>Regulatory interaction and filing strategies across the FDA, EMA, and PMDA.</li>
+        <li>Commercial co-detailing governance agreements in the U.S. market.</li>
+        <li>Competitive positioning against oral next-generation antihypertensive therapies.</li>
+      </ul>
+
+      <h2>PHARMASIGNAL PRINCIPLE</h2>
+      <blockquote>
+        <p>Option triggers tied to validated clinical endpoints preserve originator equity while allowing global pharma to deploy capital at peak strategic clarity.</p>
+      </blockquote>
+
+      <h2>SOURCE NOTE</h2>
+      <p>Deal announced: 28 August 2026 (Alnylam Pharmaceuticals and Roche official investor disclosures).</p>
     `
   },
   {
@@ -523,6 +772,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 4, 2026',
     featuredSummary: 'miRecule and EMS Group (Rio Biofarma) combined delivery capabilities, co-owned the resulting technology, embedded Brazilian manufacturing, and added equity—turning local capability into upstream opportunity creation.',
     isDealSignal: true,
+    assetClass: 'Peptide-Conjugated RNA Platform',
+    dealStructure: 'Co-Owned Platform + Equity + Brazil Mfg',
+    geographicScope: 'Global Target Rights / Brazil Supply',
     imageUrl: mireculeImg,
     pharmaSignalRead: 'Mechanism: Capability-Led Opportunity Creation. miRecule and Rio Biofarma structured their collaboration around capability, co-owned technology, equity and manufacturing—turning local capability into opportunity creation before a finished asset exists.',
     useThisWhen: 'Deciding whether a regional partner should enter before candidate selection rather than after clinical validation; assessing partners on constraints they can remove; determining whether capability contribution merits co-ownership, milestones or equity; designing governance for jointly created platform IP across multiple targets.',
@@ -570,12 +822,16 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     category: 'TERRITORIAL EXECUTION',
     title: 'Kaigene Transfers Japan Execution to Taisho',
     description: 'Kaigene retains global rights while transferring Japan development and commercialization to Taisho — trading territorial control for local execution capability.',
-    meta: '4 MIN READ · AUG 2026',
+    meta: '4 MIN READ · AUG 18, 2026',
     author: 'PharmaSignal Deal Desk',
     readTime: '4 min read',
-    date: 'August 2026',
+    date: 'August 18, 2026',
     featuredSummary: 'Why territorial licensing can protect executable value when local development and commercialization complexity is high.',
     isDealSignal: true,
+    assetClass: 'FcRn Inhibitor (Autoimmune)',
+    dealStructure: 'Exclusive Territorial License ($5M Upfront + Milestones)',
+    geographicScope: 'Japan Only (Kaigene Retains Ex-Japan)',
+    imageUrl: '/images/kaigene_taisho_japan_licensing.jpg',
     pharmaSignalRead: 'Territorial De-Risking Through Local Capability. Japan is not simply another country in a global development plan. It can require locally acceptable clinical evidence, territory-specific regulatory engagement, established specialist relationships, pricing and reimbursement execution, and post-approval commercial infrastructure. A small biotech could retain Japan and preserve more theoretical upside. But retaining rights without local execution capability can create an Execution Deficit. Taisho’s role therefore goes beyond market access. It assumes development-to-commercialization accountability inside the territory.',
     useThisWhen: 'Evaluating whether to retain or license a strategically complex territory where local development, regulatory and commercialization capability materially affects value realization. Use this signal when assessing: (1) whether to retain or license a complex territory; (2) when a country-specific partner should control clinical development; (3) how territorial licensing preserves global optionality; (4) whether milestones adequately compensate for lost territory control; (5) how global and local development responsibilities should be governed.',
     content: `
@@ -614,12 +870,16 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     category: 'MARKET ACCESS BEFORE APPROVAL',
     title: 'Merck Is Building Market Access Before Alimatravir Is Approved',
     description: 'Seven Indian and African manufacturers received voluntary licenses while Phase III development continues. The signal: access readiness is being built before approval, not after it.',
-    meta: '4 MIN READ · AUG 2026',
+    meta: '4 MIN READ · AUG 12, 2026',
     author: 'PharmaSignal Deal Desk',
     readTime: '4 min read',
-    date: 'August 2026',
+    date: 'August 12, 2026',
     featuredSummary: 'Why voluntary licensing before approval can reduce the future gap between regulatory success and real-world availability.',
     isDealSignal: true,
+    assetClass: 'Oral Protease Inhibitor (HIV)',
+    dealStructure: '7 Pre-Approval Royalty-Free Voluntary Licenses',
+    geographicScope: '129 Low- & Middle-Income Countries (LMICs)',
+    imageUrl: '/images/merck_alimatravir_access.jpg',
     pharmaSignalRead: 'Market Access Before Approval. The conventional sequence is: Clinical success → approval → licensing → generic development → registration → supply. Merck is partially overlapping these activities: Clinical development + voluntary licensing + manufacturing preparation + access planning. This potentially reduces the future Execution Deficit between regulatory approval and real market availability.',
     useThisWhen: 'Evaluating whether access, licensing, manufacturing and regulatory preparation should begin before approval rather than after it. Assessing: (1) when access and generic licensing should begin; (2) whether manufacturing partners can be selected before approval; (3) how regulatory and supply activities can run in parallel; (4) whether a global-access commitment has an executable operating model; (5) how to reduce the approval-to-availability gap in emerging markets.',
     content: `
@@ -667,7 +927,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'July 14, 2026',
     featuredSummary: 'Spero receives more than geographic rights. It assumes the operating responsibilities required to build the asset across international markets.',
     isDealSignal: true,
+    assetClass: 'Targeted Biologic (IgG4-RD / Sjögren’s)',
+    dealStructure: 'Territory-to-Execution Transfer ($1.1B Scope)',
+    geographicScope: 'Global Ex-Greater China',
     mechanism: 'Territory-to-Execution Transfer',
+    imageUrl: '/images/innovent_spero_deal_1787913287919.jpg',
     pharmaSignalTake: 'This is a Territory-to-Execution Transfer deal.\n\nInnovent assigned research, development, manufacturing and commercialization responsibility outside Greater China.\n\nThe BD question is whether execution capability transfers as cleanly as contractual rights.',
     useThisWhen: 'Assessing cross-border licensing transactions where research, development, manufacturing and commercialization accountability are transferred alongside territorial rights.',
     content: `
@@ -710,7 +974,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     featuredSummary: 'Relation will generate proprietary biological evidence rather than transfer a finished asset. The value depends on who controls the targets that emerge.',
     isDealSignal: true,
     isDraft: true,
+    assetClass: 'Genomic AI / Single-Cell MORGAN Platform',
+    dealStructure: 'Upstream Research Alliance ($110M Max Value)',
+    geographicScope: 'Global Discovery Target Rights',
     mechanism: 'Capability-Led Opportunity Creation',
+    imageUrl: '/images/gsk_relation_ai_1787913259639.jpg',
     pharmaSignalTake: 'This is a Capability-Led Opportunity Creation deal.\n\nRelation will generate biological datasets that may produce new drug targets for GSK.\n\nThe BD question is who controls the opportunity after the evidence becomes valuable.',
     sourceUrl: 'https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/',
     sourceLabel: 'Reuters, July 30, 2026.',
@@ -748,7 +1016,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     featuredSummary: 'SK is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform before pivotal validation.',
     isDealSignal: true,
     isDraft: true,
+    assetClass: 'Kv7 Ion Channel Platform (Opakalim)',
+    dealStructure: 'Worldwide Platform Acquisition ($400M Near-Term)',
+    geographicScope: 'Worldwide Global Rights',
     mechanism: 'Commercial Infrastructure as Acquisition Advantage',
+    imageUrl: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
     pharmaSignalTake: 'This is a Commercial Infrastructure as Acquisition Advantage transaction.\n\nSK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform.\n\nThe BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.',
     sourceUrl: 'https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global',
     sourceLabel: 'Biohaven Investor Relations, August 26, 2026.',
@@ -779,14 +1051,18 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     category: 'DEAL SIGNALS',
     title: 'Aurigene Converts Tech Transfer into Long-Term Portfolio Architecture',
     description: 'A 20+ product manufacturing transfer to Dr. Reddy’s subsidiary shifts Indian CDMO capability from contract services to structural portfolio partnership.',
-    meta: '3 MIN READ · AUG 2026',
+    meta: '3 MIN READ · AUG 15, 2026',
     author: 'PharmaSignal Deal Desk',
     readTime: '3 min read',
-    date: 'August 2026',
+    date: 'August 15, 2026',
     featuredSummary: 'Aurigene assumes transfer, scale-up and commercial supply for 20+ products, creating long-duration technical dependence and switching costs.',
     isDealSignal: true,
     isDraft: true,
+    assetClass: 'Complex Injectables & Biologics (20+ SKUs)',
+    dealStructure: 'Multi-Product Tech-Transfer & Commercial Supply',
+    geographicScope: 'US, Europe, Canada & Emerging Markets',
     mechanism: 'Tech-Transfer as Portfolio Architecture',
+    imageUrl: '/images/aurigene_tech_transfer_1787913237947.jpg',
     pharmaSignalTake: 'This is a Tech-Transfer as Portfolio Architecture partnership.\n\nAurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals.\n\nThe BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.',
     sourceUrl: 'https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html',
     sourceLabel: 'BioSpectrum India, August 2026.',
@@ -824,7 +1100,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     featuredSummary: 'BMS concludes Cellares’ automated platform cannot meet commercial throughput and cost standards, highlighting the Execution Deficit in advanced therapies.',
     isDealSignal: true,
     isDraft: true,
+    assetClass: 'Autologous CAR-T (Breyanzi)',
+    dealStructure: 'Automated Mfg Alliance Termination ($380M)',
+    geographicScope: 'Global Commercial Supply',
     mechanism: 'Clinical vs. Commercial Scale Constraint',
+    imageUrl: '/images/bms_cellares_cart_1787913217672.jpg',
     pharmaSignalTake: 'This is a Clinical vs. Commercial Scale Constraint event.\n\nBristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing.\n\nThe BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.',
     sourceUrl: 'https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/',
     sourceLabel: 'Reuters, August 25, 2026.',

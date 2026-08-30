@@ -1,6 +1,6 @@
 import { useEffect, useState, UIEvent } from 'react';
 import { motion } from 'motion/react';
-import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight } from 'lucide-react';
+import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight, Linkedin, FileDown } from 'lucide-react';
 import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
 import { TerritoryExecutionTransferDiagram } from './TerritoryExecutionTransferDiagram';
@@ -8,6 +8,7 @@ import { CapabilityLedOpportunityDiagram } from './CapabilityLedOpportunityDiagr
 import { SKBiopharmBiohavenDiagram } from './SKBiopharmBiohavenDiagram';
 import { AurigeneTechTransferDiagram } from './AurigeneTechTransferDiagram';
 import { BMSCellaresScaleDiagram } from './BMSCellaresScaleDiagram';
+import LinkedInCarouselModal from './LinkedInCarouselModal';
 // @ts-ignore
 import executionDeficitImg from '../assets/images/execution_deficit_diagram_new_1782370523380.jpg';
 
@@ -21,6 +22,7 @@ interface ArticleModalProps {
 export default function ArticleModal({ article, onClose, darkMode = false, onSelectArticleId }: ArticleModalProps) {
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [carouselOpen, setCarouselOpen] = useState(false);
 
   // Lock body scroll and sync URL when reading is active
   useEffect(() => {
@@ -112,29 +114,41 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {article.isDealSignal ? 'Back to Deal Signals' : 'Back to Explainers'}
               </button>
 
-              <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                {article.isDealSignal && (
+                  <button
+                    onClick={() => setCarouselOpen(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono tracking-wider border border-brand-gold/40 hover:border-brand-gold text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 transition-all cursor-pointer uppercase font-bold"
+                    title="Export LinkedIn Visual Carousel"
+                  >
+                    <Linkedin size={13} fill="currentColor" />
+                    <span className="hidden sm:inline">Export Carousel</span>
+                    <FileDown size={13} />
+                  </button>
+                )}
+
                 <button
                   onClick={handleShare}
-                  className={`p-1.5 sm:p-2 rounded-full transition-all cursor-pointer relative ${
-                    darkMode ? 'text-white hover:text-brand-gold hover:bg-white/5' : 'text-brand-primary hover:text-brand-gold hover:bg-brand-primary/5'
+                  className={`p-1.5 sm:p-2 rounded-none transition-all cursor-pointer relative border ${
+                    darkMode ? 'text-white border-white/10 hover:border-brand-gold hover:text-brand-gold hover:bg-white/5' : 'text-brand-primary border-brand-charcoal/10 hover:border-brand-gold hover:text-brand-gold hover:bg-brand-primary/5'
                   }`}
                   title="Copy Link to Article"
                 >
-                  {copied ? <ClipboardCheck size={18} className="text-emerald-500 animate-pulse" /> : <Share2 size={18} />}
+                  {copied ? <ClipboardCheck size={16} className="text-emerald-500 animate-pulse" /> : <Share2 size={16} />}
                   {copied && (
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-[10px] py-1 px-2 rounded tracking-widest whitespace-nowrap border border-white/10">
+                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-[10px] py-1 px-2 rounded-none tracking-widest whitespace-nowrap border border-white/10">
                       LINK COPIED
                     </span>
                   )}
                 </button>
                 <button
                   onClick={onClose}
-                  className={`p-1.5 sm:p-2 rounded-full transition-all cursor-pointer ${
-                    darkMode ? 'text-white hover:text-red-400 hover:bg-white/5' : 'text-brand-primary hover:text-red-700 hover:bg-brand-primary/5'
+                  className={`p-1.5 sm:p-2 rounded-none transition-all cursor-pointer border ${
+                    darkMode ? 'text-white border-white/10 hover:text-red-400 hover:border-red-400 hover:bg-white/5' : 'text-brand-primary border-brand-charcoal/10 hover:text-red-700 hover:border-red-700 hover:bg-brand-primary/5'
                   }`}
                   title="Close Reader"
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
             </div>
@@ -351,6 +365,29 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 </div>
 
                 <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
+
+                {article.isDealSignal && (
+                  <div className={`p-4 border space-y-2.5 ${
+                    darkMode ? 'bg-[#061426] border-brand-gold/40' : 'bg-[#FAF6EE] border-[#EADBCC]'
+                  }`}>
+                    <div className="flex items-center gap-2">
+                      <Linkedin size={15} className="text-[#0A66C2]" />
+                      <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
+                        LinkedIn Carousel
+                      </span>
+                    </div>
+                    <p className={`text-[11px] font-sans leading-relaxed ${darkMode ? 'text-white/70' : 'text-brand-charcoal/80'}`}>
+                      Export 4-slide high-res PDF carousel with quote hooks & metrics.
+                    </p>
+                    <button
+                      onClick={() => setCarouselOpen(true)}
+                      className="w-full py-2 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <FileDown size={13} />
+                      <span>Export Carousel PDF</span>
+                    </button>
+                  </div>
+                )}
 
                 <div className="space-y-2 pt-1">
                   <button
@@ -1985,6 +2022,16 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
       </article>
         </motion.div>
       </div>
+
+      {/* LinkedIn Carousel Exporter Modal */}
+      {article.isDealSignal && (
+        <LinkedInCarouselModal 
+          article={article}
+          isOpen={carouselOpen}
+          onClose={() => setCarouselOpen(false)}
+          darkMode={darkMode}
+        />
+      )}
     </div>
   );
 }
