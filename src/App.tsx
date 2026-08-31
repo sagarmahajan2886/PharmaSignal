@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, FormEvent, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
@@ -24,12 +24,15 @@ import {
 import { EXPLAINERS_DATA, DEAL_SIGNALS_DATA, ALL_ARTICLES } from './articlesData';
 import { ActiveTab, Article } from './types';
 import Navigation from './components/Navigation';
-import ArticleModal from './components/ArticleModal';
-import { PolicyModal, PolicyTab } from './components/PolicyModal';
+import { PolicyTab } from './components/PolicyModal';
 import ApprovalGapDiagram from './components/ApprovalGapDiagram';
 import HeroMechanismDiagram from './components/HeroMechanismDiagram';
-import LensesPage from './components/LensesPage';
-import LinkedInCarouselModal from './components/LinkedInCarouselModal';
+
+// Lazily load modals and secondary views to optimize initial bundle size & mobile performance
+const ArticleModal = lazy(() => import('./components/ArticleModal'));
+const PolicyModal = lazy(() => import('./components/PolicyModal').then(m => ({ default: m.PolicyModal })));
+const LensesPage = lazy(() => import('./components/LensesPage'));
+const LinkedInCarouselModal = lazy(() => import('./components/LinkedInCarouselModal'));
 
 // Import assets
 // @ts-ignore
@@ -334,12 +337,14 @@ export default function App() {
       {/* Main Content Router */}
       {activeTab === 'LENSES' ? (
         /* Dedicated /lenses Page */
-        <LensesPage 
-          darkMode={darkMode} 
-          openArticle={openArticle}
-          explainers={EXPLAINERS_DATA}
-          dealSignals={DEAL_SIGNALS_DATA}
-        />
+        <Suspense fallback={<div className="min-h-screen py-16 flex items-center justify-center font-mono text-xs text-brand-gold">Loading lenses...</div>}>
+          <LensesPage 
+            darkMode={darkMode} 
+            openArticle={openArticle}
+            explainers={EXPLAINERS_DATA}
+            dealSignals={DEAL_SIGNALS_DATA}
+          />
+        </Suspense>
       ) : activeTab === 'DEAL SIGNALS' ? (
         /* Dedicated Deal Signals Listing View */
         <section 
@@ -405,6 +410,8 @@ export default function App() {
                       <img 
                         src={deal.imageUrl} 
                         alt={deal.shortTitle || deal.title}
+                        loading="lazy"
+                        decoding="async"
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
@@ -1098,6 +1105,8 @@ export default function App() {
                           <img 
                             src={deal.imageUrl} 
                             alt={deal.title} 
+                            loading="lazy"
+                            decoding="async"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500" 
                           />
@@ -1441,45 +1450,51 @@ export default function App() {
       {/* Floating Reader Modal for Articles */}
       <AnimatePresence>
         {selectedArticle && (
-          <ArticleModal 
-            article={selectedArticle} 
-            onClose={closeArticle} 
-            darkMode={darkMode}
-            onSelectArticleId={(id) => {
-              const art = ALL_ARTICLES.find(a => a.id === id);
-              if (art) setSelectedArticle(art);
-            }}
-          />
+          <Suspense fallback={null}>
+            <ArticleModal 
+              article={selectedArticle} 
+              onClose={closeArticle} 
+              darkMode={darkMode}
+              onSelectArticleId={(id) => {
+                const art = ALL_ARTICLES.find(a => a.id === id);
+                if (art) setSelectedArticle(art);
+              }}
+            />
+          </Suspense>
         )}
       </AnimatePresence>
 
       {/* Floating Policy Modal */}
       <AnimatePresence>
         {policyModalOpen && (
-          <PolicyModal 
-            isOpen={policyModalOpen}
-            activeTab={policyTab}
-            onTabChange={(tab) => {
-              setPolicyTab(tab);
-              const url = new URL(window.location.href);
-              url.searchParams.set('policy', tab);
-              window.history.pushState(null, '', url.toString());
-            }}
-            onClose={closePolicy}
-            darkMode={darkMode}
-          />
+          <Suspense fallback={null}>
+            <PolicyModal 
+              isOpen={policyModalOpen}
+              activeTab={policyTab}
+              onTabChange={(tab) => {
+                setPolicyTab(tab);
+                const url = new URL(window.location.href);
+                url.searchParams.set('policy', tab);
+                window.history.pushState(null, '', url.toString());
+              }}
+              onClose={closePolicy}
+              darkMode={darkMode}
+            />
+          </Suspense>
         )}
       </AnimatePresence>
 
       {/* Standalone LinkedIn Carousel Modal */}
       <AnimatePresence>
         {carouselArticle && (
-          <LinkedInCarouselModal 
-            article={carouselArticle}
-            isOpen={!!carouselArticle}
-            onClose={() => setCarouselArticle(null)}
-            darkMode={darkMode}
-          />
+          <Suspense fallback={null}>
+            <LinkedInCarouselModal 
+              article={carouselArticle}
+              isOpen={!!carouselArticle}
+              onClose={() => setCarouselArticle(null)}
+              darkMode={darkMode}
+            />
+          </Suspense>
         )}
       </AnimatePresence>
 

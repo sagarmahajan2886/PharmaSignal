@@ -1892,6 +1892,8 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     <img 
                       src={article.imageUrl} 
                       alt={article.title}
+                      loading="lazy"
+                      decoding="async"
                       referrerPolicy="no-referrer"
                       className="w-full h-auto object-cover max-h-[420px]"
                     />
