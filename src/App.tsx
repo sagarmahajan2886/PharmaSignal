@@ -319,7 +319,7 @@ export default function App() {
 
   return (
     <div className={`min-h-screen font-sans selection:bg-brand-gold selection:text-brand-primary transition-colors duration-300 ${
-      darkMode ? 'bg-brand-deep text-white' : 'bg-[#FAF6EE] text-[#111827]'
+      darkMode ? 'bg-[#050F1A] text-white' : 'bg-[#FAF7F0] text-[#111827]'
     }`}>
       
       {/* 1. Header / Navigation */}
@@ -345,15 +345,15 @@ export default function App() {
         <section 
           id="deal-signals-page"
           className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
-            darkMode ? 'bg-[#061526] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+            darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left max-w-3xl mb-6 sm:mb-8">
-              <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold mb-1">
-                EMPIRICAL EVIDENCE
+            <div className="text-left max-w-3xl mb-6 sm:mb-8 pb-4 border-b border-brand-gold/20">
+              <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                EMPIRICAL EVIDENCE · DEAL MECHANISMS
               </span>
-              <h1 className={`font-serif text-2xl sm:text-3xl font-bold tracking-tight uppercase mb-1.5 ${
+              <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
               }`}>
                 Deal Signals
@@ -373,16 +373,16 @@ export default function App() {
                   key={deal.id}
                   className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
                     darkMode 
-                      ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/45' 
-                      : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/45' 
+                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/60'
                   }`}
                 >
                   <div className="p-4 sm:p-5 pb-2.5">
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <span className="inline-block text-[9px] font-mono tracking-widest text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
+                      <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                         {deal.category}
                       </span>
-                      <span className="text-[10px] font-mono text-brand-gold/80 tracking-wider">
+                      <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
                         {deal.date}
                       </span>
                     </div>
@@ -408,8 +408,8 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A2E]/60 via-transparent to-transparent opacity-80" />
-                      <div className="absolute top-2 right-2 bg-[#061426]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050F1A]/70 via-transparent to-transparent opacity-80" />
+                      <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
                         EDITORIAL DIAGRAM
                       </div>
                     </div>
@@ -425,7 +425,7 @@ export default function App() {
                             className={`text-[9px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
                               darkMode 
                                 ? 'bg-white/[0.04] text-white/70 border-white/10' 
-                                : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#EADBCC]'
+                                : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#E5DDD0]'
                             }`}
                           >
                             #{tag}
@@ -444,7 +444,7 @@ export default function App() {
                         <div className={`p-2.5 border-l-2 border-brand-gold text-xs font-serif leading-relaxed mb-2.5 ${
                           darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-primary/90'
                         }`}>
-                          <strong className="font-mono text-[9px] uppercase text-brand-gold tracking-widest block mb-0.5">
+                          <strong className="font-mono text-[9px] uppercase text-brand-gold-antique dark:text-brand-gold tracking-widest block mb-0.5">
                             Signal Mechanism
                           </strong>
                           {deal.pharmaSignalRead}
@@ -454,8 +454,8 @@ export default function App() {
                     
                     <div className="pt-2.5 border-t border-brand-gold/10 flex flex-wrap items-center justify-between gap-2 mt-auto">
                       <div className="flex items-center gap-2.5">
-                        <span className="flex items-center gap-1 text-[10px] font-mono text-brand-gold font-bold uppercase">
-                          <Clock size={11} strokeWidth={2.5} /> {deal.readTime}
+                        <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                          <Clock size={10} strokeWidth={2.5} /> {deal.readTime}
                         </span>
                         <button
                           onClick={() => setCarouselArticle(deal)}
@@ -486,7 +486,7 @@ export default function App() {
           <section 
             id="about-section"
             className={`relative overflow-hidden pt-8 pb-6 sm:pt-12 sm:pb-8 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-brand-deep border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+              darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
             }`}
           >
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -562,15 +562,15 @@ export default function App() {
           <section 
             id="start-here"
             className={`py-5 sm:py-7 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#061322] border-white/5' : 'bg-[#F4EFE6] border-[#EADBCC]'
+              darkMode ? 'bg-[#061322] border-white/5' : 'bg-[#F4EFE6] border-[#E5DDD0]'
             }`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-left max-w-3xl mb-4">
-                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold mb-0.5">
+                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-0.5">
                   START HERE
                 </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase mb-1 ${
+                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1 ${
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}>
                   Navigate PharmaSignal
@@ -590,16 +590,16 @@ export default function App() {
                   onClick={() => scrollToSection('featured-explainer-section')}
                   className={`p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group rounded-none shadow-sm ${
                     darkMode 
-                      ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/70 hover:bg-[#0c2038]' 
-                      : 'bg-white border-[#EADBCC] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
+                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/70 hover:bg-[#0e243d]' 
+                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[9px] font-mono tracking-widest text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      <span className="text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                         MECHANISMS
                       </span>
-                      <BookOpen size={16} className="text-brand-gold opacity-80 group-hover:opacity-100 transition-opacity" />
+                      <BookOpen size={16} className="text-brand-gold-antique dark:text-brand-gold opacity-85 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <h3 className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1 group-hover:text-brand-gold transition-colors ${
                       darkMode ? 'text-white' : 'text-[#001B2A]'
@@ -612,7 +612,7 @@ export default function App() {
                       Reusable mechanisms behind pharma BD outcomes.
                     </p>
                   </div>
-                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold uppercase tracking-wider">
+                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold-antique dark:text-brand-gold uppercase tracking-wider">
                     <span>Explore Explainers</span>
                     <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -623,16 +623,16 @@ export default function App() {
                   onClick={() => scrollToSection('deal-signals-section')}
                   className={`p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group rounded-none shadow-sm ${
                     darkMode 
-                      ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/70 hover:bg-[#0c2038]' 
-                      : 'bg-white border-[#EADBCC] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
+                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/70 hover:bg-[#0e243d]' 
+                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-[9px] font-mono tracking-widest text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      <span className="text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                         EVIDENCE
                       </span>
-                      <Radio size={16} className="text-brand-gold opacity-80 group-hover:opacity-100 transition-opacity" />
+                      <Radio size={16} className="text-brand-gold-antique dark:text-brand-gold opacity-85 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <h3 className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1 group-hover:text-brand-gold transition-colors ${
                       darkMode ? 'text-white' : 'text-[#001B2A]'
@@ -645,7 +645,7 @@ export default function App() {
                       Public pharma deals interpreted through value mechanisms.
                     </p>
                   </div>
-                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold uppercase tracking-wider">
+                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold-antique dark:text-brand-gold uppercase tracking-wider">
                     <span>Explore Signals</span>
                     <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -664,7 +664,7 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="text-left w-full md:w-1/2">
-                  <span className="text-[9.5px] font-mono font-bold tracking-widest text-brand-gold uppercase block mb-0.5">
+                  <span className="text-[9.5px] font-mono font-bold tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase block mb-0.5">
                     EXECUTIVE BRIEFING
                   </span>
                   <h3 className={`font-serif text-sm sm:text-base font-bold tracking-tight leading-snug ${
@@ -715,7 +715,7 @@ export default function App() {
                         )}
 
                         <div className={`text-[9.5px] font-mono tracking-wide text-left ${
-                          darkMode ? 'text-brand-gold/75' : 'text-brand-primary/75'
+                          darkMode ? 'text-brand-gold/75' : 'text-brand-gold-antique/85'
                         }`}>
                           No spam. Only high-signal briefings.
                         </div>
@@ -748,10 +748,10 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               <div className="text-left max-w-3xl mb-5 sm:mb-6">
-                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold mb-1">
+                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
                   FOUNDATIONAL FRAMEWORK
                 </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase mb-1.5 ${
+                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}>
                   Featured Explainer
@@ -773,7 +773,7 @@ export default function App() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
                   
                   <div className="lg:col-span-7 flex flex-col items-start text-left">
-                    <span className="inline-block text-[9.5px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-2 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-2 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                       FEATURED FRAMEWORK
                     </span>
 
@@ -783,7 +783,7 @@ export default function App() {
                       The Approval Gap
                     </h2>
 
-                    <p className="font-serif text-sm sm:text-base text-brand-gold italic font-semibold mb-2.5 leading-relaxed">
+                    <p className="font-serif text-sm sm:text-base text-brand-gold-antique dark:text-brand-gold italic font-semibold mb-2.5 leading-relaxed">
                       Why attractive opportunities lose momentum before approval.
                     </p>
 
@@ -813,7 +813,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECTION 5 — OTHER EXPLAINERS TO READ (PLACED RIGHT AFTER FEATURED EXPLAINER) */}
+          {/* SECTION 5 — OTHER EXPLAINERS TO READ */}
           <section 
             id="latest-explainers-section"
             className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
@@ -823,10 +823,10 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               <div className="text-left max-w-3xl mb-5 sm:mb-6">
-                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold mb-1">
+                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
                   REUSABLE MECHANISMS
                 </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase mb-1.5 ${
+                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}>
                   Other Explainers to Read
@@ -849,7 +849,7 @@ export default function App() {
                     : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                 }`}>
                   <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[8.5px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                       EXECUTION DEFICIT
                     </span>
                     <h3 
@@ -868,7 +868,7 @@ export default function App() {
                   </div>
                   
                   <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold font-bold uppercase">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
                       <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
                     </span>
                     <button
@@ -887,7 +887,7 @@ export default function App() {
                     : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                 }`}>
                   <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[8.5px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                       OPPORTUNITY CREATION
                     </span>
                     <h3 
@@ -906,7 +906,7 @@ export default function App() {
                   </div>
                   
                   <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold font-bold uppercase">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
                       <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
                     </span>
                     <button
@@ -925,7 +925,7 @@ export default function App() {
                     : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                 }`}>
                   <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[8.5px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                       LICENSING STRATEGY
                     </span>
                     <h3 
@@ -944,7 +944,7 @@ export default function App() {
                   </div>
                   
                   <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold font-bold uppercase">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
                       <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
                     </span>
                     <button
@@ -963,7 +963,7 @@ export default function App() {
                     : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                 }`}>
                   <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[8.5px] font-mono tracking-widest text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                       EVIDENCE & DEVELOPMENT
                     </span>
                     <h3 
@@ -982,7 +982,7 @@ export default function App() {
                   </div>
                   
                   <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold font-bold uppercase">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
                       <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
                     </span>
                     <button
@@ -999,7 +999,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECTION 6 — DEAL SIGNALS (FOLLOWS OTHER EXPLAINERS) */}
+          {/* SECTION 6 — DEAL SIGNALS */}
           <section 
             id="deal-signals-section"
             className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
@@ -1011,10 +1011,10 @@ export default function App() {
               {/* Section Header */}
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-6 gap-3">
                 <div className="text-left max-w-3xl">
-                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold mb-1">
+                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
                     CORE EMPIRICAL INTELLIGENCE · {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
                   </span>
-                  <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight uppercase mb-1.5 ${
+                  <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
                     Deal Signals
@@ -1034,7 +1034,7 @@ export default function App() {
                       window.history.pushState(null, '', '/deal-signals');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-[11px] font-sans tracking-widest font-bold text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-3 py-1.5 bg-brand-gold/5"
+                    className="text-[11px] font-sans tracking-widest font-bold text-brand-gold-antique dark:text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-3 py-1.5 bg-brand-gold/5"
                   >
                     All {DEAL_SIGNALS_DATA.length} Signals Archive <ArrowRight size={11} />
                   </button>
@@ -1069,11 +1069,11 @@ export default function App() {
                     >
                       <div className="p-3.5 sm:p-4 pb-2">
                         {/* 1. Date and Category Tag */}
-                        <div className="flex items-center justify-between gap-2 mb-1.5">
-                          <span className="inline-block text-[8.5px] font-mono tracking-widest text-brand-gold font-bold uppercase px-1.5 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                        <div className="flex items-center justify-between gap-2 mb-2 pb-1 border-b border-brand-gold/10">
+                          <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                             {deal.category || 'DEAL SIGNAL'}
                           </span>
-                          <span className="text-[9.5px] font-mono text-brand-gold/80 tracking-wider font-semibold">
+                          <span className="text-[9.5px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold">
                             {deal.date?.toUpperCase()}
                           </span>
                         </div>
@@ -1135,7 +1135,7 @@ export default function App() {
 
                         {/* Footer Read Time & Action */}
                         <div className="pt-2 border-t border-brand-gold/15 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                          <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold font-bold uppercase">
+                          <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
                             <Clock size={10} strokeWidth={2.5} /> {deal.readTime || '4 MIN READ'}
                           </span>
                           <div className="flex items-center gap-1.5">

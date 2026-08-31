@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://pharmasignal.com/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Lenses & Decision Frameworks Directory -->
+  <url>
+    <loc>https://pharmasignal.com/?view=lenses</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Deal Signals Archive Directory -->
+  <url>
+    <loc>https://pharmasignal.com/?view=signals</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Executive Intelligence Archive -->
+  <url>
+    <loc>https://pharmasignal.com/?view=archive</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Roche & Alnylam -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=roche-alnylam-rnai-expansion</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Alvotech & Lotus Pharmaceutical -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=alvotech-lotus-selective-commercial-ownership</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Haisco & Sentivera Newco -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=haisco-sentivera-newco-licensing</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: SK Biopharm & Biohaven -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=sk-biopharm-biohaven-epilepsy-platform</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Kaigene & Taisho Pharmaceutical -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=kaigene-taisho-japan-licensing</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Merck Alimatravir Access -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=merck-alimatravir-market-access</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: miRecule & EMS Group -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=ems-mirecule-upstream-collaboration</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Innovent & Spero -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=innovent-spero-ex-china-execution-transfer</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: GSK & Relation Therapeutics -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=gsk-capability-led-opportunity-creation</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- DEAL SIGNAL: Aurigene & Dr. Reddy's Tech Transfer -->
+  <url>
+    <loc>https://pharmasignal.com/?deal=aurigene-dr-reddys-tech-transfer-architecture</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- EXPLAINER: The Approval Gap -->
+  <url>
+    <loc>https://pharmasignal.com/?article=the-approval-gap</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- EXPLAINER: A Signed Deal Is Not an Executed Deal -->
+  <url>
+    <loc>https://pharmasignal.com/?article=execution-deficit</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- EXPLAINER: Opportunity Creation vs Opportunity Processing -->
+  <url>
+    <loc>https://pharmasignal.com/?article=opportunity-creation-processing</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- EXPLAINER: Why Most Pharma Deals Fail Before Signing -->
+  <url>
+    <loc>https://pharmasignal.com/?article=deal-failures</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- EXPLAINER: The Evidence Maturity Gap That Destroys Value -->
+  <url>
+    <loc>https://pharmasignal.com/?article=evidence-maturity</loc>
+    <lastmod>2025-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- EXPLAINER: Territory Structure Creates More Value Than You Think -->
+  <url>
+    <loc>https://pharmasignal.com/?article=territory-structure</loc>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Direct Sitemaps for Googlebot, Bingbot, and RSS Readers
+Sitemap: https://pharmasignal.com/sitemap.xml
+Sitemap: https://pharmasignal.com/rss.xml

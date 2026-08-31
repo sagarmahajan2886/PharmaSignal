@@ -96,12 +96,12 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ type: 'spring', damping: 25, stiffness: 180 }}
           className={`relative w-full h-screen sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] lg:max-h-[92vh] max-w-4xl lg:max-w-6xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold flex flex-col ${
-            darkMode ? 'bg-brand-deep text-white border-b border-l border-r border-white/10' : 'bg-brand-offwhite text-brand-charcoal'
+            darkMode ? 'bg-[#050F1A] text-white border-b border-l border-r border-white/10' : 'bg-[#FAF7F0] text-brand-charcoal border-b border-l border-r border-[#E5DDD0]'
           }`}
         >
           {/* Header Action Bar */}
           <div className={`sticky top-0 z-10 flex flex-col border-b backdrop-blur ${
-            darkMode ? 'border-white/10 bg-brand-deep/95' : 'border-brand-charcoal/10 bg-brand-offwhite/95'
+            darkMode ? 'border-white/10 bg-[#050F1A]/95' : 'border-[#E5DDD0] bg-[#FAF7F0]/95'
           }`}>
             <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
               <button

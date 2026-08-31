@@ -86,13 +86,13 @@ export default function LensesPage({ darkMode, openArticle, explainers, dealSign
         {/* Header */}
         <div className="text-left max-w-3xl mb-12 border-b border-brand-gold/20 pb-8">
           <div className="flex items-center gap-2 mb-3">
-            <Compass className="text-brand-gold" size={20} />
-            <span className="font-mono text-xs tracking-widest text-brand-gold font-bold uppercase">
+            <Compass className="text-brand-gold-antique dark:text-brand-gold" size={20} />
+            <span className="font-mono text-xs tracking-widest text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
               PHARMASIGNAL LENSES
             </span>
           </div>
           
-          <h1 className={`font-serif text-3.5xl sm:text-5xl font-bold tracking-tight uppercase mb-4 ${
+          <h1 className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 ${
             darkMode ? 'text-white' : 'text-[#001B2A]'
           }`}>
             PharmaSignal Lenses
@@ -124,11 +124,11 @@ export default function LensesPage({ darkMode, openArticle, explainers, dealSign
               }`}
             >
               <div>
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase px-2.5 py-1 border border-brand-gold/30">
+                <div className="flex items-center justify-between gap-4 mb-4 pb-2 border-b border-brand-gold/10">
+                  <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2.5 py-1 border border-brand-gold/30 bg-brand-gold/10">
                     {lens.badge}
                   </span>
-                  <span className="text-[11px] font-mono text-brand-gold/80 uppercase tracking-widest font-semibold">
+                  <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 uppercase tracking-widest font-semibold">
                     Decision Model
                   </span>
                 </div>
