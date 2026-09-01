@@ -30,6 +30,7 @@ export interface Article {
   assetClass?: string;
   dealStructure?: string;
   geographicScope?: string;
+  hideFromHomepage?: boolean;
 }
 
 export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'LENSES' | 'ABOUT' | 'NEWSLETTER';

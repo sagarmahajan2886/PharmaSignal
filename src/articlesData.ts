@@ -1129,6 +1129,62 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
+  },
+  {
+    id: 'test-sandbox-asset-carveout',
+    category: 'TEST DEAL SIGNAL',
+    title: '[TEST] Aura & Nexis: Cross-Border Asset Carve-Out & Newco Formation',
+    shortTitle: '[TEST] Aura & Nexis: Asset Carve-Out',
+    description: 'A sandbox test deal signal examining synthetic spin-out mechanics, dedicated equity capital formation, and cross-border rights carving.',
+    meta: '3 MIN READ · SEP 01, 2026',
+    author: 'PharmaSignal Test Desk',
+    readTime: '3 min read',
+    date: 'September 01, 2026',
+    featuredSummary: 'A sandbox test deal signal examining synthetic spin-out mechanics, dedicated equity capital formation, and cross-border rights carving.',
+    isDealSignal: true,
+    hideFromHomepage: true,
+    assetClass: 'Phase 2 Oncology ADC (Synthetic Test)',
+    dealStructure: 'Asset Carve-Out + $65M Series A + 19.9% Equity',
+    geographicScope: 'Global Rights (US/EU Lead)',
+    mechanism: 'Asset Spin-Out & Capital Formation',
+    imageUrl: '/images/dummy_test_deal_signal.jpg',
+    pharmaSignalTake: 'This is a sandbox test record created for verification.\n\nDemonstrates how asset carve-outs isolate clinical risk and capture equity upside without diluting parent company common stock.',
+    pharmaSignalRead: 'Mechanism: Dedicated Newco Spin-Out. Asset carve-outs enable originators to advance non-core assets via external capital without absorbing Phase 2/3 trial dilution on the parent balance sheet.',
+    useThisWhen: 'Testing deal signal rendering and reviewing corporate spin-out transaction structures.',
+    linkedExplainers: [
+      { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['TEST', 'DEAL SIGNAL', 'SPIN-OUT', 'NEWCO', 'ADC', 'EQUITY VALUE', 'SANDBOX'],
+    content: `
+      <h2>Deal signal (Test Sandbox)</h2>
+      <p><em>Notice: This is a temporary dummy test article for system validation.</em></p>
+      <p>On 1 September 2026, Aura Biotherapeutics entered into a definitive asset carve-out and transaction agreement with newly formed entity Nexis Pharma covering a clinical-stage antibody-drug conjugate (ADC) candidate:</p>
+      <ul>
+        <li><strong>Asset:</strong> AB-402, a next-generation topoisomerase I inhibitor ADC for solid tumors.</li>
+        <li><strong>Newco Financing:</strong> Nexis Pharma closed a $65 million syndicated Series A financing round backed by specialist healthcare investors.</li>
+        <li><strong>Equity &amp; Governance:</strong> Aura retains a 19.9% voting equity stake in Nexis Pharma and one board observer seat.</li>
+        <li><strong>Downstream Economics:</strong> Aura is eligible for up to $220 million in clinical, regulatory, and commercial milestones, plus high single-digit tiered royalties on ex-US net sales.</li>
+      </ul>
+
+      <h2>Why it matters</h2>
+      <p>Originator biopharmas frequently face capital constraints when prioritizing multi-asset pipelines. Retaining an asset internally often means either under-funding its registrational development or raising highly dilutive corporate equity.</p>
+      <p>The synthetic Newco carve-out model resolves this friction by separating asset risk from corporate parent equity:</p>
+      <p><em>Non-Core Pipeline Asset → Dedicated Capital Vehicle (Newco) → Retained Equity Upside + Milestone Stream</em></p>
+
+      <h2>PharmaSignal read</h2>
+      <h3>Primary Mechanism: Dedicated Asset Spin-Out</h3>
+      <p>The BD question in pipeline rationalization is not merely: <em>"Should we out-license or discontinue?"</em></p>
+      <p>Instead, the mechanism is: <em>"How do we construct dedicated execution capacity around an asset to maximize probability of success while insulating parent shareholders from burn?"</em></p>
+
+      <h2>PharmaSignal principle</h2>
+      <blockquote>
+        <p>A spin-out is not an abandonment of rights; it is the creation of dedicated focus where internal attention is constrained.</p>
+      </blockquote>
+
+      <h2>Source note</h2>
+      <p>Simulated test transaction for testing purposes. Created: 1 September 2026.</p>
+    `
   }
 ];
 

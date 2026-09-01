@@ -492,8 +492,8 @@ export default function App() {
           {/* SECTION 1 — HERO */}
           <section 
             id="about-section"
-            className={`relative overflow-hidden pt-8 pb-6 sm:pt-12 sm:pb-8 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
+            className={`relative overflow-hidden pt-10 pb-8 sm:pt-14 sm:pb-10 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-[#050F1A] border-white/10' : 'bg-[#FAF7F0] border-[#E5DDD0]'
             }`}
           >
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -505,10 +505,10 @@ export default function App() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="flex items-center gap-2 mb-2"
+                  className="flex items-center gap-2 mb-2.5"
                 >
                   <div className="h-[1px] w-6 bg-brand-gold" />
-                  <span className="font-mono text-[11px] tracking-widest text-brand-gold font-bold uppercase">
+                  <span className="font-mono text-[11px] tracking-[0.15em] text-brand-gold font-bold uppercase">
                     DECISION INTELLIGENCE FOR PHARMA BD
                   </span>
                 </motion.div>
@@ -517,253 +517,94 @@ export default function App() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className={`font-serif text-4xl sm:text-5.5xl lg:text-[62px] xl:text-[68px] font-bold tracking-tight leading-[1.08] mb-3.5 ${
+                  className={`font-serif text-4xl sm:text-5.5xl lg:text-[60px] xl:text-[66px] font-bold tracking-tight leading-[1.12] mb-3.5 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}
                 >
                   How Pharma Deals Really Work
                 </motion.h1>
-                <div className="h-[2px] w-10 bg-brand-gold mb-3.5" />
+                <div className="h-[2px] w-12 bg-brand-gold mb-3.5" />
 
                 <motion.p 
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className={`font-serif text-lg sm:text-xl lg:text-[22px] leading-relaxed mb-6 max-w-3xl ${
+                  className={`font-serif text-lg sm:text-xl lg:text-[21px] leading-relaxed mb-6 max-w-3xl ${
                     darkMode ? 'text-white/90' : 'text-brand-charcoal'
                   }`}
                 >
-                  PharmaSignal studies the mechanisms that create, delay, protect or destroy value in pharmaceutical business development.
+                  PharmaSignal studies the structural mechanisms that create, delay, protect or destroy value in pharmaceutical business development.
                 </motion.p>
+
+                {/* Proof Metrics Strip */}
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.18 }}
+                  className="flex flex-wrap items-center gap-4 sm:gap-6 mb-7 pb-4 border-b border-brand-gold/15 text-[10.5px] font-mono tracking-wider text-brand-gold-antique dark:text-brand-gold uppercase font-semibold"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                    {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                    6 DECISION LENSES
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                    100% MECHANISM-FIRST
+                  </span>
+                </motion.div>
 
                 {/* Action Buttons */}
                 <motion.div 
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
+                  className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto"
                 >
                   <button
-                    onClick={() => scrollToSection('featured-explainer-section')}
+                    onClick={() => scrollToSection('deal-signals-section')}
                     className="w-full sm:w-auto px-6 py-3.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer rounded-none shadow-md"
                   >
-                    Start with the Explainers <ArrowRight size={13} />
+                    View Deal Signals <ArrowRight size={13} />
                   </button>
                   
                   <button
-                    onClick={() => scrollToSection('deal-signals-section')}
+                    onClick={() => scrollToSection('featured-explainer-section')}
                     className={`w-full sm:w-auto px-6 py-3.5 bg-transparent font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer rounded-none border ${
                       darkMode 
                         ? 'border-white/30 text-white hover:bg-white hover:text-brand-primary hover:border-white' 
                         : 'border-[#001B2A]/30 text-brand-primary hover:bg-[#001B2A] hover:text-white hover:border-[#001B2A]'
                     }`}
                   >
-                    View Deal Signals <ArrowRight size={13} />
+                    Explore Decision Frameworks <ArrowRight size={13} />
                   </button>
                 </motion.div>
               </div>
             </div>
           </section>
 
-          {/* SECTION 2 — START HERE */}
-          <section 
-            id="start-here"
-            className={`py-5 sm:py-7 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#061322] border-white/5' : 'bg-[#F4EFE6] border-[#E5DDD0]'
-            }`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-left max-w-3xl mb-4">
-                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-0.5">
-                  START HERE
-                </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1 ${
-                  darkMode ? 'text-white' : 'text-[#001B2A]'
-                }`}>
-                  Navigate PharmaSignal
-                </h2>
-                <div className="h-[2px] w-8 bg-brand-gold mb-1.5" />
-                <p className={`font-sans text-xs sm:text-[13px] leading-relaxed ${
-                  darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
-                }`}>
-                  Two structured entry points for pharma BD, licensing, and commercial strategy leaders.
-                </p>
-              </div>
-
-              {/* 2 Crisp, Snug Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch">
-                {/* Card 1: Explainers */}
-                <div 
-                  onClick={() => scrollToSection('featured-explainer-section')}
-                  className={`p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group rounded-none shadow-sm ${
-                    darkMode 
-                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/70 hover:bg-[#0e243d]' 
-                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                        MECHANISMS
-                      </span>
-                      <BookOpen size={16} className="text-brand-gold-antique dark:text-brand-gold opacity-85 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <h3 className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1 group-hover:text-brand-gold transition-colors ${
-                      darkMode ? 'text-white' : 'text-[#001B2A]'
-                    }`}>
-                      Explainers
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
-                    }`}>
-                      Reusable mechanisms behind pharma BD outcomes.
-                    </p>
-                  </div>
-                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold-antique dark:text-brand-gold uppercase tracking-wider">
-                    <span>Explore Explainers</span>
-                    <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-
-                {/* Card 2: Deal Signals */}
-                <div 
-                  onClick={() => scrollToSection('deal-signals-section')}
-                  className={`p-4 sm:p-4.5 border transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group rounded-none shadow-sm ${
-                    darkMode 
-                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/70 hover:bg-[#0e243d]' 
-                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
-                  }`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                        EVIDENCE
-                      </span>
-                      <Radio size={16} className="text-brand-gold-antique dark:text-brand-gold opacity-85 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <h3 className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1 group-hover:text-brand-gold transition-colors ${
-                      darkMode ? 'text-white' : 'text-[#001B2A]'
-                    }`}>
-                      Deal Signals
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
-                    }`}>
-                      Public pharma deals interpreted through value mechanisms.
-                    </p>
-                  </div>
-                  <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[11px] font-mono font-bold text-brand-gold-antique dark:text-brand-gold uppercase tracking-wider">
-                    <span>Explore Signals</span>
-                    <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 3 — QUICK ACCESS SUBSCRIBE CTA */}
-          <section 
-            id="quick-subscribe"
-            className={`py-4 sm:py-5 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#071728] border-brand-gold/30' : 'bg-[#F9F5EC] border-[#EADBCC]'
-            }`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                <div className="text-left w-full md:w-1/2">
-                  <span className="text-[9.5px] font-mono font-bold tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase block mb-0.5">
-                    EXECUTIVE BRIEFING
-                  </span>
-                  <h3 className={`font-serif text-sm sm:text-base font-bold tracking-tight leading-snug ${
-                    darkMode ? 'text-white' : 'text-[#001B2A]'
-                  }`}>
-                    Get one Pharma BD insight worth saving.
-                  </h3>
-                  <p className={`font-sans text-xs leading-normal mt-0.5 ${
-                    darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
-                  }`}>
-                    Monthly decision-intelligence briefings on deal execution, licensing risk and value creation.
-                  </p>
-                </div>
-
-                <div className="w-full md:w-1/2">
-                  <AnimatePresence mode="wait">
-                    {!earlySubscribedMessage ? (
-                      <form onSubmit={handleEarlySubscribe} className="space-y-1">
-                        <div className="flex flex-col sm:flex-row gap-2">
-                          <input
-                            type="email"
-                            required
-                            value={earlyEmail}
-                            disabled={earlySubscribing}
-                            onChange={(e) => setEarlyEmail(e.target.value)}
-                            placeholder="Enter your work email"
-                            className={`w-full px-3 py-1.5 text-xs font-sans border outline-none transition-colors rounded-none ${
-                              darkMode 
-                                ? 'bg-[#040E1A] border-white/20 text-white placeholder:text-white/40 focus:border-brand-gold' 
-                                : 'bg-white border-[#EADBCC] text-[#111827] placeholder:text-[#111827]/40 focus:border-brand-gold'
-                            } ${earlySubscribing ? 'opacity-65 cursor-not-allowed' : ''}`}
-                          />
-                          <button
-                            type="submit"
-                            disabled={earlySubscribing}
-                            className={`w-full sm:w-auto px-3.5 py-1.5 bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors text-[11px] font-sans tracking-widest font-bold whitespace-nowrap uppercase rounded-none cursor-pointer ${
-                              earlySubscribing ? 'opacity-65 cursor-not-allowed' : ''
-                            }`}
-                          >
-                            {earlySubscribing ? '...' : 'Subscribe Free'}
-                          </button>
-                        </div>
-
-                        {earlySubscribeError && (
-                          <div className="text-[11px] text-red-500 font-sans text-left">
-                            {earlySubscribeError}
-                          </div>
-                        )}
-
-                        <div className={`text-[9.5px] font-mono tracking-wide text-left ${
-                          darkMode ? 'text-brand-gold/75' : 'text-brand-gold-antique/85'
-                        }`}>
-                          No spam. Only high-signal briefings.
-                        </div>
-                      </form>
-                    ) : (
-                      <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="py-2 px-3 border border-brand-gold/30 bg-brand-gold/10 text-left flex items-center gap-2"
-                      >
-                        <CheckCircle2 className="text-brand-gold shrink-0" size={15} />
-                        <p className={`font-serif text-xs leading-relaxed ${darkMode ? 'text-white' : 'text-brand-charcoal'}`}>
-                          Thank you for subscribing. You will receive our next briefing.
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 4 — FEATURED EXPLAINER */}
+          {/* SECTION 2 — FEATURED EXPLAINER (THE APPROVAL GAP) */}
           <section 
             id="featured-explainer-section"
-            className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-brand-deep border-white/5' : 'bg-white border-[#EADBCC]'
+            className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-[#08192C] border-white/10' : 'bg-white border-[#EADBCC]'
             }`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
-              <div className="text-left max-w-3xl mb-5 sm:mb-6">
+              <div className="text-left max-w-3xl mb-6">
                 <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
                   FOUNDATIONAL FRAMEWORK
                 </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
+                <h2 className={`font-serif text-2xl sm:text-3xl font-bold tracking-tight mb-1.5 ${
                   darkMode ? 'text-white' : 'text-[#001B2A]'
                 }`}>
                   Featured Explainer
                 </h2>
-                <div className="h-[2px] w-8 bg-brand-gold mb-2" />
+                <div className="h-[2px] w-10 bg-brand-gold mb-2" />
                 <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
                   darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
                 }`}>
@@ -772,29 +613,29 @@ export default function App() {
               </div>
 
               {/* Featured Explainer Hero Card: The Approval Gap */}
-              <div className={`p-5 sm:p-6 lg:p-7 border relative overflow-hidden shadow-lg ${
-                darkMode ? 'bg-[#08192C] border-brand-gold/40' : 'bg-[#FAF6EE] border-[#EADBCC]'
+              <div className={`p-6 sm:p-7 lg:p-8 border relative overflow-hidden shadow-lg ${
+                darkMode ? 'bg-[#0B1E34] border-brand-gold/40' : 'bg-[#FAF6EE] border-[#EADBCC]'
               }`}>
-                <div className="absolute top-0 left-0 w-16 h-[3px] bg-brand-gold" />
+                <div className="absolute top-0 left-0 w-20 h-[3px] bg-brand-gold" />
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
                   
                   <div className="lg:col-span-7 flex flex-col items-start text-left">
-                    <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-2 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                      FEATURED FRAMEWORK
+                    <span className="inline-block text-[9.5px] font-mono tracking-[0.15em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-2 px-2.5 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      DECISION LENS 01
                     </span>
 
-                    <h2 className={`font-serif text-2xl sm:text-3xl lg:text-[32px] font-bold tracking-tight mb-2 leading-[1.15] ${
+                    <h2 className={`font-serif text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight mb-2 leading-[1.15] ${
                       darkMode ? 'text-white' : 'text-[#001B2A]'
                     }`}>
                       The Approval Gap
                     </h2>
 
-                    <p className="font-serif text-sm sm:text-base text-brand-gold-antique dark:text-brand-gold italic font-semibold mb-2.5 leading-relaxed">
-                      Why attractive opportunities lose momentum before approval.
+                    <p className="font-serif text-sm sm:text-base text-brand-gold-antique dark:text-brand-gold italic font-semibold mb-3 leading-relaxed">
+                      Why attractive opportunities lose momentum before internal approval.
                     </p>
 
-                    <p className={`font-sans text-xs sm:text-[13px] leading-relaxed mb-4 max-w-xl ${
+                    <p className={`font-sans text-xs sm:text-[13.5px] leading-relaxed mb-5 max-w-xl ${
                       darkMode ? 'text-white/85' : 'text-brand-charcoal/90'
                     }`}>
                       Explore the decision, organizational and execution forces that create distance between commercial attractiveness and execution readiness.
@@ -809,7 +650,7 @@ export default function App() {
                   </div>
 
                   <div className="lg:col-span-5 w-full flex items-center justify-center">
-                    <div className="w-full border border-brand-gold/30 p-2 sm:p-2.5 bg-[#051424]">
+                    <div className="w-full border border-brand-gold/30 p-2.5 bg-[#051424]">
                       <ApprovalGapDiagram darkMode={true} />
                     </div>
                   </div>
@@ -820,213 +661,27 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECTION 5 — OTHER EXPLAINERS TO READ */}
-          <section 
-            id="latest-explainers-section"
-            className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-brand-deep border-white/5' : 'bg-white border-[#EADBCC]'
-            }`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-left max-w-3xl mb-5 sm:mb-6">
-                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
-                  REUSABLE MECHANISMS
-                </span>
-                <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
-                  darkMode ? 'text-white' : 'text-[#001B2A]'
-                }`}>
-                  Other Explainers to Read
-                </h2>
-                <div className="h-[2px] w-8 bg-brand-gold mb-2" />
-                <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
-                  darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
-                }`}>
-                  In-depth structural briefings on recurring deal dynamics, post-signature execution, and upstream opportunity creation.
-                </p>
-              </div>
-
-              {/* 2x2 Grid of Key Explainers - Snug Proportions */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch text-left">
-                
-                {/* Card 1: Execution Deficit */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
-                  darkMode 
-                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
-                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
-                }`}>
-                  <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                      EXECUTION DEFICIT
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(executionDeficitArticle)}
-                      className={`font-serif text-base sm:text-[17px] font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
-                        darkMode ? 'text-white' : 'text-[#001B2A]'
-                      }`}
-                    >
-                      A Signed Deal Is Not an Executed Deal
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
-                    }`}>
-                      Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
-                      <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
-                    </span>
-                    <button
-                      onClick={() => openArticle(executionDeficitArticle)}
-                      className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-[11px] tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer shadow-sm"
-                    >
-                      Read Explainer <ArrowRight size={10} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Card 2: Opportunity Creation vs Processing */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
-                  darkMode 
-                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
-                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
-                }`}>
-                  <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                      OPPORTUNITY CREATION
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(opportunityCreationArticle)}
-                      className={`font-serif text-base sm:text-[17px] font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
-                        darkMode ? 'text-white' : 'text-[#001B2A]'
-                      }`}
-                    >
-                      Opportunity Creation vs Opportunity Processing
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
-                    }`}>
-                      Why the best opportunities are created upstream through custom structuring, not found downstream in auction processes.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
-                      <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
-                    </span>
-                    <button
-                      onClick={() => openArticle(opportunityCreationArticle)}
-                      className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-[11px] tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer shadow-sm"
-                    >
-                      Read Explainer <ArrowRight size={10} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Card 3: Deal Failures */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
-                  darkMode 
-                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
-                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
-                }`}>
-                  <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                      LICENSING STRATEGY
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(dealFailuresArticle)}
-                      className={`font-serif text-base sm:text-[17px] font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
-                        darkMode ? 'text-white' : 'text-[#001B2A]'
-                      }`}
-                    >
-                      Why Most Pharma Deals Fail Before Signing
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
-                    }`}>
-                      Diligence friction, valuation asymmetry, and internal stakeholder misalignment that quietly sink biopharma transactions.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
-                      <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
-                    </span>
-                    <button
-                      onClick={() => openArticle(dealFailuresArticle)}
-                      className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-[11px] tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer shadow-sm"
-                    >
-                      Read Explainer <ArrowRight size={10} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Card 4: Evidence Maturity Gap */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
-                  darkMode 
-                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
-                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
-                }`}>
-                  <div className="p-4 sm:p-4.5 pb-2">
-                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
-                      EVIDENCE & DEVELOPMENT
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(evidenceMaturityArticle)}
-                      className={`font-serif text-base sm:text-[17px] font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
-                        darkMode ? 'text-white' : 'text-[#001B2A]'
-                      }`}
-                    >
-                      The Evidence Maturity Gap That Destroys Value
-                    </h3>
-                    <p className={`font-sans text-xs leading-relaxed ${
-                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
-                    }`}>
-                      How premature partnering before key clinical and payer inflection points creates permanent value destruction.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 sm:p-4.5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
-                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
-                      <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
-                    </span>
-                    <button
-                      onClick={() => openArticle(evidenceMaturityArticle)}
-                      className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-[11px] tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer shadow-sm"
-                    >
-                      Read Explainer <ArrowRight size={10} />
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </section>
-
-          {/* SECTION 6 — DEAL SIGNALS */}
+          {/* SECTION 3 — DEAL SIGNALS (EMPIRICAL MARKET EVIDENCE) */}
           <section 
             id="deal-signals-section"
-            className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#061426] border-white/5' : 'bg-[#FAF6EE] border-[#EADBCC]'
+            className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-[#061426] border-white/10' : 'bg-[#FAF6EE] border-[#EADBCC]'
             }`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               
               {/* Section Header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 sm:mb-6 gap-3">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3 pb-3 border-b border-brand-gold/20">
                 <div className="text-left max-w-3xl">
                   <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
-                    CORE EMPIRICAL INTELLIGENCE · {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
+                    EMPIRICAL EVIDENCE · {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
                   </span>
-                  <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight mb-1.5 ${
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold tracking-tight mb-1.5 ${
                     darkMode ? 'text-white' : 'text-[#001B2A]'
                   }`}>
-                    Deal Signals
+                    Latest Deal Signals
                   </h2>
-                  <div className="h-[2px] w-8 bg-brand-gold mb-2" />
+                  <div className="h-[2px] w-10 bg-brand-gold mb-2" />
                   <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
                     darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
                   }`}>
@@ -1041,16 +696,17 @@ export default function App() {
                       window.history.pushState(null, '', '/deal-signals');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-[11px] font-sans tracking-widest font-bold text-brand-gold-antique dark:text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer border border-brand-gold/30 hover:border-brand-gold px-3 py-1.5 bg-brand-gold/5"
+                    className="text-[11px] font-sans tracking-widest font-bold text-brand-gold-antique dark:text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer border border-brand-gold/40 hover:border-brand-gold px-3.5 py-2 bg-brand-gold/10 hover:bg-brand-gold/20"
                   >
-                    All {DEAL_SIGNALS_DATA.length} Signals Archive <ArrowRight size={11} />
+                    All {DEAL_SIGNALS_DATA.length} Signals Archive <ArrowRight size={12} />
                   </button>
                 </div>
               </div>
 
               {/* Deal Signals Card Grid: 4 Neatly Laid Tiles of Most Recent Deal Signals */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 items-stretch text-left">
                 {[...DEAL_SIGNALS_DATA]
+                  .filter((deal) => !deal.hideFromHomepage)
                   .sort((a, b) => {
                     const parseDate = (d?: string) => {
                       if (!d) return 0;
@@ -1074,29 +730,29 @@ export default function App() {
                           : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
                       }`}
                     >
-                      <div className="p-3.5 sm:p-4 pb-2">
+                      <div className="p-4 sm:p-5 pb-2.5">
                         {/* 1. Date and Category Tag */}
-                        <div className="flex items-center justify-between gap-2 mb-2 pb-1 border-b border-brand-gold/10">
-                          <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                        <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
+                          <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
                             {deal.category || 'DEAL SIGNAL'}
                           </span>
-                          <span className="text-[9.5px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold">
+                          <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
                             {deal.date?.toUpperCase()}
                           </span>
                         </div>
 
-                        {/* 1. Heading */}
+                        {/* 2. Heading */}
                         <h3 
                           onClick={() => openArticle(deal)}
-                          className={`font-serif text-sm sm:text-[15px] font-bold tracking-tight hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                          className={`font-serif text-base sm:text-lg font-bold tracking-tight hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
                             darkMode ? 'text-white' : 'text-[#001B2A]'
                           }`}
                         >
-                          {deal.title}
+                          {deal.shortTitle || deal.title}
                         </h3>
                       </div>
 
-                      {/* 2. Editorial Diagram / Image */}
+                      {/* 3. Editorial Diagram / Image with Mechanism Overlay Badge */}
                       {deal.imageUrl && (
                         <div 
                           onClick={() => openArticle(deal)}
@@ -1110,20 +766,27 @@ export default function App() {
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500" 
                           />
-                          <div className="absolute top-2 right-2 bg-[#061426]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#050F1A]/70 via-transparent to-transparent opacity-80" />
+                          <div className="absolute top-2.5 right-2.5 bg-[#061426]/90 border border-brand-gold/40 px-2 py-0.5 text-[8.5px] font-mono font-bold tracking-widest text-brand-gold uppercase">
                             EDITORIAL DIAGRAM
                           </div>
+                          {deal.pharmaSignalRead && (
+                            <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#050F1A]/90 backdrop-blur-xs border border-brand-gold/30 px-2.5 py-1 text-[10px] font-mono text-white/90 line-clamp-1">
+                              <span className="text-brand-gold font-bold uppercase tracking-wider mr-1.5">MECHANISM:</span>
+                              {deal.pharmaSignalRead.split('.')[0]}
+                            </div>
+                          )}
                         </div>
                       )}
 
-                      <div className="p-3.5 sm:p-4 pt-2.5 flex-1 flex flex-col justify-between">
+                      <div className="p-4 sm:p-5 pt-3 flex-1 flex flex-col justify-between">
                         <div>
-                          {/* 3. Tags */}
-                          <div className="flex flex-wrap items-center gap-1 mb-1.5">
+                          {/* 4. Tags */}
+                          <div className="flex flex-wrap items-center gap-1.5 mb-2">
                             {(deal.tags || ['Licensing', 'Commercialization']).slice(0, 3).map((tag, tIdx) => (
                               <span 
                                 key={tIdx}
-                                className={`text-[8.5px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
+                                className={`text-[9px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
                                   darkMode 
                                     ? 'bg-white/[0.04] text-white/70 border-white/10' 
                                     : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#EADBCC]'
@@ -1134,23 +797,23 @@ export default function App() {
                             ))}
                           </div>
 
-                          {/* 4. Summary in smaller font */}
-                          <p className={`font-sans text-[11.5px] leading-relaxed line-clamp-2 mb-1.5 ${
-                            darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
+                          {/* 5. Summary in optimal scan size */}
+                          <p className={`font-sans text-[12.5px] leading-[1.6] line-clamp-3 mb-2.5 ${
+                            darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
                           }`}>
                             {deal.featuredSummary || deal.description}
                           </p>
                         </div>
 
                         {/* Footer Read Time & Action */}
-                        <div className="pt-2 border-t border-brand-gold/15 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                          <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase">
+                        <div className="pt-2.5 border-t border-brand-gold/15 flex flex-wrap items-center justify-between gap-2 mt-auto">
+                          <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
                             <Clock size={10} strokeWidth={2.5} /> {deal.readTime || '4 MIN READ'}
                           </span>
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-2">
                             <button
                               onClick={() => setCarouselArticle(deal)}
-                              className="flex items-center gap-1 text-[9.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-1.5 py-0.5 bg-[#0A66C2]/10"
+                              className="flex items-center gap-1 text-[9.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2 py-0.5 bg-[#0A66C2]/10"
                               title="Export LinkedIn Carousel"
                             >
                               <Linkedin size={10} fill="currentColor" />
@@ -1158,9 +821,9 @@ export default function App() {
                             </button>
                             <button
                               onClick={() => openArticle(deal)}
-                              className="px-2.5 py-1 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-[11px] tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer shadow-sm"
+                              className="px-3 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
                             >
-                              Read Signal <ArrowRight size={10} />
+                              Read Signal <ArrowRight size={11} />
                             </button>
                           </div>
                         </div>
@@ -1170,13 +833,13 @@ export default function App() {
               </div>
 
               {/* Clear Link for More Deal Signals */}
-              <div className="mt-5 p-4 sm:p-4.5 border border-brand-gold/30 bg-brand-gold/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="mt-6 p-4 sm:p-5 border border-brand-gold/30 bg-brand-gold/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                 <div>
-                  <h4 className={`font-serif text-sm sm:text-base font-bold ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
-                    Looking for all transactions in our intelligence desk?
+                  <h4 className={`font-serif text-base font-bold ${darkMode ? 'text-white' : 'text-brand-primary'}`}>
+                    Explore all {DEAL_SIGNALS_DATA.length} transactions in our Deal Intelligence desk
                   </h4>
                   <p className={`text-xs font-sans mt-0.5 ${darkMode ? 'text-white/70' : 'text-brand-charcoal/70'}`}>
-                    Explore all {DEAL_SIGNALS_DATA.length} deconstructed biopharma deals categorized by commercial and partnership mechanisms.
+                    Search, filter, and review biopharma licensing and partnerships categorized by commercial mechanisms.
                   </p>
                 </div>
                 <button
@@ -1191,6 +854,292 @@ export default function App() {
                 </button>
               </div>
 
+            </div>
+          </section>
+
+          {/* SECTION 4 — OTHER EXPLAINERS TO READ */}
+          <section 
+            id="latest-explainers-section"
+            className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-brand-deep border-white/10' : 'bg-white border-[#EADBCC]'
+            }`}
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-left max-w-3xl mb-6">
+                <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                  REUSABLE MECHANISMS · FOUNDATIONAL LIBRARY
+                </span>
+                <h2 className={`font-serif text-2xl sm:text-3xl font-bold tracking-tight mb-1.5 ${
+                  darkMode ? 'text-white' : 'text-[#001B2A]'
+                }`}>
+                  Core Explainer Library
+                </h2>
+                <div className="h-[2px] w-10 bg-brand-gold mb-2" />
+                <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
+                  darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+                }`}>
+                  In-depth structural briefings on recurring deal dynamics, post-signature execution, and upstream opportunity creation.
+                </p>
+              </div>
+
+              {/* 2x2 Grid of Key Explainers - Snug Proportions */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch text-left">
+                
+                {/* Card 1: Execution Deficit */}
+                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
+                  darkMode 
+                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
+                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                }`}>
+                  <div className="p-4 sm:p-5 pb-2">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      EXECUTION DEFICIT
+                    </span>
+                    <h3 
+                      onClick={() => openArticle(executionDeficitArticle)}
+                      className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}
+                    >
+                      A Signed Deal Is Not an Executed Deal
+                    </h3>
+                    <p className={`font-sans text-xs leading-relaxed ${
+                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                    }`}>
+                      Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 sm:p-5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                      <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
+                    </span>
+                    <button
+                      onClick={() => openArticle(executionDeficitArticle)}
+                      className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      Read Explainer <ArrowRight size={11} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Card 2: Opportunity Creation vs Processing */}
+                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
+                  darkMode 
+                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
+                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                }`}>
+                  <div className="p-4 sm:p-5 pb-2">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      OPPORTUNITY CREATION
+                    </span>
+                    <h3 
+                      onClick={() => openArticle(opportunityCreationArticle)}
+                      className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}
+                    >
+                      Opportunity Creation vs Opportunity Processing
+                    </h3>
+                    <p className={`font-sans text-xs leading-relaxed ${
+                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                    }`}>
+                      Why the best opportunities are created upstream through custom structuring, not found downstream in auction processes.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 sm:p-5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                      <Clock size={10} strokeWidth={2.5} /> 6 MIN READ
+                    </span>
+                    <button
+                      onClick={() => openArticle(opportunityCreationArticle)}
+                      className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      Read Explainer <ArrowRight size={11} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Card 3: Deal Failures */}
+                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
+                  darkMode 
+                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
+                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                }`}>
+                  <div className="p-4 sm:p-5 pb-2">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      LICENSING STRATEGY
+                    </span>
+                    <h3 
+                      onClick={() => openArticle(dealFailuresArticle)}
+                      className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}
+                    >
+                      Why Most Pharma Deals Fail Before Signing
+                    </h3>
+                    <p className={`font-sans text-xs leading-relaxed ${
+                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                    }`}>
+                      Diligence friction, valuation asymmetry, and internal stakeholder misalignment that quietly sink biopharma transactions.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 sm:p-5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                      <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
+                    </span>
+                    <button
+                      onClick={() => openArticle(dealFailuresArticle)}
+                      className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      Read Explainer <ArrowRight size={11} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Card 4: Evidence Maturity Gap */}
+                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-sm ${
+                  darkMode 
+                    ? 'bg-[#0A1A2E] border-white/10 hover:border-brand-gold/60' 
+                    : 'bg-white border-[#EADBCC] hover:border-brand-gold/60'
+                }`}>
+                  <div className="p-4 sm:p-5 pb-2">
+                    <span className="inline-block text-[9px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase mb-1.5 px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      EVIDENCE & DEVELOPMENT
+                    </span>
+                    <h3 
+                      onClick={() => openArticle(evidenceMaturityArticle)}
+                      className={`font-serif text-base sm:text-lg font-bold tracking-tight mb-1.5 hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}
+                    >
+                      The Evidence Maturity Gap That Destroys Value
+                    </h3>
+                    <p className={`font-sans text-xs leading-relaxed ${
+                      darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                    }`}>
+                      How premature partnering before key clinical and payer inflection points creates permanent value destruction.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 sm:p-5 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between mt-auto">
+                    <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                      <Clock size={10} strokeWidth={2.5} /> 5 MIN READ
+                    </span>
+                    <button
+                      onClick={() => openArticle(evidenceMaturityArticle)}
+                      className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      Read Explainer <ArrowRight size={11} />
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* SECTION 5 — THE LENSES FRAMEWORK PREVIEW */}
+          <section 
+            id="lenses-preview-section"
+            className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-[#061322] border-white/10' : 'bg-[#F4EFE6] border-[#E5DDD0]'
+            }`}
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3 pb-3 border-b border-brand-gold/20">
+                <div className="text-left max-w-3xl">
+                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                    INTELLECTUAL FRAMEWORKS · 6 MENTAL MODELS
+                  </span>
+                  <h2 className={`font-serif text-2xl sm:text-3xl font-bold tracking-tight mb-1.5 ${
+                    darkMode ? 'text-white' : 'text-[#001B2A]'
+                  }`}>
+                    The PharmaSignal Decision Lenses
+                  </h2>
+                  <div className="h-[2px] w-10 bg-brand-gold mb-2" />
+                  <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
+                    darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+                  }`}>
+                    Reusable mental models for interpreting recurring pharmaceutical licensing, valuation, and post-signature execution decisions.
+                  </p>
+                </div>
+
+                <div>
+                  <button
+                    onClick={() => {
+                      setActiveTab('LENSES');
+                      window.history.pushState(null, '', '/lenses');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-[11px] font-sans tracking-widest font-bold text-brand-gold-antique dark:text-brand-gold hover:text-white uppercase transition-colors flex items-center gap-1.5 cursor-pointer border border-brand-gold/40 hover:border-brand-gold px-3.5 py-2 bg-brand-gold/10 hover:bg-brand-gold/20"
+                  >
+                    Explore All 6 Lenses <ArrowRight size={12} />
+                  </button>
+                </div>
+              </div>
+
+              {/* 3-Column Preview Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 items-stretch text-left">
+                {[
+                  {
+                    num: 'LENS 01',
+                    title: 'Approval Gap',
+                    subtitle: 'Distance between commercial appeal and execution readiness.',
+                    action: () => openArticle(approvalGapArticle)
+                  },
+                  {
+                    num: 'LENS 02',
+                    title: 'Execution Deficit',
+                    subtitle: 'Capability and alignment gaps that stall post-signature progress.',
+                    action: () => openArticle(executionDeficitArticle)
+                  },
+                  {
+                    num: 'LENS 03',
+                    title: 'Opportunity Creation',
+                    subtitle: 'Upstream structuring that creates proprietary deal access.',
+                    action: () => openArticle(opportunityCreationArticle)
+                  }
+                ].map((item, idx) => (
+                  <div 
+                    key={idx}
+                    onClick={item.action}
+                    className={`p-4 sm:p-5 border transition-all duration-300 flex flex-col justify-between cursor-pointer group rounded-none shadow-sm ${
+                      darkMode 
+                        ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/70 hover:bg-[#0e243d]' 
+                        : 'bg-white border-[#E5DDD0] hover:border-brand-gold/70 hover:bg-[#FFFDF9]'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[9px] font-mono tracking-[0.15em] text-brand-gold-antique dark:text-brand-gold uppercase font-bold px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                          {item.num}
+                        </span>
+                        <Compass size={15} className="text-brand-gold opacity-80 group-hover:opacity-100" />
+                      </div>
+                      <h3 className={`font-serif text-lg font-bold tracking-tight mb-1 group-hover:text-brand-gold transition-colors ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}>
+                        {item.title}
+                      </h3>
+                      <p className={`font-sans text-xs leading-relaxed ${
+                        darkMode ? 'text-white/75' : 'text-brand-charcoal/80'
+                      }`}>
+                        {item.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="pt-2.5 mt-3 border-t border-brand-gold/15 flex items-center justify-between text-[10.5px] font-mono font-bold text-brand-gold-antique dark:text-brand-gold uppercase tracking-wider">
+                      <span>View Framework</span>
+                      <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
