@@ -1131,40 +1131,40 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
   },
   {
-    id: 'test-3-split-territory-arbitrage',
+    id: 'test-4-capital-efficient-partitioning',
     category: 'TEST DEAL SIGNAL',
-    title: '[TEST 3] Veloce Bio & Arbor Therapeutics: Global Co-Development & Split-Territory Commercialization',
-    shortTitle: '[TEST 3] Veloce & Arbor: Split-Territory Arbitrage',
-    description: 'Test 3 RSS automated feed verification signal examining 50/50 domestic co-promotion, Ex-US capital absorption, and commercial infrastructure scaling.',
+    title: '[TEST 4] OptiBio & Kyowa Pioneer: Capital-Efficient Value Partitioning & Retained US Rights',
+    shortTitle: '[TEST 4] OptiBio & Kyowa: Retained US Rights',
+    description: 'Test 4 RSS automated feed verification signal analyzing $65M upfront funding, 100% US co-promotion retention, and Ex-US trial cost absorption.',
     meta: '3 MIN READ · SEP 02, 2026',
     author: 'PharmaSignal Test Desk',
     readTime: '3 min read',
     date: 'September 02, 2026',
-    featuredSummary: 'Test 3 RSS automated feed verification signal examining 50/50 domestic co-promotion, Ex-US capital absorption, and commercial infrastructure scaling.',
+    featuredSummary: 'Test 4 RSS automated feed verification signal analyzing $65M upfront funding, 100% US co-promotion retention, and Ex-US trial cost absorption.',
     isDealSignal: true,
     hideFromHomepage: true,
-    assetClass: 'Phase 3 Precision Immunology',
-    dealStructure: 'Co-Development + $55M Upfront + 50/50 US Profit Share',
-    geographicScope: 'US Co-Commercialization / Ex-US Out-Licensed',
-    mechanism: 'Split-Territory Infrastructure Arbitrage',
-    imageUrl: '/images/test_3_deal_signal.jpg',
-    pharmaSignalTake: 'Test 3 RSS feed validation post.\n\nRetaining 50% US co-promotion while offloading Ex-US registrational capital to a scaled partner enables emerging biopharmas to capture commercial terminal value without building massive ex-US field forces.',
-    pharmaSignalRead: 'Mechanism: Split-Territory Infrastructure Arbitrage. By carving out high-margin US specialty promotion while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
+    assetClass: 'Phase 3 Precision Oncology',
+    dealStructure: 'Co-Promotion + $65M Upfront + 75% Ph3 Cost Absorption',
+    geographicScope: 'US Retained / Ex-US Licensed to Scaled Partner',
+    mechanism: 'Capital-Efficient Value Partitioning',
+    imageUrl: '/images/test_4_deal_signal.jpg',
+    pharmaSignalTake: 'Test 4 RSS feed validation post.\n\nRetaining 100% US co-promotion while offloading 75% of global Phase 3 registrational capital to a scaled partner enables emerging biopharmas to capture commercial terminal value without building massive ex-US field forces.',
+    pharmaSignalRead: 'Mechanism: Capital-Efficient Value Partitioning. By carving out high-margin US specialty promotion while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
     useThisWhen: 'Validating RSS syndication feeds and evaluating split-territory co-commercialization versus full global out-licensing.',
     linkedExplainers: [
       { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['TEST 3', 'RSS VERIFICATION', 'DEAL SIGNAL', 'CO-DEVELOPMENT', 'PROFIT SHARE', 'COMMERCIAL SCALE'],
+    tags: ['TEST 4', 'RSS VERIFICATION', 'DEAL SIGNAL', 'CO-PROMOTION', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
     content: `
-      <h2>Deal signal (Test 3 Sandbox)</h2>
-      <p><em>Notice: This is a sandbox test 3 article created to test RSS feeds, post hooks, and automated distribution pipelines.</em></p>
-      <p>On 2 September 2026, Veloce Bio announced a definitive global co-development and split-territory commercialization alliance with Arbor Therapeutics for its Phase 3 immunology candidate VB-880:</p>
+      <h2>Deal signal (Test 4 Sandbox)</h2>
+      <p><em>Notice: This is a sandbox test 4 article created to verify RSS feed synchronization, post hooks, and automated distribution pipelines.</em></p>
+      <p>On 2 September 2026, OptiBio Therapeutics announced a definitive global co-development and split-territory commercialization alliance with Kyowa Pioneer for its Phase 3 oncology candidate OB-402:</p>
       <ul>
-        <li><strong>Asset:</strong> VB-880, an oral small-molecule allosteric inhibitor targeting chronic inflammatory indications.</li>
-        <li><strong>Upfront &amp; Funding:</strong> $55 million upfront cash; Arbor funds 60% of all ongoing Phase 3 global registrational costs.</li>
-        <li><strong>US Structure:</strong> 50/50 co-commercialization and profit split, with Veloce detailing the academic hospital and specialist network.</li>
-        <li><strong>Ex-US Structure:</strong> Arbor holds exclusive commercial rights outside the US, paying Veloce up to $310 million in milestones plus tiered 14–20% royalties.</li>
+        <li><strong>Asset:</strong> OB-402, an oral next-generation targeted inhibitor for biomarker-selected advanced solid tumors.</li>
+        <li><strong>Upfront &amp; Funding:</strong> $65 million upfront cash; Kyowa Pioneer absorbs 75% of all ongoing Phase 3 global registrational costs.</li>
+        <li><strong>US Structure:</strong> 100% retained US specialty co-promotion rights with OptiBio detailing high-prescribing academic medical centers.</li>
+        <li><strong>Ex-US Structure:</strong> Kyowa Pioneer holds exclusive commercial rights outside the US, paying OptiBio up to $420 million in milestones plus tiered 15–22% royalties.</li>
       </ul>
 
       <h2>Why it matters</h2>
@@ -1172,8 +1172,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       <p>The split-territory co-promotion structure unlocks a third path: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global scale.</p>
 
       <h2>PharmaSignal read</h2>
-      <h3>Primary Mechanism: Infrastructure Arbitrage</h3>
-      <p>Veloce accesses Arbor’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
+      <h3>Primary Mechanism: Capital-Efficient Value Partitioning</h3>
+      <p>OptiBio accesses Kyowa Pioneer’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
 
       <h2>PharmaSignal principle</h2>
       <blockquote>
@@ -1181,7 +1181,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       </blockquote>
 
       <h2>Source note</h2>
-      <p>Test 3 record created for automated feed validation. Date: 2 September 2026.</p>
+      <p>Test 4 record created for automated feed validation. Date: 2 September 2026.</p>
     `
   }
 ];
