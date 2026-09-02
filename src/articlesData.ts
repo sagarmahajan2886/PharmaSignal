@@ -1131,49 +1131,49 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
   },
   {
-    id: 'test-4-capital-efficient-partitioning',
+    id: 'test-5-territorial-rights-arbitrage',
     category: 'TEST DEAL SIGNAL',
-    title: '[TEST 4] OptiBio & Kyowa Pioneer: Capital-Efficient Value Partitioning & Retained US Rights',
-    shortTitle: '[TEST 4] OptiBio & Kyowa: Retained US Rights',
-    description: 'Test 4 RSS automated feed verification signal analyzing $65M upfront funding, 100% US co-promotion retention, and Ex-US trial cost absorption.',
+    title: '[TEST 5] Aura Therapeutics & Nexus Pharma: Retained US Commercial Rights & Global Cost Absorption',
+    shortTitle: '[TEST 5] Aura & Nexus: Retained US Rights',
+    description: 'Test 5 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
     meta: '3 MIN READ · SEP 02, 2026',
     author: 'PharmaSignal Test Desk',
     readTime: '3 min read',
     date: 'September 02, 2026',
-    featuredSummary: 'Test 4 RSS automated feed verification signal analyzing $65M upfront funding, 100% US co-promotion retention, and Ex-US trial cost absorption.',
+    featuredSummary: 'Test 5 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
     isDealSignal: true,
     hideFromHomepage: true,
-    assetClass: 'Phase 3 Precision Oncology',
-    dealStructure: 'Co-Promotion + $65M Upfront + 75% Ph3 Cost Absorption',
-    geographicScope: 'US Retained / Ex-US Licensed to Scaled Partner',
-    mechanism: 'Capital-Efficient Value Partitioning',
-    imageUrl: '/images/test_4_deal_signal.jpg',
-    pharmaSignalTake: 'Test 4 RSS feed validation post.\n\nRetaining 100% US co-promotion while offloading 75% of global Phase 3 registrational capital to a scaled partner enables emerging biopharmas to capture commercial terminal value without building massive ex-US field forces.',
-    pharmaSignalRead: 'Mechanism: Capital-Efficient Value Partitioning. By carving out high-margin US specialty promotion while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
-    useThisWhen: 'Validating RSS syndication feeds and evaluating split-territory co-commercialization versus full global out-licensing.',
+    assetClass: 'Phase 3 Precision Immunology',
+    dealStructure: 'Out-License Ex-US + $75M Upfront + 80% Ph3 Cost Absorption',
+    geographicScope: 'US Retained / Ex-US Licensed to Nexus Pharma',
+    mechanism: 'Territorial Rights Arbitrage',
+    imageUrl: '/images/test_5_deal_signal.jpg',
+    pharmaSignalTake: 'Test 5 RSS feed auto-post validation.\n\nRetaining 100% US commercial ownership while offloading 80% of Phase 3 global trial capital to a scaled partner enables emerging biopharmas to capture maximum terminal value without building expensive foreign operations.',
+    pharmaSignalRead: 'Mechanism: Territorial Rights Arbitrage. By carving out high-margin US commercialization while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
+    useThisWhen: 'Validating RSS auto-post syndication pipelines and evaluating split-territory deals versus global out-licensing.',
     linkedExplainers: [
       { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['TEST 4', 'RSS VERIFICATION', 'DEAL SIGNAL', 'CO-PROMOTION', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
+    tags: ['TEST 5', 'RSS VERIFICATION', 'DEAL SIGNAL', 'AUTO-POST', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
     content: `
-      <h2>Deal signal (Test 4 Sandbox)</h2>
-      <p><em>Notice: This is a sandbox test 4 article created to verify RSS feed synchronization, post hooks, and automated distribution pipelines.</em></p>
-      <p>On 2 September 2026, OptiBio Therapeutics announced a definitive global co-development and split-territory commercialization alliance with Kyowa Pioneer for its Phase 3 oncology candidate OB-402:</p>
+      <h2>Deal signal (Test 5 Sandbox)</h2>
+      <p><em>Notice: This is a sandbox test 5 article created to verify RSS feed auto-post pipelines, caption hooks, and LinkedIn automation.</em></p>
+      <p>On 2 September 2026, Aura Therapeutics announced a definitive global co-development and split-territory commercialization alliance with Nexus Pharma for its Phase 3 immunology candidate AT-501:</p>
       <ul>
-        <li><strong>Asset:</strong> OB-402, an oral next-generation targeted inhibitor for biomarker-selected advanced solid tumors.</li>
-        <li><strong>Upfront &amp; Funding:</strong> $65 million upfront cash; Kyowa Pioneer absorbs 75% of all ongoing Phase 3 global registrational costs.</li>
-        <li><strong>US Structure:</strong> 100% retained US specialty co-promotion rights with OptiBio detailing high-prescribing academic medical centers.</li>
-        <li><strong>Ex-US Structure:</strong> Kyowa Pioneer holds exclusive commercial rights outside the US, paying OptiBio up to $420 million in milestones plus tiered 15–22% royalties.</li>
+        <li><strong>Asset:</strong> AT-501, an oral targeted allosteric inhibitor for severe autoimmune disorders.</li>
+        <li><strong>Upfront &amp; Funding:</strong> $75 million upfront cash; Nexus Pharma absorbs 80% of all ongoing Phase 3 global registrational trial costs.</li>
+        <li><strong>US Structure:</strong> 100% retained US commercial and distribution rights, with Aura maintaining direct physician relationships.</li>
+        <li><strong>Ex-US Structure:</strong> Nexus Pharma holds exclusive commercial rights outside the US, paying Aura up to $480 million in milestones plus tiered 16–24% royalties.</li>
       </ul>
 
       <h2>Why it matters</h2>
       <p>Emerging biopharmas face a binary trap: either surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.</p>
-      <p>The split-territory co-promotion structure unlocks a third path: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global scale.</p>
+      <p>The territorial arbitrage structure unlocks a third path: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global scale.</p>
 
       <h2>PharmaSignal read</h2>
-      <h3>Primary Mechanism: Capital-Efficient Value Partitioning</h3>
-      <p>OptiBio accesses Kyowa Pioneer’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
+      <h3>Primary Mechanism: Territorial Rights Arbitrage</h3>
+      <p>Aura accesses Nexus Pharma’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
 
       <h2>PharmaSignal principle</h2>
       <blockquote>
@@ -1181,7 +1181,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       </blockquote>
 
       <h2>Source note</h2>
-      <p>Test 4 record created for automated feed validation. Date: 2 September 2026.</p>
+      <p>Test 5 record created for automated feed validation. Date: 2 September 2026.</p>
     `
   }
 ];

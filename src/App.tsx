@@ -549,11 +549,11 @@ export default function App() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
-                    6 DECISION LENSES
+                    {EXPLAINERS_DATA.length} STRATEGIC EXPLAINERS
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
-                    100% MECHANISM-FIRST
+                    6 DECISION LENSES
                   </span>
                 </motion.div>
 
