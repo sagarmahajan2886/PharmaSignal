@@ -1131,34 +1131,34 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
   },
   {
-    id: 'test-5-territorial-rights-arbitrage',
+    id: 'test-6-territorial-rights-arbitrage',
     category: 'TEST DEAL SIGNAL',
-    title: '[TEST 5] Aura Therapeutics & Nexus Pharma: Retained US Commercial Rights & Global Cost Absorption',
-    shortTitle: '[TEST 5] Aura & Nexus: Retained US Rights',
-    description: 'Test 5 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
+    title: '[TEST 6] Aura Therapeutics & Nexus Pharma: Retained US Commercial Rights & Global Cost Absorption',
+    shortTitle: '[TEST 6] Aura & Nexus: Retained US Rights',
+    description: 'Test 6 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
     meta: '3 MIN READ · SEP 02, 2026',
     author: 'PharmaSignal Test Desk',
     readTime: '3 min read',
     date: 'September 02, 2026',
-    featuredSummary: 'Test 5 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
+    featuredSummary: 'Test 6 RSS automated feed verification signal analyzing $75M upfront funding, 100% US commercial retention, and Ex-US trial cost absorption.',
     isDealSignal: true,
     hideFromHomepage: true,
     assetClass: 'Phase 3 Precision Immunology',
     dealStructure: 'Out-License Ex-US + $75M Upfront + 80% Ph3 Cost Absorption',
     geographicScope: 'US Retained / Ex-US Licensed to Nexus Pharma',
     mechanism: 'Territorial Rights Arbitrage',
-    imageUrl: '/images/test_5_deal_signal.jpg',
-    pharmaSignalTake: 'Test 5 RSS feed auto-post validation.\n\nRetaining 100% US commercial ownership while offloading 80% of Phase 3 global trial capital to a scaled partner enables emerging biopharmas to capture maximum terminal value without building expensive foreign operations.',
+    imageUrl: '/images/test_6_deal_signal.jpg',
+    pharmaSignalTake: 'Test 6 RSS feed auto-post validation.\n\nRetaining 100% US commercial ownership while offloading 80% of Phase 3 global trial capital to a scaled partner enables emerging biopharmas to capture maximum terminal value without building expensive foreign operations.',
     pharmaSignalRead: 'Mechanism: Territorial Rights Arbitrage. By carving out high-margin US commercialization while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
     useThisWhen: 'Validating RSS auto-post syndication pipelines and evaluating split-territory deals versus global out-licensing.',
     linkedExplainers: [
       { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['TEST 5', 'RSS VERIFICATION', 'DEAL SIGNAL', 'AUTO-POST', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
+    tags: ['TEST 6', 'RSS VERIFICATION', 'DEAL SIGNAL', 'AUTO-POST', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
     content: `
-      <h2>Deal signal (Test 5 Sandbox)</h2>
-      <p><em>Notice: This is a sandbox test 5 article created to verify RSS feed auto-post pipelines, caption hooks, and LinkedIn automation.</em></p>
+      <h2>Deal signal (Test 6 Sandbox)</h2>
+      <p><em>Notice: This is a sandbox test 6 article created to verify RSS feed auto-post pipelines, caption hooks, line break formatting, and image rendering.</em></p>
       <p>On 2 September 2026, Aura Therapeutics announced a definitive global co-development and split-territory commercialization alliance with Nexus Pharma for its Phase 3 immunology candidate AT-501:</p>
       <ul>
         <li><strong>Asset:</strong> AT-501, an oral targeted allosteric inhibitor for severe autoimmune disorders.</li>
@@ -1181,7 +1181,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       </blockquote>
 
       <h2>Source note</h2>
-      <p>Test 5 record created for automated feed validation. Date: 2 September 2026.</p>
+      <p>Test 6 record created for automated feed validation. Date: 2 September 2026.</p>
     `
   }
 ];

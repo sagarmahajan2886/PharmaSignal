@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const OUTPUT_PATH = path.join(process.cwd(), 'public', 'images', 'test_5_deal_signal.jpg');
+const OUTPUT_PATH = path.join(process.cwd(), 'public', 'images', 'test_6_deal_signal.jpg');
 
 const testSvg = `
 <svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" style="background:#061426; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -27,7 +27,7 @@ const testSvg = `
   <line x1="45" y1="565" x2="1155" y2="565" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
 
   <!-- Top Header Bar -->
-  <text x="75" y="90" fill="#D4AF37" font-size="15" font-family="monospace" font-weight="700" letter-spacing="3">PHARMASIGNAL DEAL SIGNAL · TEST 5 (AUTO-POST VERIFICATION)</text>
+  <text x="75" y="90" fill="#D4AF37" font-size="15" font-family="monospace" font-weight="700" letter-spacing="3">PHARMASIGNAL DEAL SIGNAL · TEST 6 (FORMATTING &amp; MEDIA VERIFICATION)</text>
   <text x="1125" y="90" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="600" letter-spacing="2" text-anchor="end">TERRITORIAL RIGHTS ARBITRAGE</text>
 
   <!-- Left Party: Originator / Biotech -->
@@ -86,7 +86,7 @@ async function run() {
   await sharp(Buffer.from(testSvg))
     .jpeg({ quality: 95 })
     .toFile(OUTPUT_PATH);
-  console.log('Generated Test 5 deal signal image at:', OUTPUT_PATH);
+  console.log('Generated Test 6 deal signal image at:', OUTPUT_PATH);
 }
 
 run();
