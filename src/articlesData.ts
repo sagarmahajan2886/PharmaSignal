@@ -1131,55 +1131,57 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
   },
   {
-    id: 'test-2-territory-data-arbitrage',
+    id: 'test-3-split-territory-arbitrage',
     category: 'TEST DEAL SIGNAL',
-    title: '[TEST 2] TheraNex & Caelum Bio: Reciprocal Clinical Data & Territory Arbitrage',
-    shortTitle: '[TEST 2] TheraNex & Caelum: Territory Arbitrage',
-    description: 'Test 2 RSS verification deal signal analyzing reciprocal clinical data access, non-dilutive upfront funding, and regional speed-to-market.',
-    meta: '3 MIN READ · SEP 01, 2026',
+    title: '[TEST 3] Veloce Bio & Arbor Therapeutics: Global Co-Development & Split-Territory Commercialization',
+    shortTitle: '[TEST 3] Veloce & Arbor: Split-Territory Arbitrage',
+    description: 'Test 3 RSS automated feed verification signal examining 50/50 domestic co-promotion, Ex-US capital absorption, and commercial infrastructure scaling.',
+    meta: '3 MIN READ · SEP 02, 2026',
     author: 'PharmaSignal Test Desk',
     readTime: '3 min read',
-    date: 'September 01, 2026',
-    featuredSummary: 'Test 2 RSS verification deal signal analyzing reciprocal clinical data access, non-dilutive upfront funding, and regional speed-to-market.',
+    date: 'September 02, 2026',
+    featuredSummary: 'Test 3 RSS automated feed verification signal examining 50/50 domestic co-promotion, Ex-US capital absorption, and commercial infrastructure scaling.',
     isDealSignal: true,
     hideFromHomepage: true,
-    assetClass: 'Phase 3 Targeted Oncology',
-    dealStructure: 'Territory Carve-Out + $40M Upfront + Cross Data-Right',
-    geographicScope: 'Greater China Carve-Out (Global Retained)',
-    mechanism: 'Reciprocal Clinical Data & Territory Arbitrage',
-    imageUrl: '/images/dummy_test_2_deal_signal.jpg',
-    pharmaSignalTake: 'Test 2 RSS synchronization verification item.\n\nReciprocal data sharing clauses turn regional license deals into global trial acceleration engines without expanding originator R&D headcount.',
-    pharmaSignalRead: 'Mechanism: Reciprocal Clinical Data Arbitrage. Structuring regional licensing deals with cross-study data rights allows originators to capture non-dilutive capital while accelerating global registrational timelines.',
-    useThisWhen: 'Verifying automated RSS feed pickup and evaluating cross-border clinical data exchange provisions in licensing contracts.',
+    assetClass: 'Phase 3 Precision Immunology',
+    dealStructure: 'Co-Development + $55M Upfront + 50/50 US Profit Share',
+    geographicScope: 'US Co-Commercialization / Ex-US Out-Licensed',
+    mechanism: 'Split-Territory Infrastructure Arbitrage',
+    imageUrl: '/images/test_3_deal_signal.jpg',
+    pharmaSignalTake: 'Test 3 RSS feed validation post.\n\nRetaining 50% US co-promotion while offloading Ex-US registrational capital to a scaled partner enables emerging biopharmas to capture commercial terminal value without building massive ex-US field forces.',
+    pharmaSignalRead: 'Mechanism: Split-Territory Infrastructure Arbitrage. By carving out high-margin US specialty promotion while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
+    useThisWhen: 'Validating RSS syndication feeds and evaluating split-territory co-commercialization versus full global out-licensing.',
     linkedExplainers: [
       { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['TEST 2', 'RSS VERIFICATION', 'DEAL SIGNAL', 'TERRITORY ARBITRAGE', 'DATA ACCESS', 'LICENSING'],
+    tags: ['TEST 3', 'RSS VERIFICATION', 'DEAL SIGNAL', 'CO-DEVELOPMENT', 'PROFIT SHARE', 'COMMERCIAL SCALE'],
     content: `
-      <h2>Deal signal (Test 2 Sandbox)</h2>
-      <p><em>Notice: This is a sandbox test 2 article published specifically to verify automated RSS feed integration and social syndication.</em></p>
-      <p>On 1 September 2026, TheraNex Global executed an exclusive regional out-licensing and clinical collaboration agreement with Caelum Bio for TNX-701 in Greater China:</p>
+      <h2>Deal signal (Test 3 Sandbox)</h2>
+      <p><em>Notice: This is a sandbox test 3 article created to test RSS feeds, post hooks, and automated distribution pipelines.</em></p>
+      <p>On 2 September 2026, Veloce Bio announced a definitive global co-development and split-territory commercialization alliance with Arbor Therapeutics for its Phase 3 immunology candidate VB-880:</p>
       <ul>
-        <li><strong>Asset:</strong> TNX-701, a small-molecule selective kinase inhibitor for advanced solid tumors.</li>
-        <li><strong>Financials:</strong> $40 million upfront cash, up to $185 million in development and sales milestones, plus tiered double-digit royalties.</li>
-        <li><strong>Data Reciprocity:</strong> Caelum fully funds the regional Phase 3 registrational program; TheraNex receives full rights to use all regional clinical safety and efficacy data for US FDA and EMA filings.</li>
+        <li><strong>Asset:</strong> VB-880, an oral small-molecule allosteric inhibitor targeting chronic inflammatory indications.</li>
+        <li><strong>Upfront &amp; Funding:</strong> $55 million upfront cash; Arbor funds 60% of all ongoing Phase 3 global registrational costs.</li>
+        <li><strong>US Structure:</strong> 50/50 co-commercialization and profit split, with Veloce detailing the academic hospital and specialist network.</li>
+        <li><strong>Ex-US Structure:</strong> Arbor holds exclusive commercial rights outside the US, paying Veloce up to $310 million in milestones plus tiered 14–20% royalties.</li>
       </ul>
 
       <h2>Why it matters</h2>
-      <p>Traditional regional licensing treats the license territory as a passive royalty stream. High-performing deal structures leverage partner clinical capacity to generate regulatory-grade data that accelerates global registrations.</p>
+      <p>Emerging biopharmas face a binary trap: either surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.</p>
+      <p>The split-territory co-promotion structure unlocks a third path: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global scale.</p>
 
       <h2>PharmaSignal read</h2>
-      <h3>Primary Mechanism: Reciprocal Data Arbitrage</h3>
-      <p>When structured correctly, regional partnerships act as parallel R&amp;D acceleration hubs that lower the originator’s global clinical spend while keeping US/EU commercial upside intact.</p>
+      <h3>Primary Mechanism: Infrastructure Arbitrage</h3>
+      <p>Veloce accesses Arbor’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
 
       <h2>PharmaSignal principle</h2>
       <blockquote>
-        <p>A regional license without data reciprocity is merely a royalty stream; with data reciprocity, it is a global development multiplier.</p>
+        <p>A smart partnership doesn't replace internal ambition; it funds focused domestic ownership through global leverage.</p>
       </blockquote>
 
       <h2>Source note</h2>
-      <p>Test 2 record created for RSS pipeline validation. Date: 1 September 2026.</p>
+      <p>Test 3 record created for automated feed validation. Date: 2 September 2026.</p>
     `
   }
 ];
