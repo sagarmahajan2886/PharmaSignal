@@ -1129,60 +1129,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
-  },
-  {
-    id: 'test-7-territorial-rights-arbitrage',
-    category: 'TEST DEAL SIGNAL',
-    title: '[TEST 7] Aura Therapeutics & Nexus Pharma: Retained US Commercial Rights & Global Cost Absorption',
-    shortTitle: '[TEST 7] Aura & Nexus: Retained US Rights',
-    description: 'Aura assumes 100% US commercial rights while Nexus absorbs 80% of Phase 3 trial costs, creating non-dilutive global leverage. [Mechanism: Territorial Rights Arbitrage] PharmaSignal Take: This is a Territorial Rights Arbitrage partnership. Aura Therapeutics retained high-margin US commercial ownership while transferring Ex-US trial capital and commercial overhead to Nexus Pharma for $75M upfront plus milestones.',
-    meta: '3 MIN READ · SEP 02, 2026',
-    author: 'PharmaSignal Test Desk',
-    readTime: '3 min read',
-    date: 'September 02, 2026',
-    featuredSummary: 'Aura assumes 100% US commercial rights while Nexus absorbs 80% of Phase 3 trial costs, creating non-dilutive global leverage.',
-    isDealSignal: true,
-    hideFromHomepage: true,
-    assetClass: 'Phase 3 Precision Immunology',
-    dealStructure: 'Out-License Ex-US + $75M Upfront + 80% Ph3 Cost Absorption',
-    geographicScope: 'US Retained / Ex-US Licensed to Nexus Pharma',
-    mechanism: 'Territorial Rights Arbitrage',
-    imageUrl: '/images/test_7_deal_signal.jpg',
-    pharmaSignalTake: 'This is a Territorial Rights Arbitrage partnership. Aura Therapeutics retained high-margin US commercial ownership while transferring Ex-US trial capital and commercial overhead to Nexus Pharma for $75M upfront plus milestones.',
-    pharmaSignalRead: 'Mechanism: Territorial Rights Arbitrage. By carving out high-margin US commercialization while transferring Ex-US trial and commercial overhead to a global partner, biopharma originators preserve equity value and avoid dilutive commercial buildouts.',
-    useThisWhen: 'Validating RSS auto-post syndication pipelines and evaluating split-territory deals versus global out-licensing.',
-    linkedExplainers: [
-      { id: 'opportunity-creation', title: 'Opportunity Creation vs Opportunity Processing' },
-      { id: 'the-approval-gap', title: 'The Approval Gap' }
-    ],
-    tags: ['TEST 7', 'RSS VERIFICATION', 'DEAL SIGNAL', 'AUTO-POST', 'TRIAL ABSORPTION', 'COMMERCIAL SCALE'],
-    content: `
-      <h2>Deal signal (Test 7 Sandbox)</h2>
-      <p><em>Notice: This is a sandbox test 7 article created to verify RSS feed auto-post pipelines, caption hooks, line break formatting, and image rendering.</em></p>
-      <p>On 2 September 2026, Aura Therapeutics announced a definitive global co-development and split-territory commercialization alliance with Nexus Pharma for its Phase 3 immunology candidate AT-501:</p>
-      <ul>
-        <li><strong>Asset:</strong> AT-501, an oral targeted allosteric inhibitor for severe autoimmune disorders.</li>
-        <li><strong>Upfront &amp; Funding:</strong> $75 million upfront cash; Nexus Pharma absorbs 80% of all ongoing Phase 3 global registrational trial costs.</li>
-        <li><strong>US Structure:</strong> 100% retained US commercial and distribution rights, with Aura maintaining direct physician relationships.</li>
-        <li><strong>Ex-US Structure:</strong> Nexus Pharma holds exclusive commercial rights outside the US, paying Aura up to $480 million in milestones plus tiered 16–24% royalties.</li>
-      </ul>
-
-      <h2>Why it matters</h2>
-      <p>Emerging biopharmas face a binary trap: either surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.</p>
-      <p>The territorial arbitrage structure unlocks a third path: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global scale.</p>
-
-      <h2>PharmaSignal read</h2>
-      <h3>Primary Mechanism: Territorial Rights Arbitrage</h3>
-      <p>Aura accesses Nexus Pharma’s global regulatory and commercial infrastructure without diluting its high-value US asset ownership.</p>
-
-      <h2>PharmaSignal principle</h2>
-      <blockquote>
-        <p>A smart partnership doesn't replace internal ambition; it funds focused domestic ownership through global leverage.</p>
-      </blockquote>
-
-      <h2>Source note</h2>
-      <p>Test 7 record created for automated feed validation. Date: 2 September 2026.</p>
-    `
   }
 ];
 

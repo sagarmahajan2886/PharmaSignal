@@ -48,6 +48,20 @@ export type DealCategoryFilter =
   | 'COMMERCIAL_SCALE' 
   | 'OPTIONS_ACCESS';
 
+export const getCategoryBadgeClass = (category: string = '') => {
+  const cat = category.toUpperCase();
+  if (cat.includes('OPPORTUNITY') || cat.includes('CREATION') || cat.includes('NEWCO')) {
+    return 'badge-category-opportunity';
+  }
+  if (cat.includes('SCALE') || cat.includes('MANUFACTURING') || cat.includes('TECH TRANSFER') || cat.includes('CELL & GENE')) {
+    return 'badge-category-scale';
+  }
+  if (cat.includes('DEFICIT') || cat.includes('FAILURE') || cat.includes('RISK') || cat.includes('GAP') || cat.includes('TERMINATION')) {
+    return 'badge-category-risk';
+  }
+  return 'badge-category-licensing';
+};
+
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('HOME');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
@@ -384,7 +398,7 @@ export default function App() {
                 >
                   <div className="p-4 sm:p-5 pb-2.5">
                     <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
-                      <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                      <span className={`inline-block text-[9.5px] font-mono tracking-[0.12em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(deal.category)}`}>
                         {deal.category}
                       </span>
                       <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
@@ -733,7 +747,7 @@ export default function App() {
                       <div className="p-4 sm:p-5 pb-2.5">
                         {/* 1. Date and Category Tag */}
                         <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
-                          <span className="inline-block text-[9.5px] font-mono tracking-[0.12em] text-brand-gold-antique dark:text-brand-gold font-bold uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/10">
+                          <span className={`inline-block text-[9.5px] font-mono tracking-[0.12em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(deal.category)}`}>
                             {deal.category || 'DEAL SIGNAL'}
                           </span>
                           <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">

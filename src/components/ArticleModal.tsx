@@ -1869,7 +1869,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 </h1>
 
                 {/* Author / Date Meta Strip */}
-                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-2 sm:py-4 mb-4 sm:mb-8 text-[11px] sm:text-xs font-mono ${
+                <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-2 sm:py-4 mb-4 sm:mb-6 text-[11px] sm:text-xs font-mono ${
                   darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
                 }`}>
                   <div className="flex items-center gap-1.5">

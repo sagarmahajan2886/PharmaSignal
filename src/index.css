@@ -48,6 +48,56 @@
   font-feature-settings: "tnum";
 }
 
+/* Category Badge Semantic Color Accents */
+.badge-category-licensing {
+  background-color: rgba(217, 164, 65, 0.12);
+  color: #E5C368;
+  border-color: rgba(217, 164, 65, 0.35);
+}
+
+.badge-category-opportunity {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.badge-category-scale {
+  background-color: rgba(14, 165, 233, 0.12);
+  color: #38BDF8;
+  border-color: rgba(14, 165, 233, 0.35);
+}
+
+.badge-category-risk {
+  background-color: rgba(244, 63, 94, 0.12);
+  color: #FB7185;
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+/* Light mode variants */
+html:not(.dark) .badge-category-licensing {
+  background-color: rgba(217, 164, 65, 0.1);
+  color: #8C651E;
+  border-color: rgba(217, 164, 65, 0.4);
+}
+
+html:not(.dark) .badge-category-opportunity {
+  background-color: rgba(16, 185, 129, 0.08);
+  color: #065F46;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+html:not(.dark) .badge-category-scale {
+  background-color: rgba(14, 165, 233, 0.08);
+  color: #0369A1;
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+html:not(.dark) .badge-category-risk {
+  background-color: rgba(244, 63, 94, 0.08);
+  color: #9F1239;
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
 /* Double-Rule Editorial Accents */
 .editorial-double-rule {
   border-top: 2px solid rgba(217, 164, 65, 0.4);
