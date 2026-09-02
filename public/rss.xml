@@ -2,6 +2,7 @@
 <rss version="2.0" 
      xmlns:atom="http://www.w3.org/2005/Atom" 
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>PharmaSignal — Biopharma Decision Intelligence &amp; Deal Signals</title>
@@ -20,14 +21,27 @@
     <item>
       <title><![CDATA[[TEST 3] Veloce Bio & Arbor Therapeutics: Global Co-Development & Split-Territory Commercialization]]></title>
       <link>https://pharmasignal.com/?deal=test-3-split-territory-arbitrage</link>
-      <guid isPermaLink="true">https://pharmasignal.com/?deal=test-3-split-territory-arbitrage&amp;v=1</guid>
+      <guid isPermaLink="true">https://pharmasignal.com/?deal=test-3-split-territory-arbitrage&amp;v=2</guid>
       <pubDate>Wed, 02 Sep 2026 15:30:00 GMT</pubDate>
       <author>PharmaSignal Deal Desk</author>
+      <dc:creator><![CDATA[PharmaSignal Deal Desk]]></dc:creator>
       <category><![CDATA[DEAL SIGNALS]]></category>
       <enclosure url="https://pharmasignal.com/images/test_3_deal_signal.jpg" length="270000" type="image/jpeg" />
       <media:content url="https://pharmasignal.com/images/test_3_deal_signal.jpg" medium="image" type="image/jpeg" width="1600" height="900">
         <media:title type="plain"><![CDATA[Veloce Bio and Arbor Therapeutics Split-Territory Commercialization Diagram]]></media:title>
       </media:content>
+      <summary><![CDATA[Emerging biopharmas face a binary trap: surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.
+
+The split-territory co-promotion model unlocks a third pathway: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global clinical scale.
+
+Key Deal Dynamics:
+• $55M non-dilutive upfront cash funding
+• 50/50 US co-commercialization & profit split
+• Partner finances 60% of global registrational Phase 3 trial costs
+• Up to $310M in Ex-US milestones + tiered 14–20% royalties
+
+Mechanism: Split-Territory Infrastructure Arbitrage
+PharmaSignal Take: A smart partnership doesn't replace internal ambition; it funds focused domestic ownership through global leverage.]]></summary>
       <description><![CDATA[Emerging biopharmas face a binary trap: surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.
 
 The split-territory co-promotion model unlocks a third pathway: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global clinical scale.
@@ -40,6 +54,18 @@ Key Deal Dynamics:
 
 Mechanism: Split-Territory Infrastructure Arbitrage
 PharmaSignal Take: A smart partnership doesn't replace internal ambition; it funds focused domestic ownership through global leverage.]]></description>
+      <dc:description><![CDATA[Emerging biopharmas face a binary trap: surrender 100% of commercial upside through a global license, or attempt an expensive, dilutive worldwide commercial buildout.
+
+The split-territory co-promotion model unlocks a third pathway: capture high-margin domestic commercial terminal value while leveraging partner balance sheets to fund global clinical scale.
+
+Key Deal Dynamics:
+• $55M non-dilutive upfront cash funding
+• 50/50 US co-commercialization & profit split
+• Partner finances 60% of global registrational Phase 3 trial costs
+• Up to $310M in Ex-US milestones + tiered 14–20% royalties
+
+Mechanism: Split-Territory Infrastructure Arbitrage
+PharmaSignal Take: A smart partnership doesn't replace internal ambition; it funds focused domestic ownership through global leverage.]]></dc:description>
       <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/test_3_deal_signal.jpg" alt="Veloce Bio and Arbor Therapeutics Split-Territory Commercialization" width="1600" height="900" style="max-width:100%; height:auto;" /></p>
 <h2>Deal signal (Test 3)</h2>
 <p>On 2 September 2026, Veloce Bio announced a definitive global co-development and split-territory commercialization alliance with Arbor Therapeutics for its Phase 3 immunology candidate VB-880, securing $55M upfront, 50/50 US profit share, and Ex-US development absorption.</p>
