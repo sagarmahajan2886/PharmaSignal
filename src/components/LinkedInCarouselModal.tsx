@@ -204,11 +204,13 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
   ctx.fillText(footerRightText, 1150 - footerRightWidth, 622);
 
   // --- SLIDE SPECIFIC CONTENT ---
+  const isDeal = !!article.isDealSignal;
+
   if (slideIndex === 0) {
     // SLIDE 1: Executive Deal Brief & 3 Metrics
     // Badge
     const dateStr = (article.date || 'AUGUST 2026').toUpperCase();
-    const tagText = `DEAL SIGNAL BRIEF · ${dateStr}`;
+    const tagText = isDeal ? `DEAL SIGNAL BRIEF · ${dateStr}` : `EXPLAINER BRIEF · ${dateStr}`;
     ctx.font = 'bold 11px "Courier New", Courier, monospace';
     const tagWidth = ctx.measureText(tagText).width + 24;
     drawRoundedRect(ctx, 50, 95, tagWidth, 26, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.7)');
@@ -230,10 +232,14 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     const boxW = 345;
     const boxH = 90;
 
-    const metrics = [
+    const metrics = isDeal ? [
       { label: 'ASSET CLASS', val: article.assetClass || 'Targeted Biologic' },
       { label: 'DEAL STRUCTURE', val: article.dealStructure || 'Territorial Licensing' },
       { label: 'GEOGRAPHIC SCOPE', val: article.geographicScope || 'Global Tiered Rights' }
+    ] : [
+      { label: 'FOCUS AREA', val: article.assetClass || article.category || 'Decision Intelligence' },
+      { label: 'CORE MECHANISM', val: article.dealStructure || 'Cross-Functional Governance' },
+      { label: 'DECISION SCOPE', val: article.geographicScope || 'Enterprise Portfolio & Access' }
     ];
 
     metrics.forEach((m, idx) => {
@@ -266,11 +272,11 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     // SLIDE 2: Transaction Architecture (Diagram Image or Structural Breakdown)
     ctx.fillStyle = '#C5A880';
     ctx.font = 'bold 12px "Courier New", Courier, monospace';
-    ctx.fillText('TRANSACTION ARCHITECTURE', 50, 100);
+    ctx.fillText(isDeal ? 'TRANSACTION ARCHITECTURE' : 'DECISION FRAMEWORK ARCHITECTURE', 50, 100);
 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
     ctx.font = '11px "Courier New", Courier, monospace';
-    ctx.fillText('Rights Partition & Value Stream Flow', 280, 100);
+    ctx.fillText(isDeal ? 'Rights Partition & Value Stream Flow' : 'Structural Framework & Strategic Mechanism', 320, 100);
 
     const frameW = 1100;
     const frameH = 450;
@@ -303,7 +309,7 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
         // Fallback text if image load fails
         ctx.fillStyle = '#C5A880';
         ctx.font = 'bold 16px "Courier New", Courier, monospace';
-        ctx.fillText('TRANSACTION STRUCTURE BREAKDOWN', 80, 160);
+        ctx.fillText(isDeal ? 'TRANSACTION STRUCTURE BREAKDOWN' : 'DECISION FRAMEWORK BREAKDOWN', 80, 160);
 
         ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
         ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -317,7 +323,7 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     } else {
       ctx.fillStyle = '#C5A880';
       ctx.font = 'bold 16px "Courier New", Courier, monospace';
-      ctx.fillText('TRANSACTION STRUCTURE BREAKDOWN', 80, 160);
+      ctx.fillText(isDeal ? 'TRANSACTION STRUCTURE BREAKDOWN' : 'DECISION FRAMEWORK BREAKDOWN', 80, 160);
 
       ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
       ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -331,7 +337,7 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
 
   } else if (slideIndex === 2) {
     // SLIDE 3: The PharmaSignal Read
-    const tagText = 'THE PHARMASIGNAL READ';
+    const tagText = isDeal ? 'THE PHARMASIGNAL READ' : 'STRATEGIC MECHANISM';
     drawRoundedRect(ctx, 50, 95, 210, 26, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.7)');
     ctx.fillStyle = '#C5A880';
     ctx.font = 'bold 11px "Courier New", Courier, monospace';
@@ -417,7 +423,10 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     // Large Quote
     ctx.fillStyle = '#FFFFFF';
     ctx.font = 'bold italic 26px Georgia, "Playfair Display", serif';
-    const quote = '"Territorial rights and deal terms create value only when the capability to execute travels with the rights."';
+    const defaultQuote = isDeal
+      ? '"Territorial rights and deal terms create value only when the capability to execute travels with the rights."'
+      : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."';
+    const quote = article.principleQuote || defaultQuote;
     const quoteLines = getWrappedLines(ctx, quote, 950);
     let qY = 220;
     for (const ql of quoteLines) {
@@ -427,7 +436,8 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     }
 
     // Gold CTA Button
-    const ctaText = `Read Full Signal: pharmasignal.com/?deal=${article.id}`;
+    const ctaParam = isDeal ? `deal=${article.id}` : `article=${article.id}`;
+    const ctaText = `Read Full ${isDeal ? 'Signal' : 'Explainer'}: pharmasignal.com/?${ctaParam}`;
     ctx.font = 'bold 13px "Courier New", Courier, monospace';
     const ctaWidth = ctx.measureText(ctaText).width + 48;
     const ctaX = (1200 - ctaWidth) / 2;
@@ -440,7 +450,9 @@ async function renderSlideToCanvas(article: Article, slideIndex: number): Promis
     // Subtext
     ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
     ctx.font = '12px "Courier New", Courier, monospace';
-    const subText = 'Biopharma BD Decision Intelligence · Follow on LinkedIn for Weekly Deal Briefings';
+    const subText = isDeal
+      ? 'Biopharma BD Decision Intelligence · Follow on LinkedIn for Weekly Deal Briefings'
+      : 'Biopharma BD Decision Intelligence · Follow on LinkedIn for Decision Frameworks';
     const subWidth = ctx.measureText(subText).width;
     ctx.fillText(subText, (1200 - subWidth) / 2, 485);
   }
@@ -465,8 +477,10 @@ export default function LinkedInCarouselModal({
   if (!isOpen || !article) return null;
 
   const totalSlides = 4;
+  const isDeal = !!article.isDealSignal;
   const currentOrigin = typeof window !== 'undefined' ? window.location.origin : 'https://pharmasignal.com';
-  const dealDeepLink = `${currentOrigin}/?deal=${article.id}`;
+  const deepLinkParam = isDeal ? `deal=${article.id}` : `article=${article.id}`;
+  const articleDeepLink = `${currentOrigin}/?${deepLinkParam}`;
 
   const handleNext = () => {
     setActiveSlide((prev) => (prev + 1) % totalSlides);
@@ -478,7 +492,12 @@ export default function LinkedInCarouselModal({
 
   // Copy Executive LinkedIn Post Text
   const handleCopyPostText = () => {
-    const postCopy = `🚨 PHARMASIGNAL DEAL BRIEF: ${article.title.toUpperCase()}
+    const quote = article.principleQuote || (isDeal
+      ? '"Territorial rights and deal terms only create enterprise value when the operational capability to execute travels with the contract."'
+      : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."'
+    );
+
+    const postCopy = isDeal ? `🚨 PHARMASIGNAL DEAL BRIEF: ${article.title.toUpperCase()}
 
 How biopharma BD&L creates and protects value through transaction architecture:
 
@@ -492,12 +511,32 @@ How biopharma BD&L creates and protects value through transaction architecture:
 ${article.pharmaSignalRead || article.description}
 
 🎯 THE BD PRINCIPLE:
-"Territorial rights and deal terms only create enterprise value when the operational capability to execute travels with the contract."
+${quote}
 
 Read the complete mechanism deconstruction and interactive transaction diagram on PharmaSignal:
-🔗 ${dealDeepLink}
+🔗 ${articleDeepLink}
 
-#Biopharma #BusinessDevelopment #PharmaLicensing #LifeSciences #DealMaking #PharmaSignal #BiotechStrategy`;
+#Biopharma #BusinessDevelopment #PharmaLicensing #LifeSciences #DealMaking #PharmaSignal #BiotechStrategy`
+: `💡 PHARMASIGNAL DECISION LENS: ${article.title.toUpperCase()}
+
+Why biopharma transactions succeed or stall before and after execution:
+
+📊 FRAMEWORK METRICS:
+• Focus Area: ${article.assetClass || article.category || 'Decision Intelligence'}
+• Core Mechanism: ${article.dealStructure || 'Cross-Functional Decision Architecture'}
+• Decision Scope: ${article.geographicScope || 'Enterprise Portfolio & Governance'}
+• Published Date: ${article.date}
+
+💡 STRATEGIC MECHANISM:
+${article.pharmaSignalRead || article.description}
+
+🎯 THE BD PRINCIPLE:
+${quote}
+
+Read the complete decision analysis and framework on PharmaSignal:
+🔗 ${articleDeepLink}
+
+#Biopharma #BusinessDevelopment #PharmaLicensing #LifeSciences #DecisionIntelligence #PharmaSignal #BiotechStrategy`;
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(postCopy);
@@ -515,10 +554,10 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
 
   const handleCopyLink = () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(dealDeepLink);
+      navigator.clipboard.writeText(articleDeepLink);
     } else {
       const textArea = document.createElement("textarea");
-      textArea.value = dealDeepLink;
+      textArea.value = articleDeepLink;
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand("copy");
@@ -718,7 +757,7 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 bg-brand-gold" />
                     <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-brand-gold uppercase">
-                      PHARMASIGNAL · DEAL DESK
+                      PHARMASIGNAL · {isDeal ? 'DEAL DESK' : 'DECISION LENS'}
                     </span>
                   </div>
                   <span className="font-mono text-[9px] sm:text-[10px] text-white/60 tracking-wider uppercase">
@@ -739,7 +778,7 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                         className="space-y-2 sm:space-y-3 md:space-y-4"
                       >
                         <div className="inline-block px-2 sm:px-2.5 py-0.5 bg-brand-gold/15 border border-brand-gold/50 text-brand-gold font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                          DEAL SIGNAL ANALYSIS · {article.date?.toUpperCase()}
+                          {isDeal ? 'DEAL SIGNAL ANALYSIS' : 'EXPLAINER ANALYSIS'} · {article.date?.toUpperCase()}
                         </div>
                         <h1 className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight">
                           {article.title}
@@ -748,26 +787,26 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                         <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 pt-1">
                           <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
                             <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              ASSET CLASS
+                              {isDeal ? 'ASSET CLASS' : 'FOCUS AREA'}
                             </span>
                             <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.assetClass || 'Targeted Biologic'}
+                              {article.assetClass || (isDeal ? 'Targeted Biologic' : (article.category || 'Decision Intelligence'))}
                             </span>
                           </div>
                           <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
                             <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              DEAL STRUCTURE
+                              {isDeal ? 'DEAL STRUCTURE' : 'CORE MECHANISM'}
                             </span>
                             <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.dealStructure || 'Territorial Architecture'}
+                              {article.dealStructure || (isDeal ? 'Territorial Architecture' : 'Cross-Functional Governance')}
                             </span>
                           </div>
                           <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
                             <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              GEOGRAPHIC SCOPE
+                              {isDeal ? 'GEOGRAPHIC SCOPE' : 'DECISION SCOPE'}
                             </span>
                             <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.geographicScope || 'Global Tiered Rights'}
+                              {article.geographicScope || (isDeal ? 'Global Tiered Rights' : 'Enterprise Portfolio')}
                             </span>
                           </div>
                         </div>
@@ -789,10 +828,10 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase">
-                            TRANSACTION ARCHITECTURE
+                            {isDeal ? 'TRANSACTION ARCHITECTURE' : 'DECISION FRAMEWORK ARCHITECTURE'}
                           </span>
                           <span className="text-[8px] sm:text-[9px] font-mono text-white/60 uppercase">
-                            Value & Rights Flow
+                            {isDeal ? 'Value & Rights Flow' : 'Core Mechanism & Structural Model'}
                           </span>
                         </div>
 
@@ -808,7 +847,7 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                         ) : (
                           <div className="p-3 sm:p-4 bg-white/5 border border-brand-gold/30 space-y-1.5">
                             <span className="text-xs font-bold text-brand-gold font-mono block uppercase">
-                              Structure Breakdown
+                              {isDeal ? 'Structure Breakdown' : 'Framework Breakdown'}
                             </span>
                             <p className="text-xs font-sans text-white/90 leading-relaxed line-clamp-4">
                               {article.featuredSummary || article.description}
@@ -832,7 +871,7 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                         className="space-y-2 sm:space-y-3"
                       >
                         <div className="inline-block px-2 sm:px-2.5 py-0.5 bg-brand-gold/15 border border-brand-gold/50 text-brand-gold font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                          THE PHARMASIGNAL READ
+                          {isDeal ? 'THE PHARMASIGNAL READ' : 'STRATEGIC MECHANISM'}
                         </div>
                         
                         <div className="p-2.5 sm:p-3.5 bg-brand-gold/10 border-l-4 border-brand-gold space-y-1.5">
@@ -882,18 +921,20 @@ Read the complete mechanism deconstruction and interactive transaction diagram o
                         </div>
 
                         <blockquote className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white italic leading-relaxed px-2 sm:px-4">
-                          "Territorial rights and deal terms create value only when the capability to execute travels with the rights."
+                          {article.principleQuote || (isDeal
+                            ? '"Territorial rights and deal terms create value only when the capability to execute travels with the rights."'
+                            : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."')}
                         </blockquote>
 
                         <div className="pt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
                           <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-gold text-brand-primary font-mono text-[10px] sm:text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-                            <span>Read Full Signal:</span>
-                            <span className="underline">pharmasignal.com/?deal={article.id}</span>
+                            <span>Read Full {isDeal ? 'Signal' : 'Explainer'}:</span>
+                            <span className="underline">pharmasignal.com/?{deepLinkParam}</span>
                           </div>
                         </div>
 
                         <p className="text-[9px] sm:text-[10px] font-mono text-white/50 uppercase tracking-widest">
-                          Biopharma BD Decision Intelligence · Follow on LinkedIn for Weekly Deal Briefings
+                          Biopharma BD Decision Intelligence · Follow on LinkedIn for {isDeal ? 'Weekly Deal Briefings' : 'Decision Frameworks'}
                         </p>
                       </motion.div>
                     )}

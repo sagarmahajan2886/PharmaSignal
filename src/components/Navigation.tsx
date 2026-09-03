@@ -95,10 +95,10 @@ export default function Navigation({
 
   return (
     <header 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 border-b border-white/5 ${
-        scrolled 
-          ? 'bg-brand-primary/95 backdrop-blur-md py-3 shadow-xl' 
-          : 'bg-brand-primary py-4 sm:py-5'
+      className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
+        darkMode 
+          ? (scrolled ? 'bg-[#0B121E]/95 backdrop-blur-md py-2.5 shadow-xl border-white/10' : 'bg-[#0B121E] py-3.5 sm:py-4 border-white/10')
+          : (scrolled ? 'bg-white/95 backdrop-blur-md py-2.5 shadow-xs border-slate-200' : 'bg-[#FBFBFC] py-3.5 sm:py-4 border-slate-200')
       }`}
       id="app-navigation"
     >
@@ -111,12 +111,16 @@ export default function Navigation({
             onClick={() => handleNavClick('HOME')}
           >
             <div className="flex items-center gap-2">
-              <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold tracking-wider text-white transition-colors duration-300">
+              <span className={`font-serif text-xl sm:text-2xl lg:text-[26px] font-bold tracking-wider transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-[#0B121E]'
+              }`}>
                 PHARMA<span className="text-brand-gold">SIGNAL</span>
               </span>
             </div>
-            <span className="text-[8.5px] sm:text-[9.5px] font-sans tracking-widest text-white/50 font-light mt-0.5 uppercase">
-              Decision Intelligence for Pharma BD
+            <span className={`text-[8.5px] sm:text-[9.5px] font-mono tracking-widest font-semibold mt-0.5 uppercase ${
+              darkMode ? 'text-slate-400' : 'text-slate-500'
+            }`}>
+              Biopharma BD Decision Intelligence
             </span>
           </div>
 
@@ -129,14 +133,16 @@ export default function Navigation({
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   className={`relative text-[11px] lg:text-xs tracking-widest font-sans font-bold py-1.5 transition-colors cursor-pointer uppercase whitespace-nowrap ${
-                    isActive ? 'text-brand-gold' : 'text-white/80 hover:text-brand-gold'
+                    isActive 
+                      ? (darkMode ? 'text-brand-gold' : 'text-brand-cobalt font-extrabold') 
+                      : (darkMode ? 'text-slate-300 hover:text-brand-gold' : 'text-slate-600 hover:text-brand-cobalt')
                   }`}
                 >
                   {item.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavLine"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
+                      className={`absolute bottom-0 left-0 right-0 h-0.5 ${darkMode ? 'bg-brand-gold' : 'bg-brand-cobalt'}`}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -149,7 +155,11 @@ export default function Navigation({
           <div className="hidden md:flex items-center space-x-3 lg:space-x-4 shrink-0">
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-white/80 hover:text-brand-gold hover:bg-white/5 rounded-full transition-colors cursor-pointer shrink-0"
+              className={`p-2 rounded-full transition-colors cursor-pointer shrink-0 ${
+                darkMode 
+                  ? 'text-slate-300 hover:text-brand-gold hover:bg-white/5' 
+                  : 'text-slate-600 hover:text-brand-cobalt hover:bg-slate-100'
+              }`}
               aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
@@ -157,7 +167,7 @@ export default function Navigation({
             </button>
             <button
               onClick={onSubscribeClick}
-              className="px-4 lg:px-5 py-2.5 text-[11px] lg:text-xs font-sans tracking-widest font-bold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors rounded-none shadow-md cursor-pointer uppercase duration-200 whitespace-nowrap shrink-0"
+              className="px-4 lg:px-5 py-2.5 text-[11px] lg:text-xs font-sans tracking-widest font-bold bg-[#0B121E] text-white hover:bg-brand-cobalt transition-colors rounded-none shadow-xs cursor-pointer uppercase duration-200 whitespace-nowrap shrink-0 border border-transparent dark:bg-brand-gold dark:text-[#0B121E] dark:hover:bg-brand-gold-hover"
             >
               SUBSCRIBE FREE
             </button>
@@ -167,7 +177,9 @@ export default function Navigation({
           <div className="flex md:hidden items-center space-x-3">
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-white/85 hover:text-brand-gold transition-colors rounded-full cursor-pointer bg-white/5"
+              className={`p-2 transition-colors rounded-full cursor-pointer ${
+                darkMode ? 'text-white/85 hover:text-brand-gold bg-white/5' : 'text-slate-700 hover:text-brand-cobalt bg-black/5'
+              }`}
               aria-label={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
@@ -175,7 +187,9 @@ export default function Navigation({
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-brand-gold transition-colors p-1 cursor-pointer"
+              className={`transition-colors p-1 cursor-pointer ${
+                darkMode ? 'text-white hover:text-brand-gold' : 'text-[#0B121E] hover:text-brand-cobalt'
+              }`}
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -193,7 +207,9 @@ export default function Navigation({
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden bg-brand-deep border-t border-white/5 overflow-hidden"
+            className={`md:hidden border-t overflow-hidden ${
+              darkMode ? 'bg-[#0B121E] border-white/10' : 'bg-[#FBFBFC] border-slate-200'
+            }`}
           >
             <div className="px-4 py-6 space-y-4">
               {navTabs.map((item) => (
@@ -201,7 +217,9 @@ export default function Navigation({
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   className={`block w-full text-left py-3 text-sm tracking-widest font-sans font-medium transition-colors uppercase ${
-                    activeTab === item.id ? 'text-brand-gold pl-2 border-l border-brand-gold' : 'text-white/80 hover:text-white'
+                    activeTab === item.id 
+                      ? (darkMode ? 'text-brand-gold pl-2 border-l border-brand-gold font-bold' : 'text-brand-cobalt pl-2 border-l border-brand-cobalt font-bold')
+                      : (darkMode ? 'text-white/80 hover:text-white' : 'text-slate-700 hover:text-slate-900')
                   }`}
                 >
                   {item.label}
@@ -210,9 +228,11 @@ export default function Navigation({
               
               <button
                 onClick={toggleDarkMode}
-                className="w-full text-left py-3 text-sm tracking-widest font-sans font-medium text-white/80 hover:text-white transition-colors flex items-center justify-between border-t border-white/5 pt-4"
+                className={`w-full text-left py-3 text-sm tracking-widest font-sans font-medium transition-colors flex items-center justify-between border-t pt-4 ${
+                  darkMode ? 'text-white/80 hover:text-white border-white/5' : 'text-slate-700 hover:text-slate-900 border-slate-200'
+                }`}
               >
-                <span className="uppercase">Theme: {darkMode ? "Midnight Dark" : "Editorial Hybrid"}</span>
+                <span className="uppercase">Theme: {darkMode ? "Midnight Dark" : "Modern Light"}</span>
                 {darkMode ? <Sun size={17} className="text-brand-gold animate-pulse" /> : <Moon size={17} className="text-brand-gold" />}
               </button>
 
@@ -222,7 +242,7 @@ export default function Navigation({
                     setMobileMenuOpen(false);
                     onSubscribeClick();
                   }}
-                  className="w-full py-3 text-center text-sm font-sans tracking-widest font-semibold bg-brand-gold text-brand-primary hover:bg-brand-gold-hover transition-colors uppercase"
+                  className="w-full py-3 text-center text-sm font-sans tracking-widest font-semibold bg-[#0B121E] text-white hover:bg-brand-cobalt dark:bg-brand-gold dark:text-[#0B121E] dark:hover:bg-brand-gold-hover transition-colors uppercase"
                 >
                   SUBSCRIBE FREE
                 </button>

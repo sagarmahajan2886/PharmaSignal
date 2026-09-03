@@ -5,13 +5,13 @@ interface ApprovalGapDiagramProps {
 }
 
 export default function ApprovalGapDiagram({ darkMode = false }: ApprovalGapDiagramProps) {
-  const strokeColor = darkMode ? '#FFFFFF' : '#071A2E';
-  const strokeColorDim = darkMode ? 'rgba(255, 255, 255, 0.4)' : 'rgba(7, 26, 46, 0.4)';
-  const textColorPrimary = darkMode ? '#FFFFFF' : '#071A2E';
+  const strokeColor = darkMode ? '#FFFFFF' : '#0B121E';
+  const strokeColorDim = darkMode ? 'rgba(255, 255, 255, 0.4)' : 'rgba(11, 18, 30, 0.35)';
+  const textColorPrimary = darkMode ? '#FFFFFF' : '#0B121E';
   const textColorSecondary = darkMode ? '#94A3B8' : '#475569';
   const goldColor = '#D9A441';
-  const fillChasm = darkMode ? '#112235' : '#071A2E';
-  const bgBox = darkMode ? '#0C1C2D' : '#F8F9FA';
+  const fillChasm = darkMode ? '#112235' : '#F1F5F9';
+  const bgBox = darkMode ? '#0C1C2D' : '#F8FAFC';
 
   return (
     <div className="w-full flex justify-center py-4 bg-transparent">

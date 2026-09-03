@@ -30,6 +30,7 @@ export interface Article {
   assetClass?: string;
   dealStructure?: string;
   geographicScope?: string;
+  principleQuote?: string;
   hideFromHomepage?: boolean;
 }
 

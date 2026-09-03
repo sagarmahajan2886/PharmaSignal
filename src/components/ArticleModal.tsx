@@ -96,18 +96,18 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ type: 'spring', damping: 25, stiffness: 180 }}
           className={`relative w-full h-screen sm:h-auto sm:max-h-[85vh] md:max-h-[90vh] lg:max-h-[92vh] max-w-4xl lg:max-w-6xl transform overflow-hidden text-left align-middle shadow-2xl transition-all border-t-4 border-brand-gold flex flex-col ${
-            darkMode ? 'bg-[#050F1A] text-white border-b border-l border-r border-white/10' : 'bg-[#FAF7F0] text-brand-charcoal border-b border-l border-r border-[#E5DDD0]'
+            darkMode ? 'bg-[#0B121E] text-white border-b border-l border-r border-white/10' : 'bg-white text-[#0B121E] border-b border-l border-r border-slate-200'
           }`}
         >
           {/* Header Action Bar */}
           <div className={`sticky top-0 z-10 flex flex-col border-b backdrop-blur ${
-            darkMode ? 'border-white/10 bg-[#050F1A]/95' : 'border-[#E5DDD0] bg-[#FAF7F0]/95'
+            darkMode ? 'border-white/10 bg-[#0B121E]/95' : 'border-slate-200 bg-white/95'
           }`}>
             <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
               <button
                 onClick={onClose}
                 className={`flex items-center gap-1.5 sm:gap-2 text-xs font-sans font-semibold tracking-widest transition-colors cursor-pointer group uppercase ${
-                  darkMode ? 'text-white hover:text-brand-gold' : 'text-[#001B2A] hover:text-brand-gold'
+                  darkMode ? 'text-white hover:text-brand-gold' : 'text-[#0B121E] hover:text-brand-cobalt'
                 }`}
               >
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
@@ -115,28 +115,26 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </button>
 
               <div className="flex items-center gap-2 sm:gap-3">
-                {article.isDealSignal && (
-                  <button
-                    onClick={() => setCarouselOpen(true)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono tracking-wider border border-brand-gold/40 hover:border-brand-gold text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 transition-all cursor-pointer uppercase font-bold"
-                    title="Export LinkedIn Visual Carousel"
-                  >
-                    <Linkedin size={13} fill="currentColor" />
-                    <span className="hidden sm:inline">Export Carousel</span>
-                    <FileDown size={13} />
-                  </button>
-                )}
+                <button
+                  onClick={() => setCarouselOpen(true)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono tracking-wider border border-brand-gold/40 hover:border-brand-gold text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 transition-all cursor-pointer uppercase font-bold"
+                  title="Export LinkedIn Visual Carousel"
+                >
+                  <Linkedin size={13} fill="currentColor" />
+                  <span className="hidden sm:inline">Export Carousel</span>
+                  <FileDown size={13} />
+                </button>
 
                 <button
                   onClick={handleShare}
                   className={`p-1.5 sm:p-2 rounded-none transition-all cursor-pointer relative border ${
-                    darkMode ? 'text-white border-white/10 hover:border-brand-gold hover:text-brand-gold hover:bg-white/5' : 'text-brand-primary border-brand-charcoal/10 hover:border-brand-gold hover:text-brand-gold hover:bg-brand-primary/5'
+                    darkMode ? 'text-white border-white/10 hover:border-brand-gold hover:text-brand-gold hover:bg-white/5' : 'text-[#0B121E] border-slate-200 hover:border-brand-cobalt hover:text-brand-cobalt hover:bg-slate-50'
                   }`}
                   title="Copy Link to Article"
                 >
                   {copied ? <ClipboardCheck size={16} className="text-emerald-500 animate-pulse" /> : <Share2 size={16} />}
                   {copied && (
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-[10px] py-1 px-2 rounded-none tracking-widest whitespace-nowrap border border-white/10">
+                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[#0B121E] text-white text-[10px] py-1 px-2 rounded-none tracking-widest whitespace-nowrap border border-white/10">
                       LINK COPIED
                     </span>
                   )}
@@ -144,7 +142,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 <button
                   onClick={onClose}
                   className={`p-1.5 sm:p-2 rounded-none transition-all cursor-pointer border ${
-                    darkMode ? 'text-white border-white/10 hover:text-red-400 hover:border-red-400 hover:bg-white/5' : 'text-brand-primary border-brand-charcoal/10 hover:text-red-700 hover:border-red-700 hover:bg-brand-primary/5'
+                    darkMode ? 'text-white border-white/10 hover:text-red-400 hover:border-red-400 hover:bg-white/5' : 'text-[#0B121E] border-slate-200 hover:text-red-600 hover:border-red-300 hover:bg-red-50/50'
                   }`}
                   title="Close Reader"
                 >
@@ -155,7 +153,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
 
             {/* Reading progress bar */}
             <div className={`w-full h-[3px] relative overflow-hidden ${
-              darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'
+              darkMode ? 'bg-white/10' : 'bg-slate-100'
             }`}>
               <div 
                 className="h-full bg-brand-gold transition-all duration-100 ease-out"
@@ -171,7 +169,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
             <div className="lg:grid lg:grid-cols-12 lg:gap-10 items-start">
               {/* Sticky Sidebar on Left for PC */}
               <div className={`hidden lg:flex lg:col-span-4 h-fit sticky top-2 flex-col pr-6 border-r ${
-                darkMode ? 'border-white/10' : 'border-brand-charcoal/10'
+                darkMode ? 'border-white/10' : 'border-slate-200'
               } space-y-6 select-none`}>
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
@@ -366,28 +364,26 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
 
                 <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
 
-                {article.isDealSignal && (
-                  <div className={`p-4 border space-y-2.5 ${
-                    darkMode ? 'bg-[#061426] border-brand-gold/40' : 'bg-[#FAF6EE] border-[#EADBCC]'
-                  }`}>
-                    <div className="flex items-center gap-2">
-                      <Linkedin size={15} className="text-[#0A66C2]" />
-                      <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
-                        LinkedIn Carousel
-                      </span>
-                    </div>
-                    <p className={`text-[11px] font-sans leading-relaxed ${darkMode ? 'text-white/70' : 'text-brand-charcoal/80'}`}>
-                      Export 4-slide high-res PDF carousel with quote hooks & metrics.
-                    </p>
-                    <button
-                      onClick={() => setCarouselOpen(true)}
-                      className="w-full py-2 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                    >
-                      <FileDown size={13} />
-                      <span>Export Carousel PDF</span>
-                    </button>
+                <div className={`p-4 border space-y-2.5 ${
+                  darkMode ? 'bg-[#111C2E] border-brand-gold/40' : 'bg-blue-50/40 border-blue-200/60'
+                }`}>
+                  <div className="flex items-center gap-2">
+                    <Linkedin size={15} className="text-[#0A66C2]" />
+                    <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
+                      LinkedIn Carousel
+                    </span>
                   </div>
-                )}
+                  <p className={`text-[11px] font-sans leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                    Export 4-slide high-res PDF carousel with quote hooks & metrics.
+                  </p>
+                  <button
+                    onClick={() => setCarouselOpen(true)}
+                    className="w-full py-2 bg-brand-gold hover:bg-brand-gold-hover text-[#0B121E] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    <FileDown size={13} />
+                    <span>Export Carousel PDF</span>
+                  </button>
+                </div>
 
                 <div className="space-y-2 pt-1">
                   <button
@@ -395,7 +391,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     className={`w-full flex items-center justify-center gap-2 font-sans font-semibold tracking-wider text-xs py-2.5 border transition-all cursor-pointer uppercase ${
                       darkMode 
                         ? 'border-white/15 hover:border-brand-gold text-white hover:text-brand-gold bg-white/[0.02]' 
-                        : 'border-brand-charcoal/15 hover:border-brand-gold text-brand-charcoal hover:text-brand-gold bg-brand-charcoal/5'
+                        : 'border-slate-200 hover:border-brand-cobalt text-slate-700 hover:text-brand-cobalt bg-slate-50/50'
                     }`}
                   >
                     {copied ? <ClipboardCheck size={14} className="text-emerald-500" /> : <Share2 size={14} />}
@@ -405,8 +401,8 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     onClick={onClose}
                     className={`w-full text-center font-sans font-bold tracking-wider text-xs py-2.5 transition-all cursor-pointer uppercase ${
                       darkMode 
-                        ? 'bg-brand-gold hover:bg-brand-gold-hover text-brand-primary' 
-                        : 'bg-brand-charcoal hover:bg-brand-gold text-white hover:text-[#001B2A]'
+                        ? 'bg-brand-gold hover:bg-brand-gold-hover text-[#0B121E]' 
+                        : 'bg-[#0B121E] hover:bg-brand-cobalt text-white'
                     }`}
                   >
                     Finish Reading

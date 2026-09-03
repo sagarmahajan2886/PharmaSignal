@@ -45,6 +45,23 @@
     <link rel="apple-touch-icon" href="/images/favicon_1782373744378.jpg" />
     <script defer async src="https://cdn-reach.hostinger.com/js/embed.js"></script>
 
+    <!-- Theme Initialization: Defaults to Light Mode unless explicitly set to 'dark' by user -->
+    <script>
+      (function() {
+        try {
+          var userTheme = localStorage.getItem('pharmasignal_theme');
+          if (userTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.removeItem('pharmasignal_darkmode');
+          }
+        } catch (e) {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
     <!-- Structured Data (JSON-LD) for Google Knowledge Graph & Search Engine Authority -->
     <script type="application/ld+json">
     {

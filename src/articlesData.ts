@@ -15,6 +15,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '7 min read',
     date: 'June 17, 2026',
     featuredSummary: 'Why attractive opportunities lose momentum long before a decision is made.',
+    assetClass: 'Internal BD & Executive Governance',
+    dealStructure: 'Cross-Functional Decision Architecture',
+    geographicScope: 'Enterprise & Regional Commercial Affiliates',
+    imageUrl: '/images/approval_gap_header_1787913304979.jpg',
+    pharmaSignalRead: 'The distance between commercial attractiveness and organizational readiness is where momentum dies. Approval is not an event—it is the visible outcome of cross-functional alignment achieved upstream.',
+    useThisWhen: 'Deploy when attractive licensing or portfolio opportunities repeatedly stall during internal review despite high commercial interest.',
+    principleQuote: 'The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do.',
     content: `
       <p>Several years ago, our team identified what appeared to be an ideal in-licensing opportunity for Russia.</p>
       <p>The market was sizeable. Competition was limited. The commercial rationale was compelling. From a Business Development perspective, the opportunity appeared straightforward.</p>
@@ -106,6 +113,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '7 min read',
     date: 'June 24, 2026',
     featuredSummary: 'Over 70% of pharma deals suffer from post-signature value leakage. This is the story of how the transition from contract to market reality fails—and how to actively bridge the gap.',
+    assetClass: 'Post-Signature Alliance Transition',
+    dealStructure: 'Contract-to-Execution Transition Protocol',
+    geographicScope: 'Global Licensing & Launch Readiness',
+    imageUrl: '/images/execution_deficit_diagram_new_1782370523380.jpg',
+    pharmaSignalRead: 'A signed deal is not an executed deal. The movement from BD to regulatory, PMO, commercial and alliance teams is not an administrative handoff—it is a value-protection mechanism.',
+    useThisWhen: 'Deploy during term-sheet drafting and deal closing to protect forecasted deal value and establish accountable post-signing ownership.',
+    principleQuote: 'The signature matters, but the handover decides whether the forecast survives.',
     content: `
       <p>One of the first major BD deals our team worked on was for Brazil.</p>
       <p>It had almost everything a BD team wants to see. The product had been identified strategically. The commercial case was detailed. The forecast was attractive. The management presentation was strong. The agreement was negotiated carefully. By the time the deal was signed, it felt like one of the best closures the team had delivered.</p>
@@ -169,6 +183,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '7 min read',
     date: 'June 30, 2026',
     featuredSummary: 'Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.',
+    assetClass: 'Thesis-Led Business Development',
+    dealStructure: 'Upstream Opportunity Creation Framework',
+    geographicScope: 'Global In-Licensing & Emerging Markets',
+    imageUrl: '/images/opp_creation_flow_1785776955600.jpg',
+    pharmaSignalRead: 'Opportunity processing begins when an opportunity enters the pipeline. Opportunity creation begins before the pipeline exists, avoiding visibility compression and auction pricing.',
+    useThisWhen: 'Deploy to shift BD teams from reactive processing of circulated broker dossiers to high-conviction, proprietary opportunity origination.',
+    principleQuote: 'Strong BD teams do not merely evaluate what arrives; they shape advantage before the market prices it.',
     content: `
       <div id="intro">
         <h2>Why strong pharma BD teams do not only evaluate opportunities that arrive — they create advantage before the opportunity becomes visible to everyone else.</h2>
@@ -388,6 +409,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '8 min read',
     date: 'May 19, 2025',
     featuredSummary: 'The front pages of regulatory filings only cover signed alliances. But behind closed boardroom doors, over 70% of initiated licensing deals with binding term sheets fail to cross the finishing line. This is why.',
+    assetClass: 'Transaction Due Diligence & Structuring',
+    dealStructure: 'Pre-Signing Diligence & Safe-Harbor Architecture',
+    geographicScope: 'Cross-Border Biopharma Partnering',
+    imageUrl: '/images/innovent_spero_deal_1787913287919.jpg',
+    pharmaSignalRead: 'Deals fail before signing because diligence reveals CMC scale-up gaps, raw safety signals, and governance veto traps that term sheets ignore.',
+    useThisWhen: 'Deploy when navigating complex diligence phases to mitigate deal fatigue and prevent last-minute valuation collapses.',
+    principleQuote: 'Diligence should validate execution reality, not just defend the initial optimism of the pitch deck.',
     content: `
       <h2>The Silent Mortality of Late-Stage Alliances</h2>
       <p>Every year, billions of dollars of potential pharmaceutical value dissipate in the transition from signed Letters of Intent (LOI) to definitive licensing agreements. While regulatory headlines celebrate success, the reality is a story of heavy selection bias: the industry is haunted by the silent majority of transactions that collapse during the final leg of negotiations.</p>
@@ -429,6 +457,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '7 min read',
     date: 'May 18, 2025',
     featuredSummary: 'Pharma BD is obsessed with regulatory approval. But regulatory approval only gets an asset onto the market; evidence maturity is what gets payers to actually fund it. Failing to bridge this gap kills value.',
+    assetClass: 'Health Economics & Market Access Evidence',
+    dealStructure: 'Payer-Aligned Clinical Trial Milestones',
+    geographicScope: 'US & European Health Technology Access',
+    imageUrl: '/images/kaigene_taisho_japan_licensing.jpg',
+    pharmaSignalRead: 'Regulatory approval only gets a drug onto the market; evidence maturity gets payers to fund it. Value leaks when clinical trials only target regulatory surrogates.',
+    useThisWhen: 'Deploy when structuring clinical milestone payments and post-marketing trial commitments in specialty pharmaceutical licensing.',
+    principleQuote: 'Regulators test safety and efficacy; payers decide whether your revenue forecast becomes reality.',
     content: `
       <h2>The Paradox of Approved, Unfunded Drugs</h2>
       <p>In modern biopharma, bringing a breakthrough therapy to FDA or EMA approval is celebrated as the ultimate success. Yet, an alarming percentage of newly launched specialty medications achieve less than 20% of their projected peak sales in the first three years post-approval. The cause? Payton resistance due to an invisible <strong>Evidence Maturity Gap</strong>.</p>
@@ -459,6 +494,13 @@ export const EXPLAINERS_DATA: Article[] = [
     readTime: '6 min read',
     date: 'May 13, 2025',
     featuredSummary: 'Pharma leaders spend billions attempting to achieve a 2% improvement in drug efficacy. Yet, they lose double-digit percentage figures in commercial operations through poor territory structure. Here is how strategic design optimizes revenue.',
+    assetClass: 'Commercial Field Architecture',
+    dealStructure: 'Key Account & Institutional Territory Design',
+    geographicScope: 'Specialty & Hospital Prescription Networks',
+    imageUrl: '/images/bms_cellares_cart_1787913217672.jpg',
+    pharmaSignalRead: 'In specialty therapeutics, prescriptions concentrate in academic institutions and IDNs. Equal-share geographic territory models destroy EBITDA.',
+    useThisWhen: 'Deploy during pre-launch commercialization planning to optimize field force allocation and territory coverage.',
+    principleQuote: 'Territory structure is not an operational detail; it is a primary determinant of launch velocity.',
     content: `
       <h2>The Costly Neglect of Field Design</h2>
       <p>Pharma BD and licensing executives frequently fall in love with the molecule. They focus on receptor affinity, adverse event percentages, and formulation patents. Yet, when the drug reaches commercial launch, the strategic brilliance of the laboratory is often squandered on outdated sales territory structures that fail to locate high-prescribing target clinics.</p>
