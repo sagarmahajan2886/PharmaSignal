@@ -899,8 +899,257 @@ const alvotechSvg = `
 </svg>
 `;
 
+const hutchmedGskSvg = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" style="background:#071A2E;">
+  <defs>
+    <linearGradient id="bgGradHutchmed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071A2E"/>
+      <stop offset="100%" stop-color="#040E1B"/>
+    </linearGradient>
+    <linearGradient id="gskOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A38"/>
+      <stop offset="100%" stop-color="#E85310"/>
+    </linearGradient>
+    <linearGradient id="hutchmedBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A3C74"/>
+      <stop offset="100%" stop-color="#041F43"/>
+    </linearGradient>
+    <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#bgGradHutchmed)"/>
+
+  <!-- Outer Card Frame -->
+  <rect x="40" y="30" width="1120" height="615" fill="#061526" stroke="#D4AF37" stroke-width="2" stroke-opacity="0.35"/>
+
+  <!-- Top Editorial Header Bar -->
+  <text x="70" y="65" fill="#D4AF37" font-size="13" font-family="monospace" font-weight="700" letter-spacing="3">PHARMASIGNAL DEAL SIGNAL</text>
+  <text x="1130" y="65" fill="#38BDF8" font-size="13" font-family="monospace" font-weight="600" letter-spacing="2" text-anchor="end">DEAL STRUCTURING · HMPL-A830 (KRAS-EGFR)</text>
+  <line x1="40" y1="84" x2="1160" y2="84" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- ==================== TOP COUNTERPARTY LOGOS & CAPITAL ARROWS ==================== -->
+  
+  <!-- LEFT: HUTCHMED COMPANY LOGO CARD -->
+  <g transform="translate(70, 110)">
+    <rect width="280" height="150" rx="10" fill="url(#hutchmedBlueGrad)" stroke="#38BDF8" stroke-opacity="0.4" stroke-width="1.5"/>
+    
+    <!-- HUTCHMED Emblem Symbol -->
+    <g transform="translate(140, 52)">
+      <circle cx="0" cy="0" r="24" fill="#002244" stroke="#D4AF37" stroke-width="2"/>
+      <path d="M-10 -10 L10 10 M10 -10 L-10 10" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="6" fill="#D4AF37"/>
+    </g>
+    
+    <!-- HUTCHMED Official Wordmark -->
+    <text x="140" y="108" fill="#FFFFFF" font-size="24" font-family="sans-serif" font-weight="900" letter-spacing="2" text-anchor="middle">HUTCHMED</text>
+    <text x="140" y="132" fill="#D4AF37" font-size="11" font-family="monospace" font-weight="700" letter-spacing="1.5" text-anchor="middle">ORIGINATOR · CHINA</text>
+  </g>
+
+  <!-- CENTER TRANSACTION ARROWS: Capital & Asset Flow -->
+  <g transform="translate(370, 110)">
+    <!-- Upfront & Milestones Flow (GSK -> HUTCHMED: Right to Left) -->
+    <g transform="translate(0, 25)">
+      <line x1="440" y1="18" x2="20" y2="18" stroke="#D4AF37" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <polygon points="12,18 24,11 24,25" fill="#D4AF37"/>
+      <rect x="70" y="2" width="320" height="32" rx="16" fill="#0A1A2B" stroke="#D4AF37" stroke-width="1.5"/>
+      <text x="230" y="22" fill="#D4AF37" font-size="12" font-family="monospace" font-weight="800" letter-spacing="1" text-anchor="middle">◀  $110M UPFRONT + $1.185B MILESTONES</text>
+    </g>
+
+    <!-- License & Rights Flow (HUTCHMED -> GSK: Left to Right) -->
+    <g transform="translate(0, 85)">
+      <line x1="20" y1="18" x2="440" y2="18" stroke="#38BDF8" stroke-width="2.5"/>
+      <polygon points="448,18 436,11 436,25" fill="#38BDF8"/>
+      <rect x="70" y="2" width="320" height="32" rx="16" fill="#0A1A2B" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="230" y="22" fill="#38BDF8" font-size="12" font-family="monospace" font-weight="800" letter-spacing="1" text-anchor="middle">HMPL-A830 EX-CHINA RIGHTS  ▶</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: GSK COMPANY LOGO CARD -->
+  <g transform="translate(850, 110)">
+    <rect width="280" height="150" rx="10" fill="#0A1A2B" stroke="#FF7A38" stroke-opacity="0.4" stroke-width="1.5"/>
+    
+    <!-- GSK Iconic Orange Shield Logo -->
+    <g transform="translate(140, 52)">
+      <rect x="-36" y="-22" width="72" height="44" rx="12" fill="url(#gskOrangeGrad)"/>
+      <text x="0" y="9" fill="#FFFFFF" font-size="24" font-family="sans-serif" font-weight="900" letter-spacing="-0.5" text-anchor="middle">gsk</text>
+    </g>
+    
+    <!-- GSK Subtitle -->
+    <text x="140" y="108" fill="#FFFFFF" font-size="20" font-family="sans-serif" font-weight="800" letter-spacing="1" text-anchor="middle">GSK</text>
+    <text x="140" y="132" fill="#FF7A38" font-size="11" font-family="monospace" font-weight="700" letter-spacing="1.5" text-anchor="middle">GLOBAL PARTNER</text>
+  </g>
+
+  <!-- SECTION DIVIDER -->
+  <line x1="70" y1="285" x2="1130" y2="285" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- ==================== THREE BOUNDARY TRANSACTION ARROWS & SYMBOLS ==================== -->
+  
+  <!-- LAYER 01: TERRITORY CARVE-OUT (SYMBOLS + BOUNDARY DIVIDER) -->
+  <g transform="translate(70, 305)">
+    <rect width="1060" height="66" rx="8" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2"/>
+    
+    <!-- Left Entity / Territory Symbol -->
+    <g transform="translate(30, 20)">
+      <circle cx="13" cy="13" r="13" fill="#D4AF37" fill-opacity="0.15" stroke="#D4AF37" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#D4AF37" font-size="13" font-family="sans-serif" font-weight="900" text-anchor="middle">🇨🇳</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">HUTCHMED: GREATER CHINA</text>
+    </g>
+
+    <!-- Center Carve-Out Symbol / Divider -->
+    <g transform="translate(530, 33)">
+      <rect x="-140" y="-18" width="280" height="36" rx="6" fill="#0A1A2B" stroke="#D4AF37" stroke-width="1.5"/>
+      <text x="0" y="5" fill="#D4AF37" font-size="12" font-family="monospace" font-weight="800" letter-spacing="1.5" text-anchor="middle">⇥  TERRITORIAL CARVE-OUT  ⇤</text>
+    </g>
+
+    <!-- Right Entity / Territory Symbol -->
+    <g transform="translate(750, 20)">
+      <circle cx="13" cy="13" r="13" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#38BDF8" font-size="13" font-family="sans-serif" font-weight="900" text-anchor="middle">🌐</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">GSK: REST OF WORLD</text>
+    </g>
+  </g>
+
+  <!-- LAYER 02: DEVELOPMENT HANDOVER (ARROW + PROGRESSION SYMBOL) -->
+  <g transform="translate(70, 388)">
+    <rect width="1060" height="66" rx="8" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2"/>
+    
+    <!-- Left: Global Phase I -->
+    <g transform="translate(30, 20)">
+      <circle cx="13" cy="13" r="13" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#38BDF8" font-size="12" font-family="monospace" font-weight="900" text-anchor="middle">I</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">GLOBAL PHASE I (HUTCHMED)</text>
+    </g>
+
+    <!-- Center Handover Arrow -->
+    <g transform="translate(530, 33)">
+      <line x1="-150" y1="0" x2="140" y2="0" stroke="#38BDF8" stroke-width="2.5"/>
+      <polygon points="148,0 136,-7 136,7" fill="#38BDF8"/>
+      <rect x="-85" y="-16" width="170" height="32" rx="6" fill="#0A1A2B" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="0" y="5" fill="#38BDF8" font-size="12" font-family="monospace" font-weight="800" letter-spacing="1.5" text-anchor="middle">── HANDOVER ──▶</text>
+    </g>
+
+    <!-- Right: Subsequent Dev to GSK -->
+    <g transform="translate(750, 20)">
+      <circle cx="13" cy="13" r="13" fill="#38BDF8" fill-opacity="0.15" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#38BDF8" font-size="11" font-family="monospace" font-weight="900" text-anchor="middle">II/III</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">SUBSEQUENT DEV &amp; COMM (GSK)</text>
+    </g>
+  </g>
+
+  <!-- LAYER 03: FUTURE ASSET ACCESS (ROFN ARROW & NEGOTIATION SYMBOL) -->
+  <g transform="translate(70, 471)">
+    <rect width="1060" height="66" rx="8" fill="#FFFFFF" fill-opacity="0.03" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="1.2"/>
+    
+    <!-- Left: Earlier ATTC Asset -->
+    <g transform="translate(30, 20)">
+      <circle cx="13" cy="13" r="13" fill="#00C49F" fill-opacity="0.15" stroke="#00C49F" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#00C49F" font-size="12" font-family="monospace" font-weight="900" text-anchor="middle">🎯</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">EARLIER ATTC ASSET (1 CANDIDATE)</text>
+    </g>
+
+    <!-- Center ROFN Arrow -->
+    <g transform="translate(530, 33)">
+      <line x1="-150" y1="0" x2="140" y2="0" stroke="#00C49F" stroke-width="2.5" stroke-dasharray="6 3"/>
+      <polygon points="148,0 136,-7 136,7" fill="#00C49F"/>
+      <rect x="-85" y="-16" width="170" height="32" rx="6" fill="#0A1A2B" stroke="#00C49F" stroke-width="1.5"/>
+      <text x="0" y="5" fill="#00C49F" font-size="12" font-family="monospace" font-weight="800" letter-spacing="1.5" text-anchor="middle">─── ROFN ───▶</text>
+    </g>
+
+    <!-- Right: Negotiating Right -->
+    <g transform="translate(750, 20)">
+      <circle cx="13" cy="13" r="13" fill="#00C49F" fill-opacity="0.15" stroke="#00C49F" stroke-width="1.5"/>
+      <text x="13" y="18" fill="#00C49F" font-size="12" font-family="monospace" font-weight="900" text-anchor="middle">⚖</text>
+      <text x="40" y="18" fill="#FFFFFF" font-size="15" font-family="sans-serif" font-weight="800">TIME-BOUND NEGOTIATING RIGHT</text>
+    </g>
+  </g>
+
+  <!-- ==================== BOTTOM PRINCIPLE BANNER ==================== -->
+  <g transform="translate(70, 560)">
+    <rect width="1060" height="60" rx="8" fill="#0D243A" stroke="#D4AF37" stroke-width="1.5"/>
+    <text x="530" y="26" fill="#D4AF37" font-size="14" font-family="monospace" font-weight="900" letter-spacing="2" text-anchor="middle">RIGHTS ≠ RESPONSIBILITIES ≠ FUTURE ACCESS</text>
+    <text x="530" y="47" fill="#CBD5E1" font-size="12" font-family="sans-serif" text-anchor="middle">Territory Carve-Out  │  Staged Responsibility Handover  │  Right of First Negotiation (ROFN)</text>
+  </g>
+</svg>
+`;
+
+function createLightModeSvg(darkSvg: string): string {
+  let light = darkSvg;
+
+  // Background and gradients
+  light = light.replace(/style="background:#071A2E;/g, 'style="background:#F8FAFC;');
+  light = light.replace(/stop-color="#071A2E"/g, 'stop-color="#F8FAFC"');
+  light = light.replace(/stop-color="#040E1B"/g, 'stop-color="#EDF2F7"');
+
+  // Outer frames and card background fills
+  light = light.replace(/fill="#061526"/g, 'fill="#FFFFFF"');
+  light = light.replace(/fill="#071A2E"/g, 'fill="#F8FAFC"');
+  light = light.replace(/fill="#09182B"/g, 'fill="#F1F5F9"');
+  light = light.replace(/fill="#0B1F38"/g, 'fill="#F8FAFC"');
+  light = light.replace(/fill="#0B121E"/g, 'fill="#FFFFFF"');
+  light = light.replace(/fill="#060B12"/g, 'fill="#FFFFFF"');
+  light = light.replace(/fill="#0A1A2B"/g, 'fill="#F8FAFC"');
+  light = light.replace(/fill="#0D243A"/g, 'fill="#F1F5F9"');
+  light = light.replace(/fill="#002D62"/g, 'fill="#E0F2FE"');
+
+  // Box rects
+  light = light.replace(/fill="#FFFFFF" fill-opacity="0.04"/g, 'fill="#F8FAFC" fill-opacity="1"');
+  light = light.replace(/fill="#FFFFFF" fill-opacity="0.03"/g, 'fill="#F8FAFC" fill-opacity="1"');
+  light = light.replace(/fill="#FFFFFF" fill-opacity="0.05"/g, 'fill="#F8FAFC" fill-opacity="1"');
+
+  // Grid lines & subtle borders
+  light = light.replace(/stroke="#FFFFFF" stroke-opacity="0.15"/g, 'stroke="#CBD5E1" stroke-opacity="1"');
+  light = light.replace(/stroke="#FFFFFF" stroke-opacity="0.1"/g, 'stroke="#E2E8F0" stroke-opacity="1"');
+  light = light.replace(/stroke="#1E3A5F"/g, 'stroke="#CBD5E1"');
+  light = light.replace(/stroke="#1E3A55"/g, 'stroke="#CBD5E1"');
+  light = light.replace(/stroke="#D4AF37" stroke-opacity="0.4"/g, 'stroke="#C5A059" stroke-opacity="0.7"');
+  light = light.replace(/stroke="#D4AF37" stroke-opacity="0.3"/g, 'stroke="#C5A059" stroke-opacity="0.6"');
+
+  // Badge backgrounds
+  light = light.replace(/fill="#D4AF37" fill-opacity="0.1"/g, 'fill="#C5A059" fill-opacity="0.18"');
+
+  // High contrast text adjustments for light canvas
+  light = light.replace(/fill="#FFFFFF"/g, 'fill="#061426"');
+  light = light.replace(/fill="#F8FAFC"/g, 'fill="#061426"');
+  light = light.replace(/fill="#E2E8F0"/g, 'fill="#1E293B"');
+  light = light.replace(/fill="#94A3B8"/g, 'fill="#475569"');
+  light = light.replace(/fill="#64748B"/g, 'fill="#475569"');
+  light = light.replace(/fill="#CBD5E1"/g, 'fill="#334155"');
+
+  // Restore white text inside solid colored badges/buttons if needed
+  // e.g. Roche logo text:
+  light = light.replace(/(<polygon points="[^"]*" fill="#0066CC"[^>]*\/>\s*<text[^>]*fill=")#061426(")/g, '$1#FFFFFF$2');
+
+  // Gold text contrast adjustment for light background
+  light = light.replace(/fill="#D4AF37"/g, 'fill="#967126"');
+
+  // Cyan and bright green adjustments for light background readability
+  light = light.replace(/fill="#38BDF8"/g, 'fill="#0284C7"');
+  light = light.replace(/fill="#00C49F"/g, 'fill="#059669"');
+  light = light.replace(/fill="#00E5FF"/g, 'fill="#0284C7"');
+  light = light.replace(/fill="#FB7185"/g, 'fill="#E11D48"');
+  light = light.replace(/stroke="#38BDF8"/g, 'stroke="#0284C7"');
+  light = light.replace(/stroke="#00C49F"/g, 'stroke="#059669"');
+
+  // Gradient adjustments for specific logo cards
+  light = light.replace(/stop-color="#0A3C74"/g, 'stop-color="#E0F2FE"');
+  light = light.replace(/stop-color="#041F43"/g, 'stop-color="#BAE6FD"');
+
+  // Preserve white text in GSK orange shield
+  light = light.replace(/(<rect[^>]*fill="url\(#gskOrangeGrad\)"[^>]*\/>\s*<text[^>]*fill=")#061426(")/g, '$1#FFFFFF$2');
+
+  return light;
+}
+
 async function generateAll() {
-  console.log('Generating high-resolution deal card images...');
+  console.log('Generating high-resolution deal card images (dark & light modes)...');
 
   const items = [
     { name: 'roche_alnylam_rnai_expansion.jpg', svg: rocheAlnylamSvg },
@@ -913,18 +1162,29 @@ async function generateAll() {
     { name: 'merck_alimatravir_access.jpg', svg: merckSvg },
     { name: 'approval_gap_header_1787913304979.jpg', svg: approvalGapSvg },
     { name: 'haisco_sentivera_newco_1787913400000.jpg', svg: haiscoSvg },
-    { name: 'alvotech_lotus_selective_ownership_1787913500000.jpg', svg: alvotechSvg }
+    { name: 'alvotech_lotus_selective_ownership_1787913500000.jpg', svg: alvotechSvg },
+    { name: 'hutchmed_gsk_three_boundaries_deal_signal.jpg', svg: hutchmedGskSvg }
   ];
 
   for (const item of items) {
-    const dest = path.join(OUTPUT_DIR, item.name);
+    // 1. Dark Mode
+    const destDark = path.join(OUTPUT_DIR, item.name);
     await sharp(Buffer.from(item.svg))
       .jpeg({ quality: 95 })
-      .toFile(dest);
-    console.log(`✓ Generated: ${item.name}`);
+      .toFile(destDark);
+    console.log(`✓ Generated Dark: ${item.name}`);
+
+    // 2. Light Mode
+    const lightName = item.name.replace(/\.jpg$/, '_light.jpg');
+    const destLight = path.join(OUTPUT_DIR, lightName);
+    const lightSvg = createLightModeSvg(item.svg);
+    await sharp(Buffer.from(lightSvg))
+      .jpeg({ quality: 95 })
+      .toFile(destLight);
+    console.log(`✓ Generated Light: ${lightName}`);
   }
 
-  console.log('All deal signal card images successfully updated!');
+  console.log('All dark and light deal signal card images successfully updated!');
 }
 
 generateAll().catch(err => {

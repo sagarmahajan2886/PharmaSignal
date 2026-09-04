@@ -9,6 +9,8 @@ import { SKBiopharmBiohavenDiagram } from './SKBiopharmBiohavenDiagram';
 import { AurigeneTechTransferDiagram } from './AurigeneTechTransferDiagram';
 import { BMSCellaresScaleDiagram } from './BMSCellaresScaleDiagram';
 import LinkedInCarouselModal from './LinkedInCarouselModal';
+import SuggestDealModal from './SuggestDealModal';
+import ExecutiveBriefingBox from './ExecutiveBriefingBox';
 // @ts-ignore
 import executionDeficitImg from '../assets/images/execution_deficit_diagram_new_1782370523380.jpg';
 
@@ -23,6 +25,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [carouselOpen, setCarouselOpen] = useState(false);
+  const [suggestModalOpen, setSuggestModalOpen] = useState(false);
 
   // Lock body scroll and sync URL when reading is active
   useEffect(() => {
@@ -1858,11 +1861,20 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 </span>
 
                 {/* Title */}
-                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-6 ${
+                <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-2 sm:mb-3 ${
                   darkMode ? 'text-white' : 'text-brand-primary'
                 }`}>
                   {article.title}
                 </h1>
+
+                {/* Subtitle */}
+                {article.subtitle && (
+                  <p className={`font-sans text-base sm:text-xl font-normal leading-relaxed mb-4 sm:mb-6 ${
+                    darkMode ? 'text-white/80' : 'text-brand-charcoal/80'
+                  }`}>
+                    {article.subtitle}
+                  </p>
+                )}
 
                 {/* Author / Date Meta Strip */}
                 <div className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-2 sm:py-4 mb-4 sm:mb-6 text-[11px] sm:text-xs font-mono ${
@@ -1883,15 +1895,17 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 </div>
 
                 {/* Article Thumbnail Image if available */}
-                {article.imageUrl && (
-                  <div className="my-6 w-full overflow-hidden border border-brand-gold/30 rounded-none bg-brand-deep">
+                {(article.imageUrl || article.imageUrlLight || article.imageUrlDark) && (
+                  <div className={`my-6 w-full overflow-hidden border rounded-none shadow-xs ${
+                    darkMode ? 'border-brand-gold/30 bg-[#0A1A2B]' : 'border-slate-200 bg-slate-50'
+                  }`}>
                     <img 
-                      src={article.imageUrl} 
+                      src={darkMode ? (article.imageUrlDark || article.imageUrl) : (article.imageUrlLight || article.imageUrl)} 
                       alt={article.title}
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
-                      className="w-full h-auto object-cover max-h-[420px]"
+                      className="w-full h-auto object-cover max-h-[460px] mx-auto"
                     />
                   </div>
                 )}
@@ -1995,6 +2009,39 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     {article.sourceNote}
                   </p>
                 )}
+
+                {/* Executive Utility CTAs */}
+                <div className="my-10 space-y-6">
+                  {/* A. Suggest a Deal Signal (for Deal Signals) */}
+                  {article.isDealSignal && (
+                    <div className={`p-6 border text-left rounded-none ${
+                      darkMode ? 'bg-[#0D243A] border-[#1E3A55]' : 'bg-[#F8FAFC] border-slate-200'
+                    }`}>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-semibold text-[#C5A059] block mb-1">
+                        DEAL DESK PIPELINE
+                      </span>
+                      <h4 className={`font-serif text-[20px] font-bold ${darkMode ? 'text-white' : 'text-[#061426]'}`}>
+                        Suggest a Deal Signal
+                      </h4>
+                      <p className={`font-sans text-[14px] leading-relaxed mt-1 mb-4 ${
+                        darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
+                      }`}>
+                        Seen a pharma deal, licensing structure or partnership worth deconstructing? Send it to the PharmaSignal Deal Desk.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setSuggestModalOpen(true)}
+                        className="px-4 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-[11.5px] font-bold tracking-widest uppercase transition-all flex items-center gap-1.5 cursor-pointer rounded-none"
+                      >
+                        <span>Suggest a Deal Signal</span>
+                        <ArrowRight size={12} />
+                      </button>
+                    </div>
+                  )}
+
+                  {/* B. The PharmaSignal Briefing */}
+                  <ExecutiveBriefingBox darkMode={darkMode} compact={true} />
+                </div>
               </>
             )}
 
@@ -2030,6 +2077,13 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
           darkMode={darkMode}
         />
       )}
+
+      {/* Suggest a Deal Signal Modal */}
+      <SuggestDealModal
+        isOpen={suggestModalOpen}
+        onClose={() => setSuggestModalOpen(false)}
+        darkMode={darkMode}
+      />
     </div>
   );
 }

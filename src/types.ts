@@ -7,6 +7,7 @@ export interface Article {
   id: string;
   category: string;
   title: string;
+  subtitle?: string;
   description: string;
   meta: string;
   author: string;
@@ -26,6 +27,8 @@ export interface Article {
   tags?: string[];
   sourceNote?: string;
   imageUrl?: string;
+  imageUrlLight?: string;
+  imageUrlDark?: string;
   shortTitle?: string;
   assetClass?: string;
   dealStructure?: string;

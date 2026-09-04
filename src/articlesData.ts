@@ -19,6 +19,8 @@ export const EXPLAINERS_DATA: Article[] = [
     dealStructure: 'Cross-Functional Decision Architecture',
     geographicScope: 'Enterprise & Regional Commercial Affiliates',
     imageUrl: '/images/approval_gap_header_1787913304979.jpg',
+    imageUrlDark: '/images/approval_gap_header_1787913304979.jpg',
+    imageUrlLight: '/images/approval_gap_header_1787913304979_light.jpg',
     pharmaSignalRead: 'The distance between commercial attractiveness and organizational readiness is where momentum dies. Approval is not an event—it is the visible outcome of cross-functional alignment achieved upstream.',
     useThisWhen: 'Deploy when attractive licensing or portfolio opportunities repeatedly stall during internal review despite high commercial interest.',
     principleQuote: 'The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do.',
@@ -498,6 +500,8 @@ export const EXPLAINERS_DATA: Article[] = [
     dealStructure: 'Key Account & Institutional Territory Design',
     geographicScope: 'Specialty & Hospital Prescription Networks',
     imageUrl: '/images/bms_cellares_cart_1787913217672.jpg',
+    imageUrlDark: '/images/bms_cellares_cart_1787913217672.jpg',
+    imageUrlLight: '/images/bms_cellares_cart_1787913217672_light.jpg',
     pharmaSignalRead: 'In specialty therapeutics, prescriptions concentrate in academic institutions and IDNs. Equal-share geographic territory models destroy EBITDA.',
     useThisWhen: 'Deploy during pre-launch commercialization planning to optimize field force allocation and territory coverage.',
     principleQuote: 'Territory structure is not an operational detail; it is a primary determinant of launch velocity.',
@@ -525,6 +529,63 @@ export const EXPLAINERS_DATA: Article[] = [
 
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
+    id: 'hutchmed-gsk-deal-structure-hmpl-a830',
+    category: 'DEAL SIGNAL',
+    title: 'How HUTCHMED Structured the GSK Deal for HMPL-A830',
+    shortTitle: 'HUTCHMED & GSK: One Deal, Three Boundaries',
+    subtitle: 'One agreement. Three boundaries: territory, development responsibility and future asset access.',
+    description: 'One licensing agreement, three separately defined boundaries: territory, development responsibility and future asset access. The structure shows why good deals do not treat every right as one package.',
+    featuredSummary: 'One licensing agreement, three separately defined boundaries: territory, development responsibility and future asset access. The structure shows why good deals do not treat every right as one package.',
+    meta: '2 MIN READ · SEP 03, 2026',
+    author: 'PharmaSignal Deal Desk',
+    readTime: '2 min read',
+    date: 'September 3, 2026',
+    isDealSignal: true,
+    mechanism: 'Deal Structuring',
+    assetClass: 'KRAS-EGFR Antibody-Targeted Therapy Conjugate (ATTC)',
+    dealStructure: 'Territorial Carve-Out + Staged Transfer + ROFN',
+    geographicScope: 'Greater China Retained / Rest of World to GSK',
+    imageUrl: '/images/hutchmed_gsk_three_boundaries_deal_signal.jpg',
+    imageUrlDark: '/images/hutchmed_gsk_three_boundaries_deal_signal.jpg',
+    imageUrlLight: '/images/hutchmed_gsk_three_boundaries_deal_signal_light.jpg',
+    pharmaSignalTake: 'Territory is carved out.\n\nDevelopment responsibility has a defined handover.\n\nFuture access is negotiated — not automatically granted.',
+    pharmaSignalRead: 'First: define where control sits. HUTCHMED retains Greater China while GSK receives rights elsewhere. Second: define when accountability moves. HUTCHMED runs global Phase I; GSK takes subsequent development outside the retained territory. Third: define what happens next. GSK gets a negotiating right on one earlier asset — not blanket access to HUTCHMED\'s ATTC platform. That distinction matters. A partner can have broader rights in one dimension without automatically receiving broader rights in another. The remaining execution risk sits in provisions not publicly visible: governance, transition triggers, cost allocation and decision rights.',
+    useThisWhen: 'Assessing complex multi-territory cross-border licensing transactions where originators want to retain domestic sovereignty, manage initial Phase I clinical execution, and protect future platform pipeline optionality without granting blanket asset access.',
+    principleQuote: 'Good deal structuring gives each right, responsibility and future option a boundary that matches the partners\' capabilities and ambitions.',
+    sourceNote: 'HUTCHMED (China) Limited, 3 September 2026.',
+    sourceUrl: 'https://www.hutch-med.com/hutchmed-gsk-licensing-agreement-kras-egfr-attc/',
+    sourceLabel: 'HUTCHMED (China) Limited, 3 September 2026.',
+    linkedExplainers: [
+      { id: 'rights-responsibility-architecture', title: 'Rights & Responsibility Architecture' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['DEAL SIGNAL', 'HUTCHMED', 'GSK', 'DEAL STRUCTURING', 'TERRITORIAL CARVE-OUT', 'STAGED RESPONSIBILITY', 'ROFN', 'ATTC', 'ONCOLOGY', 'LICENSING'],
+    content: `
+      <h2>Deal Signal</h2>
+      <p>HUTCHMED granted GSK worldwide development and commercialization rights to HMPL-A830 excluding Mainland China, Hong Kong, Macau and Taiwan. HUTCHMED receives $110 million upfront, up to $1.185 billion in additional milestones and tiered royalties. HUTCHMED leads global Phase I before GSK assumes subsequent ex-Greater-China development and commercialization. GSK also receives a right of first negotiation on one earlier-stage ATTC candidate.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Long-term licensing relationships create grey areas when rights, responsibilities and future access are treated as one negotiation.</p>
+      <p>This deal separates them. Geography is handled through a territorial carve-out. Development responsibility changes at a defined stage. Future platform access is addressed through a ROFN rather than an automatic license.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p><strong>First: define where control sits.</strong> HUTCHMED retains Greater China while GSK receives rights elsewhere.</p>
+      <p><strong>Second: define when accountability moves.</strong> HUTCHMED runs global Phase I; GSK takes subsequent development outside the retained territory.</p>
+      <p><strong>Third: define what happens next.</strong> GSK gets a negotiating right on one earlier asset — not blanket access to HUTCHMED's ATTC platform.</p>
+      <p>That distinction matters. A partner can have broader rights in one dimension without automatically receiving broader rights in another.</p>
+      <p>The remaining execution risk sits in provisions not publicly visible: governance, transition triggers, cost allocation and decision rights.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>Good deal structuring gives each right, responsibility and future option a boundary that matches the partners' capabilities and ambitions.</p>
+      </blockquote>
+
+      <h2>Source</h2>
+      <p>HUTCHMED (China) Limited, 3 September 2026.</p>
+    `
+  },
+  {
     id: 'alvotech-lotus-selective-commercial-ownership',
     category: 'DEAL SIGNAL',
     title: 'Alvotech Does Not License Every Market the Same Way',
@@ -540,6 +601,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     dealStructure: 'Semi-Exclusive US Co-Comm / Exclusive Asia License',
     geographicScope: 'US & 8 APAC Markets (ex-Japan/China)',
     imageUrl: '/images/alvotech_lotus_selective_ownership_1787913500000.jpg',
+    imageUrlDark: '/images/alvotech_lotus_selective_ownership_1787913500000.jpg',
+    imageUrlLight: '/images/alvotech_lotus_selective_ownership_1787913500000_light.jpg',
     pharmaSignalRead: 'Mechanism: Selective Commercial Ownership. Alvotech simultaneously delegates commercialization where partners add regional capability and retains direct participation where greater ownership of economics has become strategically worthwhile.',
     useThisWhen: 'Determining geographic licensing structures where the originator’s operating capabilities have matured, allowing direct participation in major commercial markets while leveraging specialist partner infrastructure in regional territories.',
     linkedExplainers: [
@@ -646,6 +709,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     dealStructure: 'Newco Formation + Equity + $1.46B Milestones',
     geographicScope: 'Global Ex-Greater China',
     imageUrl: '/images/haisco_sentivera_newco_1787913400000.jpg',
+    imageUrlDark: '/images/haisco_sentivera_newco_1787913400000.jpg',
+    imageUrlLight: '/images/haisco_sentivera_newco_1787913400000_light.jpg',
     pharmaSignalRead: 'Mechanism: Opportunity Creation through Newco Architecture. When the optimal strategic buyer does not exist in the open market, assembling dedicated capital, specialist leadership, and global rights into a newly formed vehicle unlocks higher risk-adjusted valuation and equity upside.',
     useThisWhen: 'An asset lacks an obvious direct strategic acquirer, the originator seeks to preserve domestic market sovereignty, and specialist venture capital can engineer an execution vehicle around the molecule.',
     linkedExplainers: [
@@ -750,6 +815,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     dealStructure: 'Option Trigger ($310M) + US 50/50 Profit Share',
     geographicScope: 'Global (Roche) / US Co-Commercialization',
     imageUrl: '/images/roche_alnylam_rnai_expansion.jpg',
+    imageUrlDark: '/images/roche_alnylam_rnai_expansion.jpg',
+    imageUrlLight: '/images/roche_alnylam_rnai_expansion_light.jpg',
     pharmaSignalRead: 'Mechanism: Option Trigger via Phase IIb Endpoint Clearance. In biopharma licensing, tiered option exercise windows reduce early capital exposure while securing global rights before competitive bidding starts.',
     useThisWhen: 'Designing staged licensing rights where commercial options are tied to defined registrational endpoints rather than fixed calendar schedules.',
     linkedExplainers: [
@@ -874,6 +941,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     dealStructure: 'Exclusive Territorial License ($5M Upfront + Milestones)',
     geographicScope: 'Japan Only (Kaigene Retains Ex-Japan)',
     imageUrl: '/images/kaigene_taisho_japan_licensing.jpg',
+    imageUrlDark: '/images/kaigene_taisho_japan_licensing.jpg',
+    imageUrlLight: '/images/kaigene_taisho_japan_licensing_light.jpg',
     pharmaSignalRead: 'Territorial De-Risking Through Local Capability. Japan is not simply another country in a global development plan. It can require locally acceptable clinical evidence, territory-specific regulatory engagement, established specialist relationships, pricing and reimbursement execution, and post-approval commercial infrastructure. A small biotech could retain Japan and preserve more theoretical upside. But retaining rights without local execution capability can create an Execution Deficit. Taisho’s role therefore goes beyond market access. It assumes development-to-commercialization accountability inside the territory.',
     useThisWhen: 'Evaluating whether to retain or license a strategically complex territory where local development, regulatory and commercialization capability materially affects value realization. Use this signal when assessing: (1) whether to retain or license a complex territory; (2) when a country-specific partner should control clinical development; (3) how territorial licensing preserves global optionality; (4) whether milestones adequately compensate for lost territory control; (5) how global and local development responsibilities should be governed.',
     content: `
@@ -922,6 +991,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     dealStructure: '7 Pre-Approval Royalty-Free Voluntary Licenses',
     geographicScope: '129 Low- & Middle-Income Countries (LMICs)',
     imageUrl: '/images/merck_alimatravir_access.jpg',
+    imageUrlDark: '/images/merck_alimatravir_access.jpg',
+    imageUrlLight: '/images/merck_alimatravir_access_light.jpg',
     pharmaSignalRead: 'Market Access Before Approval. The conventional sequence is: Clinical success → approval → licensing → generic development → registration → supply. Merck is partially overlapping these activities: Clinical development + voluntary licensing + manufacturing preparation + access planning. This potentially reduces the future Execution Deficit between regulatory approval and real market availability.',
     useThisWhen: 'Evaluating whether access, licensing, manufacturing and regulatory preparation should begin before approval rather than after it. Assessing: (1) when access and generic licensing should begin; (2) whether manufacturing partners can be selected before approval; (3) how regulatory and supply activities can run in parallel; (4) whether a global-access commitment has an executable operating model; (5) how to reduce the approval-to-availability gap in emerging markets.',
     content: `
@@ -974,6 +1045,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     geographicScope: 'Global Ex-Greater China',
     mechanism: 'Territory-to-Execution Transfer',
     imageUrl: '/images/innovent_spero_deal_1787913287919.jpg',
+    imageUrlDark: '/images/innovent_spero_deal_1787913287919.jpg',
+    imageUrlLight: '/images/innovent_spero_deal_1787913287919_light.jpg',
     pharmaSignalTake: 'This is a Territory-to-Execution Transfer deal.\n\nInnovent assigned research, development, manufacturing and commercialization responsibility outside Greater China.\n\nThe BD question is whether execution capability transfers as cleanly as contractual rights.',
     useThisWhen: 'Assessing cross-border licensing transactions where research, development, manufacturing and commercialization accountability are transferred alongside territorial rights.',
     content: `
@@ -1021,6 +1094,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     geographicScope: 'Global Discovery Target Rights',
     mechanism: 'Capability-Led Opportunity Creation',
     imageUrl: '/images/gsk_relation_ai_1787913259639.jpg',
+    imageUrlDark: '/images/gsk_relation_ai_1787913259639.jpg',
+    imageUrlLight: '/images/gsk_relation_ai_1787913259639_light.jpg',
     pharmaSignalTake: 'This is a Capability-Led Opportunity Creation deal.\n\nRelation will generate biological datasets that may produce new drug targets for GSK.\n\nThe BD question is who controls the opportunity after the evidence becomes valuable.',
     sourceUrl: 'https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/',
     sourceLabel: 'Reuters, July 30, 2026.',
@@ -1063,6 +1138,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     geographicScope: 'Worldwide Global Rights',
     mechanism: 'Commercial Infrastructure as Acquisition Advantage',
     imageUrl: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
+    imageUrlDark: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
+    imageUrlLight: '/images/sk_biopharm_kv7_deal_1787913184804_light.jpg',
     pharmaSignalTake: 'This is a Commercial Infrastructure as Acquisition Advantage transaction.\n\nSK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform.\n\nThe BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.',
     sourceUrl: 'https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global',
     sourceLabel: 'Biohaven Investor Relations, August 26, 2026.',
@@ -1105,6 +1182,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     geographicScope: 'US, Europe, Canada & Emerging Markets',
     mechanism: 'Tech-Transfer as Portfolio Architecture',
     imageUrl: '/images/aurigene_tech_transfer_1787913237947.jpg',
+    imageUrlDark: '/images/aurigene_tech_transfer_1787913237947.jpg',
+    imageUrlLight: '/images/aurigene_tech_transfer_1787913237947_light.jpg',
     pharmaSignalTake: 'This is a Tech-Transfer as Portfolio Architecture partnership.\n\nAurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals.\n\nThe BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.',
     sourceUrl: 'https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html',
     sourceLabel: 'BioSpectrum India, August 2026.',
@@ -1147,6 +1226,8 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     geographicScope: 'Global Commercial Supply',
     mechanism: 'Clinical vs. Commercial Scale Constraint',
     imageUrl: '/images/bms_cellares_cart_1787913217672.jpg',
+    imageUrlDark: '/images/bms_cellares_cart_1787913217672.jpg',
+    imageUrlLight: '/images/bms_cellares_cart_1787913217672_light.jpg',
     pharmaSignalTake: 'This is a Clinical vs. Commercial Scale Constraint event.\n\nBristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing.\n\nThe BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.',
     sourceUrl: 'https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/',
     sourceLabel: 'Reuters, August 25, 2026.',

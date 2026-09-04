@@ -2,16 +2,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: #0B121E;
-  --color-brand-deep: #060B12;
-  --color-brand-surface-dark: #0E1726;
-  --color-brand-surface-light: #FFFFFF;
-  --color-brand-paper: #FBFBFC;
-  --color-brand-paper-alt: #F8FAFC;
-  --color-brand-paper-warm: #FFFFFF;
-  --color-brand-border-warm: #E2E8F0;
-  --color-brand-gold: #D9A441;
-  --color-brand-gold-hover: #C28E30;
+  --color-brand-primary: #061426;
+  --color-brand-section: #081B2E;
+  --color-brand-card: #0D243A;
+  --color-brand-card-inner: #0A1A2B;
+  --color-brand-border-dark: #1E3A55;
+  --color-brand-text-primary: #F8FAFC;
+  --color-brand-text-body: #CBD5E1;
+  --color-brand-text-muted: #94A3B8;
+  --color-brand-gold: #C5A059;
+  --color-brand-gold-hover: #D8B869;
   --color-brand-gold-antique: #8C651E;
   --color-brand-gold-champagne: #E5C368;
   --color-brand-gold-light: #FEF9EE;
@@ -20,7 +20,7 @@
   --color-brand-amber: #B45309;
   --color-brand-amber-light: #FEF3C7;
   --color-brand-offwhite: #F8FAFC;
-  --color-brand-charcoal: #0B121E;
+  --color-brand-charcoal: #061426;
   --color-brand-charcoal-muted: #334155;
   --color-brand-slate-light: #64748B;
   --color-brand-border: #E2E8F0;

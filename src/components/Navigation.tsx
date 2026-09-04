@@ -9,6 +9,7 @@ interface NavigationProps {
   onSubscribeClick: () => void;
   darkMode: boolean;
   toggleDarkMode: () => void;
+  onSuggestClick?: () => void;
 }
 
 export default function Navigation({ 
@@ -16,7 +17,8 @@ export default function Navigation({
   setActiveTab, 
   onSubscribeClick,
   darkMode,
-  toggleDarkMode
+  toggleDarkMode,
+  onSuggestClick
 }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -97,12 +99,12 @@ export default function Navigation({
     <header 
       className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
         darkMode 
-          ? (scrolled ? 'bg-[#0B121E]/95 backdrop-blur-md py-2.5 shadow-xl border-white/10' : 'bg-[#0B121E] py-3.5 sm:py-4 border-white/10')
+          ? (scrolled ? 'bg-[#061426]/95 backdrop-blur-md py-2.5 shadow-xl border-[#1E3A55]' : 'bg-[#061426] py-3.5 sm:py-4 border-[#1E3A55]')
           : (scrolled ? 'bg-white/95 backdrop-blur-md py-2.5 shadow-xs border-slate-200' : 'bg-[#FBFBFC] py-3.5 sm:py-4 border-slate-200')
       }`}
       id="app-navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           
           {/* Logo & Subtitle */}
