@@ -554,7 +554,7 @@ export default function App() {
                     darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                   }`}
                 >
-                  PharmaSignal deconstructs the empirical structural mechanisms that create, delay, protect or destroy value in pharmaceutical licensing and M&A transactions.
+                  PharmaSignal explains the mechanisms that create, protect, delay or destroy value in pharma licensing, partnerships and M&A.
                 </motion.p>
 
                 {/* Proof Metrics Strip */}
