@@ -900,7 +900,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
 
       <figure class="my-6">
         <img src="${mireculeInfographic}" alt="miRecule & Rio Biofarma / EMS Strategic Collaboration Diagram" class="w-full h-auto border border-brand-gold/30 shadow-lg" />
-        <figcaption class="text-xs text-center text-brand-gold/90 mt-2 font-mono uppercase tracking-wider">Capability Architecture: miRecule x Rio Biofarma (EMS Group)</figcaption>
       </figure>
 
       <h2>WHY IT MATTERS</h2>

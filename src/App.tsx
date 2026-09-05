@@ -448,7 +448,6 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050F1A]/70 via-transparent to-transparent opacity-80" />
                       <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
                         EDITORIAL DIAGRAM
                       </div>
@@ -479,17 +478,6 @@ export default function App() {
                       }`}>
                         {deal.featuredSummary || deal.description}
                       </p>
-
-                      {deal.pharmaSignalRead && (
-                        <div className={`p-2.5 border-l-2 border-brand-gold text-xs font-serif leading-relaxed mb-2.5 ${
-                          darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-primary/90'
-                        }`}>
-                          <strong className="font-mono text-[9px] uppercase text-brand-gold-antique dark:text-brand-gold tracking-widest block mb-0.5">
-                            Signal Mechanism
-                          </strong>
-                          {deal.pharmaSignalRead}
-                        </div>
-                      )}
                     </div>
                     
                     <div className="pt-2.5 border-t border-brand-gold/10 flex flex-wrap items-center justify-between gap-2 mt-auto">
@@ -738,11 +726,6 @@ export default function App() {
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500" 
                           />
-                          <div className={`absolute inset-0 transition-opacity duration-300 ${
-                            darkMode 
-                              ? 'bg-gradient-to-t from-[#061426]/75 via-transparent to-transparent opacity-80' 
-                              : 'bg-gradient-to-t from-white/70 via-transparent to-transparent opacity-60'
-                          }`} />
                           <div className={`absolute top-2.5 right-2.5 px-2 py-0.5 text-[9px] font-mono font-bold tracking-[0.08em] uppercase border ${
                             darkMode 
                               ? 'bg-[#061426]/90 border-[#C5A059]/40 text-[#C5A059]' 
@@ -750,18 +733,6 @@ export default function App() {
                           }`}>
                             EDITORIAL DIAGRAM
                           </div>
-                          {deal.pharmaSignalRead && (
-                            <div className={`absolute bottom-2.5 left-2.5 right-2.5 backdrop-blur-xs px-2.5 py-1 text-[10px] font-mono line-clamp-1 border ${
-                              darkMode 
-                                ? 'bg-[#061426]/90 border-[#C5A059]/30 text-white/90' 
-                                : 'bg-white/95 border-[#C5A059]/40 text-slate-800 shadow-xs'
-                            }`}>
-                              <span className={`font-bold uppercase tracking-wider mr-1.5 ${darkMode ? 'text-[#C5A059]' : 'text-[#8A6718]'}`}>
-                                MECHANISM:
-                              </span>
-                              {deal.pharmaSignalRead.split('.')[0]}
-                            </div>
-                          )}
                         </div>
                       )}
 

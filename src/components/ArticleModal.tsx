@@ -961,11 +961,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {/* 5. Hero Mechanism Image */}
                 <div className="my-10 max-w-2xl mx-auto">
                   <TerritoryExecutionTransferDiagram darkMode={darkMode} />
-                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
-                  }`}>
-                    Figure 1: Territory-to-Execution Transfer — Innovent retains Greater China while Spero absorbs rest-of-world operating accountability.
-                  </p>
                 </div>
 
                 {/* Main Article Sections */}
@@ -1158,11 +1153,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {/* 5. Hero Mechanism Image */}
                 <div className="my-10 max-w-2xl mx-auto">
                   <CapabilityLedOpportunityDiagram darkMode={darkMode} />
-                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
-                  }`}>
-                    Figure 1: Capability-Led Opportunity Creation — Relation capability generates proprietary evidence to power GSK opportunities.
-                  </p>
                 </div>
 
                 {/* Main Article Sections */}
@@ -1352,11 +1342,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {/* 5. Hero Mechanism Image */}
                 <div className="my-10 max-w-2xl mx-auto">
                   <SKBiopharmBiohavenDiagram darkMode={darkMode} />
-                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
-                  }`}>
-                    Figure 1: Commercial Infrastructure as Acquisition Advantage — Pre-existing commercial infrastructure enables global platform acquisition ahead of pivotal validation.
-                  </p>
                 </div>
 
                 {/* Main Article Sections */}
@@ -1541,11 +1526,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {/* 5. Hero Mechanism Image */}
                 <div className="my-10 max-w-2xl mx-auto">
                   <AurigeneTechTransferDiagram darkMode={darkMode} />
-                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
-                  }`}>
-                    Figure 1: Tech-Transfer as Portfolio Architecture — Multi-product transfer integration creates long-duration technical dependence and switching barriers.
-                  </p>
                 </div>
 
                 {/* Main Article Sections */}
@@ -1730,11 +1710,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 {/* 5. Hero Mechanism Image */}
                 <div className="my-10 max-w-2xl mx-auto">
                   <BMSCellaresScaleDiagram darkMode={darkMode} />
-                  <p className={`mt-3 text-center font-sans text-xs tracking-wide italic leading-normal ${
-                    darkMode ? 'text-white/60' : 'text-brand-charcoal/60'
-                  }`}>
-                    Figure 1: Clinical vs. Commercial Scale Constraint — Platform validation failure under commercial volume stress leads to alliance termination.
-                  </p>
                 </div>
 
                 {/* Main Article Sections */}
@@ -1920,7 +1895,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 )}
 
                 {/* PharmaSignal Read Callout */}
-                {article.pharmaSignalRead && (
+                {article.pharmaSignalRead && !article.isDealSignal && (
                   <div className={`my-6 p-5 sm:p-6 border-l-4 border-brand-gold font-serif text-sm sm:text-base leading-relaxed ${
                     darkMode ? 'bg-brand-gold/10 text-brand-gold-light' : 'bg-brand-gold-light/25 text-brand-primary'
                   }`}>
