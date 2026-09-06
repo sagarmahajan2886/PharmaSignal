@@ -22,6 +22,9 @@ export interface Article {
   pharmaSignalRead?: string;
   sourceUrl?: string;
   sourceLabel?: string;
+  sourceOrg?: string;
+  sourceTitle?: string;
+  sourceDate?: string;
   useThisWhen?: string;
   linkedExplainers?: LinkedExplainer[];
   tags?: string[];
@@ -37,7 +40,7 @@ export interface Article {
   hideFromHomepage?: boolean;
 }
 
-export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'LENSES' | 'ABOUT' | 'NEWSLETTER';
+export type ActiveTab = 'HOME' | 'EXPLAINERS' | 'DEAL SIGNALS' | 'LENSES' | 'ABOUT' | 'NEWSLETTER' | '404';
 
 export interface NewsletterSubscriber {
   email: string;

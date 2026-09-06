@@ -553,8 +553,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     useThisWhen: 'Assessing complex multi-territory cross-border licensing transactions where originators want to retain domestic sovereignty, manage initial Phase I clinical execution, and protect future platform pipeline optionality without granting blanket asset access.',
     principleQuote: 'Good deal structuring gives each right, responsibility and future option a boundary that matches the partners\' capabilities and ambitions.',
     sourceNote: 'HUTCHMED (China) Limited, 3 September 2026.',
+    sourceOrg: 'HUTCHMED (China) Limited',
+    sourceTitle: 'HUTCHMED and GSK Enter Strategic Exclusive Licensing Agreement for Novel KRAS/EGFR Dual-Targeting ATTC',
+    sourceDate: 'September 3, 2026',
     sourceUrl: 'https://www.hutch-med.com/hutchmed-gsk-licensing-agreement-kras-egfr-attc/',
-    sourceLabel: 'HUTCHMED (China) Limited, 3 September 2026.',
+    sourceLabel: 'HUTCHMED Press Release, September 3, 2026',
     linkedExplainers: [
       { id: 'rights-responsibility-architecture', title: 'Rights & Responsibility Architecture' },
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
@@ -597,6 +600,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 21, 2026',
     featuredSummary: 'The same two biosimilars use shared commercialization in the U.S. and exclusive local commercialization across eight Asian markets. The structure shows how rights can follow capability economics rather than a single global licensing model.',
     isDealSignal: true,
+    mechanism: 'Selective Commercial Ownership',
     assetClass: 'Biosimilar Biologics (mAb & Bispecific)',
     dealStructure: 'Semi-Exclusive US Co-Comm / Exclusive Asia License',
     geographicScope: 'US & 8 APAC Markets (ex-Japan/China)',
@@ -605,6 +609,12 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlLight: '/images/alvotech_lotus_selective_ownership_1787913500000_light.jpg',
     pharmaSignalRead: 'Mechanism: Selective Commercial Ownership. Alvotech simultaneously delegates commercialization where partners add regional capability and retains direct participation where greater ownership of economics has become strategically worthwhile.',
     useThisWhen: 'Determining geographic licensing structures where the originator’s operating capabilities have matured, allowing direct participation in major commercial markets while leveraging specialist partner infrastructure in regional territories.',
+    sourceNote: 'Alvotech and Lotus Pharmaceutical official disclosures, August 21, 2026.',
+    sourceOrg: 'Alvotech & Lotus Pharmaceutical',
+    sourceTitle: 'Alvotech and Lotus Announce Exclusive Partnership for Commercialization of Proposed Biosimilars in Southeast Asia',
+    sourceDate: 'August 21, 2026',
+    sourceUrl: 'https://investors.alvotech.com/news-releases/news-release-details/alvotech-and-lotus-pharmaceutical-announce-partnership',
+    sourceLabel: 'Alvotech Investor Relations, August 21, 2026',
     linkedExplainers: [
       { id: 'commercialization-rights-strategy', title: 'Commercialization Rights Strategy' },
       { id: 'partner-capability-gap', title: 'Partner Capability Gap' },
@@ -705,6 +715,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 25, 2026',
     featuredSummary: 'A China-origin asset was licensed into a newly formed US biotech backed by specialist investors. The important mechanism is Newco formation: building dedicated execution capacity around an opportunity instead of waiting for an existing pharma company to acquire the rights.',
     isDealSignal: true,
+    mechanism: 'Newco Licensing Architecture',
     assetClass: 'Small Molecule (Type-2 Immunology)',
     dealStructure: 'Newco Formation + Equity + $1.46B Milestones',
     geographicScope: 'Global Ex-Greater China',
@@ -713,6 +724,12 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlLight: '/images/haisco_sentivera_newco_1787913400000_light.jpg',
     pharmaSignalRead: 'Mechanism: Opportunity Creation through Newco Architecture. When the optimal strategic buyer does not exist in the open market, assembling dedicated capital, specialist leadership, and global rights into a newly formed vehicle unlocks higher risk-adjusted valuation and equity upside.',
     useThisWhen: 'An asset lacks an obvious direct strategic acquirer, the originator seeks to preserve domestic market sovereignty, and specialist venture capital can engineer an execution vehicle around the molecule.',
+    sourceNote: 'Haisco Pharmaceutical corporate disclosures, August 25, 2026.',
+    sourceOrg: 'Haisco Pharmaceutical & Sentivera',
+    sourceTitle: 'Haisco Out-Licenses Novel Metabolic Asset to Newly Formed US Entity Sentivera',
+    sourceDate: 'August 25, 2026',
+    sourceUrl: 'http://www.haisco.com/en/news/',
+    sourceLabel: 'Haisco Corporate Disclosure, August 25, 2026',
     linkedExplainers: [
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'governance-debt', title: 'Governance Debt' },
@@ -811,6 +828,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 28, 2026',
     featuredSummary: 'Roche exercises its option on Alnylam’s zilebesiran following Phase IIb endpoint clearance, committing $310M in near-term milestones to secure global ex-US commercial rights and a 50/50 US profit share.',
     isDealSignal: true,
+    mechanism: 'Option Trigger via Clinical De-Risking',
     assetClass: 'RNAi / siRNA (Cardiovascular)',
     dealStructure: 'Option Trigger ($310M) + US 50/50 Profit Share',
     geographicScope: 'Global (Roche) / US Co-Commercialization',
@@ -819,6 +837,12 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlLight: '/images/roche_alnylam_rnai_expansion_light.jpg',
     pharmaSignalRead: 'Mechanism: Option Trigger via Phase IIb Endpoint Clearance. In biopharma licensing, tiered option exercise windows reduce early capital exposure while securing global rights before competitive bidding starts.',
     useThisWhen: 'Designing staged licensing rights where commercial options are tied to defined registrational endpoints rather than fixed calendar schedules.',
+    sourceNote: 'Alnylam Pharmaceuticals and Roche official investor disclosures, August 28, 2026.',
+    sourceOrg: 'Alnylam Pharmaceuticals & Roche',
+    sourceTitle: 'Alnylam and Roche Announce Expansion of Global Strategic Collaboration for Zilebesiran',
+    sourceDate: 'August 28, 2026',
+    sourceUrl: 'https://investors.alnylam.com/press-releases',
+    sourceLabel: 'Alnylam & Roche Investor Disclosures, August 28, 2026',
     linkedExplainers: [
       { id: 'the-approval-gap', title: 'The Approval Gap' },
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
@@ -881,6 +905,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 4, 2026',
     featuredSummary: 'miRecule and EMS Group (Rio Biofarma) combined delivery capabilities, co-owned the resulting technology, embedded Brazilian manufacturing, and added equity—turning local capability into upstream opportunity creation.',
     isDealSignal: true,
+    mechanism: 'Upstream Co-Development',
     assetClass: 'Peptide-Conjugated RNA Platform',
     dealStructure: 'Co-Owned Platform + Equity + Brazil Mfg',
     geographicScope: 'Global Target Rights / Brazil Supply',
@@ -893,6 +918,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     ],
     tags: ['DEAL SIGNAL', 'OPPORTUNITY CREATION', 'RNA THERAPEUTICS', 'EMS GROUP', 'MIRECULE', 'RIO BIOFARMA', 'EQUITY INVESTMENT', 'GOVERNANCE DEBT', 'PEPTIDE DELIVERY'],
     sourceNote: 'The principal source was the transaction-specific announcement, miRecule Announces Strategic Collaboration with EMS Group Company Rio Biopharma to Advance Targeted Delivery of RNA Therapeutics, published July 31, 2026 through Pharma Focus Europe as a Business Wire-sourced release.',
+    sourceOrg: 'miRecule & EMS Group (Rio Biofarma)',
+    sourceTitle: 'miRecule Announces Strategic Collaboration with EMS Group Company Rio Biopharma to Advance Targeted Delivery of RNA Therapeutics',
+    sourceDate: 'July 31, 2026',
+    sourceUrl: 'https://www.businesswire.com/news/home/20260731005001/en/',
+    sourceLabel: 'Business Wire / Pharma Focus Europe, July 31, 2026',
     content: `
       <h2>DEAL SIGNAL</h2>
       <p>On July 31, 2026, <strong>miRecule</strong> and <strong>Rio Biofarma Brasil</strong> (part of EMS Group) announced a strategic research collaboration to co-develop peptide-mediated RNA therapeutics for extra-hepatic tissue delivery across up to three targets.</p>
@@ -936,6 +966,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 18, 2026',
     featuredSummary: 'Why territorial licensing can protect executable value when local development and commercialization complexity is high.',
     isDealSignal: true,
+    mechanism: 'Territorial Execution Transfer',
     assetClass: 'FcRn Inhibitor (Autoimmune)',
     dealStructure: 'Exclusive Territorial License ($5M Upfront + Milestones)',
     geographicScope: 'Japan Only (Kaigene Retains Ex-Japan)',
@@ -944,6 +975,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlLight: '/images/kaigene_taisho_japan_licensing_light.jpg',
     pharmaSignalRead: 'Territorial De-Risking Through Local Capability. Japan is not simply another country in a global development plan. It can require locally acceptable clinical evidence, territory-specific regulatory engagement, established specialist relationships, pricing and reimbursement execution, and post-approval commercial infrastructure. A small biotech could retain Japan and preserve more theoretical upside. But retaining rights without local execution capability can create an Execution Deficit. Taisho’s role therefore goes beyond market access. It assumes development-to-commercialization accountability inside the territory.',
     useThisWhen: 'Evaluating whether to retain or license a strategically complex territory where local development, regulatory and commercialization capability materially affects value realization. Use this signal when assessing: (1) whether to retain or license a complex territory; (2) when a country-specific partner should control clinical development; (3) how territorial licensing preserves global optionality; (4) whether milestones adequately compensate for lost territory control; (5) how global and local development responsibilities should be governed.',
+    sourceNote: 'This Deal Signal is based on the announced exclusive Japan agreement between Kaigene and Taisho Pharmaceutical on 30 July 2026. Taisho receives development, registration and commercialization rights in Japan, while Kaigene retains rights outside Japan.',
+    sourceOrg: 'Kaigene & Taisho Pharmaceutical',
+    sourceTitle: 'Taisho Pharmaceutical Enters Exclusive Development and Commercialization Agreement with Kaigene for Japan',
+    sourceDate: 'July 30, 2026',
+    sourceLabel: 'Taisho Pharmaceutical Official Announcement, July 30, 2026',
     content: `
       <h2>Deal Signal</h2>
       <p>Kaigene granted Taisho Pharmaceutical exclusive rights to clinically develop, register and commercialize KG006, its next-generation FcRn inhibitor, in Japan.</p>
@@ -972,8 +1008,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['Japan', 'FcRn', 'Territorial Licensing', 'Local Development', 'Partner Capability', 'Commercialization Rights', 'Execution Deficit'],
-    sourceNote: 'This Deal Signal is based on the announced exclusive Japan agreement between Kaigene and Taisho Pharmaceutical on 30 July 2026. Taisho receives development, registration and commercialization rights in Japan, while Kaigene retains rights outside Japan.'
+    tags: ['Japan', 'FcRn', 'Territorial Licensing', 'Local Development', 'Partner Capability', 'Commercialization Rights', 'Execution Deficit']
   },
   {
     id: 'merck-alimatravir-market-access',
@@ -986,6 +1021,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 12, 2026',
     featuredSummary: 'Why voluntary licensing before approval can reduce the future gap between regulatory success and real-world availability.',
     isDealSignal: true,
+    mechanism: 'Market Access Before Approval',
     assetClass: 'Oral Protease Inhibitor (HIV)',
     dealStructure: '7 Pre-Approval Royalty-Free Voluntary Licenses',
     geographicScope: '129 Low- & Middle-Income Countries (LMICs)',
@@ -994,6 +1030,11 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlLight: '/images/merck_alimatravir_access_light.jpg',
     pharmaSignalRead: 'Market Access Before Approval. The conventional sequence is: Clinical success → approval → licensing → generic development → registration → supply. Merck is partially overlapping these activities: Clinical development + voluntary licensing + manufacturing preparation + access planning. This potentially reduces the future Execution Deficit between regulatory approval and real market availability.',
     useThisWhen: 'Evaluating whether access, licensing, manufacturing and regulatory preparation should begin before approval rather than after it. Assessing: (1) when access and generic licensing should begin; (2) whether manufacturing partners can be selected before approval; (3) how regulatory and supply activities can run in parallel; (4) whether a global-access commitment has an executable operating model; (5) how to reduce the approval-to-availability gap in emerging markets.',
+    sourceNote: 'This Deal Signal is based on public reporting and company information regarding Merck’s voluntary licensing strategy for alimatravir announced in July 2026.',
+    sourceOrg: 'Merck & Co. / MSD',
+    sourceTitle: 'Voluntary Licensing Strategy and Access Framework for Alimatravir',
+    sourceDate: 'July 2026',
+    sourceLabel: 'Merck Global Access Disclosures, July 2026',
     content: `
       <h2>Deal Signal</h2>
       <p>Merck has signed seven non-exclusive, royalty-free voluntary licensing agreements for alimatravir, its investigational once-monthly oral HIV-prevention product.</p>
@@ -1025,8 +1066,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
     ],
-    tags: ['HIV', 'VOLUNTARY LICENSING', 'MARKET ACCESS', 'INDIA', 'AFRICA', 'LOCAL MANUFACTURING', 'EXECUTION READINESS', 'APPROVAL-TO-AVAILABILITY GAP', 'EXECUTION DEFICIT', 'OPPORTUNITY CREATION'],
-    sourceNote: 'This Deal Signal is based on public reporting and company information regarding Merck’s voluntary licensing strategy for alimatravir announced in July 2026.'
+    tags: ['HIV', 'VOLUNTARY LICENSING', 'MARKET ACCESS', 'INDIA', 'AFRICA', 'LOCAL MANUFACTURING', 'EXECUTION READINESS', 'APPROVAL-TO-AVAILABILITY GAP', 'EXECUTION DEFICIT', 'OPPORTUNITY CREATION']
   },
   {
     id: 'innovent-spero-ex-china-execution-transfer',
@@ -1074,7 +1114,12 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
     tags: ['DEAL SIGNAL', 'INNOVENT', 'SPERO', 'SP001', 'IBI355', 'TERRITORY-TO-EXECUTION TRANSFER', 'CROSS-BORDER LICENSING', 'GREATER CHINA'],
-    sourceNote: 'Verified facts: Spero received exclusive ex-Greater China research, development, manufacturing and commercialization rights for SP001 / IBI355. Innovent retained Greater China rights.'
+    sourceNote: 'Verified facts: Spero received exclusive ex-Greater China research, development, manufacturing and commercialization rights for SP001 / IBI355. Innovent retained Greater China rights.',
+    sourceOrg: 'Spero Therapeutics & Innovent Biologics',
+    sourceTitle: 'Spero Therapeutics and Innovent Biologics Announce Exclusive Global License Agreement for SP001 / IBI355 Outside Greater China',
+    sourceDate: 'July 14, 2026',
+    sourceUrl: 'https://investors.sperotherapeutics.com/news-releases',
+    sourceLabel: 'Spero Therapeutics Press Release, July 14, 2026'
   },
   {
     id: 'gsk-capability-led-opportunity-creation',
@@ -1096,6 +1141,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlDark: '/images/gsk_relation_ai_1787913259639.jpg',
     imageUrlLight: '/images/gsk_relation_ai_1787913259639_light.jpg',
     pharmaSignalTake: 'This is a Capability-Led Opportunity Creation deal.\n\nRelation will generate biological datasets that may produce new drug targets for GSK.\n\nThe BD question is who controls the opportunity after the evidence becomes valuable.',
+    sourceOrg: 'GSK & Relation Therapeutics (Reuters)',
+    sourceTitle: 'GSK and Relation Therapeutics sign up to $110 million AI drug discovery deal',
+    sourceDate: 'July 30, 2026',
     sourceUrl: 'https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/',
     sourceLabel: 'Reuters, July 30, 2026.',
     content: `
@@ -1140,6 +1188,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlDark: '/images/sk_biopharm_kv7_deal_1787913184804.jpg',
     imageUrlLight: '/images/sk_biopharm_kv7_deal_1787913184804_light.jpg',
     pharmaSignalTake: 'This is a Commercial Infrastructure as Acquisition Advantage transaction.\n\nSK Biopharmaceuticals is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform.\n\nThe BD lesson is that specialist commercial infrastructure lowers incremental launch cost, creating valuation leverage to outbid traditional acquirers.',
+    sourceOrg: 'Biohaven Ltd. & SK Biopharmaceuticals',
+    sourceTitle: 'Biohaven and SK Biopharmaceuticals Enter Strategic Global License Agreement for Kv7 Ion Channel Platform',
+    sourceDate: 'August 26, 2026',
     sourceUrl: 'https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global',
     sourceLabel: 'Biohaven Investor Relations, August 26, 2026.',
     content: `
@@ -1184,6 +1235,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlDark: '/images/aurigene_tech_transfer_1787913237947.jpg',
     imageUrlLight: '/images/aurigene_tech_transfer_1787913237947_light.jpg',
     pharmaSignalTake: 'This is a Tech-Transfer as Portfolio Architecture partnership.\n\nAurigene (Dr. Reddy’s) assumed end-to-end transfer, scale-up and commercial supply for over 20 global products across sterile injectables, biologics and topicals.\n\nThe BD question is how controlling the technical transfer pathway establishes multi-year switching costs and portfolio retention.',
+    sourceOrg: 'BioSpectrum India & Dr. Reddy\'s Laboratories',
+    sourceTitle: 'Aurigene announces manufacturing and supply partnership with global pharma company',
+    sourceDate: 'August 15, 2026',
     sourceUrl: 'https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html',
     sourceLabel: 'BioSpectrum India, August 2026.',
     content: `
@@ -1228,6 +1282,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     imageUrlDark: '/images/bms_cellares_cart_1787913217672.jpg',
     imageUrlLight: '/images/bms_cellares_cart_1787913217672_light.jpg',
     pharmaSignalTake: 'This is a Clinical vs. Commercial Scale Constraint event.\n\nBristol Myers Squibb terminated its $380 million partnership with Cellares for automated Breyanzi cell therapy manufacturing.\n\nThe BD lesson is that platforms operating under clinical GMP can still fail the throughput, cost and reliability standards demanded at commercial scale.',
+    sourceOrg: 'Bristol Myers Squibb & Cellares (Reuters)',
+    sourceTitle: 'Bristol Myers ends blood cancer drug deal with cell therapy maker Cellares',
+    sourceDate: 'August 25, 2026',
     sourceUrl: 'https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/',
     sourceLabel: 'Reuters, August 25, 2026.',
     content: `

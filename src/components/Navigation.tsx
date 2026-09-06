@@ -72,12 +72,7 @@ export default function Navigation({
       }
     } else if (tab === 'ABOUT') {
       window.history.pushState(null, '', '/about');
-      const el = document.getElementById('about-section');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'NEWSLETTER') {
       const el = document.getElementById('subscribe-section') || document.getElementById('newsletter-section');
       if (el) {

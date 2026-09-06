@@ -1,6 +1,6 @@
 import { useEffect, useState, UIEvent } from 'react';
 import { motion } from 'motion/react';
-import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight, Linkedin, FileDown } from 'lucide-react';
+import { X, Calendar, Clock, User, Share2, ClipboardCheck, ArrowLeft, Shield, ArrowRight, Linkedin, FileDown, ExternalLink } from 'lucide-react';
 import { Article } from '../types';
 import ApprovalGapDiagram from './ApprovalGapDiagram';
 import { TerritoryExecutionTransferDiagram } from './TerritoryExecutionTransferDiagram';
@@ -79,6 +79,59 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  const renderSourceBlock = () => {
+    if (!article.sourceUrl && !article.sourceOrg && !article.sourceTitle && !article.sourceNote) {
+      return null;
+    }
+
+    const org = article.sourceOrg;
+    const title = article.sourceTitle;
+    const date = article.sourceDate;
+    const url = article.sourceUrl;
+    const label = article.sourceLabel || title || org || 'Official Source / Disclosure';
+
+    return (
+      <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
+        darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
+      }`}>
+        <div className="font-mono text-[10px] tracking-wider uppercase text-brand-gold font-bold mb-1">
+          Source &amp; Official Disclosure
+        </div>
+        <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+          <span className="font-semibold shrink-0">Source:</span>
+          <div>
+            {url ? (
+              <a 
+                href={url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity inline-flex items-center gap-1"
+              >
+                <span>{label}</span>
+                <ExternalLink size={12} className="inline-block shrink-0" />
+              </a>
+            ) : (
+              <span className="font-semibold text-brand-gold">
+                {label}
+              </span>
+            )}
+            {org && label !== org && (
+              <span className="opacity-80"> — {org}</span>
+            )}
+            {date && (
+              <span className="opacity-75">, {date}</span>
+            )}
+          </div>
+        </div>
+        {article.sourceNote && article.sourceNote !== date && article.sourceNote !== label && (
+          <p className="mt-1.5 text-xs opacity-75 italic font-mono">
+            {article.sourceNote}
+          </p>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -174,182 +227,201 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               <div className={`hidden lg:flex lg:col-span-4 h-fit sticky top-2 flex-col pr-6 border-r ${
                 darkMode ? 'border-white/10' : 'border-slate-200'
               } space-y-6 select-none`}>
-                <div className="space-y-1">
-                  <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
-                    Briefing Index
-                  </span>
-                  <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
-                    Click to navigate sections
-                  </p>
-                </div>
+                {article.isDealSignal ? (
+                  <div className="space-y-4">
+                    <div>
+                      <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold block mb-1">
+                        Deal Intelligence
+                      </span>
+                      <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
+                        Quick structural summary
+                      </p>
+                    </div>
 
-                <div className="space-y-1">
-                  {article.id === 'the-approval-gap' ? (
-                    <>
-                      <button 
-                        onClick={() => scrollToId('intro')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        01. Executive Summary
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('why-gaps-exist')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        02. Why Gaps Exist
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('economic-impact')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        03. Value Destruction
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('self-assessment')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        04. Assessment Test
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('implications')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        05. Strategic Implications
-                      </button>
-                    </>
-                  ) : article.id === 'execution-deficit' ? (
-                    <>
-                      <button 
-                        onClick={() => scrollToId('intro')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        01. Executive Narrative
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('signing-comfort')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        02. False Comfort of Signing
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('handover-problem')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        03. Handover Problem
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('detect-early')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        04. Detecting Deficit Early
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('decision-makers')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        05. For Decision Makers
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('principle-deficit')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        06. PharmaSignal Principle
-                      </button>
-                    </>
-                  ) : article.id === 'opportunity-creation-processing' ? (
-                    <>
-                      <button 
-                        onClick={() => scrollToId('intro')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        01. Executive Summary
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('creation-vs-processing')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        02. Creation vs Processing
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('visibility-compression')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        03. Visibility Compression
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('creation-test')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        04. Assessment Test
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('implications')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        05. Decision Maker Guide
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('principle-creation')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        06. PharmaSignal Principle
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button 
-                        onClick={() => scrollToId('doc-overview')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        01. Document Overview
-                      </button>
-                      <button 
-                        onClick={() => scrollToId('core-analysis')} 
-                        className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
-                          darkMode ? 'text-white/70' : 'text-brand-primary'
-                        }`}
-                      >
-                        02. Detailed Analysis
-                      </button>
-                    </>
-                  )}
-                </div>
+                    <div className={`p-3.5 border space-y-2.5 text-left text-xs ${
+                      darkMode ? 'bg-white/[0.02] border-white/10' : 'bg-brand-gold-light/15 border-brand-charcoal/10'
+                    }`}>
+                      {article.assetClass && (
+                        <div>
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Asset Class</span>
+                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.assetClass}</span>
+                        </div>
+                      )}
+                      {article.mechanism && (
+                        <div>
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Core Mechanism</span>
+                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.mechanism}</span>
+                        </div>
+                      )}
+                      {article.category && (
+                        <div>
+                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Category</span>
+                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.category}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
+                        Briefing Index
+                      </span>
+                      <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
+                        Click to navigate sections
+                      </p>
+                    </div>
+
+                    <div className="space-y-1">
+                      {article.id === 'the-approval-gap' ? (
+                        <>
+                          <button 
+                            onClick={() => scrollToId('intro')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            01. Executive Summary
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('why-gaps-exist')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            02. Why Gaps Exist
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('economic-impact')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            03. Value Destruction
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('self-assessment')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            04. Assessment Test
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('implications')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            05. Strategic Implications
+                          </button>
+                        </>
+                      ) : article.id === 'execution-deficit' ? (
+                        <>
+                          <button 
+                            onClick={() => scrollToId('intro')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            01. Executive Narrative
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('signing-comfort')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            02. False Comfort of Signing
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('handover-problem')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            03. Handover Problem
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('detect-early')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            04. Detecting Deficit Early
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('decision-makers')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            05. For Decision Makers
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('principle-deficit')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            06. PharmaSignal Principle
+                          </button>
+                        </>
+                      ) : article.id === 'opportunity-creation-processing' ? (
+                        <>
+                          <button 
+                            onClick={() => scrollToId('intro')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            01. Executive Summary
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('creation-vs-processing')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            02. Creation vs Processing
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('visibility-compression')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            03. Visibility Compression
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('creation-test')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            04. Assessment Test
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('implications')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            05. Decision Maker Guide
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('principle-creation')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            06. PharmaSignal Principle
+                          </button>
+                        </>
+                      ) : null}
+                    </div>
+                  </>
+                )}
 
                 <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
 
@@ -358,9 +430,9 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     Document Metadata
                   </span>
                   <div className={`space-y-1.5 text-xs font-sans ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
-                    <p><strong className="font-semibold text-brand-gold">Published:</strong> {article.date || 'June 18, 2026'}</p>
-                    <p><strong className="font-semibold text-brand-gold">Author:</strong> {article.author || 'Decision Intelligence'}</p>
-                    <p><strong className="font-semibold text-brand-gold">Reading Time:</strong> {article.readTime || '6–8 Minutes'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Published:</strong> {article.date || 'June 17, 2026'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Author:</strong> {article.author || 'PharmaSignal Deal Desk'}</p>
+                    <p><strong className="font-semibold text-brand-gold">Reading Time:</strong> {article.readTime || '7 min read'}</p>
                     <p><strong className="font-semibold text-brand-gold">Category:</strong> {article.category}</p>
                   </div>
                 </div>
@@ -425,12 +497,12 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   <div className={`mt-1.5 sm:mt-2 flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-0.5 sm:gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
                     <span>Category: Decision Intelligence</span>
                     <span className="opacity-40 sm:inline hidden">•</span>
-                    <span className="sm:inline hidden">Reading Time: 6–8 Minutes</span>
+                    <span className="sm:inline hidden">Reading Time: 7 Minutes</span>
                     <span className="opacity-40 sm:inline hidden">•</span>
-                    <span className="sm:inline hidden">Published: June 18, 2026</span>
+                    <span className="sm:inline hidden">Published: June 17, 2026</span>
                     
-                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">6-8 Min</span>
-                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">June 18, 2026</span>
+                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">7 Min</span>
+                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">June 17, 2026</span>
                   </div>
                 </div>
 
@@ -1035,6 +1107,9 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     </p>
                   </div>
 
+                  {/* 10. Source */}
+                  {renderSourceBlock()}
+
                   {/* 11. Related Signals */}
                   <div className={`my-12 p-6 sm:p-8 border-t border-b ${
                     darkMode ? 'border-white/10 bg-white/[0.02]' : 'border-brand-charcoal/10 bg-brand-gold-light/10'
@@ -1210,19 +1285,8 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     </p>
                   </div>
 
-                  {/* 10. Source (Exact specification) */}
-                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
-                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
-                  }`}>
-                    Source: <a 
-                      href="https://www.reuters.com/business/healthcare-pharmaceuticals/gsk-relation-therapeutics-sign-up-110-million-ai-drug-discovery-deal-2026-07-30/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
-                    >
-                      Reuters
-                    </a>, July 30, 2026.
-                  </div>
+                  {/* 10. Source */}
+                  {renderSourceBlock()}
 
                   {/* 11. Related Signals */}
                   <div className={`my-12 p-6 sm:p-8 border-t border-b ${
@@ -1397,18 +1461,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   </div>
 
                   {/* 10. Source */}
-                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
-                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
-                  }`}>
-                    Source: <a 
-                      href="https://ir.biohaven.com/news-releases/news-release-details/biohaven-and-sk-biopharmaceuticals-enter-strategic-global" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
-                    >
-                      Biohaven Investor Relations
-                    </a>, August 26, 2026.
-                  </div>
+                  {renderSourceBlock()}
 
                   {/* 11. Related Signals */}
                   <div className={`my-12 p-6 sm:p-8 border-t border-b ${
@@ -1581,18 +1634,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   </div>
 
                   {/* 10. Source */}
-                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
-                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
-                  }`}>
-                    Source: <a 
-                      href="https://www.biospectrumindia.com/news/109/28380/aurigene-announces-manufacturing-and-supply-partnership-with-global-pharma-company.html" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
-                    >
-                      BioSpectrum India
-                    </a>, August 2026.
-                  </div>
+                  {renderSourceBlock()}
 
                   {/* 11. Related Signals */}
                   <div className={`my-12 p-6 sm:p-8 border-t border-b ${
@@ -1765,18 +1807,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   </div>
 
                   {/* 10. Source */}
-                  <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
-                    darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
-                  }`}>
-                    Source: <a 
-                      href="https://www.reuters.com/legal/litigation/bristol-myers-ends-blood-cancer-drug-deal-with-cell-therapy-maker-cellares-2026-08-25/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity"
-                    >
-                      Reuters
-                    </a>, August 25, 2026.
-                  </div>
+                  {renderSourceBlock()}
 
                   {/* 11. Related Signals */}
                   <div className={`my-12 p-6 sm:p-8 border-t border-b ${
@@ -1978,12 +2009,8 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   </div>
                 )}
 
-                {/* Source Note */}
-                {article.sourceNote && (
-                  <p className={`text-xs font-mono italic my-4 ${darkMode ? 'text-white/50' : 'text-brand-charcoal/50'}`}>
-                    {article.sourceNote}
-                  </p>
-                )}
+                {/* Source Note & Official Citation */}
+                {renderSourceBlock()}
 
                 {/* Executive Utility CTAs */}
                 <div className="my-10 space-y-6">

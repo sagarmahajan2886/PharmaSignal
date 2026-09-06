@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
   Linkedin, 
-  Twitter, 
   Rss,
   CheckCircle2,
   Clock,
@@ -18,7 +17,9 @@ import {
   Users,
   Sparkles,
   Filter,
-  ExternalLink
+  ExternalLink,
+  Search,
+  X
 } from 'lucide-react';
 
 import { EXPLAINERS_DATA, DEAL_SIGNALS_DATA, ALL_ARTICLES } from './articlesData';
@@ -29,10 +30,12 @@ import ApprovalGapDiagram from './components/ApprovalGapDiagram';
 import HeroMechanismDiagram from './components/HeroMechanismDiagram';
 import SuggestDealModal from './components/SuggestDealModal';
 import ExecutiveBriefingBox from './components/ExecutiveBriefingBox';
+import ArticleModal from './components/ArticleModal';
+import { PolicyModal } from './components/PolicyModal';
+import AboutPage from './components/AboutPage';
+import NotFoundPage from './components/NotFoundPage';
 
-// Lazily load modals and secondary views to optimize initial bundle size & mobile performance
-const ArticleModal = lazy(() => import('./components/ArticleModal'));
-const PolicyModal = lazy(() => import('./components/PolicyModal').then(m => ({ default: m.PolicyModal })));
+// Lazily load secondary pages with retry
 const LensesPage = lazy(() => import('./components/LensesPage'));
 const LinkedInCarouselModal = lazy(() => import('./components/LinkedInCarouselModal'));
 
@@ -71,6 +74,11 @@ export default function App() {
   const [carouselArticle, setCarouselArticle] = useState<Article | null>(null);
   const [suggestModalOpen, setSuggestModalOpen] = useState(false);
   
+  // Deal Archive discovery state
+  const [dealSearchQuery, setDealSearchQuery] = useState('');
+  const [dealMechanismFilter, setDealMechanismFilter] = useState('ALL');
+  const [dealSortOrder, setDealSortOrder] = useState<'newest' | 'oldest' | 'az'>('newest');
+
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
   const [policyTab, setPolicyTab] = useState<PolicyTab>('privacy');
@@ -198,6 +206,12 @@ export default function App() {
       }
 
       // 3. Check Standard Path Routing
+      if (path === '/about' || path.startsWith('/about')) {
+        setActiveTab('ABOUT');
+        setSelectedArticle(null);
+        return;
+      }
+
       if (path === '/deal-signals') {
         setActiveTab('DEAL SIGNALS');
         setSelectedArticle(null);
@@ -234,8 +248,12 @@ export default function App() {
 
       if (path === '/' || path === '') {
         setActiveTab('HOME');
+        setSelectedArticle(null);
+        return;
       }
 
+      // Unrecognized path fallback to 404
+      setActiveTab('404');
       setSelectedArticle(null);
     };
 
@@ -368,7 +386,20 @@ export default function App() {
       />
 
       {/* Main Content Router */}
-      {activeTab === 'LENSES' ? (
+      {activeTab === 'ABOUT' ? (
+        /* Dedicated /about Page */
+        <AboutPage 
+          darkMode={darkMode} 
+          setActiveTab={setActiveTab} 
+          openSubscription={() => scrollToSection('subscribe-section')}
+        />
+      ) : activeTab === '404' ? (
+        /* Dedicated 404 Page */
+        <NotFoundPage 
+          darkMode={darkMode} 
+          setActiveTab={setActiveTab} 
+        />
+      ) : activeTab === 'LENSES' ? (
         /* Dedicated /lenses Page */
         <Suspense fallback={<div className="min-h-screen py-16 flex items-center justify-center font-mono text-xs text-brand-gold">Loading lenses...</div>}>
           <LensesPage 
@@ -380,133 +411,285 @@ export default function App() {
         </Suspense>
       ) : activeTab === 'DEAL SIGNALS' ? (
         /* Dedicated Deal Signals Listing View */
-        <section 
-          id="deal-signals-page"
-          className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
-            darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left max-w-3xl mb-6 sm:mb-8 pb-4 border-b border-brand-gold/20">
-              <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
-                EMPIRICAL EVIDENCE · DEAL MECHANISMS
-              </span>
-              <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
-                darkMode ? 'text-white' : 'text-[#001B2A]'
-              }`}>
-                Deal Signals
-              </h1>
-              <div className="h-[2px] w-10 bg-brand-gold mb-2.5" />
-              <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
-                darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
-              }`}>
-                A PharmaSignal filter on pharma BD deals, partnerships and licensing activity — focused on what each deal reveals about execution, market access, partner capability and value creation.
-              </p>
-            </div>
+        (() => {
+          const availableMechanisms = Array.from(
+            new Set(
+              DEAL_SIGNALS_DATA.map(d => d.mechanism || d.category).filter(Boolean)
+            )
+          ).sort();
 
-            {/* Grid displaying ALL Deal Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-              {DEAL_SIGNALS_DATA.map((deal) => (
-                <div 
-                  key={deal.id}
-                  className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
-                    darkMode 
-                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/45' 
-                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/60'
-                  }`}
-                >
-                  <div className="p-4 sm:p-5 pb-2.5">
-                    <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
-                      <span className={`inline-block text-[9.5px] font-mono tracking-[0.12em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(deal.category)}`}>
-                        {deal.category}
-                      </span>
-                      <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
-                        {deal.date}
-                      </span>
+          const filteredDealSignals = DEAL_SIGNALS_DATA.filter((deal) => {
+            const matchesMechanism = 
+              dealMechanismFilter === 'ALL' || 
+              deal.mechanism === dealMechanismFilter || 
+              deal.category === dealMechanismFilter;
+            
+            if (!matchesMechanism) return false;
+
+            if (!dealSearchQuery.trim()) return true;
+            const q = dealSearchQuery.toLowerCase();
+            return (
+              deal.title.toLowerCase().includes(q) ||
+              (deal.shortTitle && deal.shortTitle.toLowerCase().includes(q)) ||
+              (deal.description && deal.description.toLowerCase().includes(q)) ||
+              (deal.pharmaSignalRead && deal.pharmaSignalRead.toLowerCase().includes(q)) ||
+              (deal.assetClass && deal.assetClass.toLowerCase().includes(q)) ||
+              (deal.mechanism && deal.mechanism.toLowerCase().includes(q)) ||
+              (deal.tags && deal.tags.some(t => t.toLowerCase().includes(q)))
+            );
+          }).sort((a, b) => {
+            if (dealSortOrder === 'az') {
+              return (a.shortTitle || a.title).localeCompare(b.shortTitle || b.title);
+            }
+            const dateA = new Date(a.date).getTime() || 0;
+            const dateB = new Date(b.date).getTime() || 0;
+            return dealSortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+          });
+
+          return (
+            <section 
+              id="deal-signals-page"
+              className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+                darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
+              }`}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-left max-w-3xl mb-6 sm:mb-8 pb-4 border-b border-brand-gold/20">
+                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                    EMPIRICAL EVIDENCE · DEAL MECHANISMS
+                  </span>
+                  <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
+                    darkMode ? 'text-white' : 'text-[#001B2A]'
+                  }`}>
+                    Deal Signals
+                  </h1>
+                  <div className="h-[2px] w-10 bg-brand-gold mb-2.5" />
+                  <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
+                    darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+                  }`}>
+                    A PharmaSignal filter on pharma BD deals, partnerships and licensing activity — focused on what each deal reveals about execution, market access, partner capability and value creation.
+                  </p>
+                </div>
+
+                {/* Discovery & Filter Bar */}
+                <div className={`p-4 sm:p-5 border mb-6 transition-colors ${
+                  darkMode ? 'bg-[#0B1B2D] border-white/10' : 'bg-white border-[#E5DDD0]'
+                }`}>
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-center">
+                    {/* Search Input */}
+                    <div className="md:col-span-5 relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-gold">
+                        <Search size={14} />
+                      </div>
+                      <input
+                        type="text"
+                        value={dealSearchQuery}
+                        onChange={(e) => setDealSearchQuery(e.target.value)}
+                        placeholder="Search deals, companies, assets, mechanisms..."
+                        className={`w-full pl-9 pr-8 py-2 text-xs font-sans border outline-none transition-colors rounded-none ${
+                          darkMode 
+                            ? 'bg-[#061426] border-white/15 text-white placeholder:text-white/40 focus:border-brand-gold' 
+                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] placeholder:text-slate-400 focus:border-brand-cobalt'
+                        }`}
+                      />
+                      {dealSearchQuery && (
+                        <button
+                          onClick={() => setDealSearchQuery('')}
+                          className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-brand-gold cursor-pointer"
+                          title="Clear search"
+                        >
+                          <X size={13} />
+                        </button>
+                      )}
                     </div>
-                    
-                    <h2 
-                      onClick={() => openArticle(deal)}
-                      className={`font-serif text-base sm:text-lg font-bold tracking-tight hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
-                        darkMode ? 'text-white' : 'text-[#001B2A]'
-                      }`}
-                    >
-                      {deal.shortTitle || deal.title}
-                    </h2>
+
+                    {/* Mechanism Filter */}
+                    <div className="md:col-span-4 relative">
+                      <label htmlFor="deal-mechanism-select" className="sr-only">Filter by Mechanism</label>
+                      <select
+                        id="deal-mechanism-select"
+                        value={dealMechanismFilter}
+                        onChange={(e) => setDealMechanismFilter(e.target.value)}
+                        className={`w-full px-3 py-2 text-xs font-sans border outline-none cursor-pointer transition-colors rounded-none ${
+                          darkMode 
+                            ? 'bg-[#061426] border-white/15 text-white focus:border-brand-gold' 
+                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] focus:border-brand-cobalt'
+                        }`}
+                      >
+                        <option value="ALL">All Mechanisms & Categories</option>
+                        {availableMechanisms.map((mech) => (
+                          <option key={mech} value={mech}>
+                            {mech}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Sort Order */}
+                    <div className="md:col-span-3 relative">
+                      <label htmlFor="deal-sort-select" className="sr-only">Sort Order</label>
+                      <select
+                        id="deal-sort-select"
+                        value={dealSortOrder}
+                        onChange={(e) => setDealSortOrder(e.target.value as 'newest' | 'oldest' | 'az')}
+                        className={`w-full px-3 py-2 text-xs font-sans border outline-none cursor-pointer transition-colors rounded-none ${
+                          darkMode 
+                            ? 'bg-[#061426] border-white/15 text-white focus:border-brand-gold' 
+                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] focus:border-brand-cobalt'
+                        }`}
+                      >
+                        <option value="newest">Sort: Newest First</option>
+                        <option value="oldest">Sort: Oldest First</option>
+                        <option value="az">Sort: Title A–Z</option>
+                      </select>
+                    </div>
                   </div>
 
-                  {deal.imageUrl && (
-                    <div 
-                      className="w-full aspect-[16/9] overflow-hidden bg-brand-deep border-y border-brand-gold/20 relative group cursor-pointer" 
-                      onClick={() => openArticle(deal)}
-                    >
-                      <img 
-                        src={darkMode ? (deal.imageUrlDark || deal.imageUrl) : (deal.imageUrlLight || deal.imageUrl)} 
-                        alt={deal.shortTitle || deal.title}
-                        loading="lazy"
-                        decoding="async"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
-                        EDITORIAL DIAGRAM
-                      </div>
-                    </div>
-                  )}
+                  {/* Status & Reset Row */}
+                  <div className="mt-3 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between text-[11px] font-mono">
+                    <span className={darkMode ? 'text-white/60' : 'text-slate-500'}>
+                      Showing <strong className="text-brand-gold font-semibold">{filteredDealSignals.length}</strong> of {DEAL_SIGNALS_DATA.length} Deal Signals
+                    </span>
 
-                  <div className="p-4 sm:p-5 pt-3 flex-1 flex flex-col justify-between">
-                    <div>
-                      {/* Tags */}
-                      <div className="flex flex-wrap items-center gap-1.5 mb-2">
-                        {(deal.tags || ['Licensing', 'Commercialization']).slice(0, 3).map((tag, tIdx) => (
-                          <span 
-                            key={tIdx}
-                            className={`text-[9px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
-                              darkMode 
-                                ? 'bg-white/[0.04] text-white/70 border-white/10' 
-                                : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#E5DDD0]'
-                            }`}
-                          >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Summary in smaller font */}
-                      <p className={`font-sans text-xs leading-relaxed mb-2.5 ${
-                        darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
-                      }`}>
-                        {deal.featuredSummary || deal.description}
-                      </p>
-                    </div>
-                    
-                    <div className="pt-2.5 border-t border-brand-gold/10 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                      <div className="flex items-center gap-2.5">
-                        <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
-                          <Clock size={10} strokeWidth={2.5} /> {deal.readTime}
-                        </span>
-                        <button
-                          onClick={() => setCarouselArticle(deal)}
-                          className="flex items-center gap-1 text-[9.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2 py-0.5 bg-[#0A66C2]/10"
-                          title="Export LinkedIn Carousel"
-                        >
-                          <Linkedin size={10} fill="currentColor" />
-                          <span>Carousel</span>
-                        </button>
-                      </div>
+                    {(dealSearchQuery || dealMechanismFilter !== 'ALL' || dealSortOrder !== 'newest') && (
                       <button
-                        onClick={() => openArticle(deal)}
-                        className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                        onClick={() => {
+                          setDealSearchQuery('');
+                          setDealMechanismFilter('ALL');
+                          setDealSortOrder('newest');
+                        }}
+                        className="text-brand-gold hover:underline cursor-pointer flex items-center gap-1 font-semibold uppercase tracking-wider text-[10px]"
                       >
-                        Read Deal Signal <ArrowRight size={11} />
+                        <X size={10} /> Reset Filters
                       </button>
-                    </div>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
+                {filteredDealSignals.length === 0 ? (
+                  <div className={`p-10 border text-center my-6 ${
+                    darkMode ? 'bg-[#0B1B2D] border-white/10 text-white' : 'bg-white border-[#E5DDD0] text-slate-700'
+                  }`}>
+                    <p className="font-serif text-base mb-2">No Deal Signals match your search criteria.</p>
+                    <p className="text-xs text-slate-400 font-sans mb-4">Try adjusting your keywords or clearing the mechanism filter.</p>
+                    <button
+                      onClick={() => {
+                        setDealSearchQuery('');
+                        setDealMechanismFilter('ALL');
+                        setDealSortOrder('newest');
+                      }}
+                      className="px-4 py-2 bg-brand-gold text-[#0B121E] text-xs font-mono uppercase font-bold tracking-widest cursor-pointer"
+                    >
+                      Clear Filters
+                    </button>
+                  </div>
+                ) : (
+                  /* Grid displaying filtered Deal Cards */
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+                    {filteredDealSignals.map((deal) => (
+                      <div 
+                        key={deal.id}
+                        className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
+                          darkMode 
+                            ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/45' 
+                            : 'bg-white border-[#E5DDD0] hover:border-brand-gold/60'
+                        }`}
+                      >
+                        <div className="p-4 sm:p-5 pb-2.5">
+                          <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
+                            <span className={`inline-block text-[9.5px] font-mono tracking-[0.12em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(deal.category)}`}>
+                              {deal.category}
+                            </span>
+                            <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
+                              {deal.date}
+                            </span>
+                          </div>
+                          
+                          <h2 
+                            onClick={() => openArticle(deal)}
+                            className={`font-serif text-base sm:text-lg font-bold tracking-tight hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                              darkMode ? 'text-white' : 'text-[#001B2A]'
+                            }`}
+                          >
+                            {deal.shortTitle || deal.title}
+                          </h2>
+                        </div>
+
+                        {deal.imageUrl && (
+                          <div 
+                            className="w-full aspect-[16/9] overflow-hidden bg-brand-deep border-y border-brand-gold/20 relative group cursor-pointer" 
+                            onClick={() => openArticle(deal)}
+                          >
+                            <img 
+                              src={darkMode ? (deal.imageUrlDark || deal.imageUrl) : (deal.imageUrlLight || deal.imageUrl)} 
+                              alt={deal.shortTitle || deal.title}
+                              loading="lazy"
+                              decoding="async"
+                              referrerPolicy="no-referrer"
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
+                              EDITORIAL DIAGRAM
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="p-4 sm:p-5 pt-3 flex-1 flex flex-col justify-between">
+                          <div>
+                            {/* Tags */}
+                            <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                              {(deal.tags || ['Licensing', 'Commercialization']).slice(0, 3).map((tag, tIdx) => (
+                                <span 
+                                  key={tIdx}
+                                  className={`text-[9px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
+                                    darkMode 
+                                      ? 'bg-white/[0.04] text-white/70 border-white/10' 
+                                      : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#E5DDD0]'
+                                  }`}
+                                >
+                                  #{tag}
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Summary */}
+                            <p className={`font-sans text-xs leading-relaxed mb-2.5 ${
+                              darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                            }`}>
+                              {deal.featuredSummary || deal.description}
+                            </p>
+                          </div>
+                          
+                          <div className="pt-2.5 border-t border-brand-gold/10 flex flex-wrap items-center justify-between gap-2 mt-auto">
+                            <div className="flex items-center gap-2.5">
+                              <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                                <Clock size={10} strokeWidth={2.5} /> {deal.readTime}
+                              </span>
+                              <button
+                                onClick={() => setCarouselArticle(deal)}
+                                className="flex items-center gap-1 text-[9.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2 py-0.5 bg-[#0A66C2]/10"
+                                title="Export LinkedIn Carousel"
+                              >
+                                <Linkedin size={10} fill="currentColor" />
+                                <span>Carousel</span>
+                              </button>
+                            </div>
+                            <button
+                              onClick={() => openArticle(deal)}
+                              className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                            >
+                              Read Deal Signal <ArrowRight size={11} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          );
+        })()
       ) : (
         /* Executive Intelligence Homepage Layout */
         <>
@@ -1320,7 +1503,14 @@ export default function App() {
                       )}
 
                       <div className="text-[9.5px] font-mono text-slate-500 dark:text-brand-gold/80 font-medium tracking-wide text-center">
-                        No spam. Unsubscribe anytime.
+                        No spam. Unsubscribe anytime. Read our{' '}
+                        <button 
+                          type="button" 
+                          onClick={() => openPolicy('privacy')} 
+                          className="underline hover:text-brand-gold cursor-pointer"
+                        >
+                          Privacy Policy
+                        </button>.
                       </div>
                     </form>
                   ) : (
@@ -1399,7 +1589,11 @@ export default function App() {
                   Lenses
                 </button>
                 <button 
-                  onClick={() => scrollToSection('about-section')}
+                  onClick={() => {
+                    setActiveTab('ABOUT');
+                    window.history.pushState(null, '', '/about');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   className="hover:text-brand-cobalt dark:hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
                 >
                   About
@@ -1444,7 +1638,7 @@ export default function App() {
                 </button>
               </nav>
 
-              {/* Social Icons */}
+              {/* Verified Syndication Links */}
               <div className="flex items-center space-x-2.5">
                 <a 
                   href="/rss.xml" 
@@ -1459,33 +1653,6 @@ export default function App() {
                   title="RSS Feed XML for Auto-Syndication"
                 >
                   <Rss size={14} />
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className={`p-1.5 transition-colors border ${
-                    darkMode 
-                      ? 'bg-white/5 text-white/80 hover:text-brand-gold hover:bg-white/10 border-white/5 hover:border-brand-gold/30' 
-                      : 'bg-slate-100 text-slate-700 hover:text-[#0A66C2] hover:bg-white border-slate-200 hover:border-[#0A66C2]/40'
-                  }`}
-                  aria-label="LinkedIn Profile"
-                  title="LinkedIn"
-                >
-                  <Linkedin size={14} />
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className={`p-1.5 transition-colors border ${
-                    darkMode 
-                      ? 'bg-white/5 text-white/80 hover:text-brand-gold hover:bg-white/10 border-white/5 hover:border-brand-gold/30' 
-                      : 'bg-[#001B2A]/5 text-brand-primary hover:text-brand-gold hover:bg-white border-transparent hover:border-brand-gold/30'
-                  }`}
-                  aria-label="Twitter Profile"
-                >
-                  <Twitter size={14} />
                 </a>
               </div>
             </div>
@@ -1504,37 +1671,33 @@ export default function App() {
       {/* Floating Reader Modal for Articles */}
       <AnimatePresence>
         {selectedArticle && (
-          <Suspense fallback={null}>
-            <ArticleModal 
-              article={selectedArticle} 
-              onClose={closeArticle} 
-              darkMode={darkMode}
-              onSelectArticleId={(id) => {
-                const art = ALL_ARTICLES.find(a => a.id === id);
-                if (art) setSelectedArticle(art);
-              }}
-            />
-          </Suspense>
+          <ArticleModal 
+            article={selectedArticle} 
+            onClose={closeArticle} 
+            darkMode={darkMode}
+            onSelectArticleId={(id) => {
+              const art = ALL_ARTICLES.find(a => a.id === id);
+              if (art) setSelectedArticle(art);
+            }}
+          />
         )}
       </AnimatePresence>
 
       {/* Floating Policy Modal */}
       <AnimatePresence>
         {policyModalOpen && (
-          <Suspense fallback={null}>
-            <PolicyModal 
-              isOpen={policyModalOpen}
-              activeTab={policyTab}
-              onTabChange={(tab) => {
-                setPolicyTab(tab);
-                const url = new URL(window.location.href);
-                url.searchParams.set('policy', tab);
-                window.history.pushState(null, '', url.toString());
-              }}
-              onClose={closePolicy}
-              darkMode={darkMode}
-            />
-          </Suspense>
+          <PolicyModal 
+            isOpen={policyModalOpen}
+            activeTab={policyTab}
+            onTabChange={(tab) => {
+              setPolicyTab(tab);
+              const url = new URL(window.location.href);
+              url.searchParams.set('policy', tab);
+              window.history.pushState(null, '', url.toString());
+            }}
+            onClose={closePolicy}
+            darkMode={darkMode}
+          />
         )}
       </AnimatePresence>
 
