@@ -1164,15 +1164,10 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : article.id === 'gsk-capability-led-opportunity-creation' ? (
               <>
-                {/* Draft Badge & Category Breadcrumb */}
-                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
-                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
-                    {article.category}
-                  </span>
-                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
-                    DRAFT — READY FOR REVIEW
-                  </span>
-                </div>
+                {/* 1. Category Breadcrumb */}
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                  {article.category}
+                </span>
 
                 {/* 1. Title */}
                 <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
@@ -1342,15 +1337,10 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : article.id === 'sk-biopharm-biohaven-epilepsy-platform' ? (
               <>
-                {/* Draft Badge & Category Breadcrumb */}
-                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
-                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
-                    {article.category}
-                  </span>
-                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
-                    DRAFT — READY FOR REVIEW
-                  </span>
-                </div>
+                {/* 1. Category Breadcrumb */}
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                  {article.category}
+                </span>
 
                 {/* 1. Title */}
                 <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
@@ -1515,15 +1505,10 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : article.id === 'aurigene-dr-reddys-tech-transfer-architecture' ? (
               <>
-                {/* Draft Badge & Category Breadcrumb */}
-                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
-                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
-                    {article.category}
-                  </span>
-                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
-                    DRAFT — READY FOR REVIEW
-                  </span>
-                </div>
+                {/* 1. Category Breadcrumb */}
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                  {article.category}
+                </span>
 
                 {/* 1. Title */}
                 <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${
@@ -1688,15 +1673,10 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : article.id === 'bms-terminates-cellares-manufacturing-scale-deficit' ? (
               <>
-                {/* Draft Badge & Category Breadcrumb */}
-                <div className="flex flex-wrap items-center gap-3 mb-2 sm:mb-3">
-                  <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase">
-                    {article.category}
-                  </span>
-                  <span className="inline-block text-[10px] font-mono tracking-widest px-2.5 py-0.5 bg-amber-500/20 text-amber-400 border border-amber-500/40 font-bold uppercase">
-                    DRAFT — READY FOR REVIEW
-                  </span>
-                </div>
+                {/* 1. Category Breadcrumb */}
+                <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                  {article.category}
+                </span>
 
                 {/* 1. Title */}
                 <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-3 sm:mb-4 ${

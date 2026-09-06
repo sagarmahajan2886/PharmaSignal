@@ -16,9 +16,7 @@ import {
   Target,
   Users,
   Sparkles,
-  Filter,
   ExternalLink,
-  Search,
   X
 } from 'lucide-react';
 
@@ -70,15 +68,9 @@ export const getCategoryBadgeClass = (category: string = '') => {
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('HOME');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
-  const [selectedDealCategory, setSelectedDealCategory] = useState<string>('ALL');
   const [carouselArticle, setCarouselArticle] = useState<Article | null>(null);
   const [suggestModalOpen, setSuggestModalOpen] = useState(false);
   
-  // Deal Archive discovery state
-  const [dealSearchQuery, setDealSearchQuery] = useState('');
-  const [dealMechanismFilter, setDealMechanismFilter] = useState('ALL');
-  const [dealSortOrder, setDealSortOrder] = useState<'newest' | 'oldest' | 'az'>('newest');
-
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
   const [policyTab, setPolicyTab] = useState<PolicyTab>('privacy');
@@ -411,182 +403,33 @@ export default function App() {
         </Suspense>
       ) : activeTab === 'DEAL SIGNALS' ? (
         /* Dedicated Deal Signals Listing View */
-        (() => {
-          const availableMechanisms = Array.from(
-            new Set(
-              DEAL_SIGNALS_DATA.map(d => d.mechanism || d.category).filter(Boolean)
-            )
-          ).sort();
+        <section 
+          id="deal-signals-page"
+          className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+            darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left max-w-3xl mb-8 sm:mb-10 pb-4 border-b border-brand-gold/20">
+              <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                EMPIRICAL EVIDENCE · DEAL MECHANISMS
+              </span>
+              <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
+                darkMode ? 'text-white' : 'text-[#001B2A]'
+              }`}>
+                Deal Signals
+              </h1>
+              <div className="h-[2px] w-10 bg-brand-gold mb-2.5" />
+              <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
+                darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+              }`}>
+                A PharmaSignal filter on pharma BD deals, partnerships and licensing activity — focused on what each deal reveals about execution, market access, partner capability and value creation.
+              </p>
+            </div>
 
-          const filteredDealSignals = DEAL_SIGNALS_DATA.filter((deal) => {
-            const matchesMechanism = 
-              dealMechanismFilter === 'ALL' || 
-              deal.mechanism === dealMechanismFilter || 
-              deal.category === dealMechanismFilter;
-            
-            if (!matchesMechanism) return false;
-
-            if (!dealSearchQuery.trim()) return true;
-            const q = dealSearchQuery.toLowerCase();
-            return (
-              deal.title.toLowerCase().includes(q) ||
-              (deal.shortTitle && deal.shortTitle.toLowerCase().includes(q)) ||
-              (deal.description && deal.description.toLowerCase().includes(q)) ||
-              (deal.pharmaSignalRead && deal.pharmaSignalRead.toLowerCase().includes(q)) ||
-              (deal.assetClass && deal.assetClass.toLowerCase().includes(q)) ||
-              (deal.mechanism && deal.mechanism.toLowerCase().includes(q)) ||
-              (deal.tags && deal.tags.some(t => t.toLowerCase().includes(q)))
-            );
-          }).sort((a, b) => {
-            if (dealSortOrder === 'az') {
-              return (a.shortTitle || a.title).localeCompare(b.shortTitle || b.title);
-            }
-            const dateA = new Date(a.date).getTime() || 0;
-            const dateB = new Date(b.date).getTime() || 0;
-            return dealSortOrder === 'newest' ? dateB - dateA : dateA - dateB;
-          });
-
-          return (
-            <section 
-              id="deal-signals-page"
-              className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
-                darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
-              }`}
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-left max-w-3xl mb-6 sm:mb-8 pb-4 border-b border-brand-gold/20">
-                  <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
-                    EMPIRICAL EVIDENCE · DEAL MECHANISMS
-                  </span>
-                  <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
-                    darkMode ? 'text-white' : 'text-[#001B2A]'
-                  }`}>
-                    Deal Signals
-                  </h1>
-                  <div className="h-[2px] w-10 bg-brand-gold mb-2.5" />
-                  <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
-                    darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
-                  }`}>
-                    A PharmaSignal filter on pharma BD deals, partnerships and licensing activity — focused on what each deal reveals about execution, market access, partner capability and value creation.
-                  </p>
-                </div>
-
-                {/* Discovery & Filter Bar */}
-                <div className={`p-4 sm:p-5 border mb-6 transition-colors ${
-                  darkMode ? 'bg-[#0B1B2D] border-white/10' : 'bg-white border-[#E5DDD0]'
-                }`}>
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-center">
-                    {/* Search Input */}
-                    <div className="md:col-span-5 relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-brand-gold">
-                        <Search size={14} />
-                      </div>
-                      <input
-                        type="text"
-                        value={dealSearchQuery}
-                        onChange={(e) => setDealSearchQuery(e.target.value)}
-                        placeholder="Search deals, companies, assets, mechanisms..."
-                        className={`w-full pl-9 pr-8 py-2 text-xs font-sans border outline-none transition-colors rounded-none ${
-                          darkMode 
-                            ? 'bg-[#061426] border-white/15 text-white placeholder:text-white/40 focus:border-brand-gold' 
-                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] placeholder:text-slate-400 focus:border-brand-cobalt'
-                        }`}
-                      />
-                      {dealSearchQuery && (
-                        <button
-                          onClick={() => setDealSearchQuery('')}
-                          className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-brand-gold cursor-pointer"
-                          title="Clear search"
-                        >
-                          <X size={13} />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Mechanism Filter */}
-                    <div className="md:col-span-4 relative">
-                      <label htmlFor="deal-mechanism-select" className="sr-only">Filter by Mechanism</label>
-                      <select
-                        id="deal-mechanism-select"
-                        value={dealMechanismFilter}
-                        onChange={(e) => setDealMechanismFilter(e.target.value)}
-                        className={`w-full px-3 py-2 text-xs font-sans border outline-none cursor-pointer transition-colors rounded-none ${
-                          darkMode 
-                            ? 'bg-[#061426] border-white/15 text-white focus:border-brand-gold' 
-                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] focus:border-brand-cobalt'
-                        }`}
-                      >
-                        <option value="ALL">All Mechanisms & Categories</option>
-                        {availableMechanisms.map((mech) => (
-                          <option key={mech} value={mech}>
-                            {mech}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Sort Order */}
-                    <div className="md:col-span-3 relative">
-                      <label htmlFor="deal-sort-select" className="sr-only">Sort Order</label>
-                      <select
-                        id="deal-sort-select"
-                        value={dealSortOrder}
-                        onChange={(e) => setDealSortOrder(e.target.value as 'newest' | 'oldest' | 'az')}
-                        className={`w-full px-3 py-2 text-xs font-sans border outline-none cursor-pointer transition-colors rounded-none ${
-                          darkMode 
-                            ? 'bg-[#061426] border-white/15 text-white focus:border-brand-gold' 
-                            : 'bg-[#FBFBFC] border-slate-300 text-[#0B121E] focus:border-brand-cobalt'
-                        }`}
-                      >
-                        <option value="newest">Sort: Newest First</option>
-                        <option value="oldest">Sort: Oldest First</option>
-                        <option value="az">Sort: Title A–Z</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Status & Reset Row */}
-                  <div className="mt-3 pt-2.5 border-t border-brand-gold/10 flex items-center justify-between text-[11px] font-mono">
-                    <span className={darkMode ? 'text-white/60' : 'text-slate-500'}>
-                      Showing <strong className="text-brand-gold font-semibold">{filteredDealSignals.length}</strong> of {DEAL_SIGNALS_DATA.length} Deal Signals
-                    </span>
-
-                    {(dealSearchQuery || dealMechanismFilter !== 'ALL' || dealSortOrder !== 'newest') && (
-                      <button
-                        onClick={() => {
-                          setDealSearchQuery('');
-                          setDealMechanismFilter('ALL');
-                          setDealSortOrder('newest');
-                        }}
-                        className="text-brand-gold hover:underline cursor-pointer flex items-center gap-1 font-semibold uppercase tracking-wider text-[10px]"
-                      >
-                        <X size={10} /> Reset Filters
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {filteredDealSignals.length === 0 ? (
-                  <div className={`p-10 border text-center my-6 ${
-                    darkMode ? 'bg-[#0B1B2D] border-white/10 text-white' : 'bg-white border-[#E5DDD0] text-slate-700'
-                  }`}>
-                    <p className="font-serif text-base mb-2">No Deal Signals match your search criteria.</p>
-                    <p className="text-xs text-slate-400 font-sans mb-4">Try adjusting your keywords or clearing the mechanism filter.</p>
-                    <button
-                      onClick={() => {
-                        setDealSearchQuery('');
-                        setDealMechanismFilter('ALL');
-                        setDealSortOrder('newest');
-                      }}
-                      className="px-4 py-2 bg-brand-gold text-[#0B121E] text-xs font-mono uppercase font-bold tracking-widest cursor-pointer"
-                    >
-                      Clear Filters
-                    </button>
-                  </div>
-                ) : (
-                  /* Grid displaying filtered Deal Cards */
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-                    {filteredDealSignals.map((deal) => (
+            {/* Grid displaying all published Deal Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+              {DEAL_SIGNALS_DATA.map((deal) => (
                       <div 
                         key={deal.id}
                         className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
@@ -684,12 +527,9 @@ export default function App() {
                         </div>
                       </div>
                     ))}
-                  </div>
-                )}
-              </div>
-            </section>
-          );
-        })()
+            </div>
+          </div>
+        </section>
       ) : (
         /* Executive Intelligence Homepage Layout */
         <>
@@ -981,7 +821,7 @@ export default function App() {
                     Explore all {DEAL_SIGNALS_DATA.length} transactions in our Deal Intelligence desk
                   </h4>
                   <p className={`text-xs sm:text-sm font-sans mt-0.5 ${darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'}`}>
-                    Search, filter, and review biopharma licensing and partnerships categorized by commercial mechanisms.
+                    Review biopharma licensing and partnerships categorized by commercial mechanisms.
                   </p>
                 </div>
                 <div className="flex items-center gap-3">

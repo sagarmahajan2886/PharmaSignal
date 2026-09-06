@@ -1132,7 +1132,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'July 30, 2026',
     featuredSummary: 'Relation will generate proprietary biological evidence rather than transfer a finished asset. The value depends on who controls the targets that emerge.',
     isDealSignal: true,
-    isDraft: true,
     assetClass: 'Genomic AI / Single-Cell MORGAN Platform',
     dealStructure: 'Upstream Research Alliance ($110M Max Value)',
     geographicScope: 'Global Discovery Target Rights',
@@ -1166,7 +1165,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     linkedExplainers: [
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' }
     ],
-    tags: ['DEAL SIGNAL', 'GSK', 'RELATION THERAPEUTICS', 'CAPABILITY-LED OPPORTUNITY CREATION', 'AI DRUG DISCOVERY', 'UPSTREAM BD', 'DRAFT']
+    tags: ['DEAL SIGNAL', 'GSK', 'RELATION THERAPEUTICS', 'CAPABILITY-LED OPPORTUNITY CREATION', 'AI DRUG DISCOVERY', 'UPSTREAM BD']
   },
   {
     id: 'sk-biopharm-biohaven-epilepsy-platform',
@@ -1179,7 +1178,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 26, 2026',
     featuredSummary: 'SK is deploying its established XCOPRI commercial engine to acquire worldwide rights to Biohaven’s entire Kv7 platform before pivotal validation.',
     isDealSignal: true,
-    isDraft: true,
     assetClass: 'Kv7 Ion Channel Platform (Opakalim)',
     dealStructure: 'Worldwide Platform Acquisition ($400M Near-Term)',
     geographicScope: 'Worldwide Global Rights',
@@ -1213,7 +1211,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'opportunity-creation-processing', title: 'Opportunity Creation vs Opportunity Processing' },
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' }
     ],
-    tags: ['DEAL SIGNAL', 'SK BIOPHARM', 'BIOHAVEN', 'EPILEPSY', 'COMMERCIAL INFRASTRUCTURE', 'WORLDWIDE RIGHTS', 'KV7', 'DRAFT']
+    tags: ['DEAL SIGNAL', 'SK BIOPHARM', 'BIOHAVEN', 'EPILEPSY', 'COMMERCIAL INFRASTRUCTURE', 'WORLDWIDE RIGHTS', 'KV7']
   },
   {
     id: 'aurigene-dr-reddys-tech-transfer-architecture',
@@ -1226,7 +1224,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 15, 2026',
     featuredSummary: 'Aurigene assumes transfer, scale-up and commercial supply for 20+ products, creating long-duration technical dependence and switching costs.',
     isDealSignal: true,
-    isDraft: true,
     assetClass: 'Complex Injectables & Biologics (20+ SKUs)',
     dealStructure: 'Multi-Product Tech-Transfer & Commercial Supply',
     geographicScope: 'US, Europe, Canada & Emerging Markets',
@@ -1260,7 +1257,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['DEAL SIGNAL', 'DR REDDYS', 'AURIGENE', 'TECH TRANSFER', 'MANUFACTURING ARCHITECTURE', 'STERILE INJECTABLES', 'PORTFOLIO RESTRUCTURING', 'DRAFT']
+    tags: ['DEAL SIGNAL', 'DR REDDYS', 'AURIGENE', 'TECH TRANSFER', 'MANUFACTURING ARCHITECTURE', 'STERILE INJECTABLES', 'PORTFOLIO RESTRUCTURING']
   },
   {
     id: 'bms-terminates-cellares-manufacturing-scale-deficit',
@@ -1273,7 +1270,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     date: 'August 25, 2026',
     featuredSummary: 'BMS concludes Cellares’ automated platform cannot meet commercial throughput and cost standards, highlighting the Execution Deficit in advanced therapies.',
     isDealSignal: true,
-    isDraft: true,
     assetClass: 'Autologous CAR-T (Breyanzi)',
     dealStructure: 'Automated Mfg Alliance Termination ($380M)',
     geographicScope: 'Global Commercial Supply',
@@ -1307,7 +1303,7 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
       { id: 'the-approval-gap', title: 'The Approval Gap' }
     ],
-    tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI', 'DRAFT']
+    tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI']
   }
 ];
 
