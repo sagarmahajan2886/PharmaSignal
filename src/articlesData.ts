@@ -552,9 +552,9 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     pharmaSignalRead: 'First: define where control sits. HUTCHMED retains Greater China while GSK receives rights elsewhere. Second: define when accountability moves. HUTCHMED runs global Phase I; GSK takes subsequent development outside the retained territory. Third: define what happens next. GSK gets a negotiating right on one earlier asset — not blanket access to HUTCHMED\'s ATTC platform. That distinction matters. A partner can have broader rights in one dimension without automatically receiving broader rights in another. The remaining execution risk sits in provisions not publicly visible: governance, transition triggers, cost allocation and decision rights.',
     useThisWhen: 'Assessing complex multi-territory cross-border licensing transactions where originators want to retain domestic sovereignty, manage initial Phase I clinical execution, and protect future platform pipeline optionality without granting blanket asset access.',
     principleQuote: 'Good deal structuring gives each right, responsibility and future option a boundary that matches the partners\' capabilities and ambitions.',
-    sourceNote: 'HUTCHMED (China) Limited, 3 September 2026.',
+    sourceNote: 'Exclusive licensing agreement for novel KRAS/EGFR dual-targeting ATTC candidate HMPL-A830.',
     sourceOrg: 'HUTCHMED (China) Limited',
-    sourceTitle: 'HUTCHMED and GSK Enter Strategic Exclusive Licensing Agreement for Novel KRAS/EGFR Dual-Targeting ATTC',
+    sourceTitle: 'HUTCHMED Announces Licensing Agreement with GSK for KRAS-EGFR-Antibody Conjugate Cancer Therapy',
     sourceDate: 'September 3, 2026',
     sourceUrl: 'https://www.hutch-med.com/hutchmed-gsk-licensing-agreement-kras-egfr-attc/',
     sourceLabel: 'HUTCHMED Press Release, September 3, 2026',
@@ -583,9 +583,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       <blockquote>
         <p>Good deal structuring gives each right, responsibility and future option a boundary that matches the partners' capabilities and ambitions.</p>
       </blockquote>
-
-      <h2>Source</h2>
-      <p>HUTCHMED (China) Limited, 3 September 2026.</p>
     `
   },
   {
@@ -698,9 +695,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       <blockquote>
         <p>Territorial rights should follow capability economics, not a uniform licensing philosophy.</p>
       </blockquote>
-
-      <h2>Source note</h2>
-      <p>Deal announced: 21 August 2026 (Alvotech and Lotus Pharmaceutical official disclosures).</p>
     `
   },
   {
@@ -811,9 +805,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       <blockquote>
         <p>If the right partner does not exist, the highest-value BD move may be to create the execution vehicle around the asset rather than force the asset into an existing portfolio.</p>
       </blockquote>
-
-      <h2>Source note</h2>
-      <p>Deal announced: 25 August 2026</p>
     `
   },
   {
@@ -888,9 +879,6 @@ export const DEAL_SIGNALS_DATA: Article[] = [
       <blockquote>
         <p>Option triggers tied to validated clinical endpoints preserve originator equity while allowing global pharma to deploy capital at peak strategic clarity.</p>
       </blockquote>
-
-      <h2>SOURCE NOTE</h2>
-      <p>Deal announced: 28 August 2026 (Alnylam Pharmaceuticals and Roche official investor disclosures).</p>
     `
   },
   {
@@ -1306,6 +1294,25 @@ export const DEAL_SIGNALS_DATA: Article[] = [
     tags: ['DEAL SIGNAL', 'BMS', 'CELLARES', 'CAR-T', 'MANUFACTURING SCALE', 'EXECUTION DEFICIT', 'DEAL TERMINATION', 'BREYANZI']
   }
 ];
+
+export const parseArticleDate = (d?: string): number => {
+  if (!d) return 0;
+  const ts = Date.parse(d);
+  if (!isNaN(ts)) return ts;
+  const parts = d.trim().split(/\s+/);
+  if (parts.length === 2) {
+    const fallback = Date.parse(`${parts[0]} 1, ${parts[1]}`);
+    if (!isNaN(fallback)) return fallback;
+  }
+  return 0;
+};
+
+// Sort DEAL_SIGNALS_DATA canonically newest-first by publication date with deterministic id fallback
+DEAL_SIGNALS_DATA.sort((a, b) => {
+  const diff = parseArticleDate(b.date) - parseArticleDate(a.date);
+  if (diff !== 0) return diff;
+  return a.id.localeCompare(b.id);
+});
 
 export const ALL_ARTICLES: Article[] = [...EXPLAINERS_DATA, ...DEAL_SIGNALS_DATA];
 

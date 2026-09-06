@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent, lazy, Suspense } from 'react';
+import { useState, useEffect, useMemo, FormEvent, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, 
@@ -20,7 +20,7 @@ import {
   X
 } from 'lucide-react';
 
-import { EXPLAINERS_DATA, DEAL_SIGNALS_DATA, ALL_ARTICLES } from './articlesData';
+import { EXPLAINERS_DATA, DEAL_SIGNALS_DATA, ALL_ARTICLES, parseArticleDate } from './articlesData';
 import { ActiveTab, Article } from './types';
 import Navigation from './components/Navigation';
 import { PolicyTab } from './components/PolicyModal';
@@ -70,6 +70,15 @@ export default function App() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [carouselArticle, setCarouselArticle] = useState<Article | null>(null);
   const [suggestModalOpen, setSuggestModalOpen] = useState(false);
+  
+  // Canonical publication date sorting (newest first, with deterministic tie-break)
+  const sortedDealSignals = useMemo(() => {
+    return [...DEAL_SIGNALS_DATA].sort((a, b) => {
+      const diff = parseArticleDate(b.date) - parseArticleDate(a.date);
+      if (diff !== 0) return diff;
+      return a.id.localeCompare(b.id);
+    });
+  }, []);
   
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
@@ -427,9 +436,9 @@ export default function App() {
               </p>
             </div>
 
-            {/* Grid displaying all published Deal Cards */}
+            {/* Grid displaying all published Deal Cards (canonical newest-first) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-              {DEAL_SIGNALS_DATA.map((deal) => (
+              {sortedDealSignals.map((deal) => (
                       <div 
                         key={deal.id}
                         className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
@@ -686,21 +695,8 @@ export default function App() {
 
               {/* Deal Signals Card Grid: 4 Neatly Laid Tiles of Most Recent Deal Signals */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8 items-stretch text-left">
-                {[...DEAL_SIGNALS_DATA]
+                {sortedDealSignals
                   .filter((deal) => !deal.hideFromHomepage)
-                  .sort((a, b) => {
-                    const parseDate = (d?: string) => {
-                      if (!d) return 0;
-                      const ts = Date.parse(d);
-                      if (!isNaN(ts)) return ts;
-                      const parts = d.split(' ');
-                      if (parts.length === 2) {
-                        return Date.parse(`${parts[0]} 1, ${parts[1]}`);
-                      }
-                      return 0;
-                    };
-                    return parseDate(b.date) - parseDate(a.date);
-                  })
                   .slice(0, 4)
                   .map((deal) => (
                     <div 
@@ -1478,8 +1474,22 @@ export default function App() {
                 </button>
               </nav>
 
-              {/* Verified Syndication Links */}
+              {/* Verified Syndication & Social Links */}
               <div className="flex items-center space-x-2.5">
+                <a 
+                  href="https://www.linkedin.com/company/pharmasignal/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`p-1.5 transition-colors border ${
+                    darkMode 
+                      ? 'bg-white/5 text-white/80 hover:text-[#58a6ff] hover:bg-white/10 border-white/5 hover:border-[#58a6ff]/40' 
+                      : 'bg-slate-100 text-slate-700 hover:text-[#0A66C2] hover:bg-white border-slate-200 hover:border-[#0A66C2]/40'
+                  }`}
+                  aria-label="PharmaSignal on LinkedIn"
+                  title="Follow PharmaSignal on LinkedIn"
+                >
+                  <Linkedin size={14} fill="currentColor" />
+                </a>
                 <a 
                   href="/rss.xml" 
                   target="_blank" 

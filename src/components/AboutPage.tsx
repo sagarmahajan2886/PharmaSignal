@@ -167,7 +167,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
             <span>Analytical Methodology</span>
           </div>
           <p className="font-serif text-[16px] sm:text-[18px] leading-[1.6] mb-4">
-            "Pharma deals create or destroy value not at signature, but through the structural alignment of rights, responsibilities, and post-closing operational capability."
+            "Pharma deal value is shaped by the terms agreed at signing and by how rights, responsibilities and execution capabilities work together afterward."
           </p>
           <p className={`font-sans text-[13.5px] leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             Every analysis published by PharmaSignal emphasizes verifiable contractual terms, disclosure documents, and operational mechanisms to provide senior dealmakers with objective, repeatable decision-intelligence.
@@ -182,7 +182,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
             Receive PharmaSignal Deal Intelligence
           </h3>
           <p className={`font-sans text-[14px] max-w-xl mx-auto mb-6 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-            Join senior biopharma executives receiving mechanism-first briefings on licensing, alliances, and M&A architecture.
+            Receive PharmaSignal briefings on licensing, alliances and deal execution.
           </p>
           <button
             onClick={openSubscription}

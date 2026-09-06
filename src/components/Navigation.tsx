@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Linkedin } from 'lucide-react';
 import { ActiveTab } from '../types';
 
 interface NavigationProps {
@@ -149,7 +149,21 @@ export default function Navigation({
           </nav>
 
           {/* Right Action Button for Desktop */}
-          <div className="hidden md:flex items-center space-x-3 lg:space-x-4 shrink-0">
+          <div className="hidden md:flex items-center space-x-2.5 lg:space-x-3.5 shrink-0">
+            <a
+              href="https://www.linkedin.com/company/pharmasignal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2 rounded-full transition-colors cursor-pointer shrink-0 flex items-center justify-center ${
+                darkMode 
+                  ? 'text-slate-300 hover:text-[#58a6ff] hover:bg-white/5' 
+                  : 'text-slate-600 hover:text-[#0A66C2] hover:bg-slate-100'
+              }`}
+              aria-label="PharmaSignal on LinkedIn"
+              title="Follow PharmaSignal on LinkedIn"
+            >
+              <Linkedin size={16} fill="currentColor" />
+            </a>
             <button
               onClick={toggleDarkMode}
               className={`p-2 rounded-full transition-colors cursor-pointer shrink-0 ${
@@ -170,8 +184,20 @@ export default function Navigation({
             </button>
           </div>
 
-          {/* Mobile Menu Icon with Dark Mode toggle */}
-          <div className="flex md:hidden items-center space-x-3">
+          {/* Mobile Menu Icon with Dark Mode toggle & LinkedIn */}
+          <div className="flex md:hidden items-center space-x-2">
+            <a
+              href="https://www.linkedin.com/company/pharmasignal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-2 transition-colors rounded-full cursor-pointer flex items-center justify-center ${
+                darkMode ? 'text-white/85 hover:text-[#58a6ff] bg-white/5' : 'text-slate-700 hover:text-[#0A66C2] bg-black/5'
+              }`}
+              aria-label="PharmaSignal on LinkedIn"
+              title="Follow PharmaSignal on LinkedIn"
+            >
+              <Linkedin size={16} fill="currentColor" />
+            </a>
             <button
               onClick={toggleDarkMode}
               className={`p-2 transition-colors rounded-full cursor-pointer ${
@@ -223,6 +249,18 @@ export default function Navigation({
                 </button>
               ))}
               
+              <a
+                href="https://www.linkedin.com/company/pharmasignal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 text-sm tracking-widest font-sans font-medium transition-colors flex items-center justify-between border-t pt-4 ${
+                  darkMode ? 'text-white/80 hover:text-white border-white/5' : 'text-slate-700 hover:text-slate-900 border-slate-200'
+                }`}
+              >
+                <span className="uppercase">LinkedIn Page</span>
+                <Linkedin size={16} fill="currentColor" className="text-[#0A66C2] dark:text-[#58a6ff]" />
+              </a>
+
               <button
                 onClick={toggleDarkMode}
                 className={`w-full text-left py-3 text-sm tracking-widest font-sans font-medium transition-colors flex items-center justify-between border-t pt-4 ${

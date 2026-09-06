@@ -81,22 +81,38 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
     }
   };
 
+  const hasSidebarContent = Boolean(
+    article.isDealSignal 
+      ? (article.assetClass || article.mechanism) 
+      : ['the-approval-gap', 'execution-deficit', 'opportunity-creation-processing'].includes(article.id)
+  );
+
   const renderSourceBlock = () => {
-    if (!article.sourceUrl && !article.sourceOrg && !article.sourceTitle && !article.sourceNote) {
+    if (!article.sourceUrl && !article.sourceOrg && !article.sourceTitle && !article.sourceNote && !article.sourceLabel) {
       return null;
     }
 
     const org = article.sourceOrg;
-    const title = article.sourceTitle;
     const date = article.sourceDate;
     const url = article.sourceUrl;
-    const label = article.sourceLabel || title || org || 'Official Source / Disclosure';
+    const displayTitle = article.sourceTitle || article.sourceLabel || org || 'Official Announcement / Disclosure';
+
+    // Prevent duplicating organization or date if already present in title
+    const showOrg = org && !displayTitle.toLowerCase().includes(org.toLowerCase());
+    const showDate = date && !displayTitle.toLowerCase().includes(date.toLowerCase());
+
+    // Check if sourceNote provides distinct information rather than simply repeating org/date
+    const isRedundantNote = article.sourceNote && (
+      article.sourceNote === date ||
+      article.sourceNote === displayTitle ||
+      (org && article.sourceNote.includes(org) && date && article.sourceNote.includes(date) && article.sourceNote.length < org.length + date.length + 30)
+    );
 
     return (
       <div className={`my-8 py-3.5 px-5 border-l-2 border-brand-gold/60 font-sans text-xs sm:text-sm ${
         darkMode ? 'bg-white/[0.03] text-white/80' : 'bg-brand-gold-light/20 text-brand-charcoal/80'
       }`}>
-        <div className="font-mono text-[10px] tracking-wider uppercase text-brand-gold font-bold mb-1">
+        <div className="font-mono text-[10px] tracking-wider uppercase text-brand-gold font-bold mb-1.5">
           Source &amp; Official Disclosure
         </div>
         <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
@@ -107,26 +123,26 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                 href={url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity inline-flex items-center gap-1"
+                className="text-brand-gold font-bold underline hover:opacity-80 transition-opacity inline-flex items-center gap-1.5"
               >
-                <span>{label}</span>
+                <span>{displayTitle}</span>
                 <ExternalLink size={12} className="inline-block shrink-0" />
               </a>
             ) : (
               <span className="font-semibold text-brand-gold">
-                {label}
+                {displayTitle}
               </span>
             )}
-            {org && label !== org && (
+            {showOrg && (
               <span className="opacity-80"> — {org}</span>
             )}
-            {date && (
+            {showDate && (
               <span className="opacity-75">, {date}</span>
             )}
           </div>
         </div>
-        {article.sourceNote && article.sourceNote !== date && article.sourceNote !== label && (
-          <p className="mt-1.5 text-xs opacity-75 italic font-mono">
+        {article.sourceNote && !isRedundantNote && (
+          <p className="mt-2 text-xs opacity-80 leading-relaxed font-sans">
             {article.sourceNote}
           </p>
         )}
@@ -224,44 +240,39 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
           >
             <div className="lg:grid lg:grid-cols-12 lg:gap-10 items-start">
               {/* Sticky Sidebar on Left for PC */}
-              <div className={`hidden lg:flex lg:col-span-4 h-fit sticky top-2 flex-col pr-6 border-r ${
-                darkMode ? 'border-white/10' : 'border-slate-200'
-              } space-y-6 select-none`}>
-                {article.isDealSignal ? (
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold block mb-1">
-                        Deal Intelligence
-                      </span>
-                      <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
-                        Quick structural summary
-                      </p>
-                    </div>
+              {hasSidebarContent && (
+                <div className={`hidden lg:flex lg:col-span-4 h-fit sticky top-2 flex-col pr-6 border-r ${
+                  darkMode ? 'border-white/10' : 'border-slate-200'
+                } space-y-6 select-none`}>
+                  {article.isDealSignal ? (
+                    <div className="space-y-4">
+                      <div>
+                        <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold block mb-1">
+                          Deal Intelligence
+                        </span>
+                        <p className={`text-xs font-serif italic ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
+                          Quick structural summary
+                        </p>
+                      </div>
 
-                    <div className={`p-3.5 border space-y-2.5 text-left text-xs ${
-                      darkMode ? 'bg-white/[0.02] border-white/10' : 'bg-brand-gold-light/15 border-brand-charcoal/10'
-                    }`}>
-                      {article.assetClass && (
-                        <div>
-                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Asset Class</span>
-                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.assetClass}</span>
-                        </div>
-                      )}
-                      {article.mechanism && (
-                        <div>
-                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Core Mechanism</span>
-                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.mechanism}</span>
-                        </div>
-                      )}
-                      {article.category && (
-                        <div>
-                          <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Category</span>
-                          <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.category}</span>
-                        </div>
-                      )}
+                      <div className={`p-3.5 border space-y-2.5 text-left text-xs ${
+                        darkMode ? 'bg-white/[0.02] border-white/10' : 'bg-brand-gold-light/15 border-brand-charcoal/10'
+                      }`}>
+                        {article.assetClass && (
+                          <div>
+                            <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Asset Class</span>
+                            <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.assetClass}</span>
+                          </div>
+                        )}
+                        {article.mechanism && (
+                          <div>
+                            <span className="block font-mono text-[9px] uppercase tracking-wider text-brand-gold font-bold">Core Mechanism</span>
+                            <span className={`font-sans font-medium ${darkMode ? 'text-white/90' : 'text-brand-primary'}`}>{article.mechanism}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ) : (
+                  ) : (
                   <>
                     <div className="space-y-1">
                       <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
@@ -422,101 +433,47 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                     </div>
                   </>
                 )}
-
-                <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
-
-                <div className="space-y-2">
-                  <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold block">
-                    Document Metadata
-                  </span>
-                  <div className={`space-y-1.5 text-xs font-sans ${darkMode ? 'text-white/60' : 'text-brand-charcoal/70'}`}>
-                    <p><strong className="font-semibold text-brand-gold">Published:</strong> {article.date || 'June 17, 2026'}</p>
-                    <p><strong className="font-semibold text-brand-gold">Author:</strong> {article.author || 'PharmaSignal Deal Desk'}</p>
-                    <p><strong className="font-semibold text-brand-gold">Reading Time:</strong> {article.readTime || '7 min read'}</p>
-                    <p><strong className="font-semibold text-brand-gold">Category:</strong> {article.category}</p>
-                  </div>
-                </div>
-
-                <div className={`h-[1px] w-full ${darkMode ? 'bg-white/10' : 'bg-brand-charcoal/10'}`} />
-
-                <div className={`p-4 border space-y-2.5 ${
-                  darkMode ? 'bg-[#111C2E] border-brand-gold/40' : 'bg-blue-50/40 border-blue-200/60'
-                }`}>
-                  <div className="flex items-center gap-2">
-                    <Linkedin size={15} className="text-[#0A66C2]" />
-                    <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
-                      LinkedIn Carousel
-                    </span>
-                  </div>
-                  <p className={`text-[11px] font-sans leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                    Export 4-slide high-res PDF carousel with quote hooks & metrics.
-                  </p>
-                  <button
-                    onClick={() => setCarouselOpen(true)}
-                    className="w-full py-2 bg-brand-gold hover:bg-brand-gold-hover text-[#0B121E] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    <FileDown size={13} />
-                    <span>Export Carousel PDF</span>
-                  </button>
-                </div>
-
-                <div className="space-y-2 pt-1">
-                  <button
-                    onClick={handleShare}
-                    className={`w-full flex items-center justify-center gap-2 font-sans font-semibold tracking-wider text-xs py-2.5 border transition-all cursor-pointer uppercase ${
-                      darkMode 
-                        ? 'border-white/15 hover:border-brand-gold text-white hover:text-brand-gold bg-white/[0.02]' 
-                        : 'border-slate-200 hover:border-brand-cobalt text-slate-700 hover:text-brand-cobalt bg-slate-50/50'
-                    }`}
-                  >
-                    {copied ? <ClipboardCheck size={14} className="text-emerald-500" /> : <Share2 size={14} />}
-                    {copied ? 'Link Copied' : 'Share Briefing'}
-                  </button>
-                  <button
-                    onClick={onClose}
-                    className={`w-full text-center font-sans font-bold tracking-wider text-xs py-2.5 transition-all cursor-pointer uppercase ${
-                      darkMode 
-                        ? 'bg-brand-gold hover:bg-brand-gold-hover text-[#0B121E]' 
-                        : 'bg-[#0B121E] hover:bg-brand-cobalt text-white'
-                    }`}
-                  >
-                    Finish Reading
-                  </button>
-                </div>
               </div>
+            )}
 
-              {/* Main Reading Column */}
-              <div className="col-span-12 lg:col-span-8 w-full">
+            {/* Main Reading Column */}
+            <div className={`${hasSidebarContent ? 'col-span-12 lg:col-span-8' : 'col-span-12 max-w-4xl mx-auto'} w-full`}>
                 {article.id === 'the-approval-gap' ? (
                   <>
-                    {/* PHARMASIGNAL EXPLAINED HEADER */}
-                    <div id="intro" className="mb-4 sm:mb-8 font-mono text-[10px] sm:text-xs tracking-wider">
-                  <span className={`block font-bold tracking-widest ${darkMode ? 'text-brand-gold' : 'text-brand-primary'}`}>
-                    PHARMASIGNAL EXPLAINED
-                  </span>
-                  <div className={`mt-1.5 sm:mt-2 flex flex-wrap items-center gap-x-2 sm:gap-x-4 gap-y-0.5 sm:gap-y-1 ${darkMode ? 'text-white/60' : 'text-brand-charcoal/60'}`}>
-                    <span>Category: Decision Intelligence</span>
-                    <span className="opacity-40 sm:inline hidden">•</span>
-                    <span className="sm:inline hidden">Reading Time: 7 Minutes</span>
-                    <span className="opacity-40 sm:inline hidden">•</span>
-                    <span className="sm:inline hidden">Published: June 17, 2026</span>
-                    
-                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">7 Min</span>
-                    <span className="sm:hidden text-[9px] px-1 py-0.5 bg-brand-gold-light/10 text-brand-gold rounded font-mono inline-block">June 17, 2026</span>
-                  </div>
-                </div>
+                    {/* Category Breadcrumb */}
+                    <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-3">
+                      PHARMASIGNAL EXPLAINED · DECISION INTELLIGENCE
+                    </span>
 
-                {/* THE APPROVAL GAP TITLE & SUBTITLE */}
-                <div className="mb-6 sm:mb-10">
-                  <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-2 sm:mb-4 ${
-                    darkMode ? 'text-white' : 'text-brand-primary'
-                  }`}>
-                    THE APPROVAL GAP
-                  </h1>
-                  <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold">
-                    Why attractive opportunities lose momentum long before a decision is made.
-                  </p>
-                </div>
+                    {/* Title */}
+                    <h1 className={`font-serif text-2xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-2 sm:mb-4 ${
+                      darkMode ? 'text-white' : 'text-brand-primary'
+                    }`}>
+                      THE APPROVAL GAP
+                    </h1>
+
+                    {/* Subtitle */}
+                    <p className="font-serif text-base sm:text-xl md:text-2xl italic leading-relaxed text-brand-gold mb-4 sm:mb-6">
+                      Why attractive opportunities lose momentum long before a decision is made.
+                    </p>
+
+                    {/* Metadata Strip */}
+                    <div id="intro" className={`flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-8 border-y py-3 mb-8 text-[11px] sm:text-xs font-mono ${
+                      darkMode ? 'border-white/10 text-white/60' : 'border-brand-charcoal/10 text-brand-charcoal/60'
+                    }`}>
+                      <div className="flex items-center gap-1.5">
+                        <User size={13} className="text-brand-gold" />
+                        <span className={`font-medium ${darkMode ? 'text-white' : 'text-brand-primary'}`}>PharmaSignal Deal Desk</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Calendar size={13} />
+                        <span>June 17, 2026</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <Clock size={13} />
+                        <span>7 min read</span>
+                      </div>
+                    </div>
 
                 {/* Content containing exactly premium blocks */}
                 <div className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}>
