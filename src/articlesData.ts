@@ -529,6 +529,80 @@ export const EXPLAINERS_DATA: Article[] = [
 
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
+    id: 'biocon-brazil-pertuzumab-market-access',
+    category: 'DEAL SIGNAL',
+    title: 'Biocon’s Brazil Partnership Builds Market Access Into the Deal',
+    shortTitle: 'Biocon Builds Brazil Market Access Into the Deal',
+    subtitle: 'The 10-year pertuzumab arrangement links product supply, Brazil’s public healthcare channel and phased localization rather than leaving market access for after signing.',
+    description: 'How Biocon, Bahiafarma and Bionovis connect pertuzumab supply with Brazil’s public healthcare route and phased localization.',
+    meta: '3 MIN READ · SEP 08, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '3 min read',
+    date: 'September 8, 2026',
+    featuredSummary: 'A 10-year pertuzumab partnership connects product capability, Brazil’s public healthcare route and phased localization.',
+    isDealSignal: true,
+    mechanism: 'Market Access Integration',
+    assetClass: 'HER2+ Oncology Biologic (Recombinant mAb)',
+    dealStructure: 'Tripartite Consortium & 10-Year Public PDP Supply',
+    geographicScope: 'Brazil (Public Healthcare SUS Channel)',
+    imageUrl: '/images/pharmasignal_biocon_brazil_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_biocon_brazil_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_biocon_brazil_hero_1600x900_light.png',
+    imageAlt: 'Diagram showing Biocon’s pertuzumab capability joining Bahiafarma and Bionovis through Brazil’s 10-year pertuzumab PDP, leading to public healthcare access with phased localization.',
+    pharmaSignalTake: 'The access route is part of the transaction—not a post-signing activity.\n\nThe partnership combines Biocon’s product capability with Brazilian institutional and biologics capabilities.\n\nThe 10-year horizon supports localization; the detailed accountability behind it remains undisclosed.',
+    pharmaSignalRead: 'Partner fit. Biocon contributes pertuzumab and stated biopharmaceutical capability. Bahiafarma and Bionovis bring relevant Brazilian public-sector and biologics experience. Their exact contractual duties have not been disclosed, so capability should not be presented as confirmed responsibility.\n\nMarket access. The PDP allocation gives the consortium a defined path into the public healthcare channel. This is more concrete than appointing a distributor and assuming tenders, institutional access and localization will be solved later.\n\nEconomics. Milestones plus revenue participation give Biocon returns linked to progress and commercial execution. Without disclosed amounts or percentages, the economics cannot be valued responsibly.\n\nExecution accountability. Localization converts access into a long-term operating commitment. The questions now sit beneath the announcement: who owns registration and tenders, how supply continuity is protected during transfer, what triggers each localization stage, and when quality and manufacturing accountability move.\n\nThe structure fits the market. Whether it creates durable value will depend on whether the operating responsibilities are as clearly defined as the opportunity.',
+    useThisWhen: 'When structuring entry into emerging markets characterized by centralized public tender mechanisms, high institutional gatekeeping, and sovereign policy requirements for progressive domestic capability building.',
+    principleQuote: 'Good partnerships connect complementary capabilities to the market’s actual access route—and define who must deliver each step.',
+    sourceNote: 'Biocon company announcement (8 September 2026), Financial Express, and Economic Times.',
+    sourceOrg: 'Biocon Limited',
+    sourceTitle: 'Biocon Secures 10-Year Supply Contract for Pertuzumab in Brazil',
+    sourceDate: 'September 8, 2026',
+    sourceUrl: 'https://www.biocon.com/',
+    sourceLabel: 'Biocon Corporate Announcement, September 8, 2026',
+    linkedExplainers: [
+      { id: 'rights-responsibility-architecture', title: 'Rights & Responsibility Architecture' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'route-to-market-friction', title: 'Route-to-Market Friction' }
+    ],
+    tags: ['DEAL SIGNAL', 'BIOCON', 'BAHIAFARMA', 'BIONOVIS', 'BRAZIL', 'PERTUZUMAB', 'PDP', 'MARKET ACCESS', 'LOCALIZATION', 'PUBLIC HEALTHCARE', 'BIOSIMILARS'],
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 8 September 2026, Biocon announced a partnership with Bahiafarma, a Brazilian public pharmaceutical laboratory, and Bionovis, a Brazilian biotechnology company, for pertuzumab in Brazil.</p>
+      <p>The consortium received 100% allocation under Brazil’s 10-year Productive Development Partnership programme for pertuzumab. That allocation relates to the PDP—not Brazil’s entire pertuzumab market. The programme provides access to the public healthcare channel, reported to account for approximately 70% of national demand for the product.</p>
+      <p>Biocon will receive milestone payments and a share of revenue generated through the opportunity. The amounts and revenue split were not disclosed. Production is expected to be localized in Brazil in phases over the medium to long term.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Many emerging-market business cases begin with product potential and address market access later. That sequence can create an attractive forecast without a credible route to revenue.</p>
+      <p>This arrangement starts with the route. Product supply is connected to a public-sector programme, Brazilian partners and a long-term localization objective. The commercial opportunity and the conditions required to reach it sit inside the same partnership.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p><strong>Partner fit.</strong> Biocon contributes pertuzumab and stated biopharmaceutical capability. Bahiafarma and Bionovis bring relevant Brazilian public-sector and biologics experience. Their exact contractual duties have not been disclosed, so capability should not be presented as confirmed responsibility.</p>
+      <p><strong>Market access.</strong> The PDP allocation gives the consortium a defined path into the public healthcare channel. This is more concrete than appointing a distributor and assuming tenders, institutional access and localization will be solved later.</p>
+      <p><strong>Economics.</strong> Milestones plus revenue participation give Biocon returns linked to progress and commercial execution. Without disclosed amounts or percentages, the economics cannot be valued responsibly.</p>
+      <p><strong>Execution accountability.</strong> Localization converts access into a long-term operating commitment. The questions now sit beneath the announcement: who owns registration and tenders, how supply continuity is protected during transfer, what triggers each localization stage, and when quality and manufacturing accountability move.</p>
+      <p>The structure fits the market. Whether it creates durable value will depend on whether the operating responsibilities are as clearly defined as the opportunity.</p>
+
+      <h2>What BD Leaders Should Ask</h2>
+      <ol>
+        <li>Does the partner structure secure the actual procurement and institutional-access route—or only local presence?</li>
+        <li>Are localization stages tied to clear technology-transfer, quality, investment and supply-continuity responsibilities?</li>
+        <li>Do the economics keep every partner committed when localization costs rise or timelines move?</li>
+      </ol>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>Good partnerships connect complementary capabilities to the market’s actual access route—and define who must deliver each step.</p>
+      </blockquote>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.biocon.com/" target="_blank" rel="noopener noreferrer">Biocon company announcement, 8 September 2026</a></li>
+        <li><a href="https://www.financialexpress.com/business/industry-biocon-wins-10-year-pertuzumab-deal-securing-100-allocation-in-brazil-4334101/" target="_blank" rel="noopener noreferrer">Financial Express, 8 September 2026</a></li>
+        <li><a href="https://economictimes.indiatimes.com/industry/healthcare/biotech/pharmaceuticals/biocon-signs-10-year-brazil-supply-deal-for-pertuzumab-breast-cancer-drug/articleshow/133905013.cms" target="_blank" rel="noopener noreferrer">Economic Times, 8 September 2026</a></li>
+      </ul>
+    `
+  },
+  {
     id: 'hutchmed-gsk-deal-structure-hmpl-a830',
     category: 'DEAL SIGNAL',
     title: 'How HUTCHMED Structured the GSK Deal for HMPL-A830',

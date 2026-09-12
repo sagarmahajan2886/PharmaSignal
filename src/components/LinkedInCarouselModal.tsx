@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   X, 
@@ -9,10 +9,13 @@ import {
   Check, 
   Linkedin, 
   FileDown, 
-  AlertCircle
+  AlertCircle,
+  ExternalLink,
+  ArrowDown
 } from 'lucide-react';
 import jsPDF from 'jspdf';
 import { Article } from '../types';
+import { getDealSlideData, getCanonicalUrl, DealSlideData } from '../utils/dealSharingData';
 
 interface LinkedInCarouselModalProps {
   article: Article | null;
@@ -129,332 +132,467 @@ function loadImageAsync(src: string): Promise<HTMLImageElement> {
   });
 }
 
-// Pure Canvas 2D Slide Renderer (1200x675 HD 16:9)
-// Zero DOM dependencies, immune to CSS color/oklab parsing bugs
-async function renderSlideToCanvas(article: Article, slideIndex: number): Promise<HTMLCanvasElement> {
+/**
+ * Pure Canvas 2D Portrait Slide Renderer (1080 × 1350px 4:5 Portrait)
+ * Conforms to executive BD standard: verified company anchors, no marketing hype, max 35 words/slide.
+ */
+async function renderSlideToCanvas(article: Article, slideIndex: number, intel: DealSlideData): Promise<HTMLCanvasElement> {
   const canvas = document.createElement('canvas');
-  canvas.width = 1200;
-  canvas.height = 675;
+  canvas.width = 1080;
+  canvas.height = 1350;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas 2D context not available');
 
-  // Background
+  const W = 1080;
+  const H = 1350;
+  const marginX = 64;
+  const contentW = W - marginX * 2; // 952px
+
+  // Background - Midnight Navy Executive Slate
   ctx.fillStyle = '#061426';
-  ctx.fillRect(0, 0, 1200, 675);
+  ctx.fillRect(0, 0, W, H);
 
-  // Outer Border
-  ctx.strokeStyle = '#040E1B';
-  ctx.lineWidth = 16;
-  ctx.strokeRect(8, 8, 1184, 659);
+  // Outer 16px Solid Bezel
+  ctx.strokeStyle = '#030A14';
+  ctx.lineWidth = 24;
+  ctx.strokeRect(12, 12, W - 24, H - 24);
 
-  // Gold Inner Accent Border
+  // Inner Subtle Gold Accent Border
   ctx.strokeStyle = 'rgba(197, 168, 128, 0.4)';
   ctx.lineWidth = 1.5;
-  ctx.strokeRect(20, 20, 1160, 635);
+  ctx.strokeRect(28, 28, W - 56, H - 56);
 
-  // Subtle grid dot pattern
-  ctx.fillStyle = 'rgba(197, 168, 128, 0.08)';
-  for (let gx = 35; gx < 1165; gx += 32) {
-    for (let gy = 35; gy < 640; gy += 32) {
+  // Subtle Dot Matrix Background
+  ctx.fillStyle = 'rgba(197, 168, 128, 0.05)';
+  for (let gx = 44; gx < W - 44; gx += 36) {
+    for (let gy = 44; gy < H - 44; gy += 36) {
       ctx.fillRect(gx, gy, 1.5, 1.5);
     }
   }
 
-  // --- COMMON HEADER ---
-  // Gold square icon
+  // --- COMMON HEADER (y: 50 - 110) ---
+  const isDeal = !!article.isDealSignal;
+  
+  // Gold square logo indicator
   ctx.fillStyle = '#C5A880';
-  ctx.fillRect(50, 42, 12, 12);
+  ctx.fillRect(marginX, 62, 14, 14);
 
-  // Header Title
+  // Header Brand Tag
   ctx.fillStyle = '#C5A880';
-  ctx.font = 'bold 14px "Courier New", Courier, monospace';
-  ctx.fillText('PHARMASIGNAL · DEAL DESK', 72, 53);
+  ctx.font = 'bold 15px "Courier New", Courier, monospace';
+  ctx.fillText(isDeal ? 'PHARMASIGNAL · DEAL DESK' : 'PHARMASIGNAL · DECISION LENS', marginX + 26, 74);
 
   // Slide Counter
   ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-  ctx.font = '12px "Courier New", Courier, monospace';
+  ctx.font = 'bold 13px "Courier New", Courier, monospace';
   const slideText = `SLIDE ${slideIndex + 1} OF 4`;
   const slideTextWidth = ctx.measureText(slideText).width;
-  ctx.fillText(slideText, 1150 - slideTextWidth, 53);
+  ctx.fillText(slideText, W - marginX - slideTextWidth, 74);
 
   // Header Divider
   ctx.strokeStyle = 'rgba(197, 168, 128, 0.3)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(50, 68);
-  ctx.lineTo(1150, 68);
+  ctx.moveTo(marginX, 96);
+  ctx.lineTo(W - marginX, 96);
   ctx.stroke();
 
-  // --- COMMON FOOTER ---
+  // --- COMMON FOOTER (y: 1240 - 1300) ---
   ctx.strokeStyle = 'rgba(197, 168, 128, 0.3)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(50, 600);
-  ctx.lineTo(1150, 600);
+  ctx.moveTo(marginX, 1245);
+  ctx.lineTo(W - marginX, 1245);
   ctx.stroke();
 
   ctx.fillStyle = '#C5A880';
-  ctx.font = 'bold 11px "Courier New", Courier, monospace';
-  ctx.fillText('PHARMASIGNAL.COM · BD DECISION INTELLIGENCE', 50, 622);
+  ctx.font = 'bold 13px "Courier New", Courier, monospace';
+  ctx.fillText('PHARMASIGNAL.COM · BD DECISION INTELLIGENCE', marginX, 1278);
 
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-  ctx.font = '11px "Courier New", Courier, monospace';
-  const footerRightText = slideIndex === 3 ? 'Follow PharmaSignal on LinkedIn' : 'Swipe for Next Insight →';
-  const footerRightWidth = ctx.measureText(footerRightText).width;
-  ctx.fillText(footerRightText, 1150 - footerRightWidth, 622);
+  const footerRightText = slideIndex === 3 
+    ? 'Follow PharmaSignal on LinkedIn' 
+    : `Swipe for Slide ${slideIndex + 2} →`;
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+  ctx.font = '13px "Courier New", Courier, monospace';
+  const footerRightW = ctx.measureText(footerRightText).width;
+  ctx.fillText(footerRightText, W - marginX - footerRightW, 1278);
 
-  // --- SLIDE SPECIFIC CONTENT ---
-  const isDeal = !!article.isDealSignal;
-
+  // --- SLIDE SPECIFIC CONTENT (y: 120 - 1220) ---
   if (slideIndex === 0) {
-    // SLIDE 1: Executive Deal Brief & 3 Metrics
-    // Badge
+    // ==========================================
+    // SLIDE 1: Executive Counterparties & Structure
+    // ==========================================
+    const s1 = intel.slide1;
     const dateStr = (article.date || 'AUGUST 2026').toUpperCase();
-    const tagText = isDeal ? `DEAL SIGNAL BRIEF · ${dateStr}` : `EXPLAINER BRIEF · ${dateStr}`;
-    ctx.font = 'bold 11px "Courier New", Courier, monospace';
-    const tagWidth = ctx.measureText(tagText).width + 24;
-    drawRoundedRect(ctx, 50, 95, tagWidth, 26, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.7)');
-    ctx.fillStyle = '#C5A880';
-    ctx.fillText(tagText, 62, 112);
 
-    // Title
+    // Category Pill Badge
+    const tagText = `${s1.counterparties.tag || 'DEAL SIGNAL'} · ${dateStr}`;
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    const tagW = ctx.measureText(tagText).width + 28;
+    drawRoundedRect(ctx, marginX, 125, tagW, 30, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.8)');
+    ctx.fillStyle = '#C5A880';
+    ctx.fillText(tagText, marginX + 14, 145);
+
+    // Verified Counterparty Hero Anchors
+    const cpY = 185;
+    const cpH = 180;
+    drawRoundedRect(ctx, marginX, cpY, contentW, cpH, 0, '#040F1E', 'rgba(197, 168, 128, 0.5)', 1.5);
+
+    // Left Counterparty: Originator
+    const partnerBoxW = 410;
+    drawRoundedRect(ctx, marginX + 16, cpY + 16, partnerBoxW, 80, 0, 'rgba(255, 255, 255, 0.05)', 'rgba(197, 168, 128, 0.35)');
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 11px "Courier New", Courier, monospace';
+    ctx.fillText('ORIGINATOR / PRODUCT CAPABILITY', marginX + 32, cpY + 38);
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 30px Georgia, "Playfair Display", serif';
-    const titleLines = getWrappedLines(ctx, article.title, 1080);
-    let titleY = 165;
-    for (const line of titleLines.slice(0, 3)) {
-      ctx.fillText(line, 50, titleY);
-      titleY += 40;
+    ctx.font = 'bold 22px Georgia, serif';
+    ctx.fillText(s1.counterparties.originator, marginX + 32, cpY + 72);
+
+    // Right Counterparty: Commercial Partner
+    drawRoundedRect(ctx, W - marginX - partnerBoxW - 16, cpY + 16, partnerBoxW, 80, 0, 'rgba(255, 255, 255, 0.05)', 'rgba(197, 168, 128, 0.35)');
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 11px "Courier New", Courier, monospace';
+    ctx.fillText('PARTNER / COMMERCIAL PLATFORM', W - marginX - partnerBoxW, cpY + 38);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 20px Georgia, serif';
+    ctx.fillText(s1.counterparties.partner, W - marginX - partnerBoxW, cpY + 72);
+
+    // Center Connection Label & Downward Arrow
+    const centerBoxY = cpY + 110;
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    const relText = s1.counterparties.relationshipLabel;
+    const relW = ctx.measureText(relText).width;
+    ctx.fillText(relText, (W - relW) / 2, centerBoxY);
+
+    // Central downward indicator
+    ctx.fillStyle = 'rgba(197, 168, 128, 0.8)';
+    ctx.fillText('↓', W / 2 - 4, centerBoxY + 22);
+
+    // Downward target: Access Route
+    const accessText = s1.counterparties.accessLabel || 'COMMERCIAL ACCESS';
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    const accessW = ctx.measureText(accessText).width;
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText(accessText, (W - accessW) / 2, centerBoxY + 44);
+
+    // Footer Label of Hero Box
+    if (s1.counterparties.tag) {
+      ctx.fillStyle = '#C5A880';
+      ctx.font = 'bold 11px "Courier New", Courier, monospace';
+      const phaseW = ctx.measureText(s1.counterparties.tag).width;
+      ctx.fillText(s1.counterparties.tag, (W - phaseW) / 2, centerBoxY + 62);
     }
 
-    // 3 Metrics Columns
-    const boxY = Math.max(titleY + 15, 275);
-    const boxW = 345;
-    const boxH = 90;
+    // Headline
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 36px Georgia, serif';
+    const titleLines = getWrappedLines(ctx, s1.headline, contentW);
+    let titleY = 415;
+    for (const tl of titleLines.slice(0, 3)) {
+      ctx.fillText(tl, marginX, titleY);
+      titleY += 46;
+    }
 
-    const metrics = isDeal ? [
-      { label: 'ASSET CLASS', val: article.assetClass || 'Targeted Biologic' },
-      { label: 'DEAL STRUCTURE', val: article.dealStructure || 'Territorial Licensing' },
-      { label: 'GEOGRAPHIC SCOPE', val: article.geographicScope || 'Global Tiered Rights' }
-    ] : [
-      { label: 'FOCUS AREA', val: article.assetClass || article.category || 'Decision Intelligence' },
-      { label: 'CORE MECHANISM', val: article.dealStructure || 'Cross-Functional Governance' },
-      { label: 'DECISION SCOPE', val: article.geographicScope || 'Enterprise Portfolio & Access' }
-    ];
+    // 3 Structured Transaction Parameter Cards
+    const metricsY = Math.max(titleY + 15, 570);
+    const mCardW = (contentW - 32) / 3;
+    const mCardH = 150;
 
-    metrics.forEach((m, idx) => {
-      const bx = 50 + idx * (boxW + 22);
-      drawRoundedRect(ctx, bx, boxY, boxW, boxH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(197, 168, 128, 0.35)');
+    s1.metrics.forEach((m, idx) => {
+      const mx = marginX + idx * (mCardW + 16);
+      drawRoundedRect(ctx, mx, metricsY, mCardW, mCardH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(197, 168, 128, 0.35)');
       
       ctx.fillStyle = '#C5A880';
-      ctx.font = 'bold 10px "Courier New", Courier, monospace';
-      ctx.fillText(m.label, bx + 16, boxY + 28);
+      ctx.font = 'bold 12px "Courier New", Courier, monospace';
+      ctx.fillText(m.label, mx + 18, metricsY + 36);
 
       ctx.fillStyle = '#FFFFFF';
-      ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      const valLines = getWrappedLines(ctx, m.val, boxW - 32);
-      ctx.fillText(valLines[0] || m.val, bx + 16, boxY + 58);
+      ctx.font = '600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      const valLines = getWrappedLines(ctx, m.val, mCardW - 36);
+      let vy = metricsY + 76;
+      for (const vl of valLines.slice(0, 2)) {
+        ctx.fillText(vl, mx + 18, vy);
+        vy += 28;
+      }
     });
 
-    // Summary Quote
-    const summaryY = boxY + boxH + 30;
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-    ctx.font = 'italic 16px Georgia, "Playfair Display", serif';
-    const summary = article.description || article.featuredSummary || '';
-    const summaryLines = getWrappedLines(ctx, `"${summary}"`, 1080);
-    let sY = summaryY;
-    for (const line of summaryLines.slice(0, 3)) {
-      ctx.fillText(line, 50, sY);
-      sY += 25;
+    // Executive Commercial Brief Card
+    const sumY = metricsY + mCardH + 36;
+    const sumH = 320;
+    drawRoundedRect(ctx, marginX, sumY, contentW, sumH, 0, 'rgba(197, 168, 128, 0.08)', 'rgba(197, 168, 128, 0.4)');
+    // Thick gold accent bar on left
+    ctx.fillStyle = '#C5A880';
+    ctx.fillRect(marginX, sumY, 8, sumH);
+
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    ctx.fillText('EXECUTIVE DEAL BRIEF', marginX + 32, sumY + 44);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.font = '22px Georgia, serif';
+    const sumLines = getWrappedLines(ctx, `"${s1.summary}"`, contentW - 64);
+    let sy = sumY + 95;
+    for (const sl of sumLines.slice(0, 6)) {
+      ctx.fillText(sl, marginX + 32, sy);
+      sy += 36;
     }
 
   } else if (slideIndex === 1) {
-    // SLIDE 2: Transaction Architecture (Diagram Image or Structural Breakdown)
+    // ==========================================
+    // SLIDE 2: Transaction Architecture
+    // ==========================================
+    const s2 = intel.slide2;
+
     ctx.fillStyle = '#C5A880';
-    ctx.font = 'bold 12px "Courier New", Courier, monospace';
-    ctx.fillText(isDeal ? 'TRANSACTION ARCHITECTURE' : 'DECISION FRAMEWORK ARCHITECTURE', 50, 100);
+    ctx.font = 'bold 15px "Courier New", Courier, monospace';
+    ctx.fillText(s2.title, marginX, 140);
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-    ctx.font = '11px "Courier New", Courier, monospace';
-    ctx.fillText(isDeal ? 'Rights Partition & Value Stream Flow' : 'Structural Framework & Strategic Mechanism', 320, 100);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+    ctx.font = '14px "Courier New", Courier, monospace';
+    ctx.fillText(s2.subtitle, marginX + 340, 140);
 
-    const frameW = 1100;
-    const frameH = 450;
-
-    drawRoundedRect(ctx, 50, 118, frameW, frameH, 0, '#020A14', 'rgba(197, 168, 128, 0.5)', 1.5);
+    // Diagram Frame (large 4:5 viewport)
+    const frameY = 165;
+    const frameH = 680;
+    drawRoundedRect(ctx, marginX, frameY, contentW, frameH, 0, '#020A14', 'rgba(197, 168, 128, 0.45)', 1.5);
 
     if (article.imageUrl) {
       try {
         const img = await loadImageAsync(article.imageUrl);
-        // Draw image fit contain
         const imgAspect = img.width / img.height;
-        const frameAspect = (frameW - 20) / (frameH - 20);
-        let dw = frameW - 20;
-        let dh = frameH - 20;
-        let dx = 50 + 10;
-        let dy = 118 + 10;
+        const frameAspect = (contentW - 32) / (frameH - 32);
+        let dw = contentW - 32;
+        let dh = frameH - 32;
+        let dx = marginX + 16;
+        let dy = frameY + 16;
 
         if (imgAspect > frameAspect) {
-          dw = frameW - 20;
+          dw = contentW - 32;
           dh = dw / imgAspect;
-          dy = 118 + (frameH - dh) / 2;
+          dy = frameY + (frameH - dh) / 2;
         } else {
-          dh = frameH - 20;
+          dh = frameH - 32;
           dw = dh * imgAspect;
-          dx = 50 + (frameW - dw) / 2;
+          dx = marginX + (contentW - dw) / 2;
         }
 
         ctx.drawImage(img, dx, dy, dw, dh);
       } catch {
-        // Fallback text if image load fails
+        // Fallback structural rendering
         ctx.fillStyle = '#C5A880';
-        ctx.font = 'bold 16px "Courier New", Courier, monospace';
-        ctx.fillText(isDeal ? 'TRANSACTION STRUCTURE BREAKDOWN' : 'DECISION FRAMEWORK BREAKDOWN', 80, 160);
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        const fallbackLines = getWrappedLines(ctx, article.featuredSummary || article.description || '', 1000);
-        let fY = 210;
-        for (const fl of fallbackLines.slice(0, 8)) {
-          ctx.fillText(fl, 80, fY);
-          fY += 30;
-        }
+        ctx.font = 'bold 18px "Courier New", Courier, monospace';
+        ctx.fillText(s2.diagramLabel, marginX + 40, frameY + 80);
       }
     } else {
       ctx.fillStyle = '#C5A880';
-      ctx.font = 'bold 16px "Courier New", Courier, monospace';
-      ctx.fillText(isDeal ? 'TRANSACTION STRUCTURE BREAKDOWN' : 'DECISION FRAMEWORK BREAKDOWN', 80, 160);
+      ctx.font = 'bold 18px "Courier New", Courier, monospace';
+      ctx.fillText(s2.diagramLabel, marginX + 40, frameY + 80);
+    }
+
+    // Bottom Takeaway Box
+    const takeY = frameY + frameH + 32;
+    const takeH = 320;
+    drawRoundedRect(ctx, marginX, takeY, contentW, takeH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(197, 168, 128, 0.35)');
+
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    ctx.fillText('TRANSACTION BOUNDARIES & OPERATIONAL HANDOVER', marginX + 30, takeY + 44);
+
+    let ty = takeY + 95;
+    s2.takeaways.forEach((point) => {
+      ctx.fillStyle = '#C5A880';
+      ctx.font = 'bold 18px "Courier New", Courier, monospace';
+      ctx.fillText('▪', marginX + 30, ty);
 
       ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      const fallbackLines = getWrappedLines(ctx, article.featuredSummary || article.description || '', 1000);
-      let fY = 210;
-      for (const fl of fallbackLines.slice(0, 8)) {
-        ctx.fillText(fl, 80, fY);
-        fY += 30;
+      ctx.font = '21px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      const pLines = getWrappedLines(ctx, point, contentW - 80);
+      for (const pl of pLines) {
+        ctx.fillText(pl, marginX + 54, ty);
+        ty += 32;
       }
-    }
+      ty += 16;
+    });
 
   } else if (slideIndex === 2) {
+    // ==========================================
     // SLIDE 3: The PharmaSignal Read
-    const tagText = isDeal ? 'THE PHARMASIGNAL READ' : 'STRATEGIC MECHANISM';
-    drawRoundedRect(ctx, 50, 95, 210, 26, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.7)');
-    ctx.fillStyle = '#C5A880';
-    ctx.font = 'bold 11px "Courier New", Courier, monospace';
-    ctx.fillText(tagText, 62, 112);
+    // ==========================================
+    const s3 = intel.slide3;
 
-    // Primary Mechanism Box with left gold line
-    const boxW = 1100;
-    const boxH = 210;
-    drawRoundedRect(ctx, 50, 135, boxW, boxH, 0, 'rgba(197, 168, 128, 0.08)', 'rgba(197, 168, 128, 0.35)');
-    
-    // Thick Left Accent
+    // Header Pill
+    drawRoundedRect(ctx, marginX, 125, 280, 32, 0, 'rgba(197, 168, 128, 0.15)', 'rgba(197, 168, 128, 0.8)');
     ctx.fillStyle = '#C5A880';
-    ctx.fillRect(50, 135, 6, boxH);
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    ctx.fillText('THE PHARMASIGNAL READ', marginX + 16, 146);
 
-    // Read Title
+    // Primary Mechanism Headline Box
+    const mechY = 175;
+    const mechH = 190;
+    drawRoundedRect(ctx, marginX, mechY, contentW, mechH, 0, 'rgba(197, 168, 128, 0.08)', 'rgba(197, 168, 128, 0.4)');
+    ctx.fillStyle = '#C5A880';
+    ctx.fillRect(marginX, mechY, 8, mechH);
+
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 12px "Courier New", Courier, monospace';
+    ctx.fillText('PRIMARY MECHANISM', marginX + 28, mechY + 36);
+
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 22px Georgia, "Playfair Display", serif';
-    const readLines = getWrappedLines(ctx, article.pharmaSignalRead || 'Mechanism Breakdown', 1040);
-    let rY = 175;
-    for (const rl of readLines.slice(0, 2)) {
-      ctx.fillText(rl, 75, rY);
-      rY += 32;
+    ctx.font = 'bold 28px Georgia, serif';
+    ctx.fillText(s3.mechanismTitle, marginX + 28, mechY + 78);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.font = '20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    const mLines = getWrappedLines(ctx, s3.mechanismSummary, contentW - 56);
+    let my = mechY + 120;
+    for (const ml of mLines.slice(0, 2)) {
+      ctx.fillText(ml, marginX + 28, my);
+      my += 30;
     }
 
-    if (article.useThisWhen) {
+    // Two Columns: Value Driver (Left) & Structural Risk / Friction (Right)
+    const colY = mechY + mechH + 32;
+    const colW = (contentW - 32) / 2; // 460px
+    const colH = 480;
+
+    // Left Column: Commercial Rationale / Access Value
+    drawRoundedRect(ctx, marginX, colY, colW, colH, 0, '#040F1E', 'rgba(197, 168, 128, 0.35)');
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    ctx.fillText(s3.valueHeader, marginX + 24, colY + 42);
+
+    let vY = colY + 90;
+    s3.valuePoints.forEach((vp) => {
       ctx.fillStyle = '#C5A880';
-      ctx.font = 'bold 11px "Courier New", Courier, monospace';
-      ctx.fillText('DECISION CONTEXT / WHEN TO DEPLOY:', 75, rY + 15);
+      ctx.font = 'bold 16px "Courier New", Courier, monospace';
+      ctx.fillText('✓', marginX + 24, vY);
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-      ctx.font = '14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      const useLines = getWrappedLines(ctx, article.useThisWhen, 1040);
-      let uY = rY + 40;
-      for (const ul of useLines.slice(0, 2)) {
-        ctx.fillText(ul, 75, uY);
-        uY += 24;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.font = '19px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      const vpLines = getWrappedLines(ctx, vp, colW - 60);
+      for (const vpl of vpLines) {
+        ctx.fillText(vpl, marginX + 48, vY);
+        vY += 28;
       }
-    }
+      vY += 20;
+    });
 
-    // 2 Bottom Columns: Value Lever & Key Risk
-    const colW = 538;
-    const colH = 180;
-    const colY = 375;
-
-    // Col 1: Value Creation Lever
-    drawRoundedRect(ctx, 50, colY, colW, colH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(255, 255, 255, 0.12)');
+    // Right Column: Operational Interface / Execution Risk
+    drawRoundedRect(ctx, marginX + colW + 32, colY, colW, colH, 0, '#040F1E', 'rgba(197, 168, 128, 0.35)');
     ctx.fillStyle = '#C5A880';
-    ctx.font = 'bold 11px "Courier New", Courier, monospace';
-    ctx.fillText('PRIMARY VALUE CREATION LEVER', 70, colY + 32);
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    ctx.fillText(s3.frictionHeader, marginX + colW + 56, colY + 42);
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-    ctx.font = '15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    const valLevLines = getWrappedLines(ctx, 'Capability arbitrage, selective downstream margin ownership, and retention of clinical equity upside.', colW - 40);
-    let vY = colY + 68;
-    for (const vl of valLevLines) {
-      ctx.fillText(vl, 70, vY);
-      vY += 24;
-    }
+    let fY = colY + 90;
+    s3.frictionPoints.forEach((fp) => {
+      ctx.fillStyle = '#C5A880';
+      ctx.font = 'bold 16px "Courier New", Courier, monospace';
+      ctx.fillText('!', marginX + colW + 56, fY);
 
-    // Col 2: Key Friction Point
-    drawRoundedRect(ctx, 612, colY, colW, colH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(255, 255, 255, 0.12)');
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.font = '19px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      const fpLines = getWrappedLines(ctx, fp, colW - 60);
+      for (const fpl of fpLines) {
+        ctx.fillText(fpl, marginX + colW + 80, fY);
+        fY += 28;
+      }
+      fY += 20;
+    });
+
+    // Decision Context Box (Bottom)
+    const decY = colY + colH + 32;
+    const decH = 170;
+    drawRoundedRect(ctx, marginX, decY, contentW, decH, 0, 'rgba(255, 255, 255, 0.03)', 'rgba(197, 168, 128, 0.25)');
+
     ctx.fillStyle = '#C5A880';
-    ctx.font = 'bold 11px "Courier New", Courier, monospace';
-    ctx.fillText('CRITICAL STRUCTURAL FRICTION', 632, colY + 32);
+    ctx.font = 'bold 12px "Courier New", Courier, monospace';
+    ctx.fillText('DECISION CONTEXT / WHEN TO DEPLOY:', marginX + 24, decY + 36);
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-    ctx.font = '15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    const riskLines = getWrappedLines(ctx, 'Cross-border governance debt, interface friction, and operational execution capability deficit.', colW - 40);
-    let kY = colY + 68;
-    for (const rk of riskLines) {
-      ctx.fillText(rk, 632, kY);
-      kY += 24;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.font = '19px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    const decLines = getWrappedLines(ctx, s3.decisionContext, contentW - 48);
+    let dy = decY + 76;
+    for (const dl of decLines.slice(0, 3)) {
+      ctx.fillText(dl, marginX + 24, dy);
+      dy += 28;
     }
 
   } else if (slideIndex === 3) {
+    // ==========================================
     // SLIDE 4: Strategic Principle & Call to Action
-    const tagText = 'PHARMASIGNAL PRINCIPLE';
-    drawRoundedRect(ctx, 480, 110, 240, 28, 0, 'rgba(197, 168, 128, 0.2)', 'rgba(197, 168, 128, 0.8)');
-    ctx.fillStyle = '#C5A880';
-    ctx.font = 'bold 11px "Courier New", Courier, monospace';
-    ctx.fillText(tagText, 520, 128);
+    // ==========================================
+    const s4 = intel.slide4;
 
-    // Large Quote
+    // Header Pill
+    const tagW = 260;
+    drawRoundedRect(ctx, (W - tagW) / 2, 130, tagW, 32, 0, 'rgba(197, 168, 128, 0.2)', 'rgba(197, 168, 128, 0.8)');
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 13px "Courier New", Courier, monospace';
+    ctx.fillText('PHARMASIGNAL PRINCIPLE', (W - tagW) / 2 + 24, 151);
+
+    // Large Principle Quote Card
+    const quoteY = 190;
+    const quoteH = 340;
+    drawRoundedRect(ctx, marginX, quoteY, contentW, quoteH, 0, 'rgba(197, 168, 128, 0.08)', 'rgba(197, 168, 128, 0.5)', 1.5);
+
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold italic 26px Georgia, "Playfair Display", serif';
-    const defaultQuote = isDeal
-      ? '"Territorial rights and deal terms create value only when the capability to execute travels with the rights."'
-      : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."';
-    const quote = article.principleQuote || defaultQuote;
-    const quoteLines = getWrappedLines(ctx, quote, 950);
-    let qY = 220;
-    for (const ql of quoteLines) {
+    ctx.font = 'bold italic 34px Georgia, serif';
+    const qLines = getWrappedLines(ctx, `"${s4.quote}"`, contentW - 96);
+    let qy = quoteY + 90;
+    for (const ql of qLines.slice(0, 5)) {
       const qWidth = ctx.measureText(ql).width;
-      ctx.fillText(ql, (1200 - qWidth) / 2, qY);
-      qY += 42;
+      ctx.fillText(ql, (W - qWidth) / 2, qy);
+      qy += 48;
     }
 
-    // Gold CTA Button
-    const ctaParam = isDeal ? `deal=${article.id}` : `article=${article.id}`;
-    const ctaText = `Read Full ${isDeal ? 'Signal' : 'Explainer'}: pharmasignal.com/?${ctaParam}`;
-    ctx.font = 'bold 13px "Courier New", Courier, monospace';
-    const ctaWidth = ctx.measureText(ctaText).width + 48;
-    const ctaX = (1200 - ctaWidth) / 2;
-    const ctaY = 400;
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    const attrText = '— PHARMASIGNAL DEAL DESK PRINCIPLE';
+    const attrW = ctx.measureText(attrText).width;
+    ctx.fillText(attrText, (W - attrW) / 2, quoteY + quoteH - 35);
 
-    drawRoundedRect(ctx, ctaX, ctaY, ctaWidth, 44, 0, '#C5A880', '#D8BE9B');
+    // Executive BD Checkpoints Card
+    const checkY = quoteY + quoteH + 36;
+    const checkH = 350;
+    drawRoundedRect(ctx, marginX, checkY, contentW, checkH, 0, 'rgba(255, 255, 255, 0.04)', 'rgba(197, 168, 128, 0.35)');
+
+    ctx.fillStyle = '#C5A880';
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    ctx.fillText('WHAT BD LEADERS MUST VERIFY IN THIS STRUCTURE:', marginX + 32, checkY + 44);
+
+    let cy = checkY + 95;
+    s4.checkpoints.forEach((cp, idx) => {
+      ctx.fillStyle = '#C5A880';
+      ctx.font = 'bold 18px "Courier New", Courier, monospace';
+      ctx.fillText(`0${idx + 1}.`, marginX + 32, cy);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.font = '21px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      const cpLines = getWrappedLines(ctx, cp, contentW - 96);
+      for (const cpl of cpLines) {
+        ctx.fillText(cpl, marginX + 76, cy);
+        cy += 30;
+      }
+      cy += 18;
+    });
+
+    // Gold CTA Button / Card
+    const ctaY = checkY + checkH + 40;
+    const ctaH = 90;
+    drawRoundedRect(ctx, marginX, ctaY, contentW, ctaH, 0, '#C5A880', '#D8BE9B');
+
     ctx.fillStyle = '#061426';
-    ctx.fillText(ctaText, ctaX + 24, ctaY + 27);
+    ctx.font = 'bold 14px "Courier New", Courier, monospace';
+    const ctaLabel = s4.ctaText.toUpperCase();
+    const ctaLabelW = ctx.measureText(ctaLabel).width;
+    ctx.fillText(ctaLabel, (W - ctaLabelW) / 2, ctaY + 36);
 
-    // Subtext
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-    ctx.font = '12px "Courier New", Courier, monospace';
-    const subText = isDeal
-      ? 'Biopharma BD Decision Intelligence · Follow on LinkedIn for Weekly Deal Briefings'
-      : 'Biopharma BD Decision Intelligence · Follow on LinkedIn for Decision Frameworks';
-    const subWidth = ctx.measureText(subText).width;
-    ctx.fillText(subText, (1200 - subWidth) / 2, 485);
+    ctx.fillStyle = '#040E1B';
+    ctx.font = 'bold 20px "Courier New", Courier, monospace';
+    const urlDisplay = s4.canonicalUrl.replace(/^https?:\/\//, '');
+    const urlW = ctx.measureText(urlDisplay).width;
+    ctx.fillText(urlDisplay, (W - urlW) / 2, ctaY + 68);
   }
 
   return canvas;
@@ -474,13 +612,21 @@ export default function LinkedInCarouselModal({
   const [downloadSuccess, setDownloadSuccess] = useState<string | null>(null);
   const [downloadError, setDownloadError] = useState<string | null>(null);
 
+  useEffect(() => {
+    // Reset to slide 0 whenever opened
+    if (isOpen) {
+      setActiveSlide(0);
+      setDownloadError(null);
+      setDownloadSuccess(null);
+    }
+  }, [isOpen, article?.id]);
+
   if (!isOpen || !article) return null;
 
   const totalSlides = 4;
+  const intel = getDealSlideData(article);
   const isDeal = !!article.isDealSignal;
-  const currentOrigin = typeof window !== 'undefined' ? window.location.origin : 'https://pharmasignal.com';
-  const deepLinkParam = isDeal ? `deal=${article.id}` : `article=${article.id}`;
-  const articleDeepLink = `${currentOrigin}/?${deepLinkParam}`;
+  const canonicalUrl = intel.slide4.canonicalUrl;
 
   const handleNext = () => {
     setActiveSlide((prev) => (prev + 1) % totalSlides);
@@ -492,60 +638,15 @@ export default function LinkedInCarouselModal({
 
   // Copy Executive LinkedIn Post Text
   const handleCopyPostText = () => {
-    const quote = article.principleQuote || (isDeal
-      ? '"Territorial rights and deal terms only create enterprise value when the operational capability to execute travels with the contract."'
-      : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."'
-    );
-
-    const postCopy = isDeal ? `🚨 PHARMASIGNAL DEAL BRIEF: ${article.title.toUpperCase()}
-
-How biopharma BD&L creates and protects value through transaction architecture:
-
-📊 QUICK SCAN METRICS:
-• Asset Class: ${article.assetClass || 'Targeted Biologic'}
-• Deal Structure: ${article.dealStructure || 'Territorial Licensing & Execution Transfer'}
-• Geographic Scope: ${article.geographicScope || 'Global / Tiered Regional'}
-• Published Date: ${article.date}
-
-💡 THE PHARMASIGNAL READ:
-${article.pharmaSignalRead || article.description}
-
-🎯 THE BD PRINCIPLE:
-${quote}
-
-Read the complete mechanism deconstruction and interactive transaction diagram on PharmaSignal:
-🔗 ${articleDeepLink}
-
-#Biopharma #BusinessDevelopment #PharmaLicensing #LifeSciences #DealMaking #PharmaSignal #BiotechStrategy`
-: `💡 PHARMASIGNAL DECISION LENS: ${article.title.toUpperCase()}
-
-Why biopharma transactions succeed or stall before and after execution:
-
-📊 FRAMEWORK METRICS:
-• Focus Area: ${article.assetClass || article.category || 'Decision Intelligence'}
-• Core Mechanism: ${article.dealStructure || 'Cross-Functional Decision Architecture'}
-• Decision Scope: ${article.geographicScope || 'Enterprise Portfolio & Governance'}
-• Published Date: ${article.date}
-
-💡 STRATEGIC MECHANISM:
-${article.pharmaSignalRead || article.description}
-
-🎯 THE BD PRINCIPLE:
-${quote}
-
-Read the complete decision analysis and framework on PharmaSignal:
-🔗 ${articleDeepLink}
-
-#Biopharma #BusinessDevelopment #PharmaLicensing #LifeSciences #DecisionIntelligence #PharmaSignal #BiotechStrategy`;
-
+    const postCopy = intel.linkedInPost;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(postCopy);
     } else {
-      const textArea = document.createElement("textarea");
+      const textArea = document.createElement('textarea');
       textArea.value = postCopy;
       document.body.appendChild(textArea);
       textArea.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
       document.body.removeChild(textArea);
     }
     setCopiedPost(true);
@@ -554,47 +655,66 @@ Read the complete decision analysis and framework on PharmaSignal:
 
   const handleCopyLink = () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(articleDeepLink);
+      navigator.clipboard.writeText(canonicalUrl);
     } else {
-      const textArea = document.createElement("textarea");
-      textArea.value = articleDeepLink;
+      const textArea = document.createElement('textarea');
+      textArea.value = canonicalUrl;
       document.body.appendChild(textArea);
       textArea.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
       document.body.removeChild(textArea);
     }
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
-  // Export full multi-page PDF Carousel for LinkedIn Document posts via Pure Canvas 2D
+  // Export 4-Page PDF Carousel (1080 × 1350 portrait)
   const handleExportPDF = async () => {
     setPdfProgress('Rendering slides...');
     setDownloadError(null);
     setDownloadSuccess(null);
 
     try {
-      // Standard 16:9 Landscape PDF
+      // 1080 × 1350 pt/px portrait PDF
       const pdf = new jsPDF({
-        orientation: 'landscape',
+        orientation: 'portrait',
         unit: 'px',
-        format: [1200, 675],
+        format: [1080, 1350],
         compress: true
       });
 
       for (let i = 0; i < totalSlides; i++) {
         setPdfProgress(`Rendering Slide ${i + 1} of ${totalSlides}...`);
-        const slideCanvas = await renderSlideToCanvas(article, i);
+        const slideCanvas = await renderSlideToCanvas(article, i, intel);
         const imgData = slideCanvas.toDataURL('image/jpeg', 0.94);
 
         if (i > 0) {
-          pdf.addPage([1200, 675], 'landscape');
+          pdf.addPage([1080, 1350], 'portrait');
         }
-        pdf.addImage(imgData, 'JPEG', 0, 0, 1200, 675, undefined, 'FAST');
+
+        // Add selectable text layer stream before visual raster
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(12);
+        if (i === 0) {
+          pdf.text(intel.slide1.headline, 64, 100);
+          pdf.text(intel.slide1.summary, 64, 130);
+        } else if (i === 1) {
+          pdf.text(intel.slide2.title, 64, 100);
+          pdf.text(intel.slide2.takeaways.join(' '), 64, 130);
+        } else if (i === 2) {
+          pdf.text(intel.slide3.mechanismTitle, 64, 100);
+          pdf.text(intel.slide3.mechanismSummary, 64, 130);
+        } else if (i === 3) {
+          pdf.text(intel.slide4.quote, 64, 100);
+          pdf.text(intel.slide4.canonicalUrl, 64, 130);
+        }
+
+        // Add rendered high-res canvas on top
+        pdf.addImage(imgData, 'JPEG', 0, 0, 1080, 1350, undefined, 'FAST');
       }
 
       setPdfProgress('Finalizing PDF package...');
-      const fileName = `${article.id}-pharmasignal-linkedin-carousel.pdf`;
+      const fileName = `pharmasignal-${article.id}-linkedin-carousel.pdf`;
       const blob = pdf.output('blob');
       triggerFileDownload(blob, fileName);
 
@@ -609,17 +729,17 @@ Read the complete decision analysis and framework on PharmaSignal:
     }
   };
 
-  // Export single PNG slide
+  // Export single high-resolution PNG slide (1080 × 1350)
   const handleExportSinglePng = async () => {
     setIsGeneratingPng(true);
     setDownloadError(null);
     setDownloadSuccess(null);
 
     try {
-      const slideCanvas = await renderSlideToCanvas(article, activeSlide);
+      const slideCanvas = await renderSlideToCanvas(article, activeSlide, intel);
       slideCanvas.toBlob((blob) => {
         if (blob) {
-          const fileName = `${article.id}-slide-${activeSlide + 1}.png`;
+          const fileName = `pharmasignal-${article.id}-slide-${activeSlide + 1}.png`;
           triggerFileDownload(blob, fileName);
           setDownloadSuccess(`Slide #${activeSlide + 1} PNG downloaded!`);
           setTimeout(() => setDownloadSuccess(null), 3000);
@@ -636,18 +756,18 @@ Read the complete decision analysis and framework on PharmaSignal:
     }
   };
 
-  // Export all 4 slides as PNG files
+  // Export all 4 slides as individual PNG files
   const handleExportAllPngs = async () => {
     setIsGeneratingPng(true);
     setDownloadError(null);
 
     try {
       for (let i = 0; i < totalSlides; i++) {
-        const slideCanvas = await renderSlideToCanvas(article, i);
+        const slideCanvas = await renderSlideToCanvas(article, i, intel);
         await new Promise<void>((resolve) => {
           slideCanvas.toBlob((blob) => {
             if (blob) {
-              const fileName = `${article.id}-slide-${i + 1}-of-4.png`;
+              const fileName = `pharmasignal-${article.id}-slide-${i + 1}.png`;
               triggerFileDownload(blob, fileName);
             }
             setTimeout(resolve, 500);
@@ -666,7 +786,7 @@ Read the complete decision analysis and framework on PharmaSignal:
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-50 overflow-y-auto" id="linkedin-carousel-exporter">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -681,21 +801,21 @@ Read the complete decision analysis and framework on PharmaSignal:
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ type: 'spring', damping: 26, stiffness: 220 }}
-          className="relative w-full max-w-5xl overflow-hidden text-left align-middle shadow-2xl transition-all border border-brand-gold/40 bg-[#061426] text-white flex flex-col rounded-none"
+          className="relative w-full max-w-5xl overflow-hidden text-left align-middle shadow-2xl transition-all border border-[#C5A880]/40 bg-[#061426] text-white flex flex-col rounded-none"
         >
           {/* Header Action Bar */}
-          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-brand-gold/20 bg-[#040E1B]">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-[#C5A880]/20 bg-[#040E1B]">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-none bg-[#0A66C2] flex items-center justify-center text-white shadow-sm shrink-0">
                 <Linkedin size={18} fill="currentColor" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono tracking-widest text-brand-gold uppercase font-bold">
+                  <span className="text-[10px] font-mono tracking-widest text-[#C5A880] uppercase font-bold">
                     LINKEDIN CAROUSEL EXPORTER
                   </span>
-                  <span className="hidden sm:inline-block text-[9px] font-mono px-2 py-0.5 bg-brand-gold/10 text-brand-gold border border-brand-gold/30 uppercase">
-                    16:9 HD Document
+                  <span className="text-[9px] font-mono px-2 py-0.5 bg-[#C5A880]/10 text-[#C5A880] border border-[#C5A880]/30 uppercase">
+                    4:5 Portrait Standard (1080 × 1350)
                   </span>
                 </div>
                 <h2 className="font-serif text-sm sm:text-base font-bold text-white leading-none line-clamp-1 mt-0.5">
@@ -707,16 +827,16 @@ Read the complete decision analysis and framework on PharmaSignal:
             <div className="flex items-center gap-2">
               <button
                 onClick={handleCopyLink}
-                className="px-2.5 py-1.5 border border-white/20 hover:border-brand-gold text-white hover:text-brand-gold bg-white/5 text-xs font-mono tracking-wider uppercase transition-colors flex items-center gap-1.5 cursor-pointer"
-                title="Copy Deal Deep Link"
+                className="px-2.5 py-1.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 text-xs font-mono tracking-wider uppercase transition-colors flex items-center gap-1.5 cursor-pointer"
+                title="Copy Canonical Article Link"
               >
                 {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
-                <span className="hidden md:inline">{copiedLink ? 'Copied' : 'Share Link'}</span>
+                <span className="hidden md:inline">{copiedLink ? 'Copied' : 'Canonical Link'}</span>
               </button>
 
               <button
                 onClick={onClose}
-                className="p-1.5 border border-white/20 hover:border-brand-gold text-white hover:text-brand-gold bg-white/5 transition-colors cursor-pointer"
+                className="p-1.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 transition-colors cursor-pointer"
                 aria-label="Close"
               >
                 <X size={18} />
@@ -742,21 +862,21 @@ Read the complete decision analysis and framework on PharmaSignal:
           {/* Main Body */}
           <div className="p-4 sm:p-6 lg:p-8 flex flex-col lg:grid lg:grid-cols-12 gap-6 items-start">
             
-            {/* Left Column: Carousel Visual Slide Screen (8 cols) */}
-            <div className="w-full lg:col-span-8 flex flex-col items-center">
+            {/* Left Column: Carousel Visual Slide Screen (7 cols) */}
+            <div className="w-full lg:col-span-7 flex flex-col items-center">
               
-              {/* Slide Screen Frame */}
+              {/* Slide Screen Frame - Exact 4:5 Portrait Preview */}
               <div 
-                className="w-full aspect-[16/9] bg-[#040E1B] border-2 border-brand-gold/40 shadow-2xl relative overflow-hidden flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none"
+                className="w-full max-w-[420px] aspect-[4/5] bg-[#040E1B] border-2 border-[#C5A880]/40 shadow-2xl relative overflow-hidden flex flex-col justify-between p-4 sm:p-5 select-none"
               >
                 {/* Subtle Grid Background */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#C5A880_1px,transparent_1px)] [background-size:16px_16px]" />
 
                 {/* Top Bar of Slide */}
-                <div className="relative z-10 flex items-center justify-between border-b border-brand-gold/20 pb-2.5">
+                <div className="relative z-10 flex items-center justify-between border-b border-[#C5A880]/20 pb-2">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 bg-brand-gold" />
-                    <span className="font-mono text-[11px] sm:text-xs font-bold tracking-widest text-brand-gold uppercase">
+                    <div className="w-2.5 h-2.5 bg-[#C5A880]" />
+                    <span className="font-mono text-[10px] sm:text-[11px] font-bold tracking-widest text-[#C5A880] uppercase">
                       PHARMASIGNAL · {isDeal ? 'DEAL DESK' : 'DECISION LENS'}
                     </span>
                   </div>
@@ -766,194 +886,257 @@ Read the complete decision analysis and framework on PharmaSignal:
                 </div>
 
                 {/* Slide Dynamic Content */}
-                <div className="relative z-10 my-auto py-1 sm:py-2">
+                <div className="relative z-10 my-auto py-1 sm:py-2 overflow-hidden flex-1 flex flex-col justify-center">
                   <AnimatePresence mode="wait">
                     {activeSlide === 0 && (
-                      /* SLIDE 1: Executive Deal Brief & 3-Badge Strip */
+                      /* SLIDE 1: Executive Deal Brief & Counterparty Anchors */
                       <motion.div
                         key="slide-0"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-2 sm:space-y-3 md:space-y-4"
+                        className="space-y-2 sm:space-y-2.5"
                       >
-                        <div className="inline-block px-2 sm:px-2.5 py-0.5 bg-brand-gold/15 border border-brand-gold/50 text-brand-gold font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                          {isDeal ? 'DEAL SIGNAL ANALYSIS' : 'EXPLAINER ANALYSIS'} · {article.date?.toUpperCase()}
-                        </div>
-                        <h1 className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight">
-                          {article.title}
-                        </h1>
-
-                        <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 pt-1">
-                          <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
-                            <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              {isDeal ? 'ASSET CLASS' : 'FOCUS AREA'}
-                            </span>
-                            <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.assetClass || (isDeal ? 'Targeted Biologic' : (article.category || 'Decision Intelligence'))}
-                            </span>
-                          </div>
-                          <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
-                            <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              {isDeal ? 'DEAL STRUCTURE' : 'CORE MECHANISM'}
-                            </span>
-                            <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.dealStructure || (isDeal ? 'Territorial Architecture' : 'Cross-Functional Governance')}
-                            </span>
-                          </div>
-                          <div className="p-1.5 sm:p-2.5 bg-white/5 border border-brand-gold/30">
-                            <span className="text-[7px] sm:text-[8px] font-mono tracking-widest text-brand-gold uppercase block font-bold">
-                              {isDeal ? 'GEOGRAPHIC SCOPE' : 'DECISION SCOPE'}
-                            </span>
-                            <span className="text-[10px] sm:text-xs font-semibold text-white font-sans line-clamp-1">
-                              {article.geographicScope || (isDeal ? 'Global Tiered Rights' : 'Enterprise Portfolio')}
-                            </span>
-                          </div>
+                        <div className="inline-block px-2 py-0.5 bg-[#C5A880]/15 border border-[#C5A880]/50 text-[#C5A880] font-mono text-[8px] sm:text-[9px] font-bold uppercase tracking-wider">
+                          {intel.slide1.counterparties.tag || 'DEAL SIGNAL'} · {article.date?.toUpperCase()}
                         </div>
 
-                        <p className="font-serif text-[11px] sm:text-xs md:text-sm text-white/80 italic leading-relaxed pt-0.5 line-clamp-2 sm:line-clamp-3">
-                          "{article.description || article.featuredSummary}"
-                        </p>
+                        {/* Verified Counterparty Anchors */}
+                        <div className="p-2 sm:p-2.5 bg-[#061426] border border-[#C5A880]/40 flex flex-col gap-1.5">
+                          <div className="grid grid-cols-2 gap-1.5">
+                            <div className="p-1.5 bg-white/5 border border-[#C5A880]/30">
+                              <span className="text-[7px] font-mono text-[#C5A880] block font-bold">ORIGINATOR</span>
+                              <span className="text-[10px] sm:text-[11px] font-serif font-bold text-white leading-tight block">
+                                {intel.slide1.counterparties.originator}
+                              </span>
+                            </div>
+                            <div className="p-1.5 bg-white/5 border border-[#C5A880]/30">
+                              <span className="text-[7px] font-mono text-[#C5A880] block font-bold">PARTNER</span>
+                              <span className="text-[10px] sm:text-[11px] font-serif font-bold text-white leading-tight block">
+                                {intel.slide1.counterparties.partner}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="text-center pt-0.5 border-t border-[#C5A880]/20">
+                            <span className="text-[8px] sm:text-[9px] font-mono font-bold text-[#C5A880] block">
+                              {intel.slide1.counterparties.relationshipLabel}
+                            </span>
+                            <div className="flex items-center justify-center gap-1 text-[8px] font-mono text-white/90">
+                              <span>↓</span>
+                              <span className="font-bold">{intel.slide1.counterparties.accessLabel}</span>
+                            </div>
+                            {intel.slide1.counterparties.tag && (
+                              <span className="text-[7px] font-mono text-[#C5A880]/80 tracking-widest block uppercase">
+                                {intel.slide1.counterparties.tag}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        <h3 className="font-serif text-xs sm:text-sm font-bold text-white leading-snug line-clamp-2">
+                          {intel.slide1.headline}
+                        </h3>
+
+                        {/* 3 Parameter Chips */}
+                        <div className="grid grid-cols-3 gap-1">
+                          {intel.slide1.metrics.map((m, idx) => (
+                            <div key={idx} className="p-1 sm:p-1.5 bg-white/5 border border-white/10">
+                              <span className="text-[6.5px] font-mono text-[#C5A880] block uppercase font-bold">
+                                {m.label}
+                              </span>
+                              <span className="text-[8.5px] sm:text-[9px] font-sans font-semibold text-white/90 block line-clamp-1">
+                                {m.val}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Summary Brief */}
+                        <div className="p-2 bg-[#C5A880]/10 border-l-2 border-[#C5A880]">
+                          <span className="text-[7.5px] font-mono text-[#C5A880] uppercase font-bold block mb-0.5">
+                            Executive Deal Brief
+                          </span>
+                          <p className="font-serif text-[9.5px] sm:text-[10.5px] text-white/90 italic leading-relaxed line-clamp-3">
+                            "{intel.slide1.summary}"
+                          </p>
+                        </div>
                       </motion.div>
                     )}
 
                     {activeSlide === 1 && (
-                      /* SLIDE 2: Rights Architecture & Deal Diagram */
+                      /* SLIDE 2: Transaction Architecture */
                       <motion.div
                         key="slide-1"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-2 sm:space-y-3"
+                        className="space-y-2 sm:space-y-2.5"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-brand-gold font-bold uppercase">
-                            {isDeal ? 'TRANSACTION ARCHITECTURE' : 'DECISION FRAMEWORK ARCHITECTURE'}
+                          <span className="text-[8.5px] sm:text-[9.5px] font-mono tracking-widest text-[#C5A880] font-bold uppercase">
+                            {intel.slide2.title}
                           </span>
-                          <span className="text-[8px] sm:text-[9px] font-mono text-white/60 uppercase">
-                            {isDeal ? 'Value & Rights Flow' : 'Core Mechanism & Structural Model'}
+                          <span className="text-[7.5px] font-mono text-white/60 uppercase">
+                            {intel.slide2.subtitle}
                           </span>
                         </div>
 
-                        {article.imageUrl ? (
-                          <div className="w-full aspect-[2.2/1] overflow-hidden border border-brand-gold/40 bg-[#020A14] flex items-center justify-center relative">
+                        {/* Diagram Viewport */}
+                        <div className="w-full aspect-[16/10] overflow-hidden border border-[#C5A880]/40 bg-[#020A14] flex items-center justify-center relative">
+                          {article.imageUrl ? (
                             <img 
                               src={article.imageUrl} 
                               alt={article.title} 
                               className="w-full h-full object-contain object-center"
                               crossOrigin="anonymous"
                             />
-                          </div>
-                        ) : (
-                          <div className="p-3 sm:p-4 bg-white/5 border border-brand-gold/30 space-y-1.5">
-                            <span className="text-xs font-bold text-brand-gold font-mono block uppercase">
-                              {isDeal ? 'Structure Breakdown' : 'Framework Breakdown'}
-                            </span>
-                            <p className="text-xs font-sans text-white/90 leading-relaxed line-clamp-4">
-                              {article.featuredSummary || article.description}
-                            </p>
-                          </div>
-                        )}
+                          ) : (
+                            <div className="p-3 text-center">
+                              <span className="text-xs font-mono text-[#C5A880] block font-bold">
+                                {intel.slide2.diagramLabel}
+                              </span>
+                            </div>
+                          )}
+                        </div>
 
-                        <p className="text-[10px] sm:text-[11px] font-mono text-brand-gold/90 tracking-wide text-center">
-                          Swipe to inspect the PharmaSignal Strategic Mechanism →
-                        </p>
+                        {/* Structural Boundaries */}
+                        <div className="p-2 sm:p-2.5 bg-white/5 border border-white/10 space-y-1.5">
+                          <span className="text-[7.5px] font-mono text-[#C5A880] uppercase font-bold block">
+                            Key Transaction Boundaries
+                          </span>
+                          {intel.slide2.takeaways.map((takeaway, idx) => (
+                            <div key={idx} className="flex items-start gap-1 text-[8.5px] sm:text-[9.5px] text-white/90 leading-tight">
+                              <span className="text-[#C5A880] font-mono">▪</span>
+                              <p className="line-clamp-2">{takeaway}</p>
+                            </div>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
 
                     {activeSlide === 2 && (
-                      /* SLIDE 3: The PharmaSignal Read & Value/Risk Breakdown */
+                      /* SLIDE 3: The PharmaSignal Read */
                       <motion.div
                         key="slide-2"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-2 sm:space-y-3"
+                        className="space-y-2 sm:space-y-2.5"
                       >
-                        <div className="inline-block px-2 sm:px-2.5 py-0.5 bg-brand-gold/15 border border-brand-gold/50 text-brand-gold font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
-                          {isDeal ? 'THE PHARMASIGNAL READ' : 'STRATEGIC MECHANISM'}
+                        <div className="inline-block px-2 py-0.5 bg-[#C5A880]/15 border border-[#C5A880]/50 text-[#C5A880] font-mono text-[8px] sm:text-[9px] font-bold uppercase tracking-wider">
+                          THE PHARMASIGNAL READ
                         </div>
                         
-                        <div className="p-2.5 sm:p-3.5 bg-brand-gold/10 border-l-4 border-brand-gold space-y-1.5">
-                          <h3 className="font-serif text-xs sm:text-sm md:text-base font-bold text-white leading-snug line-clamp-2">
-                            {article.pharmaSignalRead || 'Mechanism Breakdown'}
-                          </h3>
-                          {article.useThisWhen && (
-                            <p className="text-[11px] sm:text-xs font-sans text-white/80 leading-relaxed line-clamp-2">
-                              <strong className="text-brand-gold font-mono uppercase text-[8px] sm:text-[9px] inline-block mr-1">Decision Context:</strong>
-                              {article.useThisWhen}
-                            </p>
-                          )}
+                        <div className="p-2 bg-[#C5A880]/10 border-l-2 border-[#C5A880]">
+                          <span className="text-[7.5px] font-mono text-[#C5A880] uppercase font-bold block">
+                            PRIMARY MECHANISM
+                          </span>
+                          <h4 className="font-serif text-xs font-bold text-white leading-snug">
+                            {intel.slide3.mechanismTitle}
+                          </h4>
+                          <p className="text-[8.5px] sm:text-[9px] text-white/80 font-sans mt-0.5 line-clamp-2">
+                            {intel.slide3.mechanismSummary}
+                          </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2 text-left pt-0.5">
-                          <div className="p-2 sm:p-2.5 bg-white/5 border border-white/10">
-                            <span className="text-[8px] sm:text-[9px] font-mono text-brand-gold uppercase block font-bold">
-                              VALUE LEVER
+                        {/* Value Driver vs Risk Cards */}
+                        <div className="grid grid-cols-2 gap-1.5 text-left">
+                          <div className="p-1.5 sm:p-2 bg-[#061426] border border-white/10">
+                            <span className="text-[7px] font-mono text-[#C5A880] uppercase block font-bold mb-1">
+                              {intel.slide3.valueHeader}
                             </span>
-                            <span className="text-[10px] sm:text-xs font-sans text-white/90 line-clamp-2">
-                              Capability Arbitrage & Downstream Margin
-                            </span>
+                            <ul className="space-y-1">
+                              {intel.slide3.valuePoints.slice(0, 2).map((vp, i) => (
+                                <li key={i} className="text-[7.5px] sm:text-[8.5px] text-white/90 leading-tight flex items-start gap-1">
+                                  <span className="text-emerald-400 font-bold">✓</span>
+                                  <span className="line-clamp-2">{vp}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <div className="p-2 sm:p-2.5 bg-white/5 border border-white/10">
-                            <span className="text-[8px] sm:text-[9px] font-mono text-brand-gold uppercase block font-bold">
-                              KEY RISK
+
+                          <div className="p-1.5 sm:p-2 bg-[#061426] border border-white/10">
+                            <span className="text-[7px] font-mono text-[#C5A880] uppercase block font-bold mb-1">
+                              {intel.slide3.frictionHeader}
                             </span>
-                            <span className="text-[10px] sm:text-xs font-sans text-white/90 line-clamp-2">
-                              Governance Debt & Interface Friction
-                            </span>
+                            <ul className="space-y-1">
+                              {intel.slide3.frictionPoints.slice(0, 2).map((fp, i) => (
+                                <li key={i} className="text-[7.5px] sm:text-[8.5px] text-white/90 leading-tight flex items-start gap-1">
+                                  <span className="text-[#C5A880] font-bold">!</span>
+                                  <span className="line-clamp-2">{fp}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
+                        </div>
+
+                        {/* Decision Context */}
+                        <div className="p-1.5 bg-white/5 border border-white/10">
+                          <span className="text-[7px] font-mono text-[#C5A880] uppercase block font-bold">
+                            DECISION CONTEXT:
+                          </span>
+                          <p className="text-[8px] sm:text-[8.5px] text-white/80 font-sans leading-tight line-clamp-2">
+                            {intel.slide3.decisionContext}
+                          </p>
                         </div>
                       </motion.div>
                     )}
 
                     {activeSlide === 3 && (
-                      /* SLIDE 4: Strategic Principle & Actionable Call to Action */
+                      /* SLIDE 4: Strategic Principle & Call to Action */
                       <motion.div
                         key="slide-3"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="space-y-3 sm:space-y-4 text-center"
+                        className="space-y-2.5 sm:space-y-3 text-center"
                       >
-                        <div className="inline-block px-2.5 sm:px-3 py-0.5 sm:py-1 bg-brand-gold/20 border border-brand-gold/60 text-brand-gold font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest">
+                        <div className="inline-block px-2.5 py-0.5 bg-[#C5A880]/20 border border-[#C5A880]/60 text-[#C5A880] font-mono text-[8px] sm:text-[9px] font-bold uppercase tracking-widest">
                           PHARMASIGNAL PRINCIPLE
                         </div>
 
-                        <blockquote className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white italic leading-relaxed px-2 sm:px-4">
-                          {article.principleQuote || (isDeal
-                            ? '"Territorial rights and deal terms create value only when the capability to execute travels with the rights."'
-                            : '"The strongest opportunities do not always create the most value. The opportunities that close the Approval Gap do."')}
+                        <blockquote className="font-serif text-xs sm:text-sm font-bold text-white italic leading-snug px-1">
+                          "{intel.slide4.quote}"
                         </blockquote>
 
-                        <div className="pt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                          <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-brand-gold text-brand-primary font-mono text-[10px] sm:text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-                            <span>Read Full {isDeal ? 'Signal' : 'Explainer'}:</span>
-                            <span className="underline">pharmasignal.com/?{deepLinkParam}</span>
-                          </div>
+                        <div className="text-left p-2 bg-white/5 border border-white/10 space-y-1">
+                          <span className="text-[7px] font-mono text-[#C5A880] uppercase font-bold block">
+                            WHAT BD LEADERS MUST VERIFY:
+                          </span>
+                          {intel.slide4.checkpoints.slice(0, 2).map((cp, idx) => (
+                            <div key={idx} className="text-[7.5px] sm:text-[8.5px] text-white/90 leading-tight flex items-start gap-1">
+                              <span className="text-[#C5A880] font-mono font-bold">0{idx + 1}.</span>
+                              <span className="line-clamp-2">{cp}</span>
+                            </div>
+                          ))}
                         </div>
 
-                        <p className="text-[9px] sm:text-[10px] font-mono text-white/50 uppercase tracking-widest">
-                          Biopharma BD Decision Intelligence · Follow on LinkedIn for {isDeal ? 'Weekly Deal Briefings' : 'Decision Frameworks'}
-                        </p>
+                        <div className="p-2 bg-[#C5A880] text-[#061426] text-center font-mono">
+                          <span className="text-[7.5px] tracking-wider uppercase block font-bold">
+                            READ FULL DEAL SIGNAL ON PHARMASIGNAL:
+                          </span>
+                          <span className="text-[9px] sm:text-[10px] font-bold underline block mt-0.5">
+                            {canonicalUrl.replace(/^https?:\/\//, '')}
+                          </span>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
 
                 {/* Bottom Footer of Slide */}
-                <div className="relative z-10 flex items-center justify-between border-t border-brand-gold/20 pt-2 sm:pt-3">
-                  <span className="font-mono text-[8px] sm:text-[9px] text-brand-gold uppercase tracking-widest font-semibold">
-                    PHARMASIGNAL.COM · BD DECISION INTELLIGENCE
+                <div className="relative z-10 flex items-center justify-between border-t border-[#C5A880]/20 pt-2">
+                  <span className="font-mono text-[8px] text-[#C5A880] uppercase tracking-widest font-semibold">
+                    PHARMASIGNAL.COM
                   </span>
-                  <span className="font-mono text-[8px] sm:text-[9px] text-white/50 tracking-wider">
+                  <span className="font-mono text-[8px] text-white/50 tracking-wider">
                     {article.id}
                   </span>
                 </div>
               </div>
 
               {/* Slider Controls */}
-              <div className="w-full flex items-center justify-between mt-3 sm:mt-4">
+              <div className="w-full max-w-[420px] flex items-center justify-between mt-3">
                 <div className="flex items-center gap-1.5">
                   {[0, 1, 2, 3].map((i) => (
                     <button
@@ -961,7 +1144,7 @@ Read the complete decision analysis and framework on PharmaSignal:
                       onClick={() => setActiveSlide(i)}
                       className={`h-2 transition-all cursor-pointer rounded-none ${
                         activeSlide === i 
-                          ? 'w-7 sm:w-8 bg-brand-gold' 
+                          ? 'w-7 bg-[#C5A880]' 
                           : 'w-2 bg-white/20 hover:bg-white/40'
                       }`}
                       title={`Go to Slide ${i + 1}`}
@@ -972,17 +1155,17 @@ Read the complete decision analysis and framework on PharmaSignal:
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrev}
-                    className="p-1.5 sm:p-2 border border-white/20 hover:border-brand-gold text-white hover:text-brand-gold bg-white/5 transition-colors cursor-pointer"
+                    className="p-1.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 transition-colors cursor-pointer"
                     title="Previous Slide"
                   >
                     <ChevronLeft size={16} />
                   </button>
-                  <span className="font-mono text-xs text-white/70 px-1 sm:px-2">
+                  <span className="font-mono text-xs text-white/70 px-1">
                     {activeSlide + 1} / {totalSlides}
                   </span>
                   <button
                     onClick={handleNext}
-                    className="p-1.5 sm:p-2 border border-white/20 hover:border-brand-gold text-white hover:text-brand-gold bg-white/5 transition-colors cursor-pointer"
+                    className="p-1.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 transition-colors cursor-pointer"
                     title="Next Slide"
                   >
                     <ChevronRight size={16} />
@@ -992,35 +1175,35 @@ Read the complete decision analysis and framework on PharmaSignal:
 
             </div>
 
-            {/* Right Column: 1-Click Export Tools (4 cols) */}
-            <div className="w-full lg:col-span-4 flex flex-col space-y-3 sm:space-y-4">
+            {/* Right Column: 1-Click Export Tools (5 cols) */}
+            <div className="w-full lg:col-span-5 flex flex-col space-y-3 sm:space-y-4">
               
               {/* Primary PDF Download Action */}
-              <div className="p-4 sm:p-5 bg-[#0A1A2E] border border-brand-gold/40 flex flex-col space-y-3">
+              <div className="p-4 sm:p-5 bg-[#0A1A2E] border border-[#C5A880]/40 flex flex-col space-y-3">
                 <div className="flex items-center gap-2">
-                  <FileDown size={18} className="text-brand-gold shrink-0" />
+                  <FileDown size={18} className="text-[#C5A880] shrink-0" />
                   <h3 className="font-serif text-sm sm:text-base font-bold text-white">
-                    Export Multi-Slide PDF
+                    Export LinkedIn PDF Carousel
                   </h3>
                 </div>
                 <p className="text-xs text-white/70 font-sans leading-relaxed">
-                  Generates a crisp 4-slide 16:9 document PDF ready to upload directly as a LinkedIn document carousel.
+                  Generates a crisp 4-slide 1080×1350 portrait document PDF ready to upload directly as a LinkedIn document carousel.
                 </p>
 
                 <button
                   onClick={handleExportPDF}
                   disabled={!!pdfProgress}
-                  className="w-full py-3 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg disabled:opacity-60"
+                  className="w-full py-3 bg-[#C5A880] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg disabled:opacity-60"
                 >
                   {pdfProgress ? (
                     <>
-                      <div className="w-3.5 h-3.5 border-2 border-brand-primary border-t-transparent rounded-full animate-spin shrink-0" />
+                      <div className="w-3.5 h-3.5 border-2 border-[#061426] border-t-transparent rounded-full animate-spin shrink-0" />
                       <span className="truncate">{pdfProgress}</span>
                     </>
                   ) : (
                     <>
                       <Download size={14} />
-                      <span>Download Carousel (PDF)</span>
+                      <span>Download 4-Slide PDF</span>
                     </>
                   )}
                 </button>
@@ -1030,17 +1213,17 @@ Read the complete decision analysis and framework on PharmaSignal:
               <div className="p-4 bg-white/5 border border-white/10 flex flex-col space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] font-mono text-brand-gold uppercase font-bold block">
-                      IMAGE EXPORT
+                    <span className="text-[10px] font-mono text-[#C5A880] uppercase font-bold block">
+                      HIGH-RES IMAGE EXPORT
                     </span>
                     <span className="text-xs text-white/80 font-sans">
-                      Slide #{activeSlide + 1} as Image
+                      Slide #{activeSlide + 1} as 1080×1350 PNG
                     </span>
                   </div>
                   <button
                     onClick={handleExportSinglePng}
                     disabled={isGeneratingPng}
-                    className="px-3 py-1.5 border border-brand-gold/50 hover:border-brand-gold text-brand-gold text-xs font-mono uppercase transition-colors cursor-pointer flex items-center gap-1.5 bg-brand-gold/10 hover:bg-brand-gold/20 disabled:opacity-50"
+                    className="px-3 py-1.5 border border-[#C5A880]/50 hover:border-[#C5A880] text-[#C5A880] text-xs font-mono uppercase transition-colors cursor-pointer flex items-center gap-1.5 bg-[#C5A880]/10 hover:bg-[#C5A880]/20 disabled:opacity-50"
                   >
                     <Download size={12} />
                     <span>{isGeneratingPng ? 'Exporting...' : 'Slide PNG'}</span>
@@ -1054,9 +1237,9 @@ Read the complete decision analysis and framework on PharmaSignal:
                   <button
                     onClick={handleExportAllPngs}
                     disabled={isGeneratingPng}
-                    className="text-[11px] font-mono text-brand-gold underline hover:text-white transition-colors cursor-pointer"
+                    className="text-[11px] font-mono text-[#C5A880] underline hover:text-white transition-colors cursor-pointer"
                   >
-                    Download All PNGs
+                    Download All 4 PNGs
                   </button>
                 </div>
               </div>
@@ -1067,39 +1250,43 @@ Read the complete decision analysis and framework on PharmaSignal:
                   <div className="flex items-center gap-2">
                     <Linkedin size={16} className="text-[#0A66C2] shrink-0" />
                     <h3 className="font-serif text-sm font-bold text-white">
-                      LinkedIn Post Copy
+                      LinkedIn Post Text
                     </h3>
                   </div>
-                  <span className="text-[9px] font-mono text-brand-gold uppercase font-bold">
-                    Executive Style
+                  <span className="text-[9px] font-mono text-[#C5A880] uppercase font-bold">
+                    Senior BD&L Tone
                   </span>
                 </div>
 
                 <p className="text-xs text-white/70 font-sans leading-relaxed">
-                  Pre-formatted executive post with deal metrics, strategic read, and deep-link.
+                  Tailored senior BD&L post with deal signal, strategic mechanism, execution questions, and canonical link. No emojis or marketing hype.
                 </p>
+
+                <div className="max-h-28 overflow-y-auto p-2 bg-black/30 border border-white/10 text-[10px] font-mono text-white/70 whitespace-pre-wrap leading-relaxed">
+                  {intel.linkedInPost}
+                </div>
 
                 <button
                   onClick={handleCopyPostText}
-                  className="w-full py-2.5 border border-white/20 hover:border-brand-gold text-white hover:text-brand-gold bg-white/5 font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {copiedPost ? (
                     <>
                       <Check size={14} className="text-emerald-400" />
-                      <span className="text-emerald-400 font-bold">Post Copied!</span>
+                      <span className="text-emerald-400 font-bold">Post Copied to Clipboard!</span>
                     </>
                   ) : (
                     <>
                       <Copy size={14} />
-                      <span>Copy Post Text</span>
+                      <span>Copy LinkedIn Post Text</span>
                     </>
                   )}
                 </button>
               </div>
 
               {/* Instructions Tip */}
-              <div className="p-3 bg-brand-gold/5 border-l-2 border-brand-gold text-[11px] font-mono text-brand-gold/90 space-y-1">
-                <span className="font-bold block uppercase">How to Post on LinkedIn:</span>
+              <div className="p-3 bg-[#C5A880]/5 border-l-2 border-[#C5A880] text-[11px] font-mono text-[#C5A880]/90 space-y-1">
+                <span className="font-bold block uppercase">How to Share on LinkedIn:</span>
                 <p className="text-white/70 font-sans text-[11px] leading-relaxed">
                   1. Click "Start a post" on LinkedIn.<br/>
                   2. Click the document icon ("Add a document") and upload the downloaded PDF.<br/>

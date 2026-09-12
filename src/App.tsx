@@ -79,6 +79,8 @@ export default function App() {
       return a.id.localeCompare(b.id);
     });
   }, []);
+
+  const publishedDealsCount = useMemo(() => DEAL_SIGNALS_DATA.filter(d => !d.isDraft).length, []);
   
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
@@ -181,10 +183,29 @@ export default function App() {
         setPolicyModalOpen(true);
       }
 
+      // 0b. Helper for Slug & Alias Resolution
+      const findArticleBySlugOrId = (idOrSlug: string) => {
+        if (idOrSlug === 'biocon-brazil-pertuzumab-market-access-partnership' || idOrSlug === 'biocon-brazil-pertuzumab-market-access') {
+          return ALL_ARTICLES.find(a => a.id === 'biocon-brazil-pertuzumab-market-access' || a.id === 'biocon-brazil-pertuzumab-market-access-partnership');
+        }
+        return ALL_ARTICLES.find(a => a.id === idOrSlug);
+      };
+
+      // 0c. Check Carousel / LinkedIn Share Query Parameters (e.g. ?carousel=... or ?share=...)
+      const queryCarouselId = searchParams.get('carousel') || searchParams.get('share');
+      if (queryCarouselId) {
+        const found = findArticleBySlugOrId(queryCarouselId);
+        if (found) {
+          setCarouselArticle(found);
+          setActiveTab(found.isDealSignal ? 'DEAL SIGNALS' : 'EXPLAINERS');
+          return;
+        }
+      }
+
       // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=...)
       const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id');
       if (queryArticleId) {
-        const found = ALL_ARTICLES.find(a => a.id === queryArticleId);
+        const found = findArticleBySlugOrId(queryArticleId);
         if (found) {
           setSelectedArticle(found);
           setActiveTab(found.isDealSignal ? 'DEAL SIGNALS' : 'EXPLAINERS');
@@ -197,7 +218,7 @@ export default function App() {
         const cleanHash = hash.replace(/^#\/?/, '');
         const hashMatch = cleanHash.match(/^(?:deal-signals|explainers|article)\/([a-zA-Z0-9_-]+)/);
         if (hashMatch) {
-          const found = ALL_ARTICLES.find(a => a.id === hashMatch[1]);
+          const found = findArticleBySlugOrId(hashMatch[1]);
           if (found) {
             setSelectedArticle(found);
             setActiveTab(found.isDealSignal ? 'DEAL SIGNALS' : 'EXPLAINERS');
@@ -239,7 +260,7 @@ export default function App() {
       const dealMatch = path.match(/^\/deal-signals\/([a-zA-Z0-9_-]+)/);
       if (dealMatch) {
         const articleId = dealMatch[1];
-        const found = ALL_ARTICLES.find(a => a.id === articleId);
+        const found = findArticleBySlugOrId(articleId);
         if (found) {
           setSelectedArticle(found);
           setActiveTab('DEAL SIGNALS');
@@ -438,7 +459,7 @@ export default function App() {
 
             {/* Grid displaying all published Deal Cards (canonical newest-first) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-              {sortedDealSignals.map((deal) => (
+              {sortedDealSignals.filter(deal => !deal.isDraft).map((deal) => (
                       <div 
                         key={deal.id}
                         className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
@@ -600,7 +621,7 @@ export default function App() {
                 >
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
-                    {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
+                    {publishedDealsCount} DEALS ANALYZED
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
@@ -654,7 +675,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-4 border-b border-[#1E3A55]/70">
                 <div className="text-left max-w-2xl">
                   <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
-                    EMPIRICAL EVIDENCE · {DEAL_SIGNALS_DATA.length} DEALS ANALYZED
+                    EMPIRICAL EVIDENCE · {publishedDealsCount} DEALS ANALYZED
                   </span>
                   <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
                     darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
@@ -814,7 +835,7 @@ export default function App() {
               }`}>
                 <div>
                   <h4 className={`font-serif text-[18px] sm:text-[20px] font-bold ${darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'}`}>
-                    Explore all {DEAL_SIGNALS_DATA.length} transactions in our Deal Intelligence desk
+                    Explore all {publishedDealsCount} transactions in our Deal Intelligence desk
                   </h4>
                   <p className={`text-xs sm:text-sm font-sans mt-0.5 ${darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'}`}>
                     Review biopharma licensing and partnerships categorized by commercial mechanisms.
@@ -835,7 +856,7 @@ export default function App() {
                     }}
                     className="px-4 py-2 bg-[#0B121E] hover:bg-brand-cobalt text-white dark:bg-[#C5A059] dark:text-[#061426] dark:hover:bg-[#D8B869] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap shadow-xs"
                   >
-                    View All {DEAL_SIGNALS_DATA.length} Signals Archive <ArrowRight size={12} />
+                    View All {publishedDealsCount} Signals Archive <ArrowRight size={12} />
                   </button>
                 </div>
               </div>

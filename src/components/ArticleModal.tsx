@@ -27,7 +27,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
   const [carouselOpen, setCarouselOpen] = useState(false);
   const [suggestModalOpen, setSuggestModalOpen] = useState(false);
 
-  // Lock body scroll and sync URL when reading is active
+  // Lock body scroll, update document title/meta, and sync URL when reading is active
   useEffect(() => {
     if (article) {
       document.body.style.overflow = 'hidden';
@@ -37,11 +37,33 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
       if (window.location.pathname !== path) {
         window.history.pushState(null, '', path);
       }
+      document.title = `${article.title} | PharmaSignal`;
+      
+      // Sync meta tags
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && article.description) {
+        metaDesc.setAttribute('content', article.description);
+      }
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute('content', `${article.title} | PharmaSignal`);
+      }
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc && article.description) {
+        ogDesc.setAttribute('content', article.description);
+      }
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage && article.imageUrl) {
+        const fullImg = article.imageUrl.startsWith('http') ? article.imageUrl : `${window.location.origin}${article.imageUrl}`;
+        ogImage.setAttribute('content', fullImg);
+      }
     } else {
       document.body.style.overflow = 'unset';
+      document.title = 'PharmaSignal — Decision Intelligence for Pharma BD';
     }
     return () => {
       document.body.style.overflow = 'unset';
+      document.title = 'PharmaSignal — Decision Intelligence for Pharma BD';
     };
   }, [article]);
 
@@ -1798,6 +1820,18 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : (
               <>
+                {/* Draft / Preview Banner */}
+                {article.isDraft && (
+                  <div className="mb-6 p-4 bg-amber-500/10 border border-amber-500/40 text-amber-500 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
+                      <span className="font-bold tracking-widest uppercase">EDITORIAL DRAFT / PREVIEW ONLY</span>
+                      <span className="hidden sm:inline text-amber-500/80">— NOT YET PUBLISHED TO LIVE DESK</span>
+                    </div>
+                    <span className="text-[10.5px] uppercase tracking-wider text-amber-500/90 font-bold bg-amber-500/15 px-2 py-0.5 w-fit">CONFIDENTIAL REVIEW</span>
+                  </div>
+                )}
+
                 {/* Category Breadcrumb */}
                 <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-4">
                   {article.category}
@@ -1839,16 +1873,16 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
 
                 {/* Article Thumbnail Image if available */}
                 {(article.imageUrl || article.imageUrlLight || article.imageUrlDark) && (
-                  <div className={`my-6 w-full overflow-hidden border rounded-none shadow-xs ${
+                  <div className={`my-4 sm:my-6 w-full overflow-hidden border rounded-none shadow-xs ${
                     darkMode ? 'border-brand-gold/30 bg-[#0A1A2B]' : 'border-slate-200 bg-slate-50'
                   }`}>
                     <img 
                       src={darkMode ? (article.imageUrlDark || article.imageUrl) : (article.imageUrlLight || article.imageUrl)} 
-                      alt={article.title}
+                      alt={article.imageAlt || article.title}
                       loading="lazy"
                       decoding="async"
                       referrerPolicy="no-referrer"
-                      className="w-full h-auto object-cover max-h-[460px] mx-auto"
+                      className="w-full h-auto object-contain mx-auto block"
                     />
                   </div>
                 )}
@@ -1860,6 +1894,22 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   }`}>
                     {article.featuredSummary}
                   </p>
+                )}
+
+                {/* PharmaSignal Take Callout for Deal Signals */}
+                {article.pharmaSignalTake && article.isDealSignal && (
+                  <div className={`my-8 p-6 sm:p-7 border-l-4 border-brand-gold text-left space-y-3 ${
+                    darkMode ? 'bg-brand-gold/10 text-white' : 'bg-brand-gold-light/25 text-brand-primary'
+                  }`}>
+                    <div className="flex items-center gap-2 text-brand-gold font-mono text-xs font-bold tracking-widest uppercase mb-1">
+                      <Shield size={16} /> PHARMASIGNAL TAKE
+                    </div>
+                    {article.pharmaSignalTake.split('\n\n').map((paragraph, pIdx) => (
+                      <p key={pIdx} className="font-sans text-sm sm:text-base leading-relaxed font-medium">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 )}
 
                 {/* PharmaSignal Read Callout */}
@@ -2008,14 +2058,12 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
       </div>
 
       {/* LinkedIn Carousel Exporter Modal */}
-      {article.isDealSignal && (
-        <LinkedInCarouselModal 
-          article={article}
-          isOpen={carouselOpen}
-          onClose={() => setCarouselOpen(false)}
-          darkMode={darkMode}
-        />
-      )}
+      <LinkedInCarouselModal 
+        article={article}
+        isOpen={carouselOpen}
+        onClose={() => setCarouselOpen(false)}
+        darkMode={darkMode}
+      />
 
       {/* Suggest a Deal Signal Modal */}
       <SuggestDealModal

@@ -32,6 +32,7 @@ export interface Article {
   imageUrl?: string;
   imageUrlLight?: string;
   imageUrlDark?: string;
+  imageAlt?: string;
   shortTitle?: string;
   assetClass?: string;
   dealStructure?: string;
