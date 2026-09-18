@@ -47,6 +47,72 @@ export function getCanonicalUrl(article: Article): string {
 
 // Tailored intelligence records for known Deal Signals
 const DEAL_SPECIFIC_INTELLIGENCE: Record<string, Partial<DealSlideData>> = {
+  'shilpa-spimaco-mena-local-manufacturing': {
+    slide1: {
+      counterparties: {
+        originator: 'Shilpa Biologicals',
+        partner: 'SPIMACO Bio',
+        relationshipLabel: 'EXCLUSIVE MENA LICENCE →',
+        accessLabel: 'REGULATORY · ACCESS · COMMERCIALIZATION',
+        tag: 'DEAL SIGNAL · 16 SEP 2026'
+      },
+      headline: 'Market entry now. Local manufacturing in phases.',
+      metrics: [
+        { label: 'DEAL SIGNAL', val: '16 September 2026' },
+        { label: 'TERRITORY', val: 'MENA Region' },
+        { label: 'TRANSITION', val: 'Saudi Tech Transfer' }
+      ],
+      summary: 'Shilpa and SPIMACO separate current MENA roles from a future Saudi technology transfer.'
+    },
+    slide2: {
+      title: 'THE DEAL MAP',
+      subtitle: 'Rights Partition & Operating Pathway',
+      takeaways: [
+        'Shilpa Biologicals → MENA licence → SPIMACO Bio',
+        'Shilpa: IP, development, manufacture. SPIMACO: regulatory, access, commercialization. Next: phased Saudi technology transfer.'
+      ],
+      diagramLabel: 'Shilpa Biologicals → MENA licence → SPIMACO Bio'
+    },
+    slide3: {
+      mechanismTitle: 'Two operating stages need separate accountability.',
+      mechanismSummary: 'Launch roles are defined now. Local manufacturing comes in phases.',
+      valueHeader: 'CORE EDITORIAL POINTS',
+      valuePoints: [
+        'Launch roles are defined now.',
+        'Local manufacturing comes in phases.',
+        'Supply and transfer incentives must remain aligned.'
+      ],
+      frictionHeader: 'DISCLOSED BOUNDARY / LIMITATION',
+      frictionPoints: [
+        'Undisclosed: transfer triggers and post-transfer economics.',
+        'Transfer scope, timing, registration control and post-transfer revenue splits remain undisclosed.'
+      ],
+      decisionContext: 'Evaluate the steady-state launch deal and future manufacturing transition as separate accountable stages.'
+    },
+    slide4: {
+      quote: 'Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.',
+      checkpoints: [
+        'Who owns registrations and product variations in each market, and does that control change after technology transfer?',
+        'Which objective readiness and validation gates move manufacturing steps to Saudi Arabia while preserving supply continuity and quality-release accountability?',
+        'How do supply pricing, milestones and other economics change as local manufacturing expands?'
+      ],
+      ctaText: 'Read the full Deal Signal. Subscribe for weekly BD decision intelligence.',
+      canonicalUrl: '[ARTICLE URL — ADD AFTER PUBLICATION]'
+    },
+    linkedInPost: `A regional licence can define market access today and local manufacturing later.
+
+Shilpa Biologicals and SPIMACO Bio have signed an exclusive agreement for a portfolio of PD-1 inhibitor biosimilars across MENA. Shilpa retains IP ownership and the development and exclusive manufacturing roles. SPIMACO Bio leads regulatory execution, market access and commercialization in the region.
+
+The less obvious part is the transition. The agreement also provides for phased technology transfer to establish manufacturing in Saudi Arabia.
+
+PharmaSignal’s read: this creates two operating stages, not one. The initial model depends on Shilpa’s development and supply responsibilities alongside SPIMACO’s regional execution. A later model must reallocate manufacturing work without losing clarity on product release, supply continuity or economics.
+
+The announcement does not disclose the transfer triggers, timing or post-transfer economics. Those are the points a BD team should test before treating localization as an assured outcome.
+
+Read the full Deal Signal and subscribe for weekly pharma BD decision intelligence: [CANONICAL PHARMASIGNAL URL]
+
+#PharmaBD #Licensing #PharmaSignal`
+  },
   'biocon-brazil-pertuzumab-market-access': {
     slide1: {
       counterparties: {

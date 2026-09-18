@@ -627,6 +627,12 @@ export default function LinkedInCarouselModal({
   const intel = getDealSlideData(article);
   const isDeal = !!article.isDealSignal;
   const canonicalUrl = intel.slide4.canonicalUrl;
+  const isMissingCanonical = !canonicalUrl || 
+    canonicalUrl.includes('[') || 
+    canonicalUrl.includes('ADD AFTER PUBLICATION') || 
+    canonicalUrl.includes('CANONICAL') ||
+    canonicalUrl.includes('placeholder') ||
+    !canonicalUrl.startsWith('https://pharmasignal.com/deal-signals/');
 
   const handleNext = () => {
     setActiveSlide((prev) => (prev + 1) % totalSlides);
@@ -827,11 +833,16 @@ export default function LinkedInCarouselModal({
             <div className="flex items-center gap-2">
               <button
                 onClick={handleCopyLink}
-                className="px-2.5 py-1.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 text-xs font-mono tracking-wider uppercase transition-colors flex items-center gap-1.5 cursor-pointer"
-                title="Copy Canonical Article Link"
+                disabled={isMissingCanonical}
+                className={`px-2.5 py-1.5 border text-xs font-mono tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
+                  isMissingCanonical
+                    ? 'border-white/10 text-white/30 bg-white/5 cursor-not-allowed'
+                    : 'border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 cursor-pointer'
+                }`}
+                title={isMissingCanonical ? 'Canonical URL not yet assigned' : 'Copy Canonical Article Link'}
               >
                 {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
-                <span className="hidden md:inline">{copiedLink ? 'Copied' : 'Canonical Link'}</span>
+                <span className="hidden md:inline">{isMissingCanonical ? 'URL Pending' : (copiedLink ? 'Copied' : 'Canonical Link')}</span>
               </button>
 
               <button
@@ -843,6 +854,21 @@ export default function LinkedInCarouselModal({
               </button>
             </div>
           </div>
+
+          {/* Missing Canonical URL Warning Banner */}
+          {isMissingCanonical && (
+            <div className="bg-amber-950/90 border-b border-amber-500/50 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3 text-amber-300 text-xs font-mono">
+              <div className="flex items-center gap-2.5">
+                <AlertCircle size={16} className="text-amber-400 shrink-0" />
+                <span>
+                  <strong>MISSING CANONICAL URL:</strong> Active placeholder detected ({canonicalUrl}). Final PDF export and Copy Post Text are disabled until the canonical URL is confirmed upon publication.
+                </span>
+              </div>
+              <span className="hidden md:inline px-2 py-0.5 bg-amber-500/20 border border-amber-500/40 text-[10px] font-bold tracking-wider uppercase text-amber-300">
+                PRE-PUBLICATION SAFEGUARD
+              </span>
+            </div>
+          )}
 
           {/* Toast Notification Alert Banner */}
           {downloadSuccess && (
@@ -1192,8 +1218,13 @@ export default function LinkedInCarouselModal({
 
                 <button
                   onClick={handleExportPDF}
-                  disabled={!!pdfProgress}
-                  className="w-full py-3 bg-[#C5A880] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg disabled:opacity-60"
+                  disabled={isMissingCanonical || !!pdfProgress}
+                  className={`w-full py-3 font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center justify-center gap-2 shadow-lg ${
+                    isMissingCanonical
+                      ? 'bg-white/10 text-white/40 border border-white/10 cursor-not-allowed'
+                      : 'bg-[#C5A880] hover:bg-[#D8B869] text-[#061426] cursor-pointer disabled:opacity-60'
+                  }`}
+                  title={isMissingCanonical ? 'Final PDF export is disabled until canonical article URL is assigned' : 'Download 4-Slide PDF'}
                 >
                   {pdfProgress ? (
                     <>
@@ -1203,7 +1234,7 @@ export default function LinkedInCarouselModal({
                   ) : (
                     <>
                       <Download size={14} />
-                      <span>Download 4-Slide PDF</span>
+                      <span>{isMissingCanonical ? 'PDF Export Disabled (URL Pending)' : 'Download 4-Slide PDF'}</span>
                     </>
                   )}
                 </button>
@@ -1268,7 +1299,13 @@ export default function LinkedInCarouselModal({
 
                 <button
                   onClick={handleCopyPostText}
-                  className="w-full py-2.5 border border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={isMissingCanonical}
+                  className={`w-full py-2.5 border font-mono text-xs tracking-wider uppercase transition-colors flex items-center justify-center gap-2 ${
+                    isMissingCanonical
+                      ? 'bg-white/5 border-white/10 text-white/30 cursor-not-allowed'
+                      : 'border-white/20 hover:border-[#C5A880] text-white hover:text-[#C5A880] bg-white/5 cursor-pointer'
+                  }`}
+                  title={isMissingCanonical ? 'Post copy disabled while canonical URL is missing' : 'Copy LinkedIn Post Text'}
                 >
                   {copiedPost ? (
                     <>
@@ -1278,7 +1315,7 @@ export default function LinkedInCarouselModal({
                   ) : (
                     <>
                       <Copy size={14} />
-                      <span>Copy LinkedIn Post Text</span>
+                      <span>{isMissingCanonical ? 'Post Copy Disabled (URL Pending)' : 'Copy LinkedIn Post Text'}</span>
                     </>
                   )}
                 </button>

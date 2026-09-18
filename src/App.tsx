@@ -188,6 +188,9 @@ export default function App() {
         if (idOrSlug === 'biocon-brazil-pertuzumab-market-access-partnership' || idOrSlug === 'biocon-brazil-pertuzumab-market-access') {
           return ALL_ARTICLES.find(a => a.id === 'biocon-brazil-pertuzumab-market-access' || a.id === 'biocon-brazil-pertuzumab-market-access-partnership');
         }
+        if (idOrSlug === 'shilpa-spimaco-mena-local-manufacturing' || idOrSlug === 'shilpa-spimaco' || idOrSlug === 'shilpa-spimaco-mena') {
+          return ALL_ARTICLES.find(a => a.id === 'shilpa-spimaco-mena-local-manufacturing');
+        }
         return ALL_ARTICLES.find(a => a.id === idOrSlug);
       };
 
@@ -202,8 +205,8 @@ export default function App() {
         }
       }
 
-      // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=...)
-      const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id');
+      // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=... or ?preview=...)
+      const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id') || searchParams.get('preview') || searchParams.get('draft');
       if (queryArticleId) {
         const found = findArticleBySlugOrId(queryArticleId);
         if (found) {

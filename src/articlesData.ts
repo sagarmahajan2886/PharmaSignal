@@ -529,6 +529,84 @@ export const EXPLAINERS_DATA: Article[] = [
 
 export const DEAL_SIGNALS_DATA: Article[] = [
   {
+    id: 'shilpa-spimaco-mena-local-manufacturing',
+    isDraft: true,
+    category: 'DEAL SIGNAL',
+    title: 'The Shilpa–SPIMACO Deal Separates Market Entry From Local Manufacturing',
+    shortTitle: 'Market entry now. Local manufacturing in phases.',
+    subtitle: 'The MENA licence assigns development, supply and market-access roles now, while Saudi manufacturing is planned through phased technology transfer.',
+    description: 'How Shilpa Biologicals and SPIMACO Bio divide MENA market-entry roles from phased Saudi manufacturing—and what BD teams should ask.',
+    meta: '3 MIN READ · SEP 16, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '3 min read',
+    date: 'September 16, 2026',
+    featuredSummary: 'Shilpa and SPIMACO split current MENA responsibilities from a future Saudi technology transfer. The value test is clear accountability across both stages.',
+    isDealSignal: true,
+    mechanism: 'Licensing & Localization',
+    assetClass: 'PD-1 Inhibitor Biosimilar Portfolio',
+    dealStructure: 'Exclusive Regional Licensing with Phased Technology Transfer',
+    geographicScope: 'Middle East & North Africa (MENA) / Saudi Arabia',
+    imageUrl: '/images/pharmasignal_shilpa_spimaco_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_shilpa_spimaco_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_shilpa_spimaco_hero_1600x900_light.png',
+    imageAlt: 'Shilpa Biologicals licenses a PD-1 biosimilar portfolio for MENA to SPIMACO Bio, with phased technology transfer toward Saudi local manufacturing.',
+    pharmaSignalTake: 'Shilpa keeps the IP, development and exclusive manufacturing roles.\n\nSPIMACO Bio leads MENA regulatory execution, market access and commercialization.\n\nSaudi local manufacturing is a phased future step—not an immediate transfer.',
+    pharmaSignalRead: 'The partners have complementary current roles. Shilpa’s disclosed responsibilities cover the assets, development and supply. SPIMACO Bio’s disclosed responsibilities cover regulatory execution, access and commercialization in MENA. That gives the licence a clear initial operating model without implying that every manufacturing step moves on day one.\n\nThe economics support more than one source of participation. Upfront and milestone payments reward Shilpa for signing and progress, while product-supply revenue keeps it economically involved during the supply phase. The amounts, triggers and economics after technology transfer are not public, so the strength of those incentives cannot be assessed.\n\nThe transition is where accountability must stay clear. “Phased technology transfer” describes direction, not the operating detail. The agreement will need to define which activities move, the validation gates, who releases product, how supply continuity is protected and how responsibilities change as Saudi capability comes online. These are open diligence questions, not evidence of a problem.',
+    useThisWhen: 'When evaluating regional licensing partnerships where immediate commercialization and market access depend on imported supply, while policy frameworks or long-term partner strategies require eventual domestic manufacturing localization.',
+    principleQuote: 'Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.',
+    sourceNote: 'Company announcement carried by Express Pharma (16 September 2026), Shilpa Biologicals official company channel, and SPIMACO investor relations.',
+    sourceOrg: 'Shilpa Biologicals & SPIMACO Bio',
+    sourceTitle: 'Shilpa Biologicals and SPIMACO Bio sign strategic license agreement for PD-1 biosimilar for MENA market',
+    sourceDate: 'September 16, 2026',
+    sourceUrl: 'https://www.expresspharma.in/shilpa-biologicals-and-spimaco-bio-sign-strategic-license-agreement-for-pd-1-biosimilar-for-mena-market/',
+    sourceLabel: 'Company Announcement via Express Pharma, September 16, 2026',
+    linkedExplainers: [
+      { id: 'rights-responsibility-architecture', title: 'Rights & Responsibility Architecture' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'route-to-market-friction', title: 'Route-to-Market Friction' }
+    ],
+    tags: ['DEAL SIGNAL', 'SHILPA BIOLOGICALS', 'SPIMACO BIO', 'MENA', 'SAUDI ARABIA', 'PD-1', 'BIOSIMILARS', 'LOCALIZATION', 'TECHNOLOGY TRANSFER', 'LICENSING'],
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 16 September 2026, Shilpa Biologicals and SPIMACO Bio announced a signed exclusive licensing and commercialization agreement covering a portfolio of PD-1 inhibitor biosimilars across the Middle East and North Africa.</p>
+      <p>Shilpa retains intellectual-property ownership and is the exclusive developer and manufacturer. SPIMACO Bio leads commercialization, regulatory execution and market access in the licensed territory. The agreement also provides for phased technology transfer intended to establish local manufacturing in Saudi Arabia.</p>
+      <p>Shilpa will receive an upfront payment, development and commercial milestones, and product-supply revenue. The companies did not disclose amounts, individual products, development stages, country-level rights, royalty terms or detailed transfer conditions.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Regional licensing and manufacturing localization are often discussed as if they begin at the same time. This agreement shows two different operating stages.</p>
+      <p>The immediate model keeps product ownership, development and manufacturing with Shilpa while SPIMACO Bio takes responsibility for getting the portfolio through regional regulatory and market-access pathways. Local manufacturing comes later through a phased transfer.</p>
+      <p>That distinction matters because the responsibilities that support launch are not necessarily the responsibilities that will apply after local production begins.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p><strong>The partners have complementary current roles.</strong> Shilpa’s disclosed responsibilities cover the assets, development and supply. SPIMACO Bio’s disclosed responsibilities cover regulatory execution, access and commercialization in MENA. That gives the licence a clear initial operating model without implying that every manufacturing step moves on day one.</p>
+      <p><strong>The economics support more than one source of participation.</strong> Upfront and milestone payments reward Shilpa for signing and progress, while product-supply revenue keeps it economically involved during the supply phase. The amounts, triggers and economics after technology transfer are not public, so the strength of those incentives cannot be assessed.</p>
+      <p><strong>The transition is where accountability must stay clear.</strong> “Phased technology transfer” describes direction, not the operating detail. The agreement will need to define which activities move, the validation gates, who releases product, how supply continuity is protected and how responsibilities change as Saudi capability comes online. These are open diligence questions, not evidence of a problem.</p>
+
+      <h2>What BD Leaders Should Ask</h2>
+      <ol>
+        <li>Who owns registrations and product variations in each market, and does that control change after technology transfer?</li>
+        <li>Which objective readiness and validation gates move manufacturing steps to Saudi Arabia while preserving supply continuity and quality-release accountability?</li>
+        <li>How do supply pricing, milestones and other economics change as local manufacturing expands?</li>
+      </ol>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.</p>
+      </blockquote>
+
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.expresspharma.in/shilpa-biologicals-and-spimaco-bio-sign-strategic-license-agreement-for-pd-1-biosimilar-for-mena-market/" target="_blank" rel="noopener noreferrer">“Shilpa Biologicals and SPIMACO Bio sign strategic license agreement for PD-1 biosimilar for MENA market,” company announcement carried by Express Pharma, 16 September 2026</a></li>
+        <li><a href="https://in.linkedin.com/company/shilpa-biologicals-private-limited" target="_blank" rel="noopener noreferrer">Shilpa Biologicals official company channel, accessed 18 September 2026</a></li>
+        <li><a href="https://ir.spimaco.com.sa/" target="_blank" rel="noopener noreferrer">SPIMACO investor-relations company profile, accessed 18 September 2026 (background)</a></li>
+      </ul>
+
+      <div class="p-4 bg-brand-gold/10 border-l-2 border-brand-gold mt-6 font-serif italic text-sm">
+        Subscribe to PharmaSignal for one evidence-based pharma deal analysis each week—focused on the decisions behind the announcement.
+      </div>
+    `
+  },
+  {
     id: 'biocon-brazil-pertuzumab-market-access',
     category: 'DEAL SIGNAL',
     title: 'Biocon’s Brazil Partnership Builds Market Access Into the Deal',
