@@ -189,7 +189,7 @@ export const EXPLAINERS_DATA: Article[] = [
     dealStructure: 'Upstream Opportunity Creation Framework',
     geographicScope: 'Global In-Licensing & Emerging Markets',
     imageUrl: '/images/opp_creation_flow_1785776955600.jpg',
-    pharmaSignalRead: 'Opportunity processing begins when an opportunity enters the pipeline. Opportunity creation begins before the pipeline exists, avoiding visibility compression and auction pricing.',
+    pharmaSignalRead: 'Opportunity processing begins after an asset enters the market pipeline. Opportunity creation begins earlier—building proprietary access before an asset is broadly circulated to competitors, driving auction pricing and competitive deal inflation.',
     useThisWhen: 'Deploy to shift BD teams from reactive processing of circulated broker dossiers to high-conviction, proprietary opportunity origination.',
     principleQuote: 'Strong BD teams do not merely evaluate what arrives; they shape advantage before the market prices it.',
     content: `
@@ -228,7 +228,7 @@ export const EXPLAINERS_DATA: Article[] = [
         </span>
       </div>
 
-      <h2 id="visibility-compression">The Hidden Cost: Visibility Compression</h2>
+      <h2 id="competitive-erosion">The Hidden Cost: How Market Visibility Erodes Advantage</h2>
       <p>The biggest risk in opportunity processing is not that the team is inactive. The risk is that the team becomes active too late.</p>
       <p>Once an opportunity becomes visible to several companies, three things begin to compress:</p>
       <ul>
@@ -237,8 +237,7 @@ export const EXPLAINERS_DATA: Article[] = [
         <li>timing advantage</li>
       </ul>
       <p>The partner has more options. The asset has more attention. The internal decision cycle faces more pressure. The economics begin to change before the business case is even finalized.</p>
-      <p>This is <strong>Visibility Compression</strong>.</p>
-      <p><strong>Visibility Compression</strong> occurs when an opportunity becomes known to multiple potential partners before one company has built internal conviction, partner access or timing advantage.</p>
+      <p>This erosion happens when an opportunity becomes known to multiple potential partners before one company has built internal conviction, partner access or timing advantage.</p>
       <p>In emerging markets, the effect is amplified. A delay of a few months can affect tender timing, filing sequence, reimbursement opportunity, distributor focus, physician activation, regulatory queue position or first-mover perception.</p>
       <p>The opportunity may remain attractive. But the advantage is no longer the same.</p>
 
@@ -265,7 +264,7 @@ export const EXPLAINERS_DATA: Article[] = [
       <p>A full pipeline does not always mean a strong opportunity engine. A pipeline can be full because the market is sending opportunities. That does not mean the organization is creating advantage.</p>
       <p>A reactive BD model weakens advantage in three predictable ways:</p>
 
-      <h3>01. Visibility Compression</h3>
+      <h3>01. Competitive Advantage Erodes as Visibility Expands</h3>
       <p>Once an opportunity is visible to multiple companies, the room for differentiated insight narrows. The product is known. The partner is known. The market gap is known. The commercial rationale is known.</p>
       <p>The partner can compare interest across companies. Timelines may be shaped by external pressure. Internal teams may feel urgency before they have built conviction.</p>
       <p>This creates a difficult BD position. The organization is trying to make a high-quality decision while the market is already compressing the opportunity’s advantage.</p>
@@ -404,13 +403,13 @@ export const EXPLAINERS_DATA: Article[] = [
   {
     id: 'deal-failures',
     category: 'LICENSING STRATEGY',
-    title: 'Why Most Pharma Deals Fail Before Signing',
-    description: 'The structures, asymmetries, and psychological barriers that derail 70%+ of late-stage transactions—and how biotechs and pharmas can salvage value.',
+    title: 'Why Pharma Deals Stall Before Signing',
+    description: 'The structures, evaluation misalignments, and organizational barriers that derail late-stage transactions—and how biotechs and pharmas can protect value.',
     meta: '8 MIN READ · MAY 19, 2025',
-    author: 'By Dr. Catherine Vance, Senior BD Partner',
+    author: 'PharmaSignal Deal Desk',
     readTime: '8 min read',
     date: 'May 19, 2025',
-    featuredSummary: 'The front pages of regulatory filings only cover signed alliances. But behind closed boardroom doors, over 70% of initiated licensing deals with binding term sheets fail to cross the finishing line. This is why.',
+    featuredSummary: 'The headlines focus on announced alliances. But behind closed boardroom doors, promising licensing discussions frequently stall before crossing the finishing line. This is why.',
     assetClass: 'Transaction Due Diligence & Structuring',
     dealStructure: 'Pre-Signing Diligence & Safe-Harbor Architecture',
     geographicScope: 'Cross-Border Biopharma Partnering',
@@ -452,13 +451,13 @@ export const EXPLAINERS_DATA: Article[] = [
   {
     id: 'evidence-maturity',
     category: 'EVIDENCE & DEVELOPMENT',
-    title: 'The Evidence Maturity Gap That Destroys Value',
-    description: 'Why early-stage assets fail in commercial execution when evidence maturity and payer expectations are fundamentally misaligned.',
+    title: 'The Evidence Maturity Gap in Commercial Execution',
+    description: 'Why early-stage assets encounter commercial execution hurdles when evidence maturity and payer expectations are misaligned.',
     meta: '7 MIN READ · MAY 18, 2025',
-    author: 'By Marcus Thorne, Portfolio & Access Lead',
+    author: 'PharmaSignal Deal Desk',
     readTime: '7 min read',
     date: 'May 18, 2025',
-    featuredSummary: 'Pharma BD is obsessed with regulatory approval. But regulatory approval only gets an asset onto the market; evidence maturity is what gets payers to actually fund it. Failing to bridge this gap kills value.',
+    featuredSummary: 'Pharma BD is often focused on regulatory approval. But regulatory approval only secures market authorization; evidence maturity is what enables reimbursement. Failing to bridge this gap stalls value.',
     assetClass: 'Health Economics & Market Access Evidence',
     dealStructure: 'Payer-Aligned Clinical Trial Milestones',
     geographicScope: 'US & European Health Technology Access',
@@ -468,7 +467,7 @@ export const EXPLAINERS_DATA: Article[] = [
     principleQuote: 'Regulators test safety and efficacy; payers decide whether your revenue forecast becomes reality.',
     content: `
       <h2>The Paradox of Approved, Unfunded Drugs</h2>
-      <p>In modern biopharma, bringing a breakthrough therapy to FDA or EMA approval is celebrated as the ultimate success. Yet, an alarming percentage of newly launched specialty medications achieve less than 20% of their projected peak sales in the first three years post-approval. The cause? Payton resistance due to an invisible <strong>Evidence Maturity Gap</strong>.</p>
+      <p>In modern biopharma, bringing a breakthrough therapy to FDA or EMA approval is celebrated as the ultimate success. Yet, an alarming percentage of newly launched specialty medications achieve less than 20% of their projected peak sales in the first three years post-approval. The cause? Payer resistance due to an invisible <strong>Evidence Maturity Gap</strong>.</p>
       
       <p>Licensing models frequently assume that as soon as a drug clears Phase III, standard pricing and reimbursement will follow. However, regulatory agencies and health technology assessment (HTA) bodies look at clinical trials through completely different lenses.</p>
 
@@ -492,7 +491,7 @@ export const EXPLAINERS_DATA: Article[] = [
     title: 'Territory Structure Creates More Value Than You Think',
     description: 'How geographical asset design and regional rep configurations drive higher EBITDA impact than drug-level molecular modifications.',
     meta: '6 MIN READ · MAY 13, 2025',
-    author: 'By Sarah Lin, Principal for Commercial Execution',
+    author: 'PharmaSignal Deal Desk',
     readTime: '6 min read',
     date: 'May 13, 2025',
     featuredSummary: 'Pharma leaders spend billions attempting to achieve a 2% improvement in drug efficacy. Yet, they lose double-digit percentage figures in commercial operations through poor territory structure. Here is how strategic design optimizes revenue.',
@@ -528,84 +527,6 @@ export const EXPLAINERS_DATA: Article[] = [
 ];
 
 export const DEAL_SIGNALS_DATA: Article[] = [
-  {
-    id: 'shilpa-spimaco-mena-local-manufacturing',
-    isDraft: true,
-    category: 'DEAL SIGNAL',
-    title: 'The Shilpa–SPIMACO Deal Separates Market Entry From Local Manufacturing',
-    shortTitle: 'Market entry now. Local manufacturing in phases.',
-    subtitle: 'The MENA licence assigns development, supply and market-access roles now, while Saudi manufacturing is planned through phased technology transfer.',
-    description: 'How Shilpa Biologicals and SPIMACO Bio divide MENA market-entry roles from phased Saudi manufacturing—and what BD teams should ask.',
-    meta: '3 MIN READ · SEP 16, 2026',
-    author: 'PharmaSignal Desk',
-    readTime: '3 min read',
-    date: 'September 16, 2026',
-    featuredSummary: 'Shilpa and SPIMACO split current MENA responsibilities from a future Saudi technology transfer. The value test is clear accountability across both stages.',
-    isDealSignal: true,
-    mechanism: 'Licensing & Localization',
-    assetClass: 'PD-1 Inhibitor Biosimilar Portfolio',
-    dealStructure: 'Exclusive Regional Licensing with Phased Technology Transfer',
-    geographicScope: 'Middle East & North Africa (MENA) / Saudi Arabia',
-    imageUrl: '/images/pharmasignal_shilpa_spimaco_hero_1600x900.png',
-    imageUrlDark: '/images/pharmasignal_shilpa_spimaco_hero_1600x900.png',
-    imageUrlLight: '/images/pharmasignal_shilpa_spimaco_hero_1600x900_light.png',
-    imageAlt: 'Shilpa Biologicals licenses a PD-1 biosimilar portfolio for MENA to SPIMACO Bio, with phased technology transfer toward Saudi local manufacturing.',
-    pharmaSignalTake: 'Shilpa keeps the IP, development and exclusive manufacturing roles.\n\nSPIMACO Bio leads MENA regulatory execution, market access and commercialization.\n\nSaudi local manufacturing is a phased future step—not an immediate transfer.',
-    pharmaSignalRead: 'The partners have complementary current roles. Shilpa’s disclosed responsibilities cover the assets, development and supply. SPIMACO Bio’s disclosed responsibilities cover regulatory execution, access and commercialization in MENA. That gives the licence a clear initial operating model without implying that every manufacturing step moves on day one.\n\nThe economics support more than one source of participation. Upfront and milestone payments reward Shilpa for signing and progress, while product-supply revenue keeps it economically involved during the supply phase. The amounts, triggers and economics after technology transfer are not public, so the strength of those incentives cannot be assessed.\n\nThe transition is where accountability must stay clear. “Phased technology transfer” describes direction, not the operating detail. The agreement will need to define which activities move, the validation gates, who releases product, how supply continuity is protected and how responsibilities change as Saudi capability comes online. These are open diligence questions, not evidence of a problem.',
-    useThisWhen: 'When evaluating regional licensing partnerships where immediate commercialization and market access depend on imported supply, while policy frameworks or long-term partner strategies require eventual domestic manufacturing localization.',
-    principleQuote: 'Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.',
-    sourceNote: 'Company announcement carried by Express Pharma (16 September 2026), Shilpa Biologicals official company channel, and SPIMACO investor relations.',
-    sourceOrg: 'Shilpa Biologicals & SPIMACO Bio',
-    sourceTitle: 'Shilpa Biologicals and SPIMACO Bio sign strategic license agreement for PD-1 biosimilar for MENA market',
-    sourceDate: 'September 16, 2026',
-    sourceUrl: 'https://www.expresspharma.in/shilpa-biologicals-and-spimaco-bio-sign-strategic-license-agreement-for-pd-1-biosimilar-for-mena-market/',
-    sourceLabel: 'Company Announcement via Express Pharma, September 16, 2026',
-    linkedExplainers: [
-      { id: 'rights-responsibility-architecture', title: 'Rights & Responsibility Architecture' },
-      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
-      { id: 'route-to-market-friction', title: 'Route-to-Market Friction' }
-    ],
-    tags: ['DEAL SIGNAL', 'SHILPA BIOLOGICALS', 'SPIMACO BIO', 'MENA', 'SAUDI ARABIA', 'PD-1', 'BIOSIMILARS', 'LOCALIZATION', 'TECHNOLOGY TRANSFER', 'LICENSING'],
-    content: `
-      <h2>Deal Signal</h2>
-      <p>On 16 September 2026, Shilpa Biologicals and SPIMACO Bio announced a signed exclusive licensing and commercialization agreement covering a portfolio of PD-1 inhibitor biosimilars across the Middle East and North Africa.</p>
-      <p>Shilpa retains intellectual-property ownership and is the exclusive developer and manufacturer. SPIMACO Bio leads commercialization, regulatory execution and market access in the licensed territory. The agreement also provides for phased technology transfer intended to establish local manufacturing in Saudi Arabia.</p>
-      <p>Shilpa will receive an upfront payment, development and commercial milestones, and product-supply revenue. The companies did not disclose amounts, individual products, development stages, country-level rights, royalty terms or detailed transfer conditions.</p>
-
-      <h2>Why It Matters</h2>
-      <p>Regional licensing and manufacturing localization are often discussed as if they begin at the same time. This agreement shows two different operating stages.</p>
-      <p>The immediate model keeps product ownership, development and manufacturing with Shilpa while SPIMACO Bio takes responsibility for getting the portfolio through regional regulatory and market-access pathways. Local manufacturing comes later through a phased transfer.</p>
-      <p>That distinction matters because the responsibilities that support launch are not necessarily the responsibilities that will apply after local production begins.</p>
-
-      <h2>PharmaSignal Read</h2>
-      <p><strong>The partners have complementary current roles.</strong> Shilpa’s disclosed responsibilities cover the assets, development and supply. SPIMACO Bio’s disclosed responsibilities cover regulatory execution, access and commercialization in MENA. That gives the licence a clear initial operating model without implying that every manufacturing step moves on day one.</p>
-      <p><strong>The economics support more than one source of participation.</strong> Upfront and milestone payments reward Shilpa for signing and progress, while product-supply revenue keeps it economically involved during the supply phase. The amounts, triggers and economics after technology transfer are not public, so the strength of those incentives cannot be assessed.</p>
-      <p><strong>The transition is where accountability must stay clear.</strong> “Phased technology transfer” describes direction, not the operating detail. The agreement will need to define which activities move, the validation gates, who releases product, how supply continuity is protected and how responsibilities change as Saudi capability comes online. These are open diligence questions, not evidence of a problem.</p>
-
-      <h2>What BD Leaders Should Ask</h2>
-      <ol>
-        <li>Who owns registrations and product variations in each market, and does that control change after technology transfer?</li>
-        <li>Which objective readiness and validation gates move manufacturing steps to Saudi Arabia while preserving supply continuity and quality-release accountability?</li>
-        <li>How do supply pricing, milestones and other economics change as local manufacturing expands?</li>
-      </ol>
-
-      <h2>PharmaSignal Principle</h2>
-      <blockquote>
-        <p>Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.</p>
-      </blockquote>
-
-      <h2>Sources</h2>
-      <ul>
-        <li><a href="https://www.expresspharma.in/shilpa-biologicals-and-spimaco-bio-sign-strategic-license-agreement-for-pd-1-biosimilar-for-mena-market/" target="_blank" rel="noopener noreferrer">“Shilpa Biologicals and SPIMACO Bio sign strategic license agreement for PD-1 biosimilar for MENA market,” company announcement carried by Express Pharma, 16 September 2026</a></li>
-        <li><a href="https://in.linkedin.com/company/shilpa-biologicals-private-limited" target="_blank" rel="noopener noreferrer">Shilpa Biologicals official company channel, accessed 18 September 2026</a></li>
-        <li><a href="https://ir.spimaco.com.sa/" target="_blank" rel="noopener noreferrer">SPIMACO investor-relations company profile, accessed 18 September 2026 (background)</a></li>
-      </ul>
-
-      <div class="p-4 bg-brand-gold/10 border-l-2 border-brand-gold mt-6 font-serif italic text-sm">
-        Subscribe to PharmaSignal for one evidence-based pharma deal analysis each week—focused on the decisions behind the announcement.
-      </div>
-    `
-  },
   {
     id: 'biocon-brazil-pertuzumab-market-access',
     category: 'DEAL SIGNAL',

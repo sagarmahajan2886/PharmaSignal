@@ -34,7 +34,7 @@ export function generateRssXml(baseUrl: string = 'https://pharmasignal.com'): st
   const feedUrl = `${siteUrl}/rss.xml`;
   const buildDate = new Date().toUTCString();
 
-  const itemsXml = ALL_ARTICLES.map((article) => {
+  const itemsXml = ALL_ARTICLES.filter(article => !article.isDraft).map((article) => {
     const itemPath = article.isDealSignal 
       ? `/deal-signals/${article.id}` 
       : `/explainers/${article.id}`;

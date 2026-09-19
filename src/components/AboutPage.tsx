@@ -33,7 +33,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
           <p className={`font-serif text-[18px] sm:text-[22px] leading-[1.5] max-w-3xl font-medium ${
             darkMode ? 'text-[#CBD5E1]' : 'text-slate-800'
           }`}>
-            PharmaSignal examines how pharmaceutical licensing, partnerships and M&A are structured—and how those structures affect execution and value.
+            PharmaSignal examines how selected pharmaceutical licensing, partnerships and commercial execution agreements are structured—focusing on the mechanisms that affect execution and value rather than attempting to catalog every global transaction.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
           <p className={`font-sans text-[15px] sm:text-[17px] leading-[1.6] ${
             darkMode ? 'text-slate-200' : 'text-slate-700'
           }`}>
-            For professionals working in business development, licensing, alliance management, portfolio strategy and commercial strategy.
+            For professionals working in business development, licensing, alliance management, portfolio strategy and market access.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
             <p className={`font-sans text-[14px] sm:text-[15px] leading-relaxed max-w-2xl ${
               darkMode ? 'text-slate-400' : 'text-slate-600'
             }`}>
-              Our publications are organized into three primary intelligence formats:
+              Our publications are organized into three primary formats:
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
                 <p className={`font-sans text-[14px] leading-relaxed mb-6 ${
                   darkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}>
-                  Our Deal Signals examine individual transactions.
+                  Focused analyses of individual transactions, breaking down rights partitions, governance covenants, and commercial execution terms.
                 </p>
               </div>
               <button
@@ -115,11 +115,11 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
                 <p className={`font-sans text-[14px] leading-relaxed mb-6 ${
                   darkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}>
-                  Our Explainers examine recurring BD challenges.
+                  Strategic analyses examining recurring deal-making challenges, handover dynamics, and post-signature execution vulnerabilities.
                 </p>
               </div>
               <button
-                onClick={() => navigateTo('HOME', '/#explainers')}
+                onClick={() => navigateTo('HOME', '/#latest-explainers-section')}
                 className="inline-flex items-center gap-2 text-[12px] font-sans font-bold uppercase tracking-wider text-[#C5A059] hover:underline cursor-pointer"
               >
                 <span>Explore Explainers</span>
@@ -144,7 +144,7 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
                 <p className={`font-sans text-[14px] leading-relaxed mb-6 ${
                   darkMode ? 'text-slate-300' : 'text-slate-600'
                 }`}>
-                  Our Decision Lenses help readers apply those ideas to other opportunities.
+                  Reusable mental models that help BD and alliance leaders interpret recurring partnering, valuation, and governance trade-offs.
                 </p>
               </div>
               <button
@@ -164,13 +164,13 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
         }`}>
           <div className="flex items-center gap-2 text-[#C5A059] font-mono text-[11px] font-bold tracking-widest uppercase mb-3">
             <ShieldCheck size={16} />
-            <span>Analytical Methodology</span>
+            <span>Editorial Approach</span>
           </div>
-          <p className="font-serif text-[16px] sm:text-[18px] leading-[1.6] mb-4">
+          <p className="font-serif text-[16px] sm:text-[18px] leading-[1.6] mb-4 font-semibold">
             "Pharma deal value is shaped by the terms agreed at signing and by how rights, responsibilities and execution capabilities work together afterward."
           </p>
           <p className={`font-sans text-[13.5px] leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-            Every analysis published by PharmaSignal emphasizes verifiable contractual terms, disclosure documents, and operational mechanisms to provide senior dealmakers with objective, repeatable decision-intelligence.
+            PharmaSignal’s editorial approach emphasizes verifiable public disclosures, regulatory filings, and operational deal mechanisms to provide senior dealmakers with objective, practical perspectives on partnership execution.
           </p>
         </div>
 
@@ -179,16 +179,16 @@ export default function AboutPage({ darkMode, setActiveTab, openSubscription }: 
           darkMode ? 'bg-[#0D243A] border-[#1E3A55]' : 'bg-white border-slate-200'
         }`}>
           <h3 className={`font-serif text-[22px] font-bold mb-2 ${darkMode ? 'text-white' : 'text-[#061426]'}`}>
-            Receive PharmaSignal Deal Intelligence
+            Receive Fortnightly PharmaSignal Briefings
           </h3>
           <p className={`font-sans text-[14px] max-w-xl mx-auto mb-6 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-            Receive PharmaSignal briefings on licensing, alliances and deal execution.
+            Every two weeks, receive a concise briefing on deal structure, partner responsibilities or execution risk.
           </p>
           <button
             onClick={openSubscription}
             className="px-6 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all shadow-xs cursor-pointer"
           >
-            Subscribe to Deal Signals
+            Subscribe Free
           </button>
         </div>
 

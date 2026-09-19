@@ -32,6 +32,7 @@ import ArticleModal from './components/ArticleModal';
 import { PolicyModal } from './components/PolicyModal';
 import AboutPage from './components/AboutPage';
 import NotFoundPage from './components/NotFoundPage';
+import SampleBriefingModal from './components/SampleBriefingModal';
 
 // Lazily load secondary pages with retry
 const LensesPage = lazy(() => import('./components/LensesPage'));
@@ -85,6 +86,7 @@ export default function App() {
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
   const [policyTab, setPolicyTab] = useState<PolicyTab>('privacy');
+  const [sampleBriefingOpen, setSampleBriefingOpen] = useState(false);
 
   const [newsEmail, setNewsEmail] = useState('');
   const [subscribedMessage, setSubscribedMessage] = useState(false);
@@ -150,6 +152,8 @@ export default function App() {
   const opportunityCreationArticle = EXPLAINERS_DATA.find(a => a.id === 'opportunity-creation-processing') || EXPLAINERS_DATA[2];
   const dealFailuresArticle = EXPLAINERS_DATA.find(a => a.id === 'deal-failures') || EXPLAINERS_DATA[3] || EXPLAINERS_DATA[0];
   const evidenceMaturityArticle = EXPLAINERS_DATA.find(a => a.id === 'evidence-maturity') || EXPLAINERS_DATA[4] || EXPLAINERS_DATA[0];
+  const bioconDealSignal = DEAL_SIGNALS_DATA.find(d => d.id === 'biocon-brazil-pertuzumab-market-access') || DEAL_SIGNALS_DATA[0];
+  const kaigeneDealSignal = DEAL_SIGNALS_DATA.find(d => d.id === 'kaigene-taisho-japan-licensing') || DEAL_SIGNALS_DATA[0];
 
   // Custom routing functions to support clean, deep-linked browser URLs for articles & pages
   const openArticle = (art: Article) => {
@@ -167,6 +171,12 @@ export default function App() {
     } else {
       window.history.pushState(null, '', '/');
     }
+  };
+
+  const navigateToLenses = () => {
+    setActiveTab('LENSES');
+    window.history.pushState(null, '', '/lenses');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // URL Deep-linking Route Handler (supports pathname, query params ?deal=/?article=/?policy=, and hash)
@@ -187,9 +197,6 @@ export default function App() {
       const findArticleBySlugOrId = (idOrSlug: string) => {
         if (idOrSlug === 'biocon-brazil-pertuzumab-market-access-partnership' || idOrSlug === 'biocon-brazil-pertuzumab-market-access') {
           return ALL_ARTICLES.find(a => a.id === 'biocon-brazil-pertuzumab-market-access' || a.id === 'biocon-brazil-pertuzumab-market-access-partnership');
-        }
-        if (idOrSlug === 'shilpa-spimaco-mena-local-manufacturing' || idOrSlug === 'shilpa-spimaco' || idOrSlug === 'shilpa-spimaco-mena') {
-          return ALL_ARTICLES.find(a => a.id === 'shilpa-spimaco-mena-local-manufacturing');
         }
         return ALL_ARTICLES.find(a => a.id === idOrSlug);
       };
@@ -445,7 +452,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-left max-w-3xl mb-8 sm:mb-10 pb-4 border-b border-brand-gold/20">
               <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
-                EMPIRICAL EVIDENCE · DEAL MECHANISMS
+                PUBLISHED DEAL ANALYSES · DEAL MECHANISMS
               </span>
               <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
                 darkMode ? 'text-white' : 'text-[#001B2A]'
@@ -665,7 +672,79 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECTION 2 — DEAL SIGNALS (EMPIRICAL MARKET EVIDENCE) */}
+          {/* SECTION 2 — COMPACT FEATURED EXPLAINER: THE APPROVAL GAP */}
+          <section 
+            id="featured-explainer-section"
+            className={`py-8 sm:py-10 lg:py-12 transition-colors duration-300 border-b ${
+              darkMode ? 'bg-[#0A1A2E] border-[#1E3A55]' : 'bg-[#F4F1EA] border-[#E2DDD3]'
+            }`}
+          >
+            <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8">
+              <div className={`p-5 sm:p-7 lg:p-8 border relative overflow-hidden shadow-xs ${
+                darkMode ? 'bg-[#0D243A] border-[#1E3A55]' : 'bg-white border-[#E2DDD3]'
+              }`}>
+                <div className="absolute top-0 left-0 w-20 h-[3px] bg-[#C5A059]" />
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                  
+                  <div className="lg:col-span-7 flex flex-col items-start text-left">
+                    <span className={`inline-block text-[10px] font-mono tracking-[0.08em] font-bold uppercase mb-2 px-2.5 py-0.5 border ${
+                      darkMode ? 'text-[#C5A059] border-[#C5A059]/30 bg-[#061426]' : 'text-[#061426] border-slate-300 bg-slate-100'
+                    }`}>
+                      FEATURED EXPLAINER · DECISION LENS 01
+                    </span>
+
+                    <h2 className={`font-serif text-[24px] sm:text-[28px] lg:text-[32px] font-bold tracking-tight mb-2 leading-[1.15] ${
+                      darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
+                    }`}>
+                      The Approval Gap
+                    </h2>
+
+                    <p className={`font-serif text-sm sm:text-base italic font-semibold mb-2.5 leading-relaxed ${
+                      darkMode ? 'text-[#C5A059]' : 'text-amber-900'
+                    }`}>
+                      Why attractive opportunities lose momentum before internal approval—and how cross-functional alignment protects deal value.
+                    </p>
+
+                    <p className={`font-sans text-[13.5px] sm:text-[14px] leading-relaxed mb-5 max-w-xl ${
+                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
+                    }`}>
+                      Unresolved evaluation criteria across BD, regulatory, and finance delay decision-making. Cross-functional alignment closes the gap between commercial appeal and execution readiness.
+                    </p>
+
+                    <div className="flex flex-wrap items-center gap-3">
+                      <button
+                        onClick={() => openArticle(approvalGapArticle)}
+                        className="px-5 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs rounded-none group"
+                      >
+                        Read Explainer <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+
+                      <button
+                        onClick={() => setCarouselArticle(approvalGapArticle)}
+                        className="flex items-center gap-1.5 text-[11px] font-mono tracking-wider font-semibold text-slate-500 hover:text-[#0A66C2] dark:text-slate-400 dark:hover:text-[#C5A059] transition-colors cursor-pointer px-3 py-2 border border-dashed border-slate-300 dark:border-slate-700 hover:border-[#0A66C2]"
+                        title="View & Export Carousel Slide Deck"
+                      >
+                        <Linkedin size={12} />
+                        <span>View Slides</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-5 w-full flex items-center justify-center">
+                    <div className={`w-full border p-2.5 sm:p-3 max-w-md mx-auto ${
+                      darkMode ? 'border-[#1E3A55] bg-[#0A1A2B]' : 'border-slate-200 bg-[#FAF9F5]'
+                    }`}>
+                      <ApprovalGapDiagram darkMode={darkMode} />
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 3 — DEAL SIGNALS (PUBLISHED DEAL ANALYSES) */}
           <section 
             id="deal-signals-section"
             className={`py-14 sm:py-20 lg:py-24 transition-colors duration-300 border-b ${
@@ -678,7 +757,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-4 border-b border-[#1E3A55]/70">
                 <div className="text-left max-w-2xl">
                   <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
-                    EMPIRICAL EVIDENCE · {publishedDealsCount} DEALS ANALYZED
+                    PUBLISHED DEAL ANALYSES · {publishedDealsCount} DEALS ANALYZED
                   </span>
                   <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
                     darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
@@ -689,7 +768,7 @@ export default function App() {
                   <p className={`font-sans text-[14px] sm:text-[15px] leading-[1.65] ${
                     darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                   }`}>
-                    Biopharma transactions deconstructed through the exact structural mechanisms that create or destroy enterprise value.
+                    How deal terms, partner responsibilities and execution affect value across published biopharma transactions.
                   </p>
                 </div>
                 
@@ -867,98 +946,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* SECTION 3 — FEATURED EXPLAINER (THE APPROVAL GAP) */}
-          <section 
-            id="featured-explainer-section"
-            className={`py-14 sm:py-20 lg:py-24 transition-colors duration-300 border-b ${
-              darkMode ? 'bg-[#061426] border-[#1E3A55]' : 'bg-white border-slate-200'
-            }`}
-          >
-            <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8">
-              
-              <div className="text-left max-w-2xl mb-8 sm:mb-10 pb-3 border-b border-[#1E3A55]/70">
-                <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
-                  FOUNDATIONAL FRAMEWORK
-                </span>
-                <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
-                  darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
-                }`}>
-                  Featured Explainer
-                </h2>
-                <div className="h-[2px] w-10 bg-[#C5A059] mb-2.5" />
-                <p className={`font-sans text-[14px] sm:text-[15px] leading-[1.65] ${
-                  darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                }`}>
-                  In-depth briefings on the organizational, governance, and commercial friction points that derail pharma BD execution.
-                </p>
-              </div>
-
-              {/* Featured Explainer Hero Card: The Approval Gap */}
-              <div className={`p-6 sm:p-8 lg:p-9 border relative overflow-hidden shadow-xs hover:shadow-md transition-shadow ${
-                darkMode ? 'bg-[#0D243A] border-[#1E3A55]' : 'bg-[#F8FAFC] border-slate-200'
-              }`}>
-                <div className="absolute top-0 left-0 w-20 h-[3px] bg-[#C5A059]" />
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10 items-center">
-                  
-                  <div className="lg:col-span-7 flex flex-col items-start text-left">
-                    <span className={`inline-block text-[10px] font-mono tracking-[0.08em] font-bold uppercase mb-2.5 px-2.5 py-0.5 border ${
-                      darkMode ? 'text-[#C5A059] border-[#C5A059]/30 bg-[#061426]' : 'text-brand-cobalt border-blue-200 bg-blue-50/70'
-                    }`}>
-                      DECISION LENS 01
-                    </span>
-
-                    <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight mb-2.5 leading-[1.15] ${
-                      darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
-                    }`}>
-                      The Approval Gap
-                    </h2>
-
-                    <p className={`font-serif text-sm sm:text-base italic font-semibold mb-3.5 leading-relaxed ${
-                      darkMode ? 'text-[#C5A059]' : 'text-amber-800'
-                    }`}>
-                      Why attractive opportunities lose momentum before internal approval.
-                    </p>
-
-                    <p className={`font-sans text-[14px] sm:text-[15px] leading-relaxed mb-6 max-w-xl ${
-                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                    }`}>
-                      Explore the decision, organizational and execution forces that create distance between commercial attractiveness and execution readiness.
-                    </p>
-
-                    <div className="flex flex-wrap items-center gap-3">
-                      <button
-                        onClick={() => setCarouselArticle(approvalGapArticle)}
-                        className="flex items-center gap-1.5 text-[10.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-3.5 py-2 bg-[#0A66C2]/10"
-                        title="Export LinkedIn Carousel"
-                      >
-                        <Linkedin size={12} fill="currentColor" />
-                        <span>Export Carousel</span>
-                      </button>
-                      <button
-                        onClick={() => openArticle(approvalGapArticle)}
-                        className="px-5 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs rounded-none group"
-                      >
-                        Read Explainer <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-5 w-full flex items-center justify-center">
-                    <div className={`w-full border p-3 ${
-                      darkMode ? 'border-[#1E3A55] bg-[#0A1A2B]' : 'border-slate-200 bg-white'
-                    }`}>
-                      <ApprovalGapDiagram darkMode={darkMode} />
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* SECTION 4 — OTHER EXPLAINERS TO READ */}
+          {/* SECTION 4 — CORE EXPLAINER LIBRARY */}
           <section 
             id="latest-explainers-section"
             className={`py-14 sm:py-20 lg:py-24 transition-colors duration-300 border-b ${
@@ -1099,7 +1087,7 @@ export default function App() {
                         darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
                       }`}
                     >
-                      Why Most Pharma Deals Fail Before Signing
+                      Why Pharma Deals Stall Before Signing
                     </h3>
                     <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
                       darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
@@ -1147,12 +1135,12 @@ export default function App() {
                         darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
                       }`}
                     >
-                      The Evidence Maturity Gap That Destroys Value
+                      The Evidence Maturity Gap in Commercial Execution
                     </h3>
                     <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
                       darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                     }`}>
-                      How premature partnering before key clinical and payer inflection points creates permanent value destruction.
+                      Understanding the trade-offs of partnering early versus holding an asset for clinical and payer inflection points.
                     </p>
                   </div>
                   
@@ -1224,66 +1212,101 @@ export default function App() {
                 </div>
               </div>
 
-              {/* 3-Column Preview Grid - Gap 28-32px, Padding 22-28px */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-7 lg:gap-8 items-stretch text-left">
+              {/* 6 Lenses Responsive Grid (3 columns on md+, 2 on sm, 1 on mobile) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-7 items-stretch text-left">
                 {[
                   {
                     num: 'LENS 01',
                     title: 'Approval Gap',
-                    subtitle: 'Distance between commercial appeal and execution readiness.',
+                    subtitle: 'Unresolved internal evaluation criteria delay a decision before signing.',
+                    type: 'Explainer',
                     action: () => openArticle(approvalGapArticle)
                   },
                   {
                     num: 'LENS 02',
                     title: 'Execution Deficit',
-                    subtitle: 'Capability and alignment gaps that stall post-signature progress.',
+                    subtitle: 'Capability, resource or handover gaps prevent delivery after agreement.',
+                    type: 'Explainer',
                     action: () => openArticle(executionDeficitArticle)
                   },
                   {
                     num: 'LENS 03',
                     title: 'Opportunity Creation',
-                    subtitle: 'Upstream structuring that creates proprietary deal access.',
+                    subtitle: 'Upstream structuring that creates proprietary optionality before auctions.',
+                    type: 'Explainer',
                     action: () => openArticle(opportunityCreationArticle)
+                  },
+                  {
+                    num: 'LENS 04',
+                    title: 'Route-to-Market Friction',
+                    subtitle: 'Market access, pricing and institutional adoption frictions that erode modeled revenue.',
+                    type: 'Deal Signal',
+                    action: () => openArticle(bioconDealSignal)
+                  },
+                  {
+                    num: 'LENS 05',
+                    title: 'Governance Debt',
+                    subtitle: 'Deferred or unclear decision rights create future operational paralysis.',
+                    type: 'Explainer',
+                    action: () => openArticle(dealFailuresArticle)
+                  },
+                  {
+                    num: 'LENS 06',
+                    title: 'Partner Capability Gap',
+                    subtitle: 'The operational disconnect between expected partner execution and verified readiness.',
+                    type: 'Deal Signal',
+                    action: () => openArticle(kaigeneDealSignal)
                   }
                 ].map((item, idx) => (
                   <div 
                     key={idx}
                     onClick={item.action}
-                    className={`p-6 sm:p-7 border transition-all duration-300 flex flex-col justify-between cursor-pointer group rounded-none shadow-xs hover:shadow-md ${
+                    className={`p-5 sm:p-6 border transition-all duration-300 flex flex-col justify-between cursor-pointer group rounded-none shadow-xs hover:shadow-md ${
                       darkMode 
                         ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/70 hover:bg-[#102c46]' 
                         : 'bg-white border-slate-200 hover:border-[#C5A059]/60 hover:bg-slate-50'
                     }`}
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center justify-between mb-2.5">
                         <span className={`text-[10px] font-mono tracking-[0.08em] uppercase font-bold px-2 py-0.5 border ${
                           darkMode ? 'text-[#C5A059] border-[#C5A059]/30 bg-[#061426]' : 'text-brand-cobalt border-blue-200 bg-blue-50/70'
                         }`}>
                           {item.num}
                         </span>
-                        <Compass size={16} className="text-[#C5A059] opacity-80 group-hover:opacity-100" />
+                        <Compass size={15} className="text-[#C5A059] opacity-80 group-hover:opacity-100" />
                       </div>
-                      <h3 className={`font-serif text-[19px] sm:text-[20px] font-bold tracking-tight mb-2 leading-[1.28] transition-colors ${
+                      <h3 className={`font-serif text-[18px] sm:text-[19px] font-bold tracking-tight mb-2 leading-[1.28] transition-colors ${
                         darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
                       }`}>
                         {item.title}
                       </h3>
-                      <p className={`font-sans text-[13.5px] leading-[1.6] ${
+                      <p className={`font-sans text-[13px] leading-[1.55] ${
                         darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                       }`}>
                         {item.subtitle}
                       </p>
                     </div>
 
-                    <div className={`pt-3 mt-4 border-t border-[#1E3A55]/60 flex items-center justify-between text-[11px] font-mono font-bold uppercase tracking-wider ${
-                      darkMode ? 'text-[#C5A059]' : 'text-[#061426]'
+                    <div className={`pt-3 mt-4 border-t border-slate-100 dark:border-[#1E3A55]/60 flex items-center justify-between text-[11px] font-mono font-bold uppercase tracking-wider ${
+                      darkMode ? 'text-[#C5A059]' : 'text-slate-700 group-hover:text-brand-cobalt'
                     }`}>
-                      <span>View Framework</span>
+                      <span>Read {item.type}</span>
                       <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Bottom link to full lenses page */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={navigateToLenses}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#C5A059] text-xs font-mono font-bold uppercase tracking-widest text-[#C5A059] hover:bg-[#C5A059] hover:text-[#061426] transition-all duration-200 cursor-pointer"
+                >
+                  <span>Explore All 6 Decision Lenses & Detailed Frameworks</span>
+                  <ArrowRight size={13} />
+                </button>
               </div>
             </div>
           </section>
@@ -1291,21 +1314,21 @@ export default function App() {
         </>
       )}
 
-      {/* SECTION 8 — SUBSCRIBE */}
+      {/* SECTION 6 — SUBSCRIBE */}
       <section 
         id="subscribe-section" 
-        className={`py-7 sm:py-10 transition-colors duration-300 border-b ${
+        className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
           darkMode ? 'bg-[#0E1726] border-white/5' : 'bg-white border-slate-200'
         }`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           
-          <div className={`p-5 sm:p-7 border text-center relative overflow-hidden shadow-xs ${
+          <div className={`p-6 sm:p-8 border text-center relative overflow-hidden shadow-xs ${
             darkMode ? 'bg-[#111C2E] text-white border-brand-gold/30' : 'bg-[#F8FAFC] text-[#0B121E] border-slate-200'
           }`}>
             <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center space-y-2.5">
               <span className="text-brand-gold font-mono text-[10px] font-bold block tracking-widest uppercase px-2 py-0.5 border border-brand-gold/30 bg-brand-gold/5">
-                PHARMASIGNAL BRIEFINGS
+                FORTNIGHTLY BRIEFING
               </span>
 
               <h2 className={`font-serif text-xl sm:text-2xl font-bold tracking-tight leading-tight ${
@@ -1318,19 +1341,26 @@ export default function App() {
               <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
                 darkMode ? 'text-slate-300' : 'text-slate-600'
               }`}>
-                Get mechanism-first analysis on pharma BD deals, execution risk, partner capability and market access reality.
+                Every two weeks, receive a concise PharmaSignal briefing on deal structure, partner responsibilities or execution risk—with a practical implication for your next BD decision.
               </p>
 
-              <p className={`font-sans text-[10.5px] tracking-wider uppercase font-semibold ${
-                darkMode ? 'text-brand-gold/90' : 'text-slate-700'
+              {/* What subscribers receive / will not receive */}
+              <div className={`w-full max-w-lg my-1 py-2 px-3 border text-left text-xs font-sans space-y-1 ${
+                darkMode ? 'bg-[#0A1A2E]/80 border-[#1E3A55] text-slate-300' : 'bg-white/80 border-slate-200 text-slate-700'
               }`}>
-                For BD, licensing, alliance, portfolio and commercial strategy leaders.
-              </p>
+                <div className="font-semibold text-[11px] uppercase tracking-wider text-[#C5A059]">Subscribers Receive:</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 text-[11.5px]">
+                  <span>• Fortnightly curated briefing</span>
+                  <span>• Rights & deal mechanism breakdowns</span>
+                  <span>• Access to slides & checklists</span>
+                  <span>• No promotional sponsor content</span>
+                </div>
+              </div>
 
-              <div className="w-full max-w-md pt-1">
+              <div className="w-full max-w-md pt-2">
                 <AnimatePresence mode="wait">
                   {!subscribedMessage ? (
-                    <form onSubmit={handleSubscribe} className="space-y-2">
+                    <form onSubmit={handleSubscribe} className="space-y-2.5">
                       <div className="flex flex-col sm:flex-row gap-2">
                         <input
                           type="email"
@@ -1338,7 +1368,7 @@ export default function App() {
                           value={newsEmail}
                           disabled={subscribing}
                           onChange={(e) => setNewsEmail(e.target.value)}
-                          placeholder="Enter your email"
+                          placeholder="Enter your work email"
                           className={`w-full px-3 py-2 text-xs font-sans border outline-none transition-colors rounded-none ${
                             darkMode 
                               ? 'bg-[#061426] border-white/15 text-white placeholder:text-white/40 focus:border-brand-gold' 
@@ -1352,7 +1382,7 @@ export default function App() {
                             subscribing ? 'opacity-65 cursor-not-allowed' : ''
                           }`}
                         >
-                          {subscribing ? 'Submitting...' : 'Subscribe Free'}
+                          {subscribing ? 'Submitting...' : 'Subscribe to Fortnightly Briefing'}
                         </button>
                       </div>
 
@@ -1362,8 +1392,22 @@ export default function App() {
                         </div>
                       )}
 
-                      <div className="text-[9.5px] font-mono text-slate-500 dark:text-brand-gold/80 font-medium tracking-wide text-center">
-                        No spam. Unsubscribe anytime. Read our{' '}
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                        <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                          Free. No spam. Unsubscribe at any time.
+                        </span>
+                        <button 
+                          type="button" 
+                          onClick={() => setSampleBriefingOpen(true)} 
+                          className="text-[10.5px] font-mono font-bold text-brand-gold hover:underline flex items-center gap-1 cursor-pointer"
+                        >
+                          <FileText size={11} />
+                          <span>Read a Sample Briefing</span>
+                        </button>
+                      </div>
+
+                      <div className="text-[9.5px] font-mono text-slate-500 dark:text-brand-gold/80 font-medium tracking-wide text-center pt-0.5">
+                        Read our{' '}
                         <button 
                           type="button" 
                           onClick={() => openPolicy('privacy')} 
@@ -1379,9 +1423,12 @@ export default function App() {
                       animate={{ opacity: 1, scale: 1 }}
                       className="py-3 px-3 border border-brand-gold/30 bg-brand-gold/5 text-center flex flex-col items-center justify-center space-y-1"
                     >
-                      <CheckCircle2 className="text-brand-gold" size={18} />
+                      <div className="flex items-center gap-1.5 text-brand-gold">
+                        <CheckCircle2 size={16} />
+                        <span className="font-serif text-sm font-bold">Subscription Confirmed</span>
+                      </div>
                       <p className={`font-serif text-xs leading-relaxed ${darkMode ? 'text-white/95' : 'text-slate-700'}`}>
-                        Thank you for subscribing to PharmaSignal.
+                        Thank you for subscribing. You will receive the next fortnightly PharmaSignal briefing.
                       </p>
                     </motion.div>
                   )}
@@ -1389,7 +1436,6 @@ export default function App() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -1588,6 +1634,13 @@ export default function App() {
           </Suspense>
         )}
       </AnimatePresence>
+
+      {/* Sample Briefing Modal */}
+      <SampleBriefingModal
+        isOpen={sampleBriefingOpen}
+        onClose={() => setSampleBriefingOpen(false)}
+        darkMode={darkMode}
+      />
 
     </div>
   );
