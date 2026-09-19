@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, ArrowRight, FileText } from 'lucide-react';
 import SampleBriefingModal from './SampleBriefingModal';
+import { Article } from '../types';
 
 interface ExecutiveBriefingBoxProps {
   darkMode: boolean;
   compact?: boolean;
+  onSelectArticle?: (article: Article) => void;
 }
 
-export default function ExecutiveBriefingBox({ darkMode, compact = false }: ExecutiveBriefingBoxProps) {
+export default function ExecutiveBriefingBox({ darkMode, compact = false, onSelectArticle }: ExecutiveBriefingBoxProps) {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
@@ -125,7 +127,7 @@ export default function ExecutiveBriefingBox({ darkMode, compact = false }: Exec
                     className="text-[10.5px] font-mono font-bold text-[#C5A059] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <FileText size={11} />
-                    <span>Read a Sample Briefing</span>
+                    <span>Read August 2026 Deal Briefing (Last Month)</span>
                   </button>
                 </div>
               </form>
@@ -151,6 +153,7 @@ export default function ExecutiveBriefingBox({ darkMode, compact = false }: Exec
         isOpen={sampleModalOpen}
         onClose={() => setSampleModalOpen(false)}
         darkMode={darkMode}
+        onSelectArticle={onSelectArticle}
       />
     </>
   );

@@ -2029,7 +2029,15 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   )}
 
                   {/* B. The PharmaSignal Briefing */}
-                  <ExecutiveBriefingBox darkMode={darkMode} compact={true} />
+                  <ExecutiveBriefingBox 
+                    darkMode={darkMode} 
+                    compact={true} 
+                    onSelectArticle={(art) => {
+                      if (onSelectArticleId) {
+                        onSelectArticleId(art.id);
+                      }
+                    }} 
+                  />
                 </div>
               </>
             )}

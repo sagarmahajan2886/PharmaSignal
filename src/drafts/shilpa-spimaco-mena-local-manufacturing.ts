@@ -1,24 +1,19 @@
 import { Article } from '../types';
 
 /**
- * EDITORIAL DRAFT STAGING FILE
- * 
  * Target: Shilpa Biologicals & SPIMACO Bio (MENA PD-1 Biosimilars & Localization)
- * Status: DRAFT / PREVIEW ONLY — Kept out of the public production bundle.
- * 
- * This file preserves the complete draft content, verified metadata, and intelligence record
- * until explicit approval is given to publish to the live desk.
+ * Status: PUBLISHED
  */
-export const SHILPA_SPIMACO_DRAFT: Article = {
+export const SHILPA_SPIMACO_ARTICLE: Article = {
   id: 'shilpa-spimaco-mena-local-manufacturing',
-  isDraft: true,
+  isDraft: false,
   category: 'DEAL SIGNAL',
   title: 'The Shilpa–SPIMACO Deal Separates Market Entry From Local Manufacturing',
   shortTitle: 'Market entry now. Local manufacturing in phases.',
   subtitle: 'The MENA licence assigns development, supply and market-access roles now, while Saudi manufacturing is planned through phased technology transfer.',
   description: 'How Shilpa Biologicals and SPIMACO Bio divide MENA market-entry roles from phased Saudi manufacturing—and what BD teams should ask.',
   meta: '3 MIN READ · SEP 16, 2026',
-  author: 'PharmaSignal Desk',
+  author: 'PharmaSignal Deal Desk',
   readTime: '3 min read',
   date: 'September 16, 2026',
   featuredSummary: 'Shilpa and SPIMACO split current MENA responsibilities from a future Saudi technology transfer. The value test is clear accountability across both stages.',

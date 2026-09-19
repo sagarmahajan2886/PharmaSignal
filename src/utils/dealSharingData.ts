@@ -47,6 +47,75 @@ export function getCanonicalUrl(article: Article): string {
 
 // Tailored intelligence records for known Deal Signals
 const DEAL_SPECIFIC_INTELLIGENCE: Record<string, Partial<DealSlideData>> = {
+  'shilpa-spimaco-mena-local-manufacturing': {
+    slide1: {
+      counterparties: {
+        originator: 'SHILPA BIOLOGICALS',
+        partner: 'SPIMACO BIO',
+        relationshipLabel: 'EXCLUSIVE MENA LICENSING',
+        accessLabel: 'SAUDI ARABIA & MENA ACCESS',
+        tag: 'PHASED TECHNOLOGY TRANSFER'
+      },
+      headline: 'MARKET ENTRY NOW. LOCAL MANUFACTURING IN PHASES.',
+      metrics: [
+        { label: 'DEAL SIGNAL', val: '16 September 2026' },
+        { label: 'ASSET CLASS', val: 'PD-1 Biosimilars' },
+        { label: 'GEOGRAPHY', val: 'MENA & Saudi Arabia' }
+      ],
+      summary: 'Shilpa and SPIMACO divide immediate MENA market-entry roles from phased Saudi manufacturing localization.'
+    },
+    slide2: {
+      title: 'IMMEDIATE COMMERCIALIZATION → PHASED SAUDI LOCALIZATION',
+      subtitle: 'Operating Division & Capability Handover',
+      takeaways: [
+        'SHILPA → Retains IP, Clinical Development & Exclusive Product Supply',
+        'SPIMACO BIO → Leads MENA Regulatory, Access & Commercial Execution',
+        'SAUDI LOCAL MANUFACTURING → Phased technology transfer once validation gates are satisfied.'
+      ],
+      diagramLabel: 'OPERATING DIVISION & PHASED LOCALIZATION GATES'
+    },
+    slide3: {
+      mechanismTitle: 'WHY THE STRUCTURE MATTERS',
+      mechanismSummary: 'Separating immediate market-entry responsibilities from long-term capability transfer.',
+      valueHeader: 'CORE VALUE ARCHITECTURE',
+      valuePoints: [
+        'DEVELOPMENT & SUPPLY — Shilpa maintains asset control and manufacturing during initial launch.',
+        'ACCESS & CHANNELS — SPIMACO Bio provides regional regulatory navigation and hospital distribution.',
+        'TRANSITION ARCHITECTURE — Technology transfer is planned in accountable phases rather than on day one.'
+      ],
+      frictionHeader: 'DILIGENCE CONSIDERATION / OPEN GATES',
+      frictionPoints: [
+        'Objective triggers for Saudi facility transfer remain undisclosed.',
+        'Batch release and marketing authorization ownership during imported vs. local phase.',
+        'Economic transition from product supply margins to transfer royalties.'
+      ],
+      decisionContext: 'Structure localization agreements so today’s commercial launch and tomorrow’s capability transfer operate as separate, accountable stages.'
+    },
+    slide4: {
+      quote: 'Good localization deals define today’s operating roles and tomorrow’s capability transfer as separate, accountable stages.',
+      checkpoints: [
+        'What objective milestones trigger the start of technology transfer to local manufacturing?',
+        'Who holds marketing authorizations and batch-release authority in each regional market?',
+        'What dual-sourcing or safety-stock mechanisms protect supply if localization extends?',
+        'How do supply margins convert to transfer royalties once local production is validated?'
+      ],
+      ctaText: 'Read the full Deal Signal. Subscribe for weekly BD decision intelligence:',
+      canonicalUrl: `${CANONICAL_ORIGIN}/deal-signals/shilpa-spimaco-mena-local-manufacturing`
+    },
+    linkedInPost: `Regional licensing and manufacturing localization are often discussed as if they begin at the same time.
+
+Shilpa Biologicals and SPIMACO Bio’s new MENA partnership shows a clearer division:
+- Immediate model: Shilpa keeps IP, development and exclusive manufacturing; SPIMACO leads regulatory execution, market access and commercialization across MENA.
+- Future model: Phased technology transfer to establish local manufacturing in Saudi Arabia.
+
+That distinction matters because the responsibilities that support initial launch are not the same responsibilities that govern local manufacturing.
+
+The BD question: Have you defined today's operating roles and tomorrow's capability transfer as separate, accountable stages?
+
+Read the full Deal Signal on PharmaSignal: ${CANONICAL_ORIGIN}/deal-signals/shilpa-spimaco-mena-local-manufacturing
+
+#PharmaBD #Biosimilars #Localization #PharmaSignal`
+  },
   'biocon-brazil-pertuzumab-market-access': {
     slide1: {
       counterparties: {

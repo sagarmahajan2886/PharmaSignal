@@ -1402,7 +1402,7 @@ export default function App() {
                           className="text-[10.5px] font-mono font-bold text-brand-gold hover:underline flex items-center gap-1 cursor-pointer"
                         >
                           <FileText size={11} />
-                          <span>Read a Sample Briefing</span>
+                          <span>Read August 2026 Deal Briefing (Last Month)</span>
                         </button>
                       </div>
 
@@ -1635,11 +1635,15 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Sample Briefing Modal */}
+      {/* Executive Briefing Modal */}
       <SampleBriefingModal
         isOpen={sampleBriefingOpen}
         onClose={() => setSampleBriefingOpen(false)}
         darkMode={darkMode}
+        onSelectArticle={(article) => {
+          setSampleBriefingOpen(false);
+          openArticle(article);
+        }}
       />
 
     </div>
