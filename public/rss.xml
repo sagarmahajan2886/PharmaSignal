@@ -9,7 +9,7 @@
     <link>https://pharmasignal.com</link>
     <description>Independent decision intelligence, deal mechanics, and strategic execution analysis for biopharma BD, licensing, and portfolio leaders.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 25 Sep 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://pharmasignal.com/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://pharmasignal.com/images/favicon_1782373744378.jpg</url>
@@ -17,7 +17,51 @@
       <link>https://pharmasignal.com</link>
     </image>
 
-    <!-- Item 0: Shilpa Biologicals x SPIMACO Bio -->
+    <!-- Item 0: Novartis x BoomRay Pharmaceuticals -->
+    <item>
+      <title><![CDATA[The Novartis–BoomRay Deal Separates Headline Value From Committed Capital]]></title>
+      <link>https://pharmasignal.com/deal-signals/novartis-boomray-preclinical-radioligand-licensing</link>
+      <guid isPermaLink="true">https://pharmasignal.com/deal-signals/novartis-boomray-preclinical-radioligand-licensing</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <author>PharmaSignal Deal Desk</author>
+      <category><![CDATA[DEAL SIGNALS]]></category>
+      <enclosure url="https://pharmasignal.com/images/pharmasignal_novartis_boomray_hero_1600x900.png" length="153408" type="image/png" />
+      <media:content url="https://pharmasignal.com/images/pharmasignal_novartis_boomray_hero_1600x900.png" medium="image" type="image/png" width="1600" height="900">
+        <media:title type="plain"><![CDATA[Novartis and BoomRay Pharmaceuticals Preclinical Radioligand Therapy Licensing & Valuation Architecture]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/pharmasignal_novartis_boomray_hero_1600x900.png" alt="Transaction diagram showing BoomRay Pharmaceuticals licensing an undisclosed preclinical radioligand asset to Novartis in an exclusive global deal worth up to $900M." width="1600" height="900" style="max-width:100%; height:auto;" /></p>
+<p>Novartis secures global rights to BoomRay’s preclinical radioligand therapy. The deal uses backloaded milestones to manage isotope risk while protecting capital. [Mechanism: Preclinical Licensing &amp; De-risking]</p>
+<p><strong>PharmaSignal Take:</strong> Novartis gains exclusive worldwide rights to a preclinical RLT asset, assuming clinical development, isotope CMC and commercialization. BoomRay secures an undisclosed upfront and retains discovery upside, with total potential payments reaching $900 million. The headline $900M represents a valuation ceiling heavily contingent on clinical, regulatory and sales gates—not upfront committed capital.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/pharmasignal_novartis_boomray_hero_1600x900.png" alt="Transaction diagram showing BoomRay Pharmaceuticals licensing an undisclosed preclinical radioligand asset to Novartis in an exclusive global deal worth up to $900M." width="1600" height="900" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>On 22 September 2026, BoomRay Pharmaceuticals and Novartis announced an exclusive global licensing agreement for an undisclosed preclinical radioligand therapy (RLT) candidate.</p>
+<p>Under the terms of the transaction, Novartis receives exclusive worldwide rights to develop, manufacture and commercialize the preclinical asset. BoomRay receives an undisclosed upfront payment and remains eligible for development, regulatory and commercial sales milestone payments totaling up to $900 million, alongside tiered royalties on future global net sales.</p>
+<p>The companies did not disclose the biological target, tumor indication, chemical entity details, or the specific breakdown between upfront capital and downstream milestone tranches.</p>
+<h2>Why It Matters</h2>
+<p>Radioligand therapy is among the most capital- and infrastructure-intensive therapeutic classes in modern oncology. Unlike small molecules or conventional biologics, RLT assets depend on perishable radioactive isotopes with short half-lives, dedicated cyclotron/reactor networks, specialized nuclear-medicine clinical sites, and complex hot-lab manufacturing facilities.</p>
+<p>This transaction demonstrates the structural separation between early discovery biology and industrial isotope commercialization:</p>
+<ul>
+  <li><strong>For BoomRay (Originator):</strong> Advancing an RLT candidate through preclinical toxicology into global Phase 1/2 trials requires specialized isotope sourcing and dosimetry infrastructure that few emerging biotechs can fund independently. In-licensing to Novartis monetizes the target biology while shifting subsequent clinical and CMC capex to the global leader.</li>
+  <li><strong>For Novartis (Licensee):</strong> Having established global manufacturing and supply infrastructure through Pluvicto (lutetium-177 vipivotide tetraxetan) and Lutathera (lutetium-177 oxodotreotide), Novartis can maximize asset returns by feeding early discovery assets into its existing RLT supply chain.</li>
+</ul>
+<h2>PharmaSignal Read</h2>
+<p>Headlines celebrating "up to $900 million" deals often obscure the fundamental risk allocation embedded in preclinical transactions.</p>
+<p>A $900M bio-dollar headline for an undisclosed preclinical candidate represents a cumulative valuation ceiling, not committed capital. In preclinical licensing, upfront consideration rarely exceeds 3% to 8% of total nominal deal value. The overwhelming majority of the announced sum rests behind rigorous clinical proof-of-concept gates, regulatory approvals across major territories, and steep commercial revenue thresholds.</p>
+<h2>What BD Leaders Should Ask</h2>
+<ol>
+  <li>What fraction of the $900 million is genuinely committed at signing versus contingent on Phase 2 proof-of-concept and commercial hurdles?</li>
+  <li>Does the agreement tie the candidate to a specific radioisotope (e.g., Actinium-225 vs. Lutetium-177), or does Novartis retain flexibility to optimize the radiochemistry?</li>
+  <li>What specific developmental milestones must Novartis achieve to maintain exclusivity, and under what conditions do rights revert to BoomRay if the asset is deprioritized?</li>
+</ol>
+<h2>PharmaSignal Principle</h2>
+<blockquote>
+  <p>In preclinical licensing, headline deal value measures the ceiling of success; upfront capital measures the buyer’s immediate conviction.</p>
+</blockquote>
+<h2>Sources</h2>
+<p>Company announcement by BoomRay Pharmaceuticals (22 September 2026), with disclosures reported by Pharmaceutical Executive, World Pharma Today, and American Pharmaceutical Review.</p>]]></content:encoded>
+    </item>
+
+    <!-- Item 1: Shilpa Biologicals x SPIMACO Bio -->
     <item>
       <title><![CDATA[The Shilpa–SPIMACO Deal Separates Market Entry From Local Manufacturing]]></title>
       <link>https://pharmasignal.com/deal-signals/shilpa-spimaco-mena-local-manufacturing</link>
