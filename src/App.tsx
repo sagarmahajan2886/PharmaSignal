@@ -81,6 +81,15 @@ export default function App() {
     });
   }, []);
 
+  // Canonical publication date sorting for Explainers (newest first, with deterministic tie-break)
+  const sortedExplainers = useMemo(() => {
+    return [...EXPLAINERS_DATA].sort((a, b) => {
+      const diff = parseArticleDate(b.date) - parseArticleDate(a.date);
+      if (diff !== 0) return diff;
+      return a.id.localeCompare(b.id);
+    });
+  }, []);
+
   const publishedDealsCount = useMemo(() => DEAL_SIGNALS_DATA.filter(d => !d.isDraft).length, []);
   
   // Policy Modal state
@@ -139,6 +148,8 @@ export default function App() {
       window.history.pushState(null, '', `${prefix}/${selectedArticle.id}`);
     } else if (activeTab === 'DEAL SIGNALS') {
       window.history.pushState(null, '', '/deal-signals');
+    } else if (activeTab === 'EXPLAINERS') {
+      window.history.pushState(null, '', '/explainers');
     } else if (activeTab === 'LENSES') {
       window.history.pushState(null, '', '/lenses');
     } else {
@@ -166,6 +177,8 @@ export default function App() {
     setSelectedArticle(null);
     if (activeTab === 'DEAL SIGNALS' || window.location.pathname.startsWith('/deal-signals')) {
       window.history.pushState(null, '', '/deal-signals');
+    } else if (activeTab === 'EXPLAINERS' || window.location.pathname.startsWith('/explainers')) {
+      window.history.pushState(null, '', '/explainers');
     } else if (activeTab === 'LENSES' || window.location.pathname.startsWith('/lenses')) {
       window.history.pushState(null, '', '/lenses');
     } else {
@@ -197,6 +210,9 @@ export default function App() {
       const findArticleBySlugOrId = (idOrSlug: string) => {
         if (idOrSlug === 'biocon-brazil-pertuzumab-market-access-partnership' || idOrSlug === 'biocon-brazil-pertuzumab-market-access') {
           return ALL_ARTICLES.find(a => a.id === 'biocon-brazil-pertuzumab-market-access' || a.id === 'biocon-brazil-pertuzumab-market-access-partnership');
+        }
+        if (idOrSlug === 'capability-to-obligation-lens' || idOrSlug === 'capability-to-obligation' || idOrSlug === 'partner-capability-matters-more-than-partner-size') {
+          return ALL_ARTICLES.find(a => a.id === 'biggest-partner-not-always-best-partner');
         }
         return ALL_ARTICLES.find(a => a.id === idOrSlug);
       };
@@ -246,6 +262,12 @@ export default function App() {
 
       if (path === '/deal-signals') {
         setActiveTab('DEAL SIGNALS');
+        setSelectedArticle(null);
+        return;
+      }
+
+      if (path === '/explainers') {
+        setActiveTab('EXPLAINERS');
         setSelectedArticle(null);
         return;
       }
@@ -570,6 +592,142 @@ export default function App() {
             </div>
           </div>
         </section>
+      ) : activeTab === 'EXPLAINERS' ? (
+        /* Dedicated Strategic Explainers Archive Page */
+        <section 
+          id="explainers-page"
+          className={`py-8 sm:py-12 transition-colors duration-300 border-b ${
+            darkMode ? 'bg-[#050F1A] border-white/5' : 'bg-[#FAF7F0] border-[#E5DDD0]'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left max-w-3xl mb-8 sm:mb-10 pb-4 border-b border-brand-gold/20">
+              <span className="inline-block text-[10px] font-mono tracking-widest text-brand-gold-antique dark:text-brand-gold uppercase font-bold mb-1">
+                PUBLISHED STRATEGIC EXPLAINERS · {sortedExplainers.length} EXPLAINERS (SORTED BY DATE)
+              </span>
+              <h1 className={`font-serif text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-1.5 ${
+                darkMode ? 'text-white' : 'text-[#001B2A]'
+              }`}>
+                Strategic Explainers
+              </h1>
+              <div className="h-[2px] w-10 bg-brand-gold mb-2.5" />
+              <p className={`font-serif text-xs sm:text-sm leading-relaxed ${
+                darkMode ? 'text-white/85' : 'text-brand-charcoal/85'
+              }`}>
+                In-depth structural briefings on recurring deal dynamics, post-signature execution, partner capability, and upstream opportunity creation.
+              </p>
+            </div>
+
+            {/* Grid displaying all published Explainers (canonical newest-first) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+              {sortedExplainers.map((explainer) => (
+                <div 
+                  key={explainer.id}
+                  className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
+                    darkMode 
+                      ? 'bg-[#0B1B2D] border-white/10 hover:border-brand-gold/45' 
+                      : 'bg-white border-[#E5DDD0] hover:border-brand-gold/60'
+                  }`}
+                >
+                  <div className="p-4 sm:p-5 pb-2.5">
+                    <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-brand-gold/10">
+                      <span className={`inline-block text-[9.5px] font-mono tracking-[0.12em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(explainer.category)}`}>
+                        {explainer.category}
+                      </span>
+                      <span className="text-[10px] font-mono text-brand-gold-antique/85 dark:text-brand-gold/80 tracking-wider font-semibold tnum tabular-nums">
+                        {explainer.date}
+                      </span>
+                    </div>
+                    
+                    <h2 
+                      onClick={() => openArticle(explainer)}
+                      className={`font-serif text-base sm:text-lg font-bold tracking-tight hover:text-brand-gold cursor-pointer transition-colors leading-snug ${
+                        darkMode ? 'text-white' : 'text-[#001B2A]'
+                      }`}
+                    >
+                      {explainer.title}
+                    </h2>
+                    {explainer.subtitle && (
+                      <p className={`font-serif text-xs italic font-medium mt-1 ${darkMode ? 'text-[#C5A059]' : 'text-amber-900'}`}>
+                        {explainer.subtitle}
+                      </p>
+                    )}
+                  </div>
+
+                  {explainer.imageUrl && (
+                    <div 
+                      className="w-full aspect-[16/9] overflow-hidden bg-brand-deep border-y border-brand-gold/20 relative group cursor-pointer" 
+                      onClick={() => openArticle(explainer)}
+                    >
+                      <img 
+                        src={darkMode ? (explainer.imageUrlDark || explainer.imageUrl) : (explainer.imageUrlLight || explainer.imageUrl)} 
+                        alt={explainer.title}
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
+                        STRATEGIC FRAMEWORK
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-4 sm:p-5 pt-3 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Tags */}
+                      {explainer.tags && explainer.tags.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-1.5 mb-2">
+                          {explainer.tags.slice(0, 3).map((tag, tIdx) => (
+                            <span 
+                              key={tIdx}
+                              className={`text-[9px] font-mono tracking-wider font-medium px-1.5 py-0.5 border ${
+                                darkMode 
+                                  ? 'bg-white/[0.04] text-white/70 border-white/10' 
+                                  : 'bg-brand-gold/5 text-brand-charcoal/80 border-[#E5DDD0]'
+                              }`}
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Summary */}
+                      <p className={`font-sans text-xs leading-relaxed mb-2.5 ${
+                        darkMode ? 'text-white/80' : 'text-brand-charcoal/85'
+                      }`}>
+                        {explainer.featuredSummary || explainer.description}
+                      </p>
+                    </div>
+                    
+                    <div className="pt-2.5 border-t border-brand-gold/10 flex flex-wrap items-center justify-between gap-2 mt-auto">
+                      <div className="flex items-center gap-2.5">
+                        <span className="flex items-center gap-1 text-[9.5px] font-mono text-brand-gold-antique dark:text-brand-gold font-bold uppercase tnum tabular-nums">
+                          <Clock size={10} strokeWidth={2.5} /> {explainer.readTime}
+                        </span>
+                        <button
+                          onClick={() => setCarouselArticle(explainer)}
+                          className="flex items-center gap-1 text-[9.5px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2 py-0.5 bg-[#0A66C2]/10"
+                          title="Export LinkedIn Carousel"
+                        >
+                          <Linkedin size={10} fill="currentColor" />
+                          <span>Carousel</span>
+                        </button>
+                      </div>
+                      <button
+                        onClick={() => openArticle(explainer)}
+                        className="px-3.5 py-1.5 bg-brand-gold hover:bg-brand-gold-hover text-brand-primary font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                      >
+                        Read Explainer <ArrowRight size={11} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       ) : (
         /* Executive Intelligence Homepage Layout */
         <>
@@ -613,11 +771,22 @@ export default function App() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className={`font-sans text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.65] mb-6 max-w-2xl ${
+                  className={`font-sans text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.65] mb-2 max-w-2xl ${
                     darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                   }`}
                 >
                   PharmaSignal explains the mechanisms that create, protect, delay or destroy value in pharma licensing, partnerships and M&A.
+                </motion.p>
+
+                <motion.p 
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.17 }}
+                  className={`font-sans text-[13px] sm:text-[14px] leading-relaxed mb-6 max-w-2xl ${
+                    darkMode ? 'text-[#94A3B8]' : 'text-slate-500'
+                  }`}
+                >
+                  For BD & Licensing, Portfolio Strategy, Alliance and Commercial leaders.
                 </motion.p>
 
                 {/* Proof Metrics Strip */}
@@ -658,14 +827,14 @@ export default function App() {
                   </button>
                   
                   <button
-                    onClick={() => scrollToSection('featured-explainer-section')}
+                    onClick={() => scrollToSection('lenses-preview-section')}
                     className={`w-full sm:w-auto px-6 py-3.5 bg-transparent font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer rounded-none border ${
                       darkMode 
                         ? 'border-[#1E3A55] text-[#F8FAFC] hover:bg-[#0D243A] hover:border-[#C5A059]' 
                         : 'border-slate-300 text-[#061426] hover:bg-slate-100 hover:border-slate-400'
                     }`}
                   >
-                    Explore Decision Frameworks <ArrowRight size={13} />
+                    Explore Decision Lenses <ArrowRight size={13} />
                   </button>
                 </motion.div>
               </div>
@@ -728,6 +897,21 @@ export default function App() {
                         <Linkedin size={12} />
                         <span>View Slides</span>
                       </button>
+
+                      <button
+                        onClick={() => {
+                          setActiveTab('EXPLAINERS');
+                          window.history.pushState(null, '', '/explainers');
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`flex items-center gap-1.5 text-xs font-sans tracking-widest font-bold uppercase transition-all px-4 py-2.5 border cursor-pointer ${
+                          darkMode 
+                            ? 'border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059]/10' 
+                            : 'border-slate-300 text-[#061426] hover:bg-slate-100'
+                        }`}
+                      >
+                        View All Explainers ({sortedExplainers.length}) <ArrowRight size={12} />
+                      </button>
                     </div>
                   </div>
 
@@ -739,6 +923,26 @@ export default function App() {
                     </div>
                   </div>
 
+                </div>
+
+                {/* Banner & Button for viewing all explainers below the first approval gap explainer */}
+                <div className={`mt-6 pt-5 border-t flex flex-col sm:flex-row items-center justify-between gap-3 ${
+                  darkMode ? 'border-[#1E3A55]/70 text-slate-300' : 'border-slate-200 text-slate-700'
+                }`}>
+                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-left">
+                    <span className="w-2 h-2 rounded-full bg-[#C5A059] shrink-0" />
+                    <span>Explore all {sortedExplainers.length} published strategic explainers sorted by release date</span>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setActiveTab('EXPLAINERS');
+                      window.history.pushState(null, '', '/explainers');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs whitespace-nowrap"
+                  >
+                    View All Strategic Explainers ({sortedExplainers.length}) <ArrowRight size={12} />
+                  </button>
                 </div>
               </div>
             </div>
@@ -796,11 +1000,11 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Deal Signals Card Grid: 4 Neatly Laid Tiles of Most Recent Deal Signals */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8 items-stretch text-left">
+              {/* Deal Signals Card Grid: 3 Neatly Laid Tiles of Most Recent Deal Signals */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch text-left">
                 {sortedDealSignals
                   .filter((deal) => !deal.hideFromHomepage)
-                  .slice(0, 4)
+                  .slice(0, 3)
                   .map((deal) => (
                     <div 
                       key={deal.id}
@@ -810,9 +1014,9 @@ export default function App() {
                           : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
                       }`}
                     >
-                      <div className="p-6 sm:p-7 pb-3">
+                      <div className="p-5 sm:p-6 pb-3">
                         {/* 1. Date and Category Tag */}
-                        <div className="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-[#1E3A55]/50">
+                        <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[#1E3A55]/50">
                           <span className={`inline-block text-[10px] font-mono tracking-[0.08em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(deal.category)}`}>
                             {deal.category || 'DEAL SIGNAL'}
                           </span>
@@ -824,7 +1028,7 @@ export default function App() {
                         {/* 2. Heading */}
                         <h3 
                           onClick={() => openArticle(deal)}
-                          className={`font-serif text-[19px] sm:text-[21px] font-bold tracking-tight cursor-pointer transition-colors leading-[1.28] mb-2 ${
+                          className={`font-serif text-[18px] sm:text-[19px] lg:text-[20px] font-bold tracking-tight cursor-pointer transition-colors leading-[1.28] mb-2 ${
                             darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
                           }`}
                         >
@@ -858,10 +1062,10 @@ export default function App() {
                         </div>
                       )}
 
-                      <div className="p-6 sm:p-7 pt-4 flex-1 flex flex-col justify-between">
+                      <div className="p-5 sm:p-6 pt-3.5 flex-1 flex flex-col justify-between">
                         <div>
                           {/* 4. Tags */}
-                          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                          <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
                             {(deal.tags || ['Licensing', 'Commercialization']).slice(0, 3).map((tag, tIdx) => (
                               <span 
                                 key={tIdx}
@@ -876,8 +1080,8 @@ export default function App() {
                             ))}
                           </div>
 
-                          {/* 5. Summary: 2 lines max per design specification */}
-                          <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 mb-3 ${
+                          {/* 5. Summary */}
+                          <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-3 mb-3 ${
                             darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
                           }`}>
                             {deal.featuredSummary || deal.description}
@@ -955,218 +1159,145 @@ export default function App() {
           >
             <div className="max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8">
               
-              <div className="text-left max-w-2xl mb-8 sm:mb-10 pb-3 border-b border-[#1E3A55]/70">
-                <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
-                  REUSABLE MECHANISMS · FOUNDATIONAL LIBRARY
-                </span>
-                <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
-                  darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
-                }`}>
-                  Core Explainer Library
-                </h2>
-                <div className="h-[2px] w-10 bg-[#C5A059] mb-2.5" />
-                <p className={`font-sans text-[14px] sm:text-[15px] leading-[1.65] ${
-                  darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                }`}>
-                  In-depth structural briefings on recurring deal dynamics, post-signature execution, and upstream opportunity creation.
-                </p>
+              {/* Section Header */}
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-4 border-b border-[#1E3A55]/70">
+                <div className="text-left max-w-2xl">
+                  <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
+                    REUSABLE MECHANISMS · FEATURED EXPLAINERS
+                  </span>
+                  <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
+                    darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
+                  }`}>
+                    Core Explainer Library
+                  </h2>
+                  <div className="h-[2px] w-10 bg-[#C5A059] mb-2.5" />
+                  <p className={`font-sans text-[14px] sm:text-[15px] leading-[1.65] ${
+                    darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
+                  }`}>
+                    In-depth structural briefings on recurring deal dynamics, post-signature execution, partner capability, and upstream opportunity creation.
+                  </p>
+                </div>
+                
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <button
+                    onClick={() => {
+                      setActiveTab('EXPLAINERS');
+                      window.history.pushState(null, '', '/explainers');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className={`text-xs font-sans tracking-widest font-bold uppercase transition-all flex items-center gap-1.5 cursor-pointer px-4 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-bold`}
+                  >
+                    All Explainers Archive <ArrowRight size={12} />
+                  </button>
+                </div>
               </div>
 
-              {/* 2x2 Grid of Key Explainers - Gap 28-32px, Padding 22-28px */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8 items-stretch text-left">
-                
-                {/* Card 1: Execution Deficit */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
-                  darkMode 
-                    ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/60' 
-                    : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
-                }`}>
-                  <div className="p-6 sm:p-7 pb-3">
-                    <span className="inline-block text-[10px] font-mono tracking-[0.08em] text-[#C5A059] font-bold uppercase mb-2 px-2 py-0.5 border border-[#C5A059]/30 bg-[#061426]">
-                      EXECUTION DEFICIT
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(executionDeficitArticle)}
-                      className={`font-serif text-[18px] sm:text-[20px] font-bold tracking-tight mb-2 cursor-pointer transition-colors leading-[1.28] ${
-                        darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
-                      }`}
-                    >
-                      A Signed Deal Is Not an Executed Deal
-                    </h3>
-                    <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
-                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                    }`}>
-                      Why the transition from agreement to execution is the most vulnerable phase of a pharma transaction.
-                    </p>
-                  </div>
-                  
-                  <div className="p-6 sm:p-7 pt-3 border-t border-[#1E3A55]/60 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className={`flex items-center gap-1 text-[11px] font-mono font-bold uppercase tnum tabular-nums ${darkMode ? 'text-[#C5A059]' : 'text-slate-500'}`}>
-                        <Clock size={11} strokeWidth={2.5} /> 6 MIN READ
-                      </span>
-                      <button
-                        onClick={() => setCarouselArticle(executionDeficitArticle)}
-                        className="flex items-center gap-1 text-[10px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2.5 py-1 bg-[#0A66C2]/10"
-                        title="Export LinkedIn Carousel"
+              {/* Grid of 3 Featured Explainers Sorted Canonical Newest-First */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch text-left">
+                {sortedExplainers.slice(0, 3).map((explainer) => (
+                  <div 
+                    key={explainer.id}
+                    className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
+                      darkMode 
+                        ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/60' 
+                        : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
+                    }`}
+                  >
+                    <div className="p-5 sm:p-6 pb-3">
+                      <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-[#1E3A55]/50">
+                        <span className={`inline-block text-[10px] font-mono tracking-[0.08em] font-bold uppercase px-2 py-0.5 border ${getCategoryBadgeClass(explainer.category)}`}>
+                          {explainer.category}
+                        </span>
+                        <span className={`text-[11px] font-mono tracking-wider font-semibold tnum tabular-nums ${darkMode ? 'text-[#94A3B8]' : 'text-slate-500'}`}>
+                          {explainer.date?.toUpperCase()}
+                        </span>
+                      </div>
+                      <h3 
+                        onClick={() => openArticle(explainer)}
+                        className={`font-serif text-[18px] sm:text-[19px] lg:text-[20px] font-bold tracking-tight mb-2 cursor-pointer transition-colors leading-[1.28] ${
+                          darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
+                        }`}
                       >
-                        <Linkedin size={11} fill="currentColor" />
-                        <span>Carousel</span>
+                        {explainer.title}
+                      </h3>
+                      {explainer.subtitle && (
+                        <p className={`font-serif text-xs italic font-medium mb-2 leading-relaxed ${darkMode ? 'text-[#C5A059]' : 'text-amber-900'}`}>
+                          {explainer.subtitle}
+                        </p>
+                      )}
+                      <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-3 mb-2 ${
+                        darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
+                      }`}>
+                        {explainer.featuredSummary || explainer.description}
+                      </p>
+                    </div>
+
+                    {explainer.imageUrl && (
+                      <div 
+                        className="w-full aspect-[16/9] overflow-hidden bg-brand-deep border-y border-[#1E3A55]/50 relative group cursor-pointer" 
+                        onClick={() => openArticle(explainer)}
+                      >
+                        <img 
+                          src={darkMode ? (explainer.imageUrlDark || explainer.imageUrl) : (explainer.imageUrlLight || explainer.imageUrl)} 
+                          alt={explainer.title}
+                          loading="lazy"
+                          decoding="async"
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute top-2 right-2 bg-[#050F1A]/90 border border-brand-gold/40 px-1.5 py-0.5 text-[8px] font-mono font-bold tracking-widest text-brand-gold uppercase">
+                          STRATEGIC FRAMEWORK
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="p-5 sm:p-6 pt-3 border-t border-[#1E3A55]/60 flex flex-wrap items-center justify-between gap-2 mt-auto">
+                      <div className="flex items-center gap-2">
+                        <span className={`flex items-center gap-1 text-[11px] font-mono font-bold uppercase tnum tabular-nums ${darkMode ? 'text-[#C5A059]' : 'text-slate-500'}`}>
+                          <Clock size={11} strokeWidth={2.5} /> {explainer.readTime?.toUpperCase()}
+                        </span>
+                        <button
+                          onClick={() => setCarouselArticle(explainer)}
+                          className="flex items-center gap-1 text-[10px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2.5 py-1 bg-[#0A66C2]/10"
+                          title="Export LinkedIn Carousel"
+                        >
+                          <Linkedin size={11} fill="currentColor" />
+                          <span>Carousel</span>
+                        </button>
+                      </div>
+                      <button
+                        onClick={() => openArticle(explainer)}
+                        className="px-3.5 py-1.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                      >
+                        Read Explainer <ArrowRight size={11} />
                       </button>
                     </div>
-                    <button
-                      onClick={() => openArticle(executionDeficitArticle)}
-                      className="px-3.5 py-1.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      Read Explainer <ArrowRight size={11} />
-                    </button>
                   </div>
-                </div>
+                ))}
+              </div>
 
-                {/* Card 2: Opportunity Creation vs Processing */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
-                  darkMode 
-                    ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/60' 
-                    : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
-                }`}>
-                  <div className="p-6 sm:p-7 pb-3">
-                    <span className="inline-block text-[10px] font-mono tracking-[0.08em] text-[#C5A059] font-bold uppercase mb-2 px-2 py-0.5 border border-[#C5A059]/30 bg-[#061426]">
-                      OPPORTUNITY CREATION
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(opportunityCreationArticle)}
-                      className={`font-serif text-[18px] sm:text-[20px] font-bold tracking-tight mb-2 cursor-pointer transition-colors leading-[1.28] ${
-                        darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
-                      }`}
-                    >
-                      Opportunity Creation vs Opportunity Processing
-                    </h3>
-                    <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
-                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                    }`}>
-                      Why the best opportunities are created upstream through custom structuring, not found downstream in auction processes.
-                    </p>
-                  </div>
-                  
-                  <div className="p-6 sm:p-7 pt-3 border-t border-[#1E3A55]/60 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className={`flex items-center gap-1 text-[11px] font-mono font-bold uppercase tnum tabular-nums ${darkMode ? 'text-[#C5A059]' : 'text-slate-500'}`}>
-                        <Clock size={11} strokeWidth={2.5} /> 6 MIN READ
-                      </span>
-                      <button
-                        onClick={() => setCarouselArticle(opportunityCreationArticle)}
-                        className="flex items-center gap-1 text-[10px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2.5 py-1 bg-[#0A66C2]/10"
-                        title="Export LinkedIn Carousel"
-                      >
-                        <Linkedin size={11} fill="currentColor" />
-                        <span>Carousel</span>
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => openArticle(opportunityCreationArticle)}
-                      className="px-3.5 py-1.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      Read Explainer <ArrowRight size={11} />
-                    </button>
-                  </div>
+              {/* Clear Link for All Strategic Explainers */}
+              <div className={`mt-8 p-6 sm:p-7 border flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left ${
+                darkMode ? 'border-[#1E3A55] bg-[#0D243A]' : 'border-slate-200 bg-white shadow-xs'
+              }`}>
+                <div>
+                  <h4 className={`font-serif text-[18px] sm:text-[20px] font-bold ${darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'}`}>
+                    Explore all {sortedExplainers.length} strategic explainers in our Foundational Library
+                  </h4>
+                  <p className={`text-xs sm:text-sm font-sans mt-0.5 ${darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'}`}>
+                    Deep-dive into biopharma partnership mechanisms, decision friction, and upstream rights structuring.
+                  </p>
                 </div>
-
-                {/* Card 3: Deal Failures */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
-                  darkMode 
-                    ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/60' 
-                    : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
-                }`}>
-                  <div className="p-6 sm:p-7 pb-3">
-                    <span className="inline-block text-[10px] font-mono tracking-[0.08em] text-[#C5A059] font-bold uppercase mb-2 px-2 py-0.5 border border-[#C5A059]/30 bg-[#061426]">
-                      LICENSING STRATEGY
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(dealFailuresArticle)}
-                      className={`font-serif text-[18px] sm:text-[20px] font-bold tracking-tight mb-2 cursor-pointer transition-colors leading-[1.28] ${
-                        darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
-                      }`}
-                    >
-                      Why Pharma Deals Stall Before Signing
-                    </h3>
-                    <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
-                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                    }`}>
-                      Diligence friction, valuation asymmetry, and internal stakeholder misalignment that quietly sink biopharma transactions.
-                    </p>
-                  </div>
-                  
-                  <div className="p-6 sm:p-7 pt-3 border-t border-[#1E3A55]/60 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className={`flex items-center gap-1 text-[11px] font-mono font-bold uppercase tnum tabular-nums ${darkMode ? 'text-[#C5A059]' : 'text-slate-500'}`}>
-                        <Clock size={11} strokeWidth={2.5} /> 5 MIN READ
-                      </span>
-                      <button
-                        onClick={() => setCarouselArticle(dealFailuresArticle)}
-                        className="flex items-center gap-1 text-[10px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2.5 py-1 bg-[#0A66C2]/10"
-                        title="Export LinkedIn Carousel"
-                      >
-                        <Linkedin size={11} fill="currentColor" />
-                        <span>Carousel</span>
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => openArticle(dealFailuresArticle)}
-                      className="px-3.5 py-1.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      Read Explainer <ArrowRight size={11} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Card 4: Evidence Maturity Gap */}
-                <div className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
-                  darkMode 
-                    ? 'bg-[#0D243A] border-[#1E3A55] hover:border-[#C5A059]/60' 
-                    : 'bg-white border-slate-200 hover:border-[#C5A059]/60'
-                }`}>
-                  <div className="p-6 sm:p-7 pb-3">
-                    <span className="inline-block text-[10px] font-mono tracking-[0.08em] text-[#C5A059] font-bold uppercase mb-2 px-2 py-0.5 border border-[#C5A059]/30 bg-[#061426]">
-                      EVIDENCE & DEVELOPMENT
-                    </span>
-                    <h3 
-                      onClick={() => openArticle(evidenceMaturityArticle)}
-                      className={`font-serif text-[18px] sm:text-[20px] font-bold tracking-tight mb-2 cursor-pointer transition-colors leading-[1.28] ${
-                        darkMode ? 'text-[#F8FAFC] group-hover:text-[#C5A059]' : 'text-[#061426] group-hover:text-[#0A66C2]'
-                      }`}
-                    >
-                      The Evidence Maturity Gap in Commercial Execution
-                    </h3>
-                    <p className={`font-sans text-[13.5px] leading-[1.6] line-clamp-2 ${
-                      darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
-                    }`}>
-                      Understanding the trade-offs of partnering early versus holding an asset for clinical and payer inflection points.
-                    </p>
-                  </div>
-                  
-                  <div className="p-6 sm:p-7 pt-3 border-t border-[#1E3A55]/60 flex flex-wrap items-center justify-between gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className={`flex items-center gap-1 text-[11px] font-mono font-bold uppercase tnum tabular-nums ${darkMode ? 'text-[#C5A059]' : 'text-slate-500'}`}>
-                        <Clock size={11} strokeWidth={2.5} /> 5 MIN READ
-                      </span>
-                      <button
-                        onClick={() => setCarouselArticle(evidenceMaturityArticle)}
-                        className="flex items-center gap-1 text-[10px] font-mono tracking-wider font-semibold text-[#0A66C2] hover:text-white transition-colors cursor-pointer border border-[#0A66C2]/40 hover:border-[#0A66C2] px-2.5 py-1 bg-[#0A66C2]/10"
-                        title="Export LinkedIn Carousel"
-                      >
-                        <Linkedin size={11} fill="currentColor" />
-                        <span>Carousel</span>
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => openArticle(evidenceMaturityArticle)}
-                      className="px-3.5 py-1.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      Read Explainer <ArrowRight size={11} />
-                    </button>
-                  </div>
-                </div>
-
+                <button
+                  onClick={() => {
+                    setActiveTab('EXPLAINERS');
+                    window.history.pushState(null, '', '/explainers');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="px-4 py-2 bg-[#0B121E] hover:bg-brand-cobalt text-white dark:bg-[#C5A059] dark:text-[#061426] dark:hover:bg-[#D8B869] font-sans text-xs tracking-widest font-bold uppercase transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap shadow-xs"
+                >
+                  View All {sortedExplainers.length} Explainers Archive <ArrowRight size={12} />
+                </button>
               </div>
 
             </div>
@@ -1183,7 +1314,7 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-4 border-b border-[#1E3A55]/70">
                 <div className="text-left max-w-2xl">
                   <span className="inline-block text-[11px] sm:text-[12px] font-mono tracking-[0.08em] text-[#C5A059] uppercase font-bold mb-1.5">
-                    INTELLECTUAL FRAMEWORKS · 6 MENTAL MODELS
+                    DECISION LENSES · 6 MENTAL MODELS
                   </span>
                   <h2 className={`font-serif text-[26px] sm:text-[30px] lg:text-[34px] font-bold tracking-tight leading-[1.15] mb-2 ${
                     darkMode ? 'text-[#F8FAFC]' : 'text-[#061426]'
@@ -1304,7 +1435,7 @@ export default function App() {
                   onClick={navigateToLenses}
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-[#C5A059] text-xs font-mono font-bold uppercase tracking-widest text-[#C5A059] hover:bg-[#C5A059] hover:text-[#061426] transition-all duration-200 cursor-pointer"
                 >
-                  <span>Explore All 6 Decision Lenses & Detailed Frameworks</span>
+                  <span>Explore All 6 Decision Lenses</span>
                   <ArrowRight size={13} />
                 </button>
               </div>
@@ -1352,7 +1483,7 @@ export default function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 text-[11.5px]">
                   <span>• Fortnightly curated briefing</span>
                   <span>• Rights & deal mechanism breakdowns</span>
-                  <span>• Access to slides & checklists</span>
+                  <span>• Visual frameworks & decision lenses</span>
                   <span>• No promotional sponsor content</span>
                 </div>
               </div>
@@ -1402,7 +1533,7 @@ export default function App() {
                           className="text-[10.5px] font-mono font-bold text-brand-gold hover:underline flex items-center gap-1 cursor-pointer"
                         >
                           <FileText size={11} />
-                          <span>Read August 2026 Deal Briefing (Last Month)</span>
+                          <span>Read the Latest Decision Brief →</span>
                         </button>
                       </div>
 
@@ -1473,7 +1604,11 @@ export default function App() {
                 darkMode ? 'text-white/80' : 'text-slate-600'
               }`}>
                 <button 
-                  onClick={() => scrollToSection('latest-explainers-section')}
+                  onClick={() => {
+                    setActiveTab('EXPLAINERS');
+                    window.history.pushState(null, '', '/explainers');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   className="hover:text-brand-cobalt dark:hover:text-brand-gold transition-colors block py-0.5 cursor-pointer"
                 >
                   Explainers

@@ -45,10 +45,8 @@ export default function Navigation({
       window.history.pushState(null, '', '/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'EXPLAINERS') {
-      if (window.location.pathname !== '/') {
-        window.history.pushState(null, '', '/');
-      }
-      const el = document.getElementById('featured-explainer-section') || document.getElementById('latest-explainers-section');
+      window.history.pushState(null, '', '/explainers');
+      const el = document.getElementById('latest-explainers-section') || document.getElementById('explainers-page');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {

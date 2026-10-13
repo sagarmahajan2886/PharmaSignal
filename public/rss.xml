@@ -9,7 +9,7 @@
     <link>https://pharmasignal.com</link>
     <description>Independent decision intelligence, deal mechanics, and strategic execution analysis for biopharma BD, licensing, and portfolio leaders.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Sep 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://pharmasignal.com/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://pharmasignal.com/images/favicon_1782373744378.jpg</url>
@@ -17,7 +17,48 @@
       <link>https://pharmasignal.com</link>
     </image>
 
-    <!-- Item 0: Novartis x BoomRay Pharmaceuticals -->
+    <!-- Item 0: Hengrui Pharma x Novo Nordisk -->
+    <item>
+      <title><![CDATA[Hengrui and Novo Set the Territorial Boundary Before Phase I]]></title>
+      <link>https://pharmasignal.com/deal-signals/hengrui-novo-hrs1596-territorial-boundary</link>
+      <guid isPermaLink="true">https://pharmasignal.com/deal-signals/hengrui-novo-hrs1596-territorial-boundary</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <author>PharmaSignal Deal Desk</author>
+      <category><![CDATA[DEAL SIGNALS]]></category>
+      <enclosure url="https://pharmasignal.com/images/pharmasignal_hengrui_novo_hero_1600x900.png" length="148929" type="image/png" />
+      <media:content url="https://pharmasignal.com/images/pharmasignal_hengrui_novo_hero_1600x900.png" medium="image" type="image/png" width="1600" height="900">
+        <media:title type="plain"><![CDATA[Hengrui Pharma and Novo Nordisk HRS-1596 Oral GLP-1/GIP Agonist Territorial Licensing Architecture]]></media:title>
+      </media:content>
+      <description><![CDATA[<p><img src="https://pharmasignal.com/images/pharmasignal_hengrui_novo_hero_1600x900.png" alt="Transaction diagram showing Hengrui Pharma licensing exclusive development, manufacturing and commercialisation rights for HRS-1596 ex-Greater China to Novo Nordisk." width="1600" height="900" style="max-width:100%; height:auto;" /></p>
+<p>The HRS-1596 licence gives Novo ex-China control while clinical evidence, CMC choices and product strategy are still being formed. [Mechanism: Territorial Licensing &amp; Early-Stage Governance]</p>
+<p><strong>PharmaSignal Take:</strong> Novo receives development, manufacturing and commercialisation control across the licensed territory. The geographic split is fixed before HRS-1596 enters Phase I. The key execution question is how evidence and product decisions will cross that boundary.</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://pharmasignal.com/images/pharmasignal_hengrui_novo_hero_1600x900.png" alt="Transaction diagram showing Hengrui Pharma licensing exclusive development, manufacturing and commercialisation rights for HRS-1596 ex-Greater China to Novo Nordisk." width="1600" height="900" style="max-width:100%; height:auto;" /></p>
+<h2>Deal Signal</h2>
+<p>On 29 September 2026, Hengrui Pharma and Novo announced an exclusive licence agreement for HRS-1596, a phase I-ready GLP-1/GIP dual receptor agonist with potential for once-weekly oral dosing.</p>
+<p>Novo will receive exclusive rights to develop, manufacture and commercialise HRS-1596 globally, excluding Chinese mainland, Hong Kong SAR, Macao SAR and Taiwan Region. Hengrui has received approval in China to initiate phase I trials for weight management and type 2 diabetes.</p>
+<p>Novo will pay USD 300 million upfront. The agreement has a total potential value of up to USD 2.6 billion, contingent on development, regulatory and commercial milestones. Hengrui is also eligible for royalties on net sales in Novo’s licensed territory.</p>
+<p>The agreement is not yet closed. It remains subject to US antitrust clearance and customary conditions, with closing expected in the fourth quarter of 2026.</p>
+<h2>Why It Matters</h2>
+<p>The territory schedule looks simple: Novo controls development, manufacturing and commercialisation outside the excluded markets. But the split occurs before the asset has entered Phase I.</p>
+<p>At that stage, trial design, dose selection, safety reporting, formulation, analytical methods and manufacturing changes can shape the same product across territories. The public announcement allocates licensed-territory control. It does not explain how the parties will coordinate decisions that may affect both sides of the boundary.</p>
+<h2>PharmaSignal Read</h2>
+<p><strong>Control moves early.</strong> Novo receives all three operating rights—development, manufacturing and commercialisation—within its territory. That is clearer than separating clinical control from supply or commercial rights. Novo also states that HRS-1596 fits its oral peptide and cardiometabolic capabilities. That supports partner fit, but it is context, not a substitute for contractual obligations.</p>
+<p><strong>The excluded territory still creates an interface.</strong> Hengrui has China approval to begin phase I. The releases do not say whether China-generated data will support Novo’s programme, who sets global CMC standards, or how formulation and manufacturing changes will be shared. Those are open diligence points, not evidence of weak governance.</p>
+<p><strong>Economics follow progress.</strong> USD 300 million is the disclosed upfront. The balance of the USD 2.6 billion ceiling depends on development, regulatory and commercial events. Royalties preserve revenue participation if the product reaches sales in the licensed territory. The milestone allocation, royalty rate and payment triggers are not public.</p>
+<p>The practical lesson is that territory is only one layer of an early-stage licence. The operating interface determines whether each side can use evidence and product decisions without creating avoidable duplication or delay.</p>
+<h2>What BD Leaders Should Ask</h2>
+<ol>
+  <li>What rights remain with Hengrui in the excluded territories, and what access does each party receive to clinical, safety and regulatory data generated by the other?</li>
+  <li>Who controls global CMC strategy, specifications, comparability and manufacturing changes that could affect filings across both territorial programmes?</li>
+  <li>Which development, regulatory and commercial events trigger contingent payments, and what happens to rights and data if either programme is delayed or reprioritised?</li>
+</ol>
+<h2>PharmaSignal Principle</h2>
+<blockquote>
+  <p>A territorial carve-out works only when the rights boundary is matched by clear rules for the evidence and product decisions that cross it.</p>
+</blockquote>]]></content:encoded>
+    </item>
+
+    <!-- Item 1: Novartis x BoomRay Pharmaceuticals -->
     <item>
       <title><![CDATA[The Novartis–BoomRay Deal Separates Headline Value From Committed Capital]]></title>
       <link>https://pharmasignal.com/deal-signals/novartis-boomray-preclinical-radioligand-licensing</link>

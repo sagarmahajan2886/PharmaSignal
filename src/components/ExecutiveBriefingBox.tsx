@@ -127,7 +127,7 @@ export default function ExecutiveBriefingBox({ darkMode, compact = false, onSele
                     className="text-[10.5px] font-mono font-bold text-[#C5A059] hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <FileText size={11} />
-                    <span>Read August 2026 Deal Briefing (Last Month)</span>
+                    <span>Read the Latest Decision Brief →</span>
                   </button>
                 </div>
               </form>

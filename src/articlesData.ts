@@ -1,4 +1,5 @@
 import { Article } from './types';
+import { HENGRUI_NOVO_ARTICLE } from './drafts/hengrui-novo-hrs1596-territorial-boundary';
 // @ts-ignore
 import mireculeImg from './assets/images/mirecule_deal_signal_1785838349276.jpg';
 // @ts-ignore
@@ -523,10 +524,126 @@ export const EXPLAINERS_DATA: Article[] = [
         <li><strong>Dynamic Re-Zoning:</strong> Re-route rep pathways quarterly using predictive AI engines to follow patient claims data, allowing commercial execution teams to arrive at a physician's radar exactly when new relevant patients are diagnosed.</li>
       </ul>
     `
+  },
+  {
+    id: 'biggest-partner-not-always-best-partner',
+    category: 'PARTNER STRATEGY & EXECUTION',
+    title: 'The Biggest Partner Is Not Always the Best Partner',
+    subtitle: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
+    description: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
+    meta: '6 MIN READ · OCT 04, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '6 min read',
+    date: 'October 04, 2026',
+    featuredSummary: 'Pharma companies often use scale as shorthand for partner quality. But value is realized only when the partner’s specific capabilities match the obligations transferred to it.',
+    assetClass: 'Partner Selection & Due Diligence',
+    dealStructure: 'Capability-to-Obligation Decision Architecture',
+    geographicScope: 'Global & Regional Licensing Partnerships',
+    imageUrl: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_capability_to_obligation_hero_1600x900_light.png',
+    imageAlt: 'PharmaSignal Capability-to-Obligation Lens showing how transaction obligations map through required capabilities, partner evidence, capability gaps, and responsibility mitigation.',
+    pharmaSignalRead: 'Enterprise capability is what a company can theoretically do; transaction capability is what the deal actually needs it to do. Partner scale creates optionality, but partner fit creates execution.',
+    useThisWhen: 'Deploy during partner screening, RFP evaluation, licensing due diligence, and territory rights allocation when choosing between multinational scale and specialized regional execution.',
+    principleQuote: 'Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.',
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' },
+      { id: 'territory-structure', title: 'Territorial Architecture' }
+    ],
+    tags: ['EXPLAINER', 'PARTNER STRATEGY', 'CAPABILITY FIT', 'DUE DILIGENCE', 'LICENSING', 'EXECUTION ARCHITECTURE', 'DECISION LENS'],
+    content: `
+      <h2>Observation</h2>
+      <p>Pharma companies often use scale as shorthand for partner quality.</p>
+      <p>Revenue, geographic footprint, field-force size, product portfolio and corporate reputation are easy to compare. They provide reassurance that a counterparty has resources and organizational depth.</p>
+      <p>But those attributes do not necessarily answer the question that determines post-deal value:</p>
+      <p><strong>Can this partner perform the specific work the transaction requires?</strong></p>
+      <p>A licensing partner can be financially strong yet weak in the regulatory pathway that matters. A large commercial organization can lack access to the specialist physicians relevant to a particular asset. A multinational can possess sophisticated systems but move too slowly for a fragmented emerging market.</p>
+      <p>Partner quality is therefore contextual.</p>
+      <p>The relevant unit of analysis is not company strength. It is <strong>capability-to-obligation fit</strong>.</p>
+
+      <h2>Why This Matters</h2>
+      <p>Licensing creates value by reallocating responsibilities.</p>
+      <p>One party may retain manufacturing. Another assumes registration. Commercialization may move to a regional licensee. Market access, medical affairs, pharmacovigilance, local studies or localization can sit on either side of the agreement.</p>
+      <p>The economic case usually assumes that these responsibilities will be performed adequately after signing.</p>
+      <p>That assumption deserves much more attention.</p>
+      <p>When a partner cannot execute an assigned responsibility, the transaction may remain legally intact while its economics deteriorate.</p>
+      <p>Registration takes longer. Launch moves out. Forecast years disappear. Supply remains underutilized. Governance consumes management time. Additional investment becomes necessary.</p>
+      <p>The asset did not change.</p>
+      <p><strong>The execution architecture did.</strong></p>
+
+      <h2>Structural Reality</h2>
+      <p>Partner selection is frequently conducted at company level.</p>
+      <p>BD teams compare counterparties by scale, reputation, portfolio breadth and headline commercial presence. Those factors matter, but they are proxies.</p>
+      <p>Execution occurs at a much more granular level.</p>
+      <p>A transaction might actually require six capabilities: regulatory navigation, specialist medical engagement, payer access, demand generation, reliable forecasting and disciplined supply coordination.</p>
+      <p>A potential partner does not need to be superior across the entire pharmaceutical value chain.</p>
+      <p>It needs to be sufficiently strong in the capabilities on which the transaction depends.</p>
+      <p>This creates an important distinction:</p>
+      <p><em>Enterprise capability is what the company can theoretically do. Transaction capability is what the deal actually needs it to do.</em></p>
+      <p>The second matters more.</p>
+
+      <h2>Economic Consequence</h2>
+      <p>Capability mismatch creates a hidden form of value leakage.</p>
+      <p>It rarely appears in the headline deal economics.</p>
+      <p>The upfront remains the upfront. Milestones remain written into the agreement. Royalty rates do not change because a launch is slow.</p>
+      <p>But expected value changes quickly when execution assumptions fail.</p>
+      <p>A delayed registration pushes cash flows outward. Weak market access lowers achievable volume. Poor forecasting increases inventory risk. Inadequate medical engagement slows adoption. Governance problems consume resources from both companies.</p>
+      <p>This means partner capability influences both probability of success and timing of value realization.</p>
+      <p>A theoretically attractive deal with the wrong execution partner can therefore have lower realized value than a less impressive transaction with a highly matched operator.</p>
+
+      <h2>Why Conventional Thinking Misses It</h2>
+      <p>Scale is visible.</p>
+      <p>Capability fit is harder to observe.</p>
+      <p>Company revenues can be verified. Field-force numbers can be counted. Market presence can be mapped. Reputation can be referenced.</p>
+      <p>But execution capability often sits beneath those indicators.</p>
+      <ul>
+        <li>Does the organization know the relevant decision-makers?</li>
+        <li>Has it successfully navigated this regulatory pathway?</li>
+        <li>Can it prioritize the asset relative to its own portfolio?</li>
+        <li>Does it have the right medical rather than merely commercial relationships?</li>
+        <li>Can its governance model make decisions at the speed the asset requires?</li>
+      </ul>
+      <p>A large partner can answer some of these questions poorly. A smaller specialist can answer them exceptionally well.</p>
+      <p>The mistake is not choosing large companies. Large partners may be exactly right.</p>
+      <p>The mistake is treating size as evidence of fit.</p>
+
+      <h2>PharmaSignal Lens: The Capability-to-Obligation Lens</h2>
+      <p>PharmaSignal proposes the <strong>Capability-to-Obligation Lens</strong>.</p>
+      <p>Start with the transaction, not the counterparty.</p>
+      <ol>
+        <li>First identify the responsibilities that actually drive value realization.</li>
+        <li>Then identify the capabilities required to perform each responsibility.</li>
+        <li>Only then assess potential partners.</li>
+      </ol>
+      <p>A simple sequence is:</p>
+      <blockquote>
+        <p><strong>Obligation → Required Capability → Partner Evidence → Capability Gap → Mitigation</strong></p>
+      </blockquote>
+      <p>For example, if a licensee will own market access, the relevant diligence is not merely whether it has a market-access department. The question is whether it has demonstrated access capability for the product type, channel and geography involved.</p>
+      <p>If a partner will lead registration, assess relevant registration execution—not corporate regulatory headcount.</p>
+      <p>If commercialization depends on a concentrated specialist network, physician access may matter more than total sales-force size.</p>
+
+      <h2>Practical Implications</h2>
+      <p>For BD teams, this changes partner selection in four ways:</p>
+      <ol>
+        <li><strong>Screen for transaction-specific capability:</strong> Define the critical execution requirements before ranking partners.</li>
+        <li><strong>Demand evidence, not capability claims:</strong> Previous launches, regulatory outcomes, access wins, localization projects and comparable portfolio performance are more useful than organizational descriptions.</li>
+        <li><strong>Price capability gaps into the structure:</strong> A weakness does not automatically disqualify a partner. But responsibility, governance, milestones, support and economics should reflect it.</li>
+        <li><strong>Reassess capability over the life of the deal:</strong> The optimal partner at signing may not remain optimal as the asset moves from development to registration, launch and scale.</li>
+      </ol>
+      <p>This becomes particularly important where responsibilities evolve over time. PharmaSignal's prior work on capability transitions reached a related conclusion: current responsibilities and future capability transfer need to be governed separately.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.</p>
+      </blockquote>
+    `
   }
 ];
 
 export const DEAL_SIGNALS_DATA: Article[] = [
+  HENGRUI_NOVO_ARTICLE,
   {
     id: 'novartis-boomray-preclinical-radioligand-licensing',
     category: 'DEAL SIGNAL',
@@ -1547,6 +1664,13 @@ export const parseArticleDate = (d?: string): number => {
 
 // Sort DEAL_SIGNALS_DATA canonically newest-first by publication date with deterministic id fallback
 DEAL_SIGNALS_DATA.sort((a, b) => {
+  const diff = parseArticleDate(b.date) - parseArticleDate(a.date);
+  if (diff !== 0) return diff;
+  return a.id.localeCompare(b.id);
+});
+
+// Sort EXPLAINERS_DATA canonically newest-first by publication date with deterministic id fallback
+EXPLAINERS_DATA.sort((a, b) => {
   const diff = parseArticleDate(b.date) - parseArticleDate(a.date);
   if (diff !== 0) return diff;
   return a.id.localeCompare(b.id);

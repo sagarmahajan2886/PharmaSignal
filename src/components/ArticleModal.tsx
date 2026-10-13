@@ -8,6 +8,7 @@ import { CapabilityLedOpportunityDiagram } from './CapabilityLedOpportunityDiagr
 import { SKBiopharmBiohavenDiagram } from './SKBiopharmBiohavenDiagram';
 import { AurigeneTechTransferDiagram } from './AurigeneTechTransferDiagram';
 import { BMSCellaresScaleDiagram } from './BMSCellaresScaleDiagram';
+import CapabilityToObligationDiagram from './CapabilityToObligationDiagram';
 import LinkedInCarouselModal from './LinkedInCarouselModal';
 import SuggestDealModal from './SuggestDealModal';
 import ExecutiveBriefingBox from './ExecutiveBriefingBox';
@@ -106,7 +107,7 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
   const hasSidebarContent = Boolean(
     article.isDealSignal 
       ? (article.assetClass || article.mechanism) 
-      : ['the-approval-gap', 'execution-deficit', 'opportunity-creation-processing'].includes(article.id)
+      : ['the-approval-gap', 'execution-deficit', 'opportunity-creation-processing', 'biggest-partner-not-always-best-partner'].includes(article.id)
   );
 
   const renderSourceBlock = () => {
@@ -449,6 +450,41 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                             }`}
                           >
                             06. PharmaSignal Principle
+                          </button>
+                        </>
+                      ) : article.id === 'biggest-partner-not-always-best-partner' ? (
+                        <>
+                          <button 
+                            onClick={() => scrollToId('doc-overview')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            01. Core Observation
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('core-analysis')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            02. The Execution Gap
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('lens-framework')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            03. The Decision Lens
+                          </button>
+                          <button 
+                            onClick={() => scrollToId('practical-implications')} 
+                            className={`w-full text-left font-sans text-[11px] py-1.5 px-2 hover:bg-brand-gold/10 hover:text-brand-gold border-l-2 border-transparent hover:border-brand-gold transition-all cursor-pointer ${
+                              darkMode ? 'text-white/70' : 'text-brand-primary'
+                            }`}
+                          >
+                            04. Practical BD Diligence
                           </button>
                         </>
                       ) : null}
@@ -1820,18 +1856,6 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
               </>
             ) : (
               <>
-                {/* Draft / Preview Banner */}
-                {article.isDraft && (
-                  <div className="mb-6 p-4 bg-amber-500/10 border border-amber-500/40 text-amber-500 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
-                      <span className="font-bold tracking-widest uppercase">EDITORIAL DRAFT / PREVIEW ONLY</span>
-                      <span className="hidden sm:inline text-amber-500/80">— NOT YET PUBLISHED TO LIVE DESK</span>
-                    </div>
-                    <span className="text-[10.5px] uppercase tracking-wider text-amber-500/90 font-bold bg-amber-500/15 px-2 py-0.5 w-fit">CONFIDENTIAL REVIEW</span>
-                  </div>
-                )}
-
                 {/* Category Breadcrumb */}
                 <span className="inline-block text-[10px] sm:text-xs font-mono tracking-widest text-brand-gold font-semibold uppercase mb-2 sm:mb-4">
                   {article.category}
@@ -1944,6 +1968,13 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                   className={`markdown-body proportional-reading-pane ${darkMode ? 'text-white/95' : 'text-[#111827]'}`}
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
+
+                {/* Interactive Diagram for Capability-to-Obligation Explainer */}
+                {article.id === 'biggest-partner-not-always-best-partner' && (
+                  <div id="lens-framework" className="my-10 max-w-4xl mx-auto">
+                    <CapabilityToObligationDiagram darkMode={darkMode} />
+                  </div>
+                )}
 
                 {/* Linked Explainers Section */}
                 {article.linkedExplainers && article.linkedExplainers.length > 0 && (
