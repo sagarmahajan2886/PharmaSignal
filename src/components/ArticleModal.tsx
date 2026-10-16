@@ -20,9 +20,10 @@ interface ArticleModalProps {
   onClose: () => void;
   darkMode?: boolean;
   onSelectArticleId?: (id: string) => void;
+  onViewAllExplainers?: () => void;
 }
 
-export default function ArticleModal({ article, onClose, darkMode = false, onSelectArticleId }: ArticleModalProps) {
+export default function ArticleModal({ article, onClose, darkMode = false, onSelectArticleId, onViewAllExplainers }: ArticleModalProps) {
   const [copied, setCopied] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [carouselOpen, setCarouselOpen] = useState(false);
@@ -2054,6 +2055,41 @@ export default function ArticleModal({ article, onClose, darkMode = false, onSel
                         className="px-4 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-[11.5px] font-bold tracking-widest uppercase transition-all flex items-center gap-1.5 cursor-pointer rounded-none"
                       >
                         <span>Suggest a Deal Signal</span>
+                        <ArrowRight size={12} />
+                      </button>
+                    </div>
+                  )}
+
+                  {/* A2. View All Explainers CTA (for Strategic Explainers) */}
+                  {!article.isDealSignal && (
+                    <div className={`p-6 border text-left rounded-none ${
+                      darkMode ? 'bg-[#0D243A] border-[#1E3A55]' : 'bg-[#F8FAFC] border-slate-200'
+                    }`}>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.08em] font-semibold text-[#C5A059] block mb-1">
+                        STRATEGIC EXPLAINER LIBRARY
+                      </span>
+                      <h4 className={`font-serif text-[20px] font-bold ${darkMode ? 'text-white' : 'text-[#061426]'}`}>
+                        Explore All Strategic Explainers
+                      </h4>
+                      <p className={`font-sans text-[14px] leading-relaxed mt-1 mb-4 ${
+                        darkMode ? 'text-[#CBD5E1]' : 'text-slate-600'
+                      }`}>
+                        Deep-dive into biopharma partnership mechanisms, post-signature execution, partner capability, and upstream rights structuring.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (onViewAllExplainers) {
+                            onViewAllExplainers();
+                          } else {
+                            onClose();
+                            window.history.pushState(null, '', '/explainers');
+                            window.location.href = '/explainers';
+                          }
+                        }}
+                        className="px-4 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-[11.5px] font-bold tracking-widest uppercase transition-all flex items-center gap-1.5 cursor-pointer rounded-none"
+                      >
+                        <span>View All Strategic Explainers</span>
                         <ArrowRight size={12} />
                       </button>
                     </div>

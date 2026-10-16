@@ -16,7 +16,6 @@ export interface Article {
   featuredSummary: string;
   content: string;
   isDealSignal?: boolean;
-  isDraft?: boolean;
   mechanism?: string;
   pharmaSignalTake?: string;
   pharmaSignalRead?: string;

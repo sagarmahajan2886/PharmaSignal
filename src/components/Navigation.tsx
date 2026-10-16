@@ -46,20 +46,10 @@ export default function Navigation({
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'EXPLAINERS') {
       window.history.pushState(null, '', '/explainers');
-      const el = document.getElementById('latest-explainers-section') || document.getElementById('explainers-page');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'DEAL SIGNALS') {
       window.history.pushState(null, '', '/deal-signals');
-      const el = document.getElementById('deal-signals-section');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (tab === 'LENSES') {
       window.history.pushState(null, '', '/lenses');
       const el = document.getElementById('lenses-section');

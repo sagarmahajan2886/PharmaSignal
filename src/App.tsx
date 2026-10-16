@@ -90,7 +90,19 @@ export default function App() {
     });
   }, []);
 
-  const publishedDealsCount = useMemo(() => DEAL_SIGNALS_DATA.filter(d => !d.isDraft).length, []);
+  // Curated Homepage Featured Explainers (manual selection of 3 core authority explainers, independent of archive chronological sort)
+  const homepageFeaturedExplainers = useMemo(() => {
+    const curatedIds = [
+      'opportunity-creation-processing',
+      'execution-deficit',
+      'biggest-partner-not-always-best-partner'
+    ];
+    return curatedIds
+      .map(id => EXPLAINERS_DATA.find(e => e.id === id))
+      .filter((e): e is Article => Boolean(e));
+  }, []);
+
+  const publishedDealsCount = DEAL_SIGNALS_DATA.length;
   
   // Policy Modal state
   const [policyModalOpen, setPolicyModalOpen] = useState(false);
@@ -214,6 +226,12 @@ export default function App() {
         if (idOrSlug === 'capability-to-obligation-lens' || idOrSlug === 'capability-to-obligation' || idOrSlug === 'partner-capability-matters-more-than-partner-size') {
           return ALL_ARTICLES.find(a => a.id === 'biggest-partner-not-always-best-partner');
         }
+        if (idOrSlug === 'hengrui-novo' || idOrSlug === 'hengrui-novo-territorial-boundary' || idOrSlug === 'hengrui-novo-hrs1596') {
+          return ALL_ARTICLES.find(a => a.id === 'hengrui-novo-hrs1596-territorial-boundary');
+        }
+        if (idOrSlug === 'biohaven-ono' || idOrSlug === 'biohaven-ono-mode' || idOrSlug === 'biohaven-ono-bhv-1300' || idOrSlug === 'biohaven-ono-mode-degrader') {
+          return ALL_ARTICLES.find(a => a.id === 'biohaven-ono-mode-degrader-licensing');
+        }
         return ALL_ARTICLES.find(a => a.id === idOrSlug);
       };
 
@@ -228,8 +246,8 @@ export default function App() {
         }
       }
 
-      // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=... or ?preview=...)
-      const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id') || searchParams.get('preview') || searchParams.get('draft');
+      // 1. Check Query Parameters (e.g. ?deal=... or ?article=... or ?explainer=... or ?id=...)
+      const queryArticleId = searchParams.get('deal') || searchParams.get('article') || searchParams.get('explainer') || searchParams.get('id');
       if (queryArticleId) {
         const found = findArticleBySlugOrId(queryArticleId);
         if (found) {
@@ -491,7 +509,7 @@ export default function App() {
 
             {/* Grid displaying all published Deal Cards (canonical newest-first) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-              {sortedDealSignals.filter(deal => !deal.isDraft).map((deal) => (
+              {sortedDealSignals.map((deal) => (
                       <div 
                         key={deal.id}
                         className={`overflow-hidden border transition-all duration-300 flex flex-col justify-between text-left rounded-none h-full shadow-sm ${
@@ -897,21 +915,6 @@ export default function App() {
                         <Linkedin size={12} />
                         <span>View Slides</span>
                       </button>
-
-                      <button
-                        onClick={() => {
-                          setActiveTab('EXPLAINERS');
-                          window.history.pushState(null, '', '/explainers');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className={`flex items-center gap-1.5 text-xs font-sans tracking-widest font-bold uppercase transition-all px-4 py-2.5 border cursor-pointer ${
-                          darkMode 
-                            ? 'border-[#C5A059]/40 text-[#C5A059] hover:bg-[#C5A059]/10' 
-                            : 'border-slate-300 text-[#061426] hover:bg-slate-100'
-                        }`}
-                      >
-                        View All Explainers ({sortedExplainers.length}) <ArrowRight size={12} />
-                      </button>
                     </div>
                   </div>
 
@@ -925,25 +928,26 @@ export default function App() {
 
                 </div>
 
-                {/* Banner & Button for viewing all explainers below the first approval gap explainer */}
-                <div className={`mt-6 pt-5 border-t flex flex-col sm:flex-row items-center justify-between gap-3 ${
-                  darkMode ? 'border-[#1E3A55]/70 text-slate-300' : 'border-slate-200 text-slate-700'
-                }`}>
-                  <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-left">
-                    <span className="w-2 h-2 rounded-full bg-[#C5A059] shrink-0" />
-                    <span>Explore all {sortedExplainers.length} published strategic explainers sorted by release date</span>
-                  </div>
-                  <button
-                    onClick={() => {
-                      setActiveTab('EXPLAINERS');
-                      window.history.pushState(null, '', '/explainers');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="w-full sm:w-auto px-5 py-2.5 bg-[#C5A059] hover:bg-[#D8B869] text-[#061426] font-sans text-xs tracking-widest font-bold uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xs whitespace-nowrap"
-                  >
-                    View All Strategic Explainers ({sortedExplainers.length}) <ArrowRight size={12} />
-                  </button>
-                </div>
+              </div>
+
+              {/* Small, secondary navigation CTA below the featured Approval Gap section */}
+              <div className="mt-4 sm:mt-5 text-center sm:text-right">
+                <button
+                  onClick={() => {
+                    setActiveTab('EXPLAINERS');
+                    window.history.pushState(null, '', '/explainers');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`inline-flex items-center gap-1 text-xs font-mono tracking-wider uppercase transition-colors cursor-pointer group ${
+                    darkMode 
+                      ? 'text-slate-400 hover:text-[#C5A059]' 
+                      : 'text-slate-500 hover:text-[#061426]'
+                  }`}
+                >
+                  <span className="hover:underline underline-offset-4">
+                    View All Strategic Explainers ({sortedExplainers.length}) →
+                  </span>
+                </button>
               </div>
             </div>
           </section>
@@ -1192,9 +1196,9 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Grid of 3 Featured Explainers Sorted Canonical Newest-First */}
+              {/* Grid of 3 Curated Featured Explainers */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch text-left">
-                {sortedExplainers.slice(0, 3).map((explainer) => (
+                {homepageFeaturedExplainers.map((explainer) => (
                   <div 
                     key={explainer.id}
                     className={`border transition-all duration-300 flex flex-col justify-between rounded-none h-full group shadow-xs hover:shadow-md ${
@@ -1733,6 +1737,12 @@ export default function App() {
             onSelectArticleId={(id) => {
               const art = ALL_ARTICLES.find(a => a.id === id);
               if (art) setSelectedArticle(art);
+            }}
+            onViewAllExplainers={() => {
+              closeArticle();
+              setActiveTab('EXPLAINERS');
+              window.history.pushState(null, '', '/explainers');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           />
         )}

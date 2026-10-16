@@ -1,11 +1,125 @@
 import { Article } from './types';
-import { HENGRUI_NOVO_ARTICLE } from './drafts/hengrui-novo-hrs1596-territorial-boundary';
 // @ts-ignore
 import mireculeImg from './assets/images/mirecule_deal_signal_1785838349276.jpg';
 // @ts-ignore
 import mireculeInfographic from './assets/images/mirecule_ems_logos_1785840743303.jpg';
 
 export const EXPLAINERS_DATA: Article[] = [
+  {
+    id: 'biggest-partner-not-always-best-partner',
+    category: 'PARTNER STRATEGY & EXECUTION',
+    title: 'The Biggest Partner Is Not Always the Best Partner',
+    subtitle: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
+    description: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
+    meta: '6 MIN READ · OCT 04, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '6 min read',
+    date: 'October 04, 2026',
+    featuredSummary: 'Pharma companies often use scale as shorthand for partner quality. But value is realized only when the partner’s specific capabilities match the obligations transferred to it.',
+    assetClass: 'Partner Selection & Due Diligence',
+    dealStructure: 'Capability-to-Obligation Decision Architecture',
+    geographicScope: 'Global & Regional Licensing Partnerships',
+    imageUrl: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_capability_to_obligation_hero_1600x900_light.png',
+    imageAlt: 'PharmaSignal Capability-to-Obligation Lens showing how transaction obligations map through required capabilities, partner evidence, capability gaps, and responsibility mitigation.',
+    pharmaSignalRead: 'Enterprise capability is what a company can theoretically do; transaction capability is what the deal actually needs it to do. Partner scale creates optionality, but partner fit creates execution.',
+    useThisWhen: 'Deploy during partner screening, RFP evaluation, licensing due diligence, and territory rights allocation when choosing between multinational scale and specialized regional execution.',
+    principleQuote: 'Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.',
+    linkedExplainers: [
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' },
+      { id: 'territory-structure', title: 'Territorial Architecture' }
+    ],
+    tags: ['EXPLAINER', 'PARTNER STRATEGY', 'CAPABILITY FIT', 'DUE DILIGENCE', 'LICENSING', 'EXECUTION ARCHITECTURE', 'DECISION LENS'],
+    content: `
+      <h2>Observation</h2>
+      <p>Pharma companies often use scale as shorthand for partner quality.</p>
+      <p>Revenue, geographic footprint, field-force size, product portfolio and corporate reputation are easy to compare. They provide reassurance that a counterparty has resources and organizational depth.</p>
+      <p>But those attributes do not necessarily answer the question that determines post-deal value:</p>
+      <p><strong>Can this partner perform the specific work the transaction requires?</strong></p>
+      <p>A licensing partner can be financially strong yet weak in the regulatory pathway that matters. A large commercial organization can lack access to the specialist physicians relevant to a particular asset. A multinational can possess sophisticated systems but move too slowly for a fragmented emerging market.</p>
+      <p>Partner quality is therefore contextual.</p>
+      <p>The relevant unit of analysis is not company strength. It is <strong>capability-to-obligation fit</strong>.</p>
+
+      <h2>Why This Matters</h2>
+      <p>Licensing creates value by reallocating responsibilities.</p>
+      <p>One party may retain manufacturing. Another assumes registration. Commercialization may move to a regional licensee. Market access, medical affairs, pharmacovigilance, local studies or localization can sit on either side of the agreement.</p>
+      <p>The economic case usually assumes that these responsibilities will be performed adequately after signing.</p>
+      <p>That assumption deserves much more attention.</p>
+      <p>When a partner cannot execute an assigned responsibility, the transaction may remain legally intact while its economics deteriorate.</p>
+      <p>Registration takes longer. Launch moves out. Forecast years disappear. Supply remains underutilized. Governance consumes management time. Additional investment becomes necessary.</p>
+      <p>The asset did not change.</p>
+      <p><strong>The execution architecture did.</strong></p>
+
+      <h2>Structural Reality</h2>
+      <p>Partner selection is frequently conducted at company level.</p>
+      <p>BD teams compare counterparties by scale, reputation, portfolio breadth and headline commercial presence. Those factors matter, but they are proxies.</p>
+      <p>Execution occurs at a much more granular level.</p>
+      <p>A transaction might actually require six capabilities: regulatory navigation, specialist medical engagement, payer access, demand generation, reliable forecasting and disciplined supply coordination.</p>
+      <p>A potential partner does not need to be superior across the entire pharmaceutical value chain.</p>
+      <p>It needs to be sufficiently strong in the capabilities on which the transaction depends.</p>
+      <p>This creates an important distinction:</p>
+      <p><em>Enterprise capability is what the company can theoretically do. Transaction capability is what the deal actually needs it to do.</em></p>
+      <p>The second matters more.</p>
+
+      <h2>Economic Consequence</h2>
+      <p>Capability mismatch creates a hidden form of value leakage.</p>
+      <p>It rarely appears in the headline deal economics.</p>
+      <p>The upfront remains the upfront. Milestones remain written into the agreement. Royalty rates do not change because a launch is slow.</p>
+      <p>But expected value changes quickly when execution assumptions fail.</p>
+      <p>A delayed registration pushes cash flows outward. Weak market access lowers achievable volume. Poor forecasting increases inventory risk. Inadequate medical engagement slows adoption. Governance problems consume resources from both companies.</p>
+      <p>This means partner capability influences both probability of success and timing of value realization.</p>
+      <p>A theoretically attractive deal with the wrong execution partner can therefore have lower realized value than a less impressive transaction with a highly matched operator.</p>
+
+      <h2>Why Conventional Thinking Misses It</h2>
+      <p>Scale is visible.</p>
+      <p>Capability fit is harder to observe.</p>
+      <p>Company revenues can be verified. Field-force numbers can be counted. Market presence can be mapped. Reputation can be referenced.</p>
+      <p>But execution capability often sits beneath those indicators.</p>
+      <ul>
+        <li>Does the organization know the relevant decision-makers?</li>
+        <li>Has it successfully navigated this regulatory pathway?</li>
+        <li>Can it prioritize the asset relative to its own portfolio?</li>
+        <li>Does it have the right medical rather than merely commercial relationships?</li>
+        <li>Can its governance model make decisions at the speed the asset requires?</li>
+      </ul>
+      <p>A large partner can answer some of these questions poorly. A smaller specialist can answer them exceptionally well.</p>
+      <p>The mistake is not choosing large companies. Large partners may be exactly right.</p>
+      <p>The mistake is treating size as evidence of fit.</p>
+
+      <h2>PharmaSignal Lens: The Capability-to-Obligation Lens</h2>
+      <p>PharmaSignal proposes the <strong>Capability-to-Obligation Lens</strong>.</p>
+      <p>Start with the transaction, not the counterparty.</p>
+      <ol>
+        <li>First identify the responsibilities that actually drive value realization.</li>
+        <li>Then identify the capabilities required to perform each responsibility.</li>
+        <li>Only then assess potential partners.</li>
+      </ol>
+      <p>A simple sequence is:</p>
+      <blockquote>
+        <p><strong>Obligation → Required Capability → Partner Evidence → Capability Gap → Mitigation</strong></p>
+      </blockquote>
+      <p>For example, if a licensee will own market access, the relevant diligence is not merely whether it has a market-access department. The question is whether it has demonstrated access capability for the product type, channel and geography involved.</p>
+      <p>If a partner will lead registration, assess relevant registration execution—not corporate regulatory headcount.</p>
+      <p>If commercialization depends on a concentrated specialist network, physician access may matter more than total sales-force size.</p>
+
+      <h2>Practical Implications</h2>
+      <p>For BD teams, this changes partner selection in four ways:</p>
+      <ol>
+        <li><strong>Screen for transaction-specific capability:</strong> Define the critical execution requirements before ranking partners.</li>
+        <li><strong>Demand evidence, not capability claims:</strong> Previous launches, regulatory outcomes, access wins, localization projects and comparable portfolio performance are more useful than organizational descriptions.</li>
+        <li><strong>Price capability gaps into the structure:</strong> A weakness does not automatically disqualify a partner. But responsibility, governance, milestones, support and economics should reflect it.</li>
+        <li><strong>Reassess capability over the life of the deal:</strong> The optimal partner at signing may not remain optimal as the asset moves from development to registration, launch and scale.</li>
+      </ol>
+      <p>This becomes particularly important where responsibilities evolve over time. PharmaSignal's prior work on capability transitions reached a related conclusion: current responsibilities and future capability transfer need to be governed separately.</p>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.</p>
+      </blockquote>
+    `
+  },
   {
     id: 'the-approval-gap',
     category: 'DECISION INTELLIGENCE',
@@ -524,126 +638,166 @@ export const EXPLAINERS_DATA: Article[] = [
         <li><strong>Dynamic Re-Zoning:</strong> Re-route rep pathways quarterly using predictive AI engines to follow patient claims data, allowing commercial execution teams to arrive at a physician's radar exactly when new relevant patients are diagnosed.</li>
       </ul>
     `
-  },
-  {
-    id: 'biggest-partner-not-always-best-partner',
-    category: 'PARTNER STRATEGY & EXECUTION',
-    title: 'The Biggest Partner Is Not Always the Best Partner',
-    subtitle: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
-    description: 'Why pharma licensing value depends on matching execution capability to transferred responsibility—not counterparty scale.',
-    meta: '6 MIN READ · OCT 04, 2026',
-    author: 'PharmaSignal Desk',
-    readTime: '6 min read',
-    date: 'October 04, 2026',
-    featuredSummary: 'Pharma companies often use scale as shorthand for partner quality. But value is realized only when the partner’s specific capabilities match the obligations transferred to it.',
-    assetClass: 'Partner Selection & Due Diligence',
-    dealStructure: 'Capability-to-Obligation Decision Architecture',
-    geographicScope: 'Global & Regional Licensing Partnerships',
-    imageUrl: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
-    imageUrlDark: '/images/pharmasignal_capability_to_obligation_hero_1600x900.png',
-    imageUrlLight: '/images/pharmasignal_capability_to_obligation_hero_1600x900_light.png',
-    imageAlt: 'PharmaSignal Capability-to-Obligation Lens showing how transaction obligations map through required capabilities, partner evidence, capability gaps, and responsibility mitigation.',
-    pharmaSignalRead: 'Enterprise capability is what a company can theoretically do; transaction capability is what the deal actually needs it to do. Partner scale creates optionality, but partner fit creates execution.',
-    useThisWhen: 'Deploy during partner screening, RFP evaluation, licensing due diligence, and territory rights allocation when choosing between multinational scale and specialized regional execution.',
-    principleQuote: 'Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.',
-    linkedExplainers: [
-      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
-      { id: 'the-approval-gap', title: 'The Approval Gap' },
-      { id: 'territory-structure', title: 'Territorial Architecture' }
-    ],
-    tags: ['EXPLAINER', 'PARTNER STRATEGY', 'CAPABILITY FIT', 'DUE DILIGENCE', 'LICENSING', 'EXECUTION ARCHITECTURE', 'DECISION LENS'],
-    content: `
-      <h2>Observation</h2>
-      <p>Pharma companies often use scale as shorthand for partner quality.</p>
-      <p>Revenue, geographic footprint, field-force size, product portfolio and corporate reputation are easy to compare. They provide reassurance that a counterparty has resources and organizational depth.</p>
-      <p>But those attributes do not necessarily answer the question that determines post-deal value:</p>
-      <p><strong>Can this partner perform the specific work the transaction requires?</strong></p>
-      <p>A licensing partner can be financially strong yet weak in the regulatory pathway that matters. A large commercial organization can lack access to the specialist physicians relevant to a particular asset. A multinational can possess sophisticated systems but move too slowly for a fragmented emerging market.</p>
-      <p>Partner quality is therefore contextual.</p>
-      <p>The relevant unit of analysis is not company strength. It is <strong>capability-to-obligation fit</strong>.</p>
-
-      <h2>Why This Matters</h2>
-      <p>Licensing creates value by reallocating responsibilities.</p>
-      <p>One party may retain manufacturing. Another assumes registration. Commercialization may move to a regional licensee. Market access, medical affairs, pharmacovigilance, local studies or localization can sit on either side of the agreement.</p>
-      <p>The economic case usually assumes that these responsibilities will be performed adequately after signing.</p>
-      <p>That assumption deserves much more attention.</p>
-      <p>When a partner cannot execute an assigned responsibility, the transaction may remain legally intact while its economics deteriorate.</p>
-      <p>Registration takes longer. Launch moves out. Forecast years disappear. Supply remains underutilized. Governance consumes management time. Additional investment becomes necessary.</p>
-      <p>The asset did not change.</p>
-      <p><strong>The execution architecture did.</strong></p>
-
-      <h2>Structural Reality</h2>
-      <p>Partner selection is frequently conducted at company level.</p>
-      <p>BD teams compare counterparties by scale, reputation, portfolio breadth and headline commercial presence. Those factors matter, but they are proxies.</p>
-      <p>Execution occurs at a much more granular level.</p>
-      <p>A transaction might actually require six capabilities: regulatory navigation, specialist medical engagement, payer access, demand generation, reliable forecasting and disciplined supply coordination.</p>
-      <p>A potential partner does not need to be superior across the entire pharmaceutical value chain.</p>
-      <p>It needs to be sufficiently strong in the capabilities on which the transaction depends.</p>
-      <p>This creates an important distinction:</p>
-      <p><em>Enterprise capability is what the company can theoretically do. Transaction capability is what the deal actually needs it to do.</em></p>
-      <p>The second matters more.</p>
-
-      <h2>Economic Consequence</h2>
-      <p>Capability mismatch creates a hidden form of value leakage.</p>
-      <p>It rarely appears in the headline deal economics.</p>
-      <p>The upfront remains the upfront. Milestones remain written into the agreement. Royalty rates do not change because a launch is slow.</p>
-      <p>But expected value changes quickly when execution assumptions fail.</p>
-      <p>A delayed registration pushes cash flows outward. Weak market access lowers achievable volume. Poor forecasting increases inventory risk. Inadequate medical engagement slows adoption. Governance problems consume resources from both companies.</p>
-      <p>This means partner capability influences both probability of success and timing of value realization.</p>
-      <p>A theoretically attractive deal with the wrong execution partner can therefore have lower realized value than a less impressive transaction with a highly matched operator.</p>
-
-      <h2>Why Conventional Thinking Misses It</h2>
-      <p>Scale is visible.</p>
-      <p>Capability fit is harder to observe.</p>
-      <p>Company revenues can be verified. Field-force numbers can be counted. Market presence can be mapped. Reputation can be referenced.</p>
-      <p>But execution capability often sits beneath those indicators.</p>
-      <ul>
-        <li>Does the organization know the relevant decision-makers?</li>
-        <li>Has it successfully navigated this regulatory pathway?</li>
-        <li>Can it prioritize the asset relative to its own portfolio?</li>
-        <li>Does it have the right medical rather than merely commercial relationships?</li>
-        <li>Can its governance model make decisions at the speed the asset requires?</li>
-      </ul>
-      <p>A large partner can answer some of these questions poorly. A smaller specialist can answer them exceptionally well.</p>
-      <p>The mistake is not choosing large companies. Large partners may be exactly right.</p>
-      <p>The mistake is treating size as evidence of fit.</p>
-
-      <h2>PharmaSignal Lens: The Capability-to-Obligation Lens</h2>
-      <p>PharmaSignal proposes the <strong>Capability-to-Obligation Lens</strong>.</p>
-      <p>Start with the transaction, not the counterparty.</p>
-      <ol>
-        <li>First identify the responsibilities that actually drive value realization.</li>
-        <li>Then identify the capabilities required to perform each responsibility.</li>
-        <li>Only then assess potential partners.</li>
-      </ol>
-      <p>A simple sequence is:</p>
-      <blockquote>
-        <p><strong>Obligation → Required Capability → Partner Evidence → Capability Gap → Mitigation</strong></p>
-      </blockquote>
-      <p>For example, if a licensee will own market access, the relevant diligence is not merely whether it has a market-access department. The question is whether it has demonstrated access capability for the product type, channel and geography involved.</p>
-      <p>If a partner will lead registration, assess relevant registration execution—not corporate regulatory headcount.</p>
-      <p>If commercialization depends on a concentrated specialist network, physician access may matter more than total sales-force size.</p>
-
-      <h2>Practical Implications</h2>
-      <p>For BD teams, this changes partner selection in four ways:</p>
-      <ol>
-        <li><strong>Screen for transaction-specific capability:</strong> Define the critical execution requirements before ranking partners.</li>
-        <li><strong>Demand evidence, not capability claims:</strong> Previous launches, regulatory outcomes, access wins, localization projects and comparable portfolio performance are more useful than organizational descriptions.</li>
-        <li><strong>Price capability gaps into the structure:</strong> A weakness does not automatically disqualify a partner. But responsibility, governance, milestones, support and economics should reflect it.</li>
-        <li><strong>Reassess capability over the life of the deal:</strong> The optimal partner at signing may not remain optimal as the asset moves from development to registration, launch and scale.</li>
-      </ol>
-      <p>This becomes particularly important where responsibilities evolve over time. PharmaSignal's prior work on capability transitions reached a related conclusion: current responsibilities and future capability transfer need to be governed separately.</p>
-
-      <h2>PharmaSignal Principle</h2>
-      <blockquote>
-        <p>Do not select the strongest partner. Select the partner whose proven capabilities best match the obligations that determine value.</p>
-      </blockquote>
-    `
   }
 ];
 
 export const DEAL_SIGNALS_DATA: Article[] = [
-  HENGRUI_NOVO_ARTICLE,
+  {
+    id: 'biohaven-ono-mode-degrader-licensing',
+    category: 'DEAL SIGNAL',
+    title: 'Biohaven Secures Asian Capital Without Giving Up Western Control',
+    shortTitle: '$80M upfront, ~20% royalties. Asia carved out, core retained.',
+    subtitle: 'Biohaven grants Ono exclusive rights to its MoDE pan-IgG degrader portfolio in Japan, South Korea, Taiwan and ASEAN, securing $100M in near-term cash while keeping US, Europe and China.',
+    description: 'How Biohaven and Ono structured an exclusive regional MoDE pan-IgG degrader license with an $80M upfront and ~20% royalties—and what BD teams should ask.',
+    meta: '3 MIN READ · OCT 09, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '3 min read',
+    date: 'October 09, 2026',
+    featuredSummary: 'Biohaven licenses its MoDE IgG degrader portfolio in Asia to Ono for $100M near-term cash. The BD insight is funding Phase 3 independence without surrendering Western upside.',
+    isDealSignal: true,
+    mechanism: 'Territorial Carve-Out & Capital Arbitrage',
+    assetClass: 'MoDE™ Extracellular Pan-IgG Degrader Portfolio (BHV-1300 Phase 3)',
+    dealStructure: 'Exclusive Regional In-Licensing with Upfront Cash, Milestones & ~20% Net Sales Royalties',
+    geographicScope: 'Japan, South Korea, Taiwan, and ASEAN Member Countries (Biohaven retains US, Europe, China & Rest of World)',
+    imageUrl: '/images/pharmasignal_biohaven_ono_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_biohaven_ono_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_biohaven_ono_hero_1600x900_light.png',
+    imageAlt: 'Transaction diagram showing Biohaven licensing exclusive regional development and commercialization rights for its MoDE pan-IgG degrader portfolio in Japan, South Korea, Taiwan and ASEAN to Ono Pharmaceutical for up to $100M near-term and ~20% royalties.',
+    pharmaSignalTake: 'Biohaven retains full ownership and commercial rights across the United States, Europe, and China.\n\nOno receives exclusive rights to develop and commercialize BHV-1300 and next-generation degraders in Japan, South Korea, Taiwan, and ASEAN.\n\nThe near-term $100M cash package ($80M upfront + $20M milestone) and ~20% royalty tier preserve global asset value while self-funding pivotal Phase 3 trials.',
+    pharmaSignalRead: 'Territorial carve-outs are often viewed as secondary transactions. But when executed with precision, they provide high-conviction non-dilutive capital to protect global independence. By partnering its MoDE pan-IgG degrader portfolio with Ono across Japan, South Korea, Taiwan, and ASEAN, Biohaven achieves three distinct strategic objectives:\n\nFirst, core value preservation. Biohaven retains 100% of commercial rights in the highest-margin markets—the United States, Europe, and China. Graves\' disease and IgG-mediated autoimmune indications represent multi-billion-dollar Western commercial markets; carving out East Asia and ASEAN monetizes territory that Biohaven would have struggled to commercialize directly without building costly overseas infrastructure.\n\nSecond, capability-to-obligation fit. Ono brings proven commercial and regulatory execution across Japan (PMDA), South Korea (MFDS), and Southeast Asia. Partnering with an established regional player eliminates execution lag, while Ono gains an autoinjector-administered Phase 3 candidate that complements its precision medicine and immunology franchise.\n\nThird, exceptional royalty economics. Securing an approximate 20% royalty rate is well above conventional regional licensing tiers (which typically range between 10% and 15%). This royalty strength reflects Biohaven\'s late-stage Phase 3 clinical de-risking and the platform breadth of the MoDE technology.\n\nThe broader lesson for BD leaders is that regional carve-outs can serve as strategic financing vehicles, allowing originators to maintain clinical momentum without equity dilution or global rights compromise.',
+    useThisWhen: 'When an emerging biopharma with a late-stage or pivotal clinical asset needs substantial non-dilutive capital to self-fund global trials without surrendering US/European commercial rights, and can partner with an established regional powerhouse capable of maximizing East Asian and ASEAN market access.',
+    principleQuote: 'A successful regional carve-out does not dilute the global asset; it funds the independence needed to commercialize it.',
+    sourceNote: 'Official announcements from Biohaven Ltd. (08 October 2026) and Ono Pharmaceutical Co., Ltd. (08 October 2026).',
+    sourceOrg: 'Biohaven Ltd. & Ono Pharmaceutical Co., Ltd.',
+    sourceTitle: 'Biohaven and Ono Pharmaceutical Enter Into Strategic License and Collaboration Agreement for MoDE Pan-IgG Degrader Portfolio',
+    sourceDate: 'October 08, 2026',
+    sourceUrl: 'https://www.biohaven.com',
+    sourceLabel: 'Biohaven Ltd. Company Announcement, October 08, 2026',
+    linkedExplainers: [
+      { id: 'territory-structure', title: 'Territorial Architecture' },
+      { id: 'biggest-partner-not-always-best-partner', title: 'The Biggest Partner Is Not Always the Best Partner' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' }
+    ],
+    tags: ['DEAL SIGNAL', 'BIOHAVEN', 'ONO PHARMACEUTICAL', 'BHV-1300', 'IgG DEGRADER', 'MoDE PLATFORM', 'GRAVES DISEASE', 'AUTOIMMUNE', 'TERRITORIAL CARVE-OUT', 'JAPAN', 'SOUTH KOREA', 'ASEAN'],
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 8 October 2026, Biohaven Ltd. and Ono Pharmaceutical Co., Ltd. announced a strategic licensing and collaboration agreement covering Biohaven’s proprietary MoDE™ (Molecular Degraders of Extracellular Proteins) pan-IgG degrader portfolio, including lead clinical candidate BHV-1300 and next-generation candidates BHV-1310 and BHV-1320.</p>
+      <p>Under the terms of the agreement, Ono receives exclusive rights to develop and commercialize the licensed IgG degraders across Japan, South Korea, Taiwan, and member countries of the Association of Southeast Asian Nations (ASEAN). Biohaven retains all development and commercial rights across the rest of the world, including the United States, Europe, and China.</p>
+      <p>Financially, Biohaven is eligible to receive up to $100 million in near-term consideration, consisting of an $80 million upfront payment upon closing and a $20 million development milestone payable within 12 months. Biohaven is also eligible for additional clinical, regulatory, and commercial sales milestone payments, as well as tiered royalties of approximately 20% on net sales generated across Ono’s licensed territories.</p>
+      <p>Lead molecule BHV-1300 is currently in pivotal Phase 3 development for Graves’ disease, designed for patient-convenient self-administration via an autoinjector.</p>
+
+      <h2>Why It Matters</h2>
+      <p>Biopharma dealmakers frequently face an all-or-nothing dilemma: license global rights to a multinational pharma to fund clinical trials, or attempt to self-fund global development at the cost of heavy equity dilution and financial stretch.</p>
+      <p>The Biohaven–Ono transaction illustrates a sophisticated third path: the <strong>targeted regional carve-out</strong>.</p>
+      <p>By partitioning rights by geography rather than indication or clinical stage, Biohaven secures substantial non-dilutive capital ($80M upfront plus $20M near-term) to fund its global Phase 3 Graves’ disease program, while retaining 100% of the commercial value in the United States, Europe, and China—where the majority of global autoantibody market value resides.</p>
+      <p>For Ono, the partnership delivers a late-stage, Phase 3-ready asset with broad platform follow-on potential, reinforcing its footprint in immunology and specialized therapeutics across Japan and East Asia without shouldering global Phase 3 clinical trial execution.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p><strong>Western Core Preservation:</strong> The most significant aspect of this transaction is what was <em>not</em> licensed. Biohaven retained the United States, Europe, and China unencumbered. In Graves’ disease and high-value IgG-mediated autoantibody indications, Western pricing and volume account for over 75% of worldwide peak sales potential. Retaining these territories allows Biohaven to maintain strategic flexibility—either building an independent commercial infrastructure in the US or negotiating a later, higher-value transaction at Phase 3 readout.</p>
+      <p><strong>Exceptional Royalty Economics:</strong> Regional licensing deals in East Asia typically yield originators net sales royalties between 10% and 15%. Securing approximately 20% reflects Biohaven’s negotiating leverage, driven by BHV-1300’s Phase 3 maturity and the validation of its MoDE platform. This royalty level ensures Biohaven remains a major economic beneficiary of Ono’s regional commercial success.</p>
+      <p><strong>Capability-to-Obligation Alignment:</strong> Ono has proven regulatory and commercial infrastructure in Japan and South Korea, having successfully navigated complex PMDA filings and specialist physician networks. Biohaven avoided the costly mistake of trying to establish overseas commercial affiliates, matching territorial responsibility directly to Ono’s regional execution strengths.</p>
+
+      <h2>What BD Leaders Should Ask</h2>
+      <ol>
+        <li><strong>Clinical &amp; Regulatory Data Interface:</strong> How will clinical data generated by Ono in Japan and South Korea interface with Biohaven’s global Phase 3 dataset submitted to the US FDA and European EMA?</li>
+        <li><strong>Autoinjector CMC &amp; Device Supply:</strong> Who controls global manufacturing specifications, device suppliers, and comparability studies for the autoinjector presentation to ensure supply security across Ono’s territory?</li>
+        <li><strong>Follow-On Gating:</strong> What specific developmental and commercial gates govern the initiation of work on next-generation degraders BHV-1310 and BHV-1320 in the licensed territory?</li>
+        <li><strong>Indication Sequencing:</strong> If Ono seeks to pursue regional autoimmune indications prevalent in East Asia ahead of Biohaven’s US development timeline, how are trial costs and regulatory responsibilities allocated?</li>
+      </ol>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>A successful regional carve-out does not dilute the global asset; it funds the independence needed to commercialize it.</p>
+      </blockquote>
+
+      <h2>Source Documentation</h2>
+      <ul>
+        <li>Biohaven Ltd., <a href="https://www.biohaven.com" target="_blank" rel="noopener noreferrer">“Biohaven and Ono Pharmaceutical Enter Into Strategic License and Collaboration Agreement for MoDE Pan-IgG Degrader Portfolio”</a>, 08 October 2026.</li>
+        <li>Ono Pharmaceutical Co., Ltd., Corporate Disclosures via Tokyo Stock Exchange (TYO: 4528), 08 October 2026.</li>
+      </ul>
+
+      <p class="mt-8 pt-4 border-t border-brand-gold/30 text-xs font-serif italic text-brand-gold">
+        Subscribe to PharmaSignal for one evidence-based pharma deal analysis each week—focused on the decisions behind the announcement.
+      </p>
+    `
+  },
+  {
+    id: 'hengrui-novo-hrs1596-territorial-boundary',
+    category: 'DEAL SIGNAL',
+    title: 'Hengrui and Novo Set the Territorial Boundary Before Phase I',
+    shortTitle: 'The territory split happens before Phase I.',
+    subtitle: 'The HRS-1596 licence gives Novo ex-China control while clinical evidence, CMC choices and product strategy are still being formed.',
+    description: 'The Hengrui–Novo licence shows why early-stage territorial rights need clear rules for clinical evidence, CMC decisions and product changes.',
+    meta: '3 MIN READ · OCT 02, 2026',
+    author: 'PharmaSignal Desk',
+    readTime: '3 min read',
+    date: 'October 02, 2026',
+    featuredSummary: 'Novo receives ex-China control of HRS-1596. The BD issue is how evidence and product decisions cross the boundary.',
+    isDealSignal: true,
+    mechanism: 'Territorial Licensing & Early-Stage Governance',
+    assetClass: 'Once-Weekly Oral GLP-1/GIP Dual Receptor Agonist (HRS-1596)',
+    dealStructure: 'Exclusive Ex-Greater-China In-Licensing with Milestone Ceiling',
+    geographicScope: 'Global (Excluding Chinese mainland, Hong Kong SAR, Macao SAR, and Taiwan Region)',
+    imageUrl: '/images/pharmasignal_hengrui_novo_hero_1600x900.png',
+    imageUrlDark: '/images/pharmasignal_hengrui_novo_hero_1600x900.png',
+    imageUrlLight: '/images/pharmasignal_hengrui_novo_hero_1600x900_light.png',
+    imageAlt: 'Hengrui Pharma licenses exclusive development, manufacturing and commercialisation rights for HRS-1596 outside Chinese mainland, Hong Kong, Macao and Taiwan to Novo, while Hengrui has China approval to begin Phase I.',
+    pharmaSignalTake: 'Novo receives development, manufacturing and commercialisation control across the licensed territory.\n\nThe geographic split is fixed before HRS-1596 enters Phase I.\n\nThe key execution question is how evidence and product decisions will cross that boundary.',
+    pharmaSignalRead: 'Control moves early. Novo receives all three operating rights—development, manufacturing and commercialisation—within its territory. That is clearer than separating clinical control from supply or commercial rights. Novo also states that HRS-1596 fits its oral peptide and cardiometabolic capabilities. That supports partner fit, but it is context, not a substitute for contractual obligations.\n\nThe excluded territory still creates an interface. Hengrui has China approval to begin phase I. The releases do not say whether China-generated data will support Novo’s programme, who sets global CMC standards, or how formulation and manufacturing changes will be shared. Those are open diligence points, not evidence of weak governance.\n\nEconomics follow progress. USD 300 million is the disclosed upfront. The balance of the USD 2.6 billion ceiling depends on development, regulatory and commercial events. Royalties preserve revenue participation if the product reaches sales in the licensed territory. The milestone allocation, royalty rate and payment triggers are not public.\n\nThe practical lesson is that territory is only one layer of an early-stage licence. The operating interface determines whether each side can use evidence and product decisions without creating avoidable duplication or delay.',
+    useThisWhen: 'When structuring or evaluating an early-stage territorial license where the originator retains home-market or regional rights prior to clinical proof of concept, and parallel clinical or CMC paths could create cross-border regulatory or manufacturing friction.',
+    principleQuote: 'A territorial carve-out works only when the rights boundary is matched by clear rules for the evidence and product decisions that cross it.',
+    sourceNote: 'Official announcements from Hengrui Pharma (29 September 2026) and Novo Nordisk A/S via GlobeNewswire (29 September 2026).',
+    sourceOrg: 'Hengrui Pharma & Novo Nordisk A/S',
+    sourceTitle: 'Hengrui Pharma and Novo Enter Exclusive License Agreement for Once-Weekly Oral GLP-1/GIP Dual Receptor Agonist HRS-1596',
+    sourceDate: 'September 29, 2026',
+    sourceUrl: 'https://www.hengrui.com/en/media/detail-1042.html',
+    sourceLabel: 'Hengrui Pharma Announcement, 29 September 2026',
+    linkedExplainers: [
+      { id: 'territory-structure', title: 'Territorial Architecture' },
+      { id: 'execution-deficit', title: 'A Signed Deal Is Not an Executed Deal' },
+      { id: 'the-approval-gap', title: 'The Approval Gap' }
+    ],
+    tags: ['DEAL SIGNAL', 'HENGRUI PHARMA', 'NOVO NORDISK', 'GLP-1/GIP', 'ORAL PEPTIDE', 'HRS-1596', 'TERRITORIAL LICENSING', 'EX-CHINA', 'CARDIOMETABOLIC'],
+    content: `
+      <h2>Deal Signal</h2>
+      <p>On 29 September 2026, Hengrui Pharma and Novo announced an exclusive licence agreement for HRS-1596, a phase I-ready GLP-1/GIP dual receptor agonist with potential for once-weekly oral dosing.</p>
+      <p>Novo will receive exclusive rights to develop, manufacture and commercialise HRS-1596 globally, excluding Chinese mainland, Hong Kong SAR, Macao SAR and Taiwan Region. Hengrui has received approval in China to initiate phase I trials for weight management and type 2 diabetes.</p>
+      <p>Novo will pay USD 300 million upfront. The agreement has a total potential value of up to USD 2.6 billion, contingent on development, regulatory and commercial milestones. Hengrui is also eligible for royalties on net sales in Novo’s licensed territory.</p>
+      <p>The agreement is not yet closed. It remains subject to US antitrust clearance and customary conditions, with closing expected in the fourth quarter of 2026.</p>
+
+      <h2>Why It Matters</h2>
+      <p>The territory schedule looks simple: Novo controls development, manufacturing and commercialisation outside the excluded markets. But the split occurs before the asset has entered Phase I.</p>
+      <p>At that stage, trial design, dose selection, safety reporting, formulation, analytical methods and manufacturing changes can shape the same product across territories. The public announcement allocates licensed-territory control. It does not explain how the parties will coordinate decisions that may affect both sides of the boundary.</p>
+
+      <h2>PharmaSignal Read</h2>
+      <p><strong>Control moves early.</strong> Novo receives all three operating rights—development, manufacturing and commercialisation—within its territory. That is clearer than separating clinical control from supply or commercial rights. Novo also states that HRS-1596 fits its oral peptide and cardiometabolic capabilities. That supports partner fit, but it is context, not a substitute for contractual obligations.</p>
+      <p><strong>The excluded territory still creates an interface.</strong> Hengrui has China approval to begin phase I. The releases do not say whether China-generated data will support Novo’s programme, who sets global CMC standards, or how formulation and manufacturing changes will be shared. Those are open diligence points, not evidence of weak governance.</p>
+      <p><strong>Economics follow progress.</strong> USD 300 million is the disclosed upfront. The balance of the USD 2.6 billion ceiling depends on development, regulatory and commercial events. Royalties preserve revenue participation if the product reaches sales in the licensed territory. The milestone allocation, royalty rate and payment triggers are not public.</p>
+      <p>The practical lesson is that territory is only one layer of an early-stage licence. The operating interface determines whether each side can use evidence and product decisions without creating avoidable duplication or delay.</p>
+
+      <h2>What BD Leaders Should Ask</h2>
+      <ol>
+        <li>What rights remain with Hengrui in the excluded territories, and what access does each party receive to clinical, safety and regulatory data generated by the other?</li>
+        <li>Who controls global CMC strategy, specifications, comparability and manufacturing changes that could affect filings across both territorial programmes?</li>
+        <li>Which development, regulatory and commercial events trigger contingent payments, and what happens to rights and data if either programme is delayed or reprioritised?</li>
+      </ol>
+
+      <h2>PharmaSignal Principle</h2>
+      <blockquote>
+        <p>A territorial carve-out works only when the rights boundary is matched by clear rules for the evidence and product decisions that cross it.</p>
+      </blockquote>
+
+      <h2>Source Documentation</h2>
+      <ul>
+        <li>Hengrui Pharma, <a href="https://www.hengrui.com/en/media/detail-1042.html" target="_blank" rel="noopener noreferrer">“Hengrui Pharma and Novo Enter Exclusive License Agreement for Once-Weekly Oral GLP-1/GIP Dual Receptor Agonist HRS-1596”</a>, 29 September 2026.</li>
+        <li>Joint company announcement distributed by Novo Nordisk A/S via GlobeNewswire, 29 September 2026.</li>
+      </ul>
+
+      <p class="mt-8 pt-4 border-t border-brand-gold/30 text-xs font-serif italic text-brand-gold">
+        Subscribe to PharmaSignal for one evidence-based pharma deal analysis each week—focused on the decisions behind the announcement.
+      </p>
+    `
+  },
   {
     id: 'novartis-boomray-preclinical-radioligand-licensing',
     category: 'DEAL SIGNAL',
